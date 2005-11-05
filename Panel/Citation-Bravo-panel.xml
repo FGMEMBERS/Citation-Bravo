@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE PropertyList SYSTEM "panel.dtd">
+
+<PropertyList>
+
+ <name>Bravo Panel</name>
+ <background>Aircraft/Citation-Bravo/Panel/transparent-bg.rgb</background>
+ <w>1024</w>
+ <h>768</h>
+
+<instruments>
+   
+  <!-- radio stack -->  
+  <instrument include="radiostack.xml">
+    <name>Radiostack</name>
+    <x>614</x>
+    <y>150</y>
+    <w>144</w>
+    <h>196</h>
+  </instrument>
+  
+  <!-- davtron clock -->  
+  <instrument include="davtronclock.xml">
+    <name>DavtronClock</name>
+    <x>99</x>
+    <y>296</y>
+    <w>24</w>
+    <h>24</h>
+  </instrument>
+  
+  <!-- dme -->  
+  <instrument include="dme.xml">
+    <name>DME</name>
+    <x>363</x>
+    <y>140</y>
+    <w>60</w>
+    <h>22</h>
+  </instrument>
+
+  <!-- fuel-->   
+  <instrument include="fuel.xml">
+    <name>Fuel Display</name>
+    <x>612</x>
+    <y>302</y>
+    <w>40</w>
+    <h>76</h>
+  </instrument>
+  
+<instrument>
+  <name>panel hotspots</name>
+  <x>512</x>
+  <y>384</y>
+  <w>1024</w>
+  <h>768</h>
+  <w-base>1024</w-base>
+  <h-base>768</h-base>
+
+ <actions> 
+   <!--             Course              -->  
+  
+  <action>
+   <name></name>
+   <button>0</button>
+   <x>-172</x>
+   <y>-224</y>
+   <w>8</w>
+   <h>10</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/nav/radials/selected-deg</property>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>true</wrap>
+   </binding>
+  </action>
+  
+  <action>
+   <name></name>
+   <button>1</button>
+   <x>-172</x>
+   <y>-224</y>
+   <w>8</w>
+   <h>10</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/nav/radials/selected-deg</property>
+    <step>5</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+  </action>
+
+  <action>
+   <name></name>
+   <button>0</button>
+   <x>-180</x>
+   <y>-224</y>
+   <w>8</w>
+   <h>10</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/nav/radials/selected-deg</property>
+    <step>-1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>true</wrap>
+   </binding>
+  </action>
+  
+  <action>
+   <name></name>
+   <button>1</button>
+   <x>-180</x>
+   <y>-224</y>
+   <w>8</w>
+   <h>10</h>
+   <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/nav/radials/selected-deg</property>
+    <step>-5</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+   </binding>
+  </action>
+
+  <!--             Altimeter              -->  
+  
+<action>
+  <name>calibrate fine</name>
+  <button>0</button>
+  <x>-214</x>
+  <y>-246</y>
+  <w>8</w>
+  <h>10</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>-0.01</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>calibrate coarse</name>
+  <button>1</button>
+  <x>-214</x>
+  <y>-246</y>
+  <w>8</w>
+  <h>10</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>-0.1</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>calibrate fine</name>
+  <button>0</button>
+  <x>-206</x>
+  <y>-246</y>
+  <w>8</w>
+  <h>10</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>0.01</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>calibrate coarse</name>
+  <button>1</button>
+  <x>-206</x>
+  <y>-246</y>
+  <w>8</w>
+  <h>10</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <step>0.1</step>
+    <min>26.0</min>
+    <max>33.0</max>
+    <wrap>false</wrap>
+  </binding>
+</action>
+  
+
+
+  
+
+</actions>
+
+</instrument>
+
+</instruments>
+
+</PropertyList>
