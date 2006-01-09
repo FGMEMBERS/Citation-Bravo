@@ -7,22 +7,16 @@ Feb 2005  Syd Adams   ()
 -->
 <PropertyList>
   <sim>
-    <description>Cessna 550 Citation-Bravo w. 3d cockpit (YASim) </description>
+    <description>Cessna Citation-Bravo - 3d cockpit (YASim) </description>
     <author>Syd Adams</author>
-    <status>beta</status>
+    <status>development</status>
     <flight-model>yasim</flight-model>
     <aero>Citation-Bravo-yasim</aero>
     <fuel-fraction>0.8</fuel-fraction>
     <startup>
       <splash-texture>Aircraft/Citation-Bravo/Bravo-splash.rgb</splash-texture>
     </startup>
-    <panel>
-      <path>Aircraft/737/Panels/737-ifr-panel.xml</path>
-      <visibility>false</visibility>
-    </panel>
-    <model>
-      <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
-    </model>
+    
     <view n="0">
       <name>Cockpit</name>
       <type>lookfrom</type>
@@ -35,6 +29,7 @@ Feb 2005  Syd Adams   ()
         <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
       </config>
     </view>
+
     <view n="1">
       <config>
         <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
@@ -50,58 +45,122 @@ Feb 2005  Syd Adams   ()
         <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
       </config>
     </view>
+    <allow-toggle-cockpit>true</allow-toggle-cockpit>
     <systems>
       <electrical>
-        <path>Aircraft/beech99/beech99-electrical.xml</path>
+        <path></path>
       </electrical>
+
       <autopilot>
-        <path>Aircraft/Citation/Citation-II-autopilot.xml</path>
+        <path>Aircraft/Citation-Bravo/Citation-autopilot.xml</path>
       </autopilot>
     </systems>
+    
     <sound>
-      <path>Aircraft/Citation/Citation-II-sound.xml</path>
+      <path>Aircraft/Citation-Bravo/Citation-Bravo-sound.xml</path>
     </sound>
+    
     <hud>
       <enable3d>false</enable3d>
     </hud>
+    
     <virtual-cockpit archive="y">true</virtual-cockpit>
+  
+    <help>
+      <title>Cessna Citation-Bravo</title>
+      <key>
+        <name>Keypad Delete</name>
+        <desc>toggle thrust reversers</desc>
+      </key>
+    </help>
+
+
+    <model>
+        <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
+      <material>
+        
+        <instruments>
+          <diffuse>
+            <red type="string">1.0</red>
+            <green type="string">1.0</green>
+            <blue type="string">1.0</blue>
+          </diffuse>
+          <ambient>
+            <red type="string">1.0</red>
+            <green type="string">1.0</green>
+            <blue type="string">1.0</blue>
+          </ambient>
+          <specular>
+            <red type="string">0.0</red>
+            <green type="string">0.0</green>
+            <blue type="string">0.0</blue>
+          </specular>
+          <emission>
+            <red type="string">0.8</red>
+            <green type="string">0.8</green>
+            <blue type="string">0.8</blue>
+          </emission>
+          <transparency>
+            <alpha>1.0</alpha>
+          </transparency>
+          <shininess>0</shininess>
+          <factor>1.0</factor>
+        </instruments>
+
+        <cabin>
+          <diffuse>
+            <red type="string">1.0</red>
+            <green type="string">1.0</green>
+            <blue type="string">1.0</blue>
+          </diffuse>
+          <ambient>
+            <red type="string">0.2</red>
+            <green type="string">0.2</green>
+            <blue type="string">0.2</blue>
+          </ambient>
+          <specular>
+            <red type="string">0.0</red>
+            <green type="string">0.0</green>
+            <blue type="string">0.0</blue>
+          </specular>
+          <emission>
+            <red type="string">0.2</red>
+            <green type="string">0.15</green>
+            <blue type="string">0.1</blue>
+          </emission>
+          <transparency>
+            <alpha>1.0</alpha>
+          </transparency>
+          <shininess>0</shininess>
+          <factor>1.0</factor>
+        </cabin>
+
+        
+      </material>
+    </model>
+
+    
   </sim>
-  <controls>
-    <gear>
-      <brake-parking>1</brake-parking>
-    </gear>
-    <engines>
-      <engine n="0">
-        <magnetos>3</magnetos>
-      </engine>
-      <engine n="1">
-        <magnetos>3</magnetos>
-      </engine>
-    </engines>
-  </controls>
-  <engines>
-    <engine n="0">
-      <rpm>1000</rpm>
-      <reverser-position type="double">0.000000</reverser-position>
-    </engine>
-    <engine n="1">
-      <rpm>1000</rpm>
-      <reverser-position type="double">0.000000</reverser-position>
-    </engine>
-  </engines>
-<!-- aircraft specific loading -->
+
   <yasim>
-    <beech99>
-      <pilot-lbs>400</pilot-lbs>
-<!-- Only enable one of the following: -->
-<!-- lightly loaded -->
-      <passenger-lbs>100</passenger-lbs>
-<!-- max load with 0.8 fuel fraction -->
-<!-- <passenger-lbs>2178</passenger-lbs> -->
-<!-- max load with 1.0 fuel fraction -->
-<!-- <passenger-lbs>1878</passenger-lbs> -->
-    </beech99>
+    <Bravo>
+      <pilot-lbs>180</pilot-lbs>
+      <copilot-lbs>190</copilot-lbs>
+      <passenger-lbs>700</passenger-lbs>
+    </Bravo>
   </yasim>
+
+  <nasal>
+    <Bravo>
+      <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
+      <file>Aircraft/Citation-Bravo/Nasal/electrical.nas</file>
+    </Bravo>
+    <kfc-200>
+      <file>Aircraft/Citation-Bravo/Nasal/kfc-200.nas</file>
+</kfc-200>
+  </nasal>
+
+  
   <input>
     <keyboard>
       <key n="127">
@@ -109,14 +168,11 @@ Feb 2005  Syd Adams   ()
         <desc>Toggle Reversers</desc>
         <binding>
           <command>nasal</command>
-          <script>citation.togglereverser()</script>
+          <script>Bravo.ToggleReverser()</script>
         </binding>
       </key>
     </keyboard>
   </input>
-  <nasal>
-    <citation>
-      <file>Aircraft/Citation/Nasal/citation.nas</file>
-    </citation>
-  </nasal>
+
+
 </PropertyList>

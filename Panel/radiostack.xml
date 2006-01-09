@@ -209,7 +209,7 @@ Allied Signal CNI-5000 radio stack
      <button>0</button>
      <x>44</x>
      <y>74</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -228,7 +228,7 @@ Allied Signal CNI-5000 radio stack
      <button>1</button>
      <x>44</x>
      <y>74</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -245,9 +245,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>com frequency increase (decimal part)</name>
      <button>0</button>
-     <x>52</x>
+     <x>56</x>
      <y>74</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -264,9 +264,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>com frequency increase (integer part)</name>
      <button>1</button>
-     <x>52</x>
+     <x>56</x>
      <y>74</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -286,7 +286,7 @@ Allied Signal CNI-5000 radio stack
      <button>0</button>
      <x>44</x>
      <y>47</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -305,7 +305,7 @@ Allied Signal CNI-5000 radio stack
      <button>1</button>
      <x>44</x>
      <y>47</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -322,9 +322,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>com2 frequency increase (decimal part)</name>
      <button>0</button>
-     <x>52</x>
+     <x>56</x>
      <y>47</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -341,9 +341,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>com2 frequency increase (integer part)</name>
      <button>1</button>
-     <x>52</x>
+     <x>56</x>
      <y>47</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -362,7 +362,7 @@ Allied Signal CNI-5000 radio stack
      <button>0</button>
      <x>44</x>
      <y>20</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -381,7 +381,7 @@ Allied Signal CNI-5000 radio stack
      <button>1</button>
      <x>44</x>
      <y>20</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -398,9 +398,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>nav frequency increase (decimal part)</name>
      <button>0</button>
-     <x>52</x>
+     <x>56</x>
      <y>20</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -417,9 +417,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>nav frequency increase (integer part)</name>
      <button>1</button>
-     <x>52</x>
+     <x>56</x>
      <y>20</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -438,7 +438,7 @@ Allied Signal CNI-5000 radio stack
      <button>0</button>
      <x>44</x>
      <y>-6</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -457,7 +457,7 @@ Allied Signal CNI-5000 radio stack
      <button>1</button>
      <x>44</x>
      <y>-6</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -474,9 +474,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>nav2 frequency increase (decimal part)</name>
      <button>0</button>
-     <x>52</x>
+     <x>56</x>
      <y>-6</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -493,9 +493,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>nav2 frequency increase (integer part)</name>
      <button>1</button>
-     <x>52</x>
+     <x>56</x>
      <y>-6</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -514,7 +514,7 @@ Allied Signal CNI-5000 radio stack
      <button>0</button>
      <x>44</x>
      <y>-33</y>
-     <w>8</w>
+     <w>`12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -532,7 +532,7 @@ Allied Signal CNI-5000 radio stack
      <button>1</button>
      <x>44</x>
      <y>-33</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -548,9 +548,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>adf frequency small increase</name>
      <button>0</button>
-     <x>52</x>
+     <x>56</x>
      <y>-33</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -566,9 +566,9 @@ Allied Signal CNI-5000 radio stack
    <action>
      <name>adf frequency large increase</name>
      <button>1</button>
-     <x>52</x>
+     <x>56</x>
      <y>-33</y>
-     <w>8</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
@@ -585,8 +585,8 @@ Allied Signal CNI-5000 radio stack
   <action>
     <name>swap nav1 frequencies</name>
     <button>0</button>
-    <x>-28</x>
-    <y>16</y>
+    <x>-26</x>
+    <y>17</y>
     <w>8</w>
     <h>6</h>
     <binding>
@@ -599,7 +599,7 @@ Allied Signal CNI-5000 radio stack
   <action>
     <name>swap com1 frequencies</name>
     <button>0</button>
-    <x>-28</x>
+    <x>-26</x>
     <y>69</y>
     <w>8</w>
     <h>6</h>
@@ -613,8 +613,8 @@ Allied Signal CNI-5000 radio stack
   <action>
     <name>swap nav2 frequencies</name>
     <button>0</button>
-    <x>-28</x>
-    <y>-10</y>
+    <x>-26</x>
+    <y>-9</y>
     <w>8</w>
     <h>6</h>
     <binding>
@@ -627,7 +627,7 @@ Allied Signal CNI-5000 radio stack
   <action>
     <name>swap com2 frequencies</name>
     <button>0</button>
-    <x>-28</x>
+    <x>-26</x>
     <y>42</y>
     <w>8</w>
     <h>6</h>
@@ -641,7 +641,7 @@ Allied Signal CNI-5000 radio stack
   <action>
     <name>swap adf frequencies</name>
     <button>0</button>
-    <x>-44</x>
+    <x>-43</x>
     <y>-35</y>
     <w>8</w>
     <h>6</h>

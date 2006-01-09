@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-
-<!DOCTYPE PropertyList SYSTEM "panel.dtd">
-
 <PropertyList>
 
  <name>Bravo Panel</name>
@@ -38,7 +35,7 @@
     <h>22</h>
   </instrument>
 
-  <!-- fuel-->   
+  <!-- fuel-->
   <instrument include="fuel.xml">
     <name>Fuel Display</name>
     <x>612</x>
@@ -46,6 +43,16 @@
     <w>40</w>
     <h>76</h>
   </instrument>
+  
+  <!--PFD
+          <instrument include="primus1000-pfd.xml">
+    <name>PFD</name>
+    <x>258</x>
+    <y>212</y>
+    <w>134</w>
+    <h>178</h>
+  </instrument>
+  -->
   
 <instrument>
   <name>panel hotspots</name>
@@ -126,80 +133,6 @@
     <wrap>1</wrap>
    </binding>
   </action>
-
-  <!--             Altimeter              -->  
-  
-<action>
-  <name>calibrate fine</name>
-  <button>0</button>
-  <x>-214</x>
-  <y>-246</y>
-  <w>8</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
-    <step>-0.01</step>
-    <min>26.0</min>
-    <max>33.0</max>
-    <wrap>false</wrap>
-  </binding>
-</action>
-
-<action>
-  <name>calibrate coarse</name>
-  <button>1</button>
-  <x>-214</x>
-  <y>-246</y>
-  <w>8</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
-    <step>-0.1</step>
-    <min>26.0</min>
-    <max>33.0</max>
-    <wrap>false</wrap>
-  </binding>
-</action>
-
-<action>
-  <name>calibrate fine</name>
-  <button>0</button>
-  <x>-206</x>
-  <y>-246</y>
-  <w>8</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
-    <step>0.01</step>
-    <min>26.0</min>
-    <max>33.0</max>
-    <wrap>false</wrap>
-  </binding>
-</action>
-
-<action>
-  <name>calibrate coarse</name>
-  <button>1</button>
-  <x>-206</x>
-  <y>-246</y>
-  <w>8</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
-    <step>0.1</step>
-    <min>26.0</min>
-    <max>33.0</max>
-    <wrap>false</wrap>
-  </binding>
-</action>
-  
-
-
-  
 
 </actions>
 

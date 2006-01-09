@@ -292,7 +292,7 @@
   <action>
    <name>Rotate knob left</name>
    <button>0</button>
-   <x>-8</x>
+   <x>-7</x>
    <y>-11</y>
    <w>8</w>
    <h>8</h>
@@ -342,7 +342,7 @@
   <action>
    <name>Rotate knob right</name>
    <button>0</button>
-   <x>0</x>
+   <x>1</x>
    <y>-11</y>
    <w>8</w>
    <h>8</h>

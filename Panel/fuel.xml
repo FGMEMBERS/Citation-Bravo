@@ -76,14 +76,6 @@ Fuel display
   </layers>
   
 <actions>
-	<action>
- <name>outline</name>
-     <button>0</button>
-     <x>-20</x>
-     <y>-38</y>
-     <w>40</w>
-     <h>76</h>
-	</action>
 </actions>
 
 
