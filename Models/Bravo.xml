@@ -24,6 +24,26 @@
     </top-left>
  </panel> 
 
+ <panel>
+   <path>Aircraft/Citation-Bravo/Panel/center-panel.xml</path>
+   <bottom-left>
+     <x-m>3.007</x-m>
+     <y-m>-0.130</y-m>
+     <z-m>0.270</z-m>
+   </bottom-left>
+   <bottom-right>
+     <x-m>3.007</x-m>
+     <y-m>0.170</y-m>
+     <z-m>0.270</z-m>
+   </bottom-right>
+   <top-left>
+     <x-m>2.408</x-m>
+     <y-m>-0.130</y-m>
+     <z-m>0.299</z-m>
+   </top-left>
+ </panel>
+
+ 
  <model>
    <path>Aircraft/Instruments-3d/primus-1000/primus1000-pfd.xml</path>
    <offsets>
@@ -39,9 +59,70 @@
    <path>Aircraft/Instruments-3d/primus-1000/primus1000-pfd.xml</path>
    <offsets>
      <x-m>2.430</x-m>
-     <y-m>0.357</y-m>
+     <y-m>0.350</y-m>
      <z-m>0.635</z-m>
      <pitch-deg>-10.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/Instruments-3d/primus-1000/primus1000-mfd.xml</path>
+   <offsets>
+     <x-m>2.444</x-m>
+     <y-m>-0.055</y-m>
+     <z-m>0.557</z-m>
+     <pitch-deg>-10.0</pitch-deg>
+   </offsets>
+ </model>
+
+ 
+ <model>
+   <path>Aircraft/Instruments-3d/primus-1000/dc550.xml</path>
+   <offsets>
+     <x-m>2.421</x-m>
+     <y-m>-0.498</y-m>
+     <z-m>0.679</z-m>
+     <pitch-deg>-10.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/Instruments-3d/primus-1000/dc550.xml</path>
+   <offsets>
+     <x-m>2.421</x-m>
+     <y-m>0.53</y-m>
+     <z-m>0.679</z-m>
+     <pitch-deg>-10.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/Instruments-3d/primus-1000/fmc.xml</path>
+   <offsets>
+     <x-m>2.404</x-m>
+     <y-m>-0.327</y-m>
+     <z-m>0.779</z-m>
+     <pitch-deg>-10.0</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/Instruments-3d/primus-1000/AP-control.xml</path>
+   <offsets>
+     <x-m>2.971</x-m>
+     <y-m>0.02</y-m>
+     <z-m>0.267</z-m>
+     <pitch-deg>-87.3</pitch-deg>
+   </offsets>
+ </model>
+
+ <model>
+   <path>Aircraft/Instruments-3d/primus-1000/RIC.xml</path>
+   <offsets>
+     <x-m>2.914</x-m>
+     <y-m>0.02</y-m>
+     <z-m>0.270</z-m>
+     <pitch-deg>-87.3</pitch-deg>
    </offsets>
  </model>
 
@@ -1024,38 +1105,67 @@
 
 <!--  ___________________________Annunciator / Warning Lights  __________ -->
 
- <animation>
-  <type>select</type>
+<animation>
+  <type>textranslate</type>
   <object-name>GrNose</object-name>
-  <condition>
-      <equals>
-    <property>/gear/gear[0]/position-norm</property>
-      <value>1.000</value>
-     </equals>
-  </condition>
- </animation>
+  <property>/gear/gear[0]/position-norm</property>
+  <factor>0.140</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
 
- <animation>
-  <type>select</type>
+<animation>
+  <type>textranslate</type>
   <object-name>GrLH</object-name>
-  <condition>
-      <equals>
-    <property>/gear/gear[1]/position-norm</property>
-      <value>1.000</value>
-     </equals>
-  </condition>
- </animation>
+  <property>/gear/gear[1]/position-norm</property>
+  <factor>0.140</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
 
- <animation>
-   <type>select</type>
-   <object-name>GrRH</object-name>
-   <condition>
-     <equals>
-       <property>/gear/gear[2]/position-norm</property>
-       <value>1.000</value>
-     </equals>
-   </condition>
- </animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>GrRH</object-name>
+  <property>/gear/gear[2]/position-norm</property>
+  <factor>0.140</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>GrUnlocked</object-name>
+  <condition>
+    <less-than>
+      <property>/gear/gear[0]/position-norm</property>
+      <value>1.0</value>
+    </less-than>
+    <greater-than>
+      <property>/gear/gear[0]/position-norm</property>
+      <value>0.0</value>
+    </greater-than>
+  </condition>
+    <factor>0.065</factor>
+    <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
 
 
 
@@ -1069,7 +1179,7 @@
   <transform>
     <property>/orientation/pitch-deg</property>
     <subtype>textranslate</subtype>
-    <factor>0.0023</factor>
+    <factor>0.001234</factor>
     <axis>
      <x>0</x>
      <y>1</y>
@@ -1080,8 +1190,8 @@
     <property>/orientation/roll-deg</property>
     <subtype>texrotate</subtype>
     <center>
-     <x>0.125</x>
-     <y>0.250</y>
+     <x>0.0625</x>
+     <y>0.125</y>
    </center>
     <axis>
      <x>0</x>
@@ -1091,45 +1201,88 @@
   </transform>
  </animation>              
  
-  <animation>
-  <type>textranslate</type>
-  <object-name>Hdg101</object-name>
-  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-  <factor>0.001</factor>
-  <step>100</step>
- <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
- </animation>
-
  <animation>
-   <type>textranslate</type>
-   <object-name>Hdg102</object-name>
-   <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-   <factor>0.01</factor>
-   <step>10</step>
+   <type>texrotate</type>
+   <object-name>hdgring</object-name>
+   <property>/orientation/heading-magnetic-deg</property>
+   <center>
+     <x>0.373123</x>
+     <y>0.123265</y>
+     <z>0.0</z>
+   </center>
    <axis>
      <x>0</x>
-     <y>1</y>
-     <z>0</z>
+     <y>0</y>
+     <z>-1</z>
    </axis>
  </animation>
 
-   <animation>
-  <type>textranslate</type>
-  <object-name>Hdg103</object-name>
-  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
-  <factor>0.1</factor>
-  <step>1</step>
- <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
+ 
+ <animation>
+   <type>rotate</type>
+   <object-name>CRSneedle2</object-name>
+   <object-name>CRSneedle2.001</object-name>
+   <property>/orientation/heading-magnetic-deg</property>
+   <axis>
+     <x>0.985</x>
+     <y>0.0</y>
+     <z>0.174</z>
+   </axis>
+   <center>
+     <x-m>2.434</x-m>
+     <y-m>-0.189</y-m>
+     <z-m>0.608</z-m>
+   </center>
  </animation>
-
+ 
+ 
+ <animation>
+   <type>rotate</type>
+   <object-name>CRSneedle2</object-name>
+   <object-name>CRSneedle2.001</object-name>
+   <property>/instrumentation/nav/radials/selected-deg</property>
+   <axis>
+     <x>-0.985</x>
+     <y>0.0</y>
+     <z>-0.174</z>
+   </axis>
+   <center>
+     <x-m>2.434</x-m>
+     <y-m>-0.189</y-m>
+     <z-m>0.608</z-m>
+   </center>
+ </animation>
+ 
+ <animation>
+   <type>translate</type>
+   <object-name>CRSneedle2.001</object-name>
+   <property>/instrumentation/nav/heading-needle-deflection</property>
+   <interpolation>
+     <entry>
+       <ind>-10.0</ind>
+       <dep>-0.013</dep>
+     </entry>
+     <entry>
+       <ind>0.0</ind>
+       <dep>0.0</dep>
+     </entry>
+     <entry>
+       <ind>10.0</ind>
+       <dep>0.013</dep>
+     </entry>
+   </interpolation>
+   <axis>
+     <x>0</x>
+     <y>1.0</y>
+     <z>0.0</z>
+   </axis>
+   <center>
+     <x-m>2.434</x-m>
+     <y-m>-0.189</y-m>
+     <z-m>0.608</z-m>
+   </center>
+ </animation>
+  
 
  <animation>
   <type>rotate</type>
@@ -1294,16 +1447,16 @@
  </animation>              
 
 
-     <animation>
-  <type>textranslate</type>
-  <object-name>OilT01</object-name>
-  <property>/engines/engine[0]/oilt-norm</property>
-    <factor>-0.10</factor>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
+ <animation>
+   <type>textranslate</type>
+   <object-name>OilT01</object-name>
+   <property>/engines/engine[0]/oilt-norm</property>
+   <factor>-0.10</factor>
+   <axis>
+     <x>0</x>
+     <y>1</y>
+     <z>0</z>
+   </axis>
  </animation>
      
      <animation>
@@ -1342,7 +1495,8 @@
   </axis>
  </animation>
  
-  <animation>
+
+ <animation>
   <type>rotate</type>
   <object-name>compassrose</object-name>
   <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
@@ -1614,5 +1768,179 @@
     <z>0</z>
   </axis>
 </animation>
+
+<!--              LEFT ENGINE FUEL FLOW   -->
+<animation>
+  <type>textranslate</type>
+  <object-name>LHflow.001</object-name>
+  <property>engines/engine[0]/fuel-flow-pph</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>LHflow.002</object-name>
+  <property>/engines/engine[0]/fuel-flow-pph</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>LHflow.003</object-name>
+  <property>/engines/engine[0]/fuel-flow-pph</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>LHflow.004</object-name>
+  <property>/engines/engine[0]/fuel-flow-pph</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>LHflow.001</object-name>
+  <condition>
+    <greater-than>
+      <property>engines/engine[0]/fuel-flow-pph</property>
+      <value>999.999</value>
+    </greater-than>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>LHflow.002</object-name>
+  <condition>
+    <greater-than>
+      <property>engines/engine[0]/fuel-flow-pph</property>
+      <value>99.999</value>
+    </greater-than>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>LHflow.003</object-name>
+  <condition>
+    <greater-than>
+      <property>engines/engine[0]/fuel-flow-pph</property>
+      <value>9.999</value>
+    </greater-than>
+  </condition>
+</animation>
+
+
+<!--              RIGHT ENGINE FUEL FLOW   -->
+<animation>
+  <type>textranslate</type>
+  <object-name>RHflow.001</object-name>
+  <property>/engines/engine[1]/fuel-flow-pph</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>RHflow.002</object-name>
+  <property>/engines/engine[1]/fuel-flow-pph</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>RHflow.003</object-name>
+  <property>/engines/engine[1]/fuel-flow-pph</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>RHflow.004</object-name>
+  <property>/engines/engine[1]/fuel-flow-pph</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>RHflow.001</object-name>
+  <condition>
+    <greater-than>
+      <property>/engines/engine[1]/fuel-flow-pph</property>
+      <value>999.999</value>
+    </greater-than>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>RHflow.002</object-name>
+  <condition>
+    <greater-than>
+      <property>/engines/engine[1]/fuel-flow-pph</property>
+      <value>99.999</value>
+    </greater-than>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>RHflow.003</object-name>
+  <condition>
+    <greater-than>
+      <property>engines/engine[1]/fuel-flow-pph</property>
+      <value>9.999</value>
+    </greater-than>
+  </condition>
+</animation>
+
 
 </PropertyList>

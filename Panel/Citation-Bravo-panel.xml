@@ -13,7 +13,7 @@
     <name>Radiostack</name>
     <x>614</x>
     <y>150</y>
-    <w>144</w>
+    <w>136</w>
     <h>196</h>
   </instrument>
   
@@ -35,25 +35,6 @@
     <h>22</h>
   </instrument>
 
-  <!-- fuel-->
-  <instrument include="fuel.xml">
-    <name>Fuel Display</name>
-    <x>612</x>
-    <y>302</y>
-    <w>40</w>
-    <h>76</h>
-  </instrument>
-  
-  <!--PFD
-          <instrument include="primus1000-pfd.xml">
-    <name>PFD</name>
-    <x>258</x>
-    <y>212</y>
-    <w>134</w>
-    <h>178</h>
-  </instrument>
-  -->
-  
 <instrument>
   <name>panel hotspots</name>
   <x>512</x>
@@ -64,75 +45,328 @@
   <h-base>768</h-base>
 
  <actions> 
-   <!--             Course              -->  
+   <!--             FD Controller              -->
   
-  <action>
-   <name></name>
-   <button>0</button>
-   <x>-172</x>
-   <y>-224</y>
-   <w>8</w>
-   <h>10</h>
-   <binding>
-    <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
-    <step>1</step>
-    <min>0</min>
-    <max>360</max>
-    <wrap>true</wrap>
-   </binding>
-  </action>
-  
-  <action>
-   <name></name>
-   <button>1</button>
-   <x>-172</x>
-   <y>-224</y>
-   <w>8</w>
-   <h>10</h>
-   <binding>
-    <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
-    <step>5</step>
-    <min>0</min>
-    <max>360</max>
-    <wrap>1</wrap>
-   </binding>
-  </action>
+   <action>
+     <name>set heading mode</name>
+     <button>0</button>
+     <x>-315</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>hdg</value>
+     </binding>
+   </action>
+   
+   <action>
+     <name>set nav mode</name>
+     <button>0</button>
+     <x>-300</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>nav arm</value>
+     </binding>
+   </action>
 
-  <action>
-   <name></name>
-   <button>0</button>
-   <x>-180</x>
-   <y>-224</y>
-   <w>8</w>
-   <h>10</h>
-   <binding>
+   <action>
+     <name>set apr mode</name>
+     <button>0</button>
+     <x>-284</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>appr</value>
+     </binding>
+   </action>
+   
+   <action>
+     <name>set bc mode</name>
+     <button>0</button>
+     <x>-269</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>bc</value>
+     </binding>
+   </action>
+   
+   <action>
+     <name>set vnav mode</name>
+     <button>0</button>
+     <x>-254</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>nav-arm</value>
+     </binding>
+   </action>
+   
+   <action>
+     <name>set alt mode</name>
+     <button>0</button>
+     <x>-238</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>alt</value>
+     </binding>
+   </action>
+   
+   <action>
+     <name>set vs mode</name>
+     <button>0</button>
+     <x>-223</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>off</value>
+     </binding>
+   </action>
+   
+   <action>
+     <name>set speed mode</name>
+     <button>0</button>
+     <x>-208</x>
+     <y>-62</y>
+     <w>13</w>
+     <h>10</h>
+     <binding>
+       <command>property-assign</command>
+       <property>/instrumentation/kfc200/fdmode</property>
+       <value>off</value>
+     </binding>
+   </action>
+   
+   
+   <!--               BRG1 mode                                -->
+   
+   <action>
+     <name>BRG 1 mode minus</name>
+     <button>0</button>
+     <x>-440</x>
+     <y>-150</y>
+     <w>10</w>
+     <h>10</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/primus1000/nav1pointer</property>
+       <step>-1</step>
+       <min>0</min>
+       <max>3</max>
+       <wrap>false</wrap>
+     </binding>
+   </action>
+   
+   <action>
+     <name>BRG 1 mode plus</name>
+     <button>0</button>
+     <x>-430</x>
+     <y>-150</y>
+     <w>10</w>
+     <h>10</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/primus1000/nav1pointer</property>
+       <step>1</step>
+       <min>0</min>
+       <max>3</max>
+       <wrap>false</wrap>
+     </binding>
+   </action>
+   
+   <!--               BRG2 mode                                -->
+   
+   <action>
+     <name>BRG 2 mode minus</name>
+     <button>0</button>
+     <x>-358</x>
+     <y>-150</y>
+     <w>10</w>
+     <h>10</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/primus1000/nav2pointer</property>
+       <step>-1</step>
+       <min>0</min>
+       <max>3</max>
+       <wrap>false</wrap>
+     </binding>
+   </action>
+   
+   <action>
+     <name>BRG 2 mode plus</name>
+     <button>0</button>
+     <x>-348</x>
+     <y>-150</y>
+     <w>10</w>
+     <h>10</h>
+     <binding>
+       <command>property-adjust</command>
+       <property>/instrumentation/primus1000/nav2pointer</property>
+       <step>1</step>
+       <min>0</min>
+       <max>3</max>
+       <wrap>false</wrap>
+     </binding>
+   </action>
+
+<!--  HSI course set  -->
+
+<action>
+  <name>small decrease</name>
+  <button>0</button>
+  <x>-181</x>
+  <y>-223</y>
+  <w>10</w>
+  <h>10</h>
+  <binding>
     <command>property-adjust</command>
     <property>/instrumentation/nav/radials/selected-deg</property>
     <step>-1</step>
     <min>0</min>
     <max>360</max>
-    <wrap>true</wrap>
-   </binding>
-  </action>
-  
-  <action>
-   <name></name>
-   <button>1</button>
-   <x>-180</x>
-   <y>-224</y>
-   <w>8</w>
-   <h>10</h>
-   <binding>
+    <wrap>1</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>large decrease</name>
+  <button>1</button>
+  <x>-181</x>
+  <y>-223</y>
+  <w>10</w>
+  <h>10</h>
+  <binding>
     <command>property-adjust</command>
     <property>/instrumentation/nav/radials/selected-deg</property>
     <step>-5</step>
     <min>0</min>
     <max>360</max>
     <wrap>1</wrap>
-   </binding>
-  </action>
+  </binding>
+</action>
+
+<action>
+  <name>small increase</name>
+  <button>0</button>
+  <x>-171</x>
+  <y>-223</y>
+  <w>10</w>
+  <h>10</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/nav/radials/selected-deg</property>
+    <step>1</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>large increase</name>
+  <button>1</button>
+  <x>-171</x>
+  <y>-223</y>
+  <w>10</w>
+  <h>10</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/instrumentation/nav/radials/selected-deg</property>
+    <step>5</step>
+    <min>0</min>
+    <max>360</max>
+    <wrap>1</wrap>
+  </binding>
+</action>
+
+<!--                  reset baro -->
+<action>
+  <name>reset inhg</name>
+  <button>0</button>
+  <x>-219</x>
+  <y>-252</y>
+  <w>14</w>
+  <h>8</h>
+  <binding>
+    <command>property-assign</command>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <value>29.92</value>
+  </binding>
+</action>
+
+<!--                 set altimeter mode -->
+<action>
+  <name>set ra/baro</name>
+  <button>0</button>
+  <x>-300</x>
+  <y>-252</y>
+  <w>14</w>
+  <h>8</h>
+  <binding>
+    <command>property-toggle</command>
+    <property>/instrumentation/primus1000/alt-mode</property>
+  </binding>
+</action>
+
+<!--  AP ALTITUDE SELECT  -->
+
+<action>
+  <name>Alt decrease</name>
+  <button>0</button>
+  <x>6</x>
+  <y>-324</y>
+  <w>12</w>
+  <h>14</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/autopilot/settings/target-altitude-ft</property>
+    <step>-100</step>
+    <min>0</min>
+    <max>99999</max>
+    <wrap>0</wrap>
+  </binding>
+</action>
+
+<action>
+  <name>Alt increase</name>
+  <button>0</button>
+  <x>18</x>
+  <y>-324</y>
+  <w>12</w>
+  <h>14</h>
+  <binding>
+    <command>property-adjust</command>
+    <property>/autopilot/settings/target-altitude-ft</property>
+    <step>100</step>
+    <min>0</min>
+    <max>99999</max>
+    <wrap>0</wrap>
+  </binding>
+</action>
+
 
 </actions>
 

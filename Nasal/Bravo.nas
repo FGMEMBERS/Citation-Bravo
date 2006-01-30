@@ -5,12 +5,25 @@ v1 = nil;
 cl = 0.0;
 c2 = 0.0;
 hpsi = 0.0;
+pph1=0.0;
+pph2=0.0;
+fuel_density=0.0;
+n_offset=0;
+
+
+
+
 strobe_switch = props.globals.getNode("controls/switches/strobe", 1);
 aircraft.light.new("sim/model/Bravo/lighting/strobe", 0.05, 1.50, strobe_switch);
 beacon_switch = props.globals.getNode("controls/switches/beacon", 1);
 aircraft.light.new("sim/model/Bravo/lighting/beacon", 1.0, 1.0, beacon_switch);
 
 init_controls = func {
+setprop("/instrumentation/gps/wp/wp/waypoint-type","airport");
+setprop("/instrumentation/gps/wp/wp/ID",getprop("/sim/tower/airport-id"));
+setprop("/instrumentation/gps/serviceable","true");
+setprop("/engines/engine[0]/fuel-flow-pph",0.0);
+setprop("/engines/engine[1]/fuel-flow-pph",0.0);
 setprop("/controls/engines/reverser-position",0.0);
 setprop("/environment/turbulence/use-cloud-turbulence","true");
 setprop("/sim/current-view/field-of-view",60.0);
@@ -18,6 +31,12 @@ setprop("/controls/gear/brake-parking",1.0);
 setprop("/instrumentation/annunciator/master-caution",0.0);
 setprop("/systems/hydraulic/pump-psi[0]",0.0);
 setprop("/systems/hydraulic/pump-psi[1]",0.0);
+fuel_density=getprop("consumables/fuel/tank[0]/density-ppg");
+setprop("/instrumentation/primus1000/nav1pointer",0.0);
+setprop("/instrumentation/primus1000/nav2pointer",0.0);
+setprop("/instrumentation/primus1000/nav1pointer-heading-offset",0.0);
+setprop("/instrumentation/primus1000/nav2pointer-heading-offset",0.0);
+setprop("/instrumentation/primus1000/alt-mode",0.0);
 print("Aircraft systems initialized");
 }
 settimer(init_controls, 0);
@@ -73,6 +92,40 @@ hpsi = getprop("/engines/engine[1]/n2");
 if(hpsi == nil){hpsi =0.0;}
 if(hpsi > 30.0){setprop("/systems/hydraulic/pump-psi[1]",60.0);}
 else{setprop("/systems/hydraulic/pump-psi[1]",hpsi * 2);}
+pph1=getprop("/engines/engine[0]/fuel-flow-gph");
+if(pph1 == nil){pph1 = 0.0};
+pph2=getprop("/engines/engine[1]/fuel-flow-gph");
+if(pph2 == nil){pph2 = 0.0};
+setprop("engines/engine[0]/fuel-flow-pph",pph1* fuel_density);
+setprop("engines/engine[1]/fuel-flow-pph",pph2* fuel_density);
+
+if(getprop("/instrumentation/primus1000/nav1pointer")==1){
+current_heading = getprop("/orientation/heading-magnetic-deg");
+n_offset = getprop("/instrumentation/nav/heading-deg");
+if(n_offset == nil){n_offset = 0.0;}
+n_offset -= current_heading;
+if(n_offset < -180){n_offset += 360;}
+elsif(n_offset > 180){n_offset -= 360;}
+}
+if(getprop("/instrumentation/primus1000/nav1pointer")==2){
+n_offset = getprop("/instrumentation/adf/indicated-bearing-deg");
+}
+setprop("/instrumentation/primus1000/nav1pointer-heading-offset",n_offset);
+
+if(getprop("/instrumentation/primus1000/nav2pointer")==1){
+current_heading = getprop("/orientation/heading-magnetic-deg");
+n_offset = getprop("/instrumentation/nav[1]/heading-deg");
+if(n_offset == nil){n_offset = 0.0;}
+n_offset -= current_heading;
+if(n_offset < -180){n_offset += 360;}
+elsif(n_offset > 180){n_offset -= 360;}
+}
+if(getprop("/instrumentation/primus1000/nav2pointer")==2){
+n_offset = getprop("/instrumentation/adf/indicated-bearing-deg");
+}
+setprop("/instrumentation/primus1000/nav2pointer-heading-offset",n_offset);
+
+
 settimer(update_systems,0);
 }
 settimer(update_systems,0);
