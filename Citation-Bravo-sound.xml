@@ -248,10 +248,14 @@
       <path>Sounds/gear.wav</path>
       <property>/gear/gear[0]/position-norm</property>
       <pitch>
-        <offset>0.5</offset>
+        <internal>dt_play</internal>
+        <offset>0.8</offset>
+        <factor>-0.001</factor>
       </pitch>
+      <reference-dist>10.0</reference-dist>
+      <max-dist>20.0</max-dist>
       <volume>
-        <factor>0.6</factor>
+        <factor>0.8</factor>
       </volume>
     </gear>
 
@@ -283,10 +287,14 @@
       <path>Sounds/gear.wav</path>
       <property>/gear/gear[1]/position-norm</property>
       <pitch>
-        <offset>0.5</offset>
+        <internal>dt_play</internal>
+        <offset>0.8</offset>
+        <factor>-0.001</factor>
       </pitch>
+      <reference-dist>10.0</reference-dist>
+      <max-dist>20.0</max-dist>
       <volume>
-        <factor>0.5</factor>
+        <factor>0.8</factor>
       </volume>
     </gear>
 
@@ -319,10 +327,13 @@
       <property>/gear/gear[2]/position-norm</property>
       <pitch>
         <internal>dt_play</internal>
-        <offset>0.5</offset>
+        <offset>0.8</offset>
+        <factor>-0.001</factor>
       </pitch>
+      <reference-dist>10.0</reference-dist>
+      <max-dist>20.0</max-dist>
       <volume>
-        <factor>0.5</factor>
+        <factor>0.8</factor>
       </volume>
     </gear>
 
@@ -384,7 +395,7 @@
       <path>Sounds/flaps.wav</path>
       <property>/surface-positions/left-flap-pos-norm</property>
       <volume>
-        <factor>0.15</factor>
+        <factor>0.5</factor>
       </volume>
     </flap>
 

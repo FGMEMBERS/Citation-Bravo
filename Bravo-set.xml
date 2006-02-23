@@ -165,9 +165,9 @@ Feb 2005  Syd Adams   ()
       <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
       <file>Aircraft/Citation-Bravo/Nasal/electrical.nas</file>
     </Bravo>
-    <kfc-200>
-      <file>Aircraft/Citation-Bravo/Nasal/kfc-200.nas</file>
-</kfc-200>
+    <flightdirector>
+      <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
+</flightdirector>
   </nasal>
 
   

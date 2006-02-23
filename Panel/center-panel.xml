@@ -201,7 +201,7 @@
   <h>10</h>
   <binding>
     <command>property-toggle</command>
-    <property>instrumentation/kfc200/autopilot-on</property>
+    <property>instrumentation/flightdirector/autopilot-on</property>
   </binding>
 </action>
 
@@ -214,7 +214,7 @@
   <h>10</h>
   <binding>
     <command>property-toggle</command>
-    <property>instrumentation/kfc200/autopilot-on</property>
+    <property>instrumentation/flightdirector/autopilot-on</property>
   </binding>
 </action>
 

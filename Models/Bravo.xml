@@ -135,6 +135,33 @@
    <object-name>Greenglow</object-name>
  </animation>
 
+ <animation>
+   <name>FrontGearGroup</name>
+   <object-name>FrtStrut</object-name>
+   <object-name>FUdamper</object-name>
+   <object-name>FLdamper</object-name>
+   <object-name>FrtWheel</object-name>
+ </animation>
+ 
+ <animation>
+   <name>LeftGearGroup</name>
+   <object-name>LHstrut</object-name>
+   <object-name>LHTrailingArm</object-name>
+   <object-name>LHwheel</object-name>
+   <object-name>LHLwrShock</object-name>
+   <object-name>LHUprShock</object-name>
+ </animation>
+ 
+ <animation>
+   <name>RightGearGroup</name>
+   <object-name>RHstrut</object-name>
+   <object-name>RHTrailingArm</object-name>
+   <object-name>RHwheel</object-name>
+   <object-name>RHLwrShock</object-name>
+   <object-name>RHUprShock</object-name>
+ </animation>
+
+ 
  <!--                        Lights                               -->
  
  <!--
@@ -708,39 +735,94 @@
 
  
  
- <!--  __________________  Gear ___________________ -->
+ <!--                                 #########################################
+                                      ____________       Front  Gear    ___________________
+                                      ##########################################-->
+
+ <animation>
+   <type>rotate</type>
+   <object-name>FUdamper</object-name>
+   <property>gear/gear[0]/compression-m</property>
+   <factor>200</factor>
+   <center>
+     <x-m>1.668</x-m>
+     <y-m>0</y-m>
+     <z-m>-0.225</z-m>
+   </center>
+   <axis>
+     <x>0</x>
+     <y>-1</y>
+     <z>0</z>
+   </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>FrtWheel</object-name>
+  <object-name>FrtStrut</object-name>
+  <object-name>FLdamper</object-name>
+  <property>gear/gear[0]/compression-m</property>
+  <axis>
+    <x>0.0</x>
+    <y>0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>FrtWheel</object-name>
+  <property>gear/gear[0]/rollspeed-ms</property>
+  <factor>300</factor>
+  <center>
+    <x-m>1.669</x-m>
+    <y-m>0.0</y-m>
+    <z-m>-0.744</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>FLdamper</object-name>
+  <property>gear/gear[0]/compression-m</property>
+  <factor>200</factor>
+  <center>
+    <x-m>1.668</x-m>
+    <y-m>0</y-m>
+    <z-m>-0.461</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+
+<animation>
+  <type>rotate</type>
+  <object-name>FrontGearGroup</object-name>
+  <property>gear/gear[0]/caster-angle-deg</property>
+  <center>
+   <x-m>1.669</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.744</z-m>
+  </center>
+  <axis>
+   <x>0.0</x>
+   <y>0</y>
+   <z>-1.0</z>
+  </axis>
+ </animation>
 
 <animation>
 <type>rotate</type>
-<object-name>FrtWheel</object-name>
-<object-name>FLdamper</object-name>
-<object-name>FUdamper</object-name>
-  <property>/controls/flight/rudder</property>
-  <factor>35</factor>
-  <condition>
-      <equals>
-    <property>/gear/gear[0]/position-norm</property>
-      <value>1.000</value>
-     </equals>
-  </condition>
-    <center>
-      <x-m>1.668</x-m>
-      <y-m>0.0</y-m>
-      <z-m>-0.150</z-m>
-    </center>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>-1</z>
-    </axis>
-  </animation>
-
-<animation>
-<type>rotate</type>
-<object-name>FrtStrut</object-name>
-<object-name>FUdamper</object-name>
-<object-name>FLdamper</object-name>
-<object-name>FrtWheel</object-name>
+<object-name>FrontGearGroup</object-name>
 <property>/gear/gear[0]/position-norm</property>
    <interpolation>
     <entry>
@@ -772,6 +854,8 @@
     </axis>
   </animation>
 
+
+  
 <animation>
 <type>rotate</type>
 <object-name>RRFrDoor</object-name>
@@ -870,15 +954,86 @@
 </axis>
   </animation>
 
+  <!--                                 #########################################
+                                       ____________       Left  Gear    ___________________
+                                       ##########################################-->
 
+  
+
+  <animation>
+    <type>rotate</type>
+    <object-name>LHTrailingArm</object-name>
+    <object-name>LHwheel</object-name>
+    <object-name>LHLwrShock</object-name>
+    <property>gear/gear[1]/compression-m</property>
+    <factor>240</factor>
+    <center>
+      <x-m>7.138</x-m>
+      <y-m>2.797</y-m>
+      <z-m>-0.522</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>LHwheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor>300</factor>
+    <center>
+      <x-m>7.289</x-m>
+      <y-m>2.809</y-m>
+      <z-m>-0.742</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+    
+  <animation>
+    <type>rotate</type>
+    <object-name>LHLwrShock</object-name>
+    <property>gear/gear[1]/compression-m</property>
+    <factor>207</factor>
+    <center>
+      <x-m>7.288</x-m>
+      <y-m>-2.648</y-m>
+      <z-m>-0.740</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>LHUprShock</object-name>
+    <property>gear/gear[1]/compression-m</property>
+    <factor>36</factor>
+    <center>
+      <x-m>7.436</x-m>
+      <y-m>-2.641</y-m>
+      <z-m>0.066</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  
 <animation>
 <type>rotate</type>
-<object-name>LHstrut</object-name>
-<object-name>LHTrailingArm</object-name>
-<object-name>LHwheel</object-name>
-<object-name>LHLwrShock</object-name>
-<object-name>LHUprShock</object-name>
-
+<object-name>LeftGearGroup</object-name>
 <property>/gear/gear[1]/position-norm</property>
 <interpolation>
   <entry>
@@ -936,13 +1091,86 @@
     </axis>
   </animation>
 
+  <!--                                 #########################################
+                                       ____________       Right  Gear    ___________________
+                                       ##########################################-->
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RHTrailingArm</object-name>
+    <object-name>RHwheel</object-name>
+    <object-name>RHLwrShock</object-name>
+    <property>gear/gear[2]/compression-m</property>
+    <factor>240</factor>
+    <center>
+      <x-m>7.138</x-m>
+      <y-m>2.797</y-m>
+      <z-m>-0.522</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>RHwheel</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor>300</factor>
+    <center>
+      <x-m>7.289</x-m>
+      <y-m>2.809</y-m>
+      <z-m>-0.742</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  
+ <animation>
+  <type>rotate</type>
+  <object-name>RHLwrShock</object-name>
+  <property>gear/gear[2]/compression-m</property>
+    <factor>207</factor>
+    <center>
+      <x-m>7.288</x-m>
+      <y-m>2.648</y-m>
+      <z-m>-0.740</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>RHUprShock</object-name>
+  <property>gear/gear[2]/compression-m</property>
+  <factor>36</factor>
+  <center>
+    <x-m>7.436</x-m>
+    <y-m>2.641</y-m>
+    <z-m>0.066</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>-1</y>
+    <z>0</z>
+  </axis>
+</animation>
+  
+
 <animation>
 <type>rotate</type>
-<object-name>RHstrut</object-name>
-<object-name>RHTrailingArm</object-name>
-<object-name>RHwheel</object-name>
-<object-name>RHLwrShock</object-name>
-<object-name>RHUprShock</object-name>
+<object-name>RightGearGroup</object-name>
 <property>/gear/gear[2]/position-norm</property>
 <interpolation>
   <entry>
@@ -1000,107 +1228,7 @@
     </axis>
   </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>LHTrailingArm</object-name>
-  <property>gear/gear[1]/compression-norm</property>
-  <factor>60</factor>
-  <axis>
-   <x>0</x>
-   <y>-1</y>
-   <z>0</z>
-  </axis>
-    <center>
-      <x-m>7.136</x-m>
-      <y-m>-2.811</y-m>
-      <z-m>-0.450</z-m>
-    </center>
- </animation>  
 
- <animation>
-  <type>rotate</type>
-  <object-name>LHLwrShock</object-name>
-  <property>gear/gear[1]/compression-norm</property>
-  <factor>43</factor>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
-    <center>
-      <x-m>7.289</x-m>
-      <y-m>-2.809</y-m>
-      <z-m>-0.676</z-m>
-    </center>
- </animation>  
-
- <animation>
-  <type>rotate</type>
-  <object-name>LHUprShock</object-name>
-  <property>gear/gear[1]/compression-norm</property>
-  <factor>8</factor>
-  <axis>
-   <x>0</x>
-   <y>-1</y>
-   <z>0</z>
-  </axis>
-    <center>
-      <x-m>7.435</x-m>
-      <y-m>-2.646</y-m>
-      <z-m>0.115</z-m>
-    </center>
- </animation>  
-
-  <animation>
-  <type>rotate</type>
-  <object-name>RHTrailingArm</object-name>
-  <property>gear/gear[2]/compression-norm</property>
-  <factor>60</factor>
-  <axis>
-   <x>0</x>
-   <y>-1</y>
-   <z>0</z>
-  </axis>
-    <center>
-      <x-m>7.136</x-m>
-      <y-m>2.811</y-m>
-      <z-m>-0.450</z-m>
-    </center>
- </animation>  
-
- <animation>
-  <type>rotate</type>
-  <object-name>RHLwrShock</object-name>
-  <property>gear/gear[2]/compression-norm</property>
-  <factor>43</factor>
-  <axis>
-   <x>0</x>
-   <y>1</y>
-   <z>0</z>
-  </axis>
-    <center>
-      <x-m>7.289</x-m>
-      <y-m>2.809</y-m>
-      <z-m>-0.676</z-m>
-    </center>
- </animation>  
-
- <animation>
-  <type>rotate</type>
-  <object-name>RHUprShock</object-name>
-  <property>gear/gear[2]/compression-norm</property>
-  <factor>8</factor>
-  <axis>
-   <x>0</x>
-   <y>-1</y>
-   <z>0</z>
-  </axis>
-    <center>
-      <x-m>7.435</x-m>
-      <y-m>2.646</y-m>
-      <z-m>0.115</z-m>
-    </center>
- </animation>    
 
 
 <!--  ___________________________Annunciator / Warning Lights  __________ -->

@@ -1,6 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Cessna Citation Bravo :
+
+Length:        14.40 m
+Wingspan:  15.75m
+Cruise:  Weight / Altitude / Speed / Fuel Flow
+
+WEIGHT (lbs)    11,000          13,000          14,500
+Altitude (ft)   Speed (KTAS)/fuel flow (lbs/hr)
+33,000          405/1,200         401/1,197         396/1,195
+35,000          403/1,123         398/1,134         390/1,124
+37,000          400/1,040         390/1,029         382/1,023
+39,000          394/934              382/926          374/917
+41,000          387/844              375/835          366/830
+43,000          378/750             366/751         359/752
+
+
+Mmo : 0.705 mach
+Vmo : 262 kts below  14,000 msl
+          277 kts above 14,000 msl
+Va  : 148 at 7500  - 183 at 11,850
+Vfe : 202 kts T.O. and Approach 15 degrees
+         176 kts Land 40 degrees
+Vle : 176 knots
+Vlo : 176 knots
+Vsb:  Vmo/Mmo (No limitations on speedbrakes.)
+Vmca: Below stall speed for all weights
+Vmcg: 62 kts CE-550/551
+
+         
+ -->
 <airplane mass="9040">
-  <approach speed="115" aoa="7.5" fuel="0.8">
+  <approach speed="110" aoa="8" fuel="0.8">
     <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
     <control-setting axis="/controls/engines/engine[1]/throttle" value="0.2"/>
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
@@ -8,9 +38,9 @@
     <control-setting axis="/controls/flight/flaps" value="1.0"/>
     <control-setting axis="/controls/gear/gear-down" value="1"/>
   </approach>
-  <cruise speed="400" alt="37000" fuel="0.8">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.95"/>
-    <control-setting axis="/controls/engines/engine[1]/throttle" value="0.95"/>
+  <cruise speed="402" alt="33000" fuel="1.0">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
+    <control-setting axis="/controls/engines/engine[1]/throttle" value="1.0"/>
     <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
     <control-setting axis="/controls/engines/engine[1]/condition" value="1.0"/>
     <control-setting axis="/controls/flight/flaps" value="0.0"/>
@@ -24,9 +54,9 @@
   <fuselage ax="0.0" ay="0" az="0.52" bx="-13.68" by="0" bz="0.83" width="1.60" taper="0.1"/>
 
 
-  <wing x="-7.29" y="0.48" z="-0.11" length="7.4" chord="2.72" sweep="0" dihedral="4" taper="0.32" camber="0.05" incidence="-0.75" twist="1.0">
+  <wing x="-7.29" y="0.48" z="-0.11" length="7.4" chord="2.72" sweep="0" dihedral="4" taper="0.32" camber="0.1" incidence="2.5" twist="-3.0" >
     <stall aoa="15" width="8" peak="1.5"/>
-    <flap0 start="0" end=".52" lift="1.5" drag="1.6"/>
+    <flap0 start="0" end=".52" lift="1.5" drag="1.8"/>
     <flap1 start=".52" end=".88" lift="1.1" drag="1.1"/>
     <control-input axis="/controls/flight/flaps" control="FLAP0"/>
     <control-speed control="FLAP0" transition-time="5"/>
@@ -37,7 +67,7 @@
     <control-output control="FLAP1" side="right" prop="/surface-positions/right-aileron-pos-norm"/>
   </wing>
   
-  <hstab x="-12.64" y="0.05" z="1.48" length="2.88" chord="1.48" sweep="0" dihedral="10" taper="0.53" effectiveness="1.0">
+  <hstab x="-12.64" y="0.05" z="1.48" length="2.88" chord="1.48" sweep="0" dihedral="10" taper="0.53" effectiveness="2.0">
     <stall aoa="16" width="4" peak="1.5"/>
     <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
     <control-input axis="/controls/flight/elevator" control="FLAP0"/>
@@ -46,30 +76,30 @@
   </hstab>
   
   <vstab x="-12.43" y="0.00" z="1.03" length="2.60" chord="2.48" sweep="26.5" taper="0.46">
-    <stall aoa="16" width="4" peak="1.5" effectiveness="3.0"/>
+    <stall aoa="16" width="4" peak="1.5" effectiveness="1.0"/>
     <flap0 start="0" end="1" lift="1.2" drag="1.2"/>
     <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true"/>
     <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>
   </vstab>
   
-  <tank x="-7.18" y="2.5" z="0.15" capacity="2504" jet="true"/>
-  <tank x="-7.18" y="-2.5" z="0.15" capacity="2504" jet="true"/>
+  <tank x="-7.18" y="2.5" z="0.15" capacity="2493" jet="true"/>
+  <tank x="-7.18" y="-2.5" z="0.15" capacity="2493" jet="true"/>
   
-  <gear x="-1.79" y="0.00" z="-0.959" compression=".4" retract-time="5">
+  <gear x="-1.669" y="0.00" z="-0.964" compression=".4" retract-time="5">
     <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-speed control="EXTEND" transition-time="7"/>
     <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
   </gear>
-  <gear x="-7.3" y="2.68" z="-0.959" compression=".4" retract-time="5">
+  <gear x="-7.3" y="2.8" z="-0.961" compression=".4" retract-time="5">
     <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-speed control="EXTEND" transition-time="6.2"/>
     <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
   </gear>
-  <gear x="-7.3" y="-2.68" z="-0.959" compression=".4" retract-time="4.95">
+  <gear x="-7.3" y="-2.8" z="-0.961" compression=".4" retract-time="4.95">
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -77,7 +107,10 @@
     <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
   </gear>
   
-<!-- Pratt and Whitney Canada Inc. PW530A Turbofan -->
+<!-- Pratt and Whitney Canada Inc. PW530A Turbofan
+2887 lbs thrust
+3.4 bypass ratio
+     -->
 
 <jet x="-8.9" y="1.35" z="0.9" mass="616" thrust="2887" tsfc="0.55" epr="2.5" rotate="-3.0"
      n1-max="104.0" n2-max="95">
@@ -96,9 +129,8 @@
   </jet>
 
 
-  <ballast x="-3.0" y="0.0" z="-0.5" mass="1600"/>
-  <ballast x="-7.3" y="2.5" z="-0.5" mass="700"/>
-  <ballast x="-7.3" y="-2.5" z="-0.5" mass="700"/>
+  <ballast x="-3.0" y="0.0" z="-0.5" mass="1500"/>
+  <ballast x="-10.0" y="0.0" z="1.0" mass="-2000.0"/>
 
 
   <weight x="-2.5" y="0.3" z="0" mass-prop="/yasim/Bravo/pilot-lbs"/>

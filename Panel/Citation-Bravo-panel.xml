@@ -26,7 +26,7 @@
     <h>24</h>
   </instrument>
   
-  <!-- dme -->  
+  <!-- dme -->
   <instrument include="dme.xml">
     <name>DME</name>
     <x>363</x>
@@ -35,6 +35,25 @@
     <h>22</h>
   </instrument>
 
+  <!-- primus 1000 pfd -->
+  <instrument include="../../Instruments-3d/primus-1000/primus1000-pfd-hotspots.xml">
+    <name>PFD</name>
+    <x>258</x>
+    <y>213</y>
+    <w>144</w>
+    <h>190</h>
+  </instrument>
+
+  <!-- primus 1000 mfd -->
+  <instrument include="../../Instruments-3d/primus-1000/primus1000-mfd-hotspots.xml">
+    <name>MFD</name>
+    <x>471</x>
+    <y>151</y>
+    <w>142</w>
+    <h>190</h>
+  </instrument>
+
+  
 <instrument>
   <name>panel hotspots</name>
   <x>512</x>
@@ -56,7 +75,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>hdg</value>
      </binding>
    </action>
@@ -70,7 +89,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>nav arm</value>
      </binding>
    </action>
@@ -84,7 +103,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>appr</value>
      </binding>
    </action>
@@ -98,7 +117,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>bc</value>
      </binding>
    </action>
@@ -112,7 +131,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>nav-arm</value>
      </binding>
    </action>
@@ -126,7 +145,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>alt</value>
      </binding>
    </action>
@@ -140,7 +159,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>off</value>
      </binding>
    </action>
@@ -154,7 +173,7 @@
      <h>10</h>
      <binding>
        <command>property-assign</command>
-       <property>/instrumentation/kfc200/fdmode</property>
+       <property>instrumentation/flightdirector/fdmode</property>
        <value>off</value>
      </binding>
    </action>
@@ -171,7 +190,7 @@
      <h>10</h>
      <binding>
        <command>property-adjust</command>
-       <property>/instrumentation/primus1000/nav1pointer</property>
+       <property>instrumentation/primus1000/nav1pointer</property>
        <step>-1</step>
        <min>0</min>
        <max>3</max>
@@ -188,7 +207,7 @@
      <h>10</h>
      <binding>
        <command>property-adjust</command>
-       <property>/instrumentation/primus1000/nav1pointer</property>
+       <property>instrumentation/primus1000/nav1pointer</property>
        <step>1</step>
        <min>0</min>
        <max>3</max>
@@ -207,7 +226,7 @@
      <h>10</h>
      <binding>
        <command>property-adjust</command>
-       <property>/instrumentation/primus1000/nav2pointer</property>
+       <property>instrumentation/primus1000/nav2pointer</property>
        <step>-1</step>
        <min>0</min>
        <max>3</max>
@@ -224,7 +243,7 @@
      <h>10</h>
      <binding>
        <command>property-adjust</command>
-       <property>/instrumentation/primus1000/nav2pointer</property>
+       <property>instrumentation/primus1000/nav2pointer</property>
        <step>1</step>
        <min>0</min>
        <max>3</max>
@@ -243,7 +262,7 @@
   <h>10</h>
   <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>-1</step>
     <min>0</min>
     <max>360</max>
@@ -260,7 +279,7 @@
   <h>10</h>
   <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>-5</step>
     <min>0</min>
     <max>360</max>
@@ -277,7 +296,7 @@
   <h>10</h>
   <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>1</step>
     <min>0</min>
     <max>360</max>
@@ -294,7 +313,7 @@
   <h>10</h>
   <binding>
     <command>property-adjust</command>
-    <property>/instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/nav/radials/selected-deg</property>
     <step>5</step>
     <min>0</min>
     <max>360</max>
@@ -302,70 +321,6 @@
   </binding>
 </action>
 
-<!--                  reset baro -->
-<action>
-  <name>reset inhg</name>
-  <button>0</button>
-  <x>-219</x>
-  <y>-252</y>
-  <w>14</w>
-  <h>8</h>
-  <binding>
-    <command>property-assign</command>
-    <property>/instrumentation/altimeter/setting-inhg</property>
-    <value>29.92</value>
-  </binding>
-</action>
-
-<!--                 set altimeter mode -->
-<action>
-  <name>set ra/baro</name>
-  <button>0</button>
-  <x>-300</x>
-  <y>-252</y>
-  <w>14</w>
-  <h>8</h>
-  <binding>
-    <command>property-toggle</command>
-    <property>/instrumentation/primus1000/alt-mode</property>
-  </binding>
-</action>
-
-<!--  AP ALTITUDE SELECT  -->
-
-<action>
-  <name>Alt decrease</name>
-  <button>0</button>
-  <x>6</x>
-  <y>-324</y>
-  <w>12</w>
-  <h>14</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>/autopilot/settings/target-altitude-ft</property>
-    <step>-100</step>
-    <min>0</min>
-    <max>99999</max>
-    <wrap>0</wrap>
-  </binding>
-</action>
-
-<action>
-  <name>Alt increase</name>
-  <button>0</button>
-  <x>18</x>
-  <y>-324</y>
-  <w>12</w>
-  <h>14</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>/autopilot/settings/target-altitude-ft</property>
-    <step>100</step>
-    <min>0</min>
-    <max>99999</max>
-    <wrap>0</wrap>
-  </binding>
-</action>
 
 
 </actions>

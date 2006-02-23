@@ -9,7 +9,7 @@ pph1=0.0;
 pph2=0.0;
 fuel_density=0.0;
 n_offset=0;
-
+nm_calc=0.0;
 
 
 
@@ -36,7 +36,8 @@ setprop("/instrumentation/primus1000/nav1pointer",0.0);
 setprop("/instrumentation/primus1000/nav2pointer",0.0);
 setprop("/instrumentation/primus1000/nav1pointer-heading-offset",0.0);
 setprop("/instrumentation/primus1000/nav2pointer-heading-offset",0.0);
-setprop("/instrumentation/primus1000/alt-mode",0.0);
+setprop("/instrumentation/primus1000/ra-mode",0.0);
+setprop("/instrumentation/primus1000/nav-dist-nm",0.0);
 print("Aircraft systems initialized");
 }
 settimer(init_controls, 0);
@@ -125,6 +126,13 @@ n_offset = getprop("/instrumentation/adf/indicated-bearing-deg");
 }
 setprop("/instrumentation/primus1000/nav2pointer-heading-offset",n_offset);
 
+
+if(getprop("/instrumentation/nav/data-is-valid")=="true"){
+nm_calc = getprop("/instrumentation/nav/nav-distance");
+if(nm_calc == nil){nm_calc = 0.0;}
+nm_calc = 0.000539 * nm_calc;
+setprop("/instrumentation/primus1000/nav-dist-nm",nm_calc);
+}
 
 settimer(update_systems,0);
 }
