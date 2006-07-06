@@ -33,15 +33,19 @@
 # yd - Yaw Damper: system senses motion around ayw axis and moves rudder to
 #                  oppose yaw.
 
-fdmode = "off";
-setprop("/instrumentation/kfc200/fdmode", fdmode);
-fdmode_last = "off";
+hdgmode = "off";
+altmode = "off";
+setprop("/instrumentation/kfc200/hdgmode", hdgmode);
+setprop("/instrumentation/kfc200/altmode", altmode);
+hdgmode_last = "off";
+altmode_last = "off";
+target_alt = 0;
 vbar_bank = 0.0;
 vbar_pitch = 0.0;
 nav_dist = 0.0;
 last_nav_dist = 0.0;
 last_nav_time = 0.0;
-tth_filter = 0.0;
+ap_enable = 0;
 
 
 #############################################################################
@@ -51,9 +55,11 @@ tth_filter = 0.0;
 
 INIT = func {
     # default values
-    setprop("/instrumentation/kfc200/fdmode", "off");
+    setprop("/instrumentation/kfc200/hdgmode", "off");
+    setprop("/instrumentation/kfc200/altmode", "off");
     setprop("/instrumentation/kfc200/vbar-pitch", 0.0);
     setprop("/instrumentation/kfc200/vbar-roll", 0.0);
+    setprop("/instrumentation/kfc200/ap-enable", 0);
 }
 settimer(INIT, 0);
 
@@ -71,17 +77,22 @@ handle_inputs = func {
 #############################################################################
 
 update_mode = func {
-    fdmode = getprop("/instrumentation/kfc200/fdmode");
+    hdgmode = getprop("/instrumentation/kfc200/hdgmode");
+    altmode = getprop("/instrumentation/kfc200/altmode");
 
     # compute elapsed time since last iteration
     nav_time = getprop("/sim/time/elapsed-sec");
     nav_dt = nav_time - last_nav_time;
     last_nav_time = nav_time;
 
-    if ( fdmode == "nav-arm" ) {
+    ###
+    ### FIXME: check conditions for starting out in coupled mode
+    ###
+
+    if ( hdgmode == "nav-arm" ) {
         curhdg = getprop("/orientation/heading-magnetic-deg");
         tgtrad = getprop("/instrumentation/nav/radials/selected-deg");
-        tth = getprop("/instrumentation/nav/time-to-intercept-sec");
+        time_to_int_sec = getprop("/instrumentation/nav/time-to-intercept-sec");
         if ( tgtrad == nil or tgtrad == "" ) {
             tgtrad = 0.0;
         }
@@ -93,17 +104,18 @@ update_mode = func {
         }
 
         # standard rate turn is 3 dec/sec
-        roll_out_time_sec = abs(diff) / 3.0;
+        time_to_hdg_sec = abs(diff) / 3.0;
+        time_to_hdg_sec = time_to_hdg_sec + 10; # 5 seconds to roll in, 5 out
 
-        # print("tth = ", tth, " hdgdiff = ", diff, " rollout = ", roll_out_time_sec );
-        if ( roll_out_time_sec >= abs(tth) ) {
+        # print("tti = ", time_to_int_sec, " hdgdiff = ", diff, " rollout = ", time_to_hdg_sec );
+        if ( time_to_hdg_sec >= abs(time_to_int_sec) ) {
             # switch from arm to cpld
-            fdmode = "nav-cpld";
+            hdgmode = "nav-cpld";
         }
 
     }
 
-    setprop("/instrumentation/kfc200/fdmode", fdmode);
+    setprop("/instrumentation/kfc200/hdgmode", hdgmode);
 }
 
 
@@ -113,95 +125,66 @@ update_mode = func {
 
 update_vbar = func {
     aircraft_bank = getprop("/orientation/roll-deg");
+    if ( aircraft_bank == nil ) { aircraft_bank = 0; }
     aircraft_pitch = getprop("/orientation/pitch-deg");
+    if ( aircraft_pitch == nil ) { aircraft_pitch = 0; }
 
-    if ( fdmode == "fd" ) {        
+    if ( hdgmode == "fd" ) {        
         # wings level maintain pitch at time of mode activation
-        if ( fdmode_last != "fd" ) {
+        if ( hdgmode_last != "fd" ) {
             vbar_bank = 0.0;
             vbar_pitch = aircraft_pitch;
         }
-    } elsif ( fdmode == "hdg" or fdmode == "nav-arm" ) {
-        # FIXME: at what angle off of the hdg bug do we start the rollout?
-        # bank to track heading bug
-        if ( fdmode == "hdg" and fdmode_last != "hdg" ) {
+        setprop("/autopilot/locks/heading", "wing-leveler");
+    } elsif ( hdgmode == "hdg" or hdgmode == "nav-arm" ) {
+        if ( hdgmode == "hdg" and hdgmode_last != "hdg" ) {
             vbar_pitch = aircraft_pitch;
         }
-        if ( fdmode == "nav-arm" and fdmode_last != "nav-arm" ) {
+        if ( hdgmode == "nav-arm" and hdgmode_last != "nav-arm" ) {
             vbar_pitch = aircraft_pitch;
         }
-
-        bug_error = getprop("/autopilot/internal/fdm-heading-bug-error-deg");
-
-        # max bank = 30, so this means roll out begins at 15 dgs off target hdg
-        bank = 2 * bug_error;
-        if ( bank < -30.0 ) {
-            bank = -30.0;
-        }
-        if ( bank > 30.0 ) {
-            bank = 30.0;
-        }
-        vbar_bank = bank;
-    } elsif ( fdmode == "nav-cpld" ) {
-        curhdg = getprop("/orientation/heading-magnetic-deg");
-        tgtrad = getprop("/instrumentation/nav/radials/selected-deg");
-        toflag = getprop("/instrumentation/nav/to-flag");
-        xtrackoffset
-            = getprop("/instrumentation/nav/crosstrack-heading-error-deg");
-        actrad = 0.0;
-        offset = 0.0;
-        if ( toflag ) {
-            actrad = getprop("/instrumentation/nav/radials/reciprocal-radial-deg");
-            offset = (actrad - tgtrad);
-        } else {
-            actrad = getprop("/instrumentation/nav/radials/actual-deg");
-            offset = (tgtrad - actrad);
-        }
-        if ( offset < -180.0 ) {
-            offset += 360.0;
-        } elsif ( offset > 180.0 ) {
-            offset -= 360.0;
-        }
-
-        # set gain
-        offset *= 3;
-        if ( offset < -90.0 ) { offset = -90.0; }
-        if ( offset > 90.0 ) { offset = 90.0; }
-
-        tgthdg = tgtrad + offset;
-
-        diff = tgthdg - curhdg;
-        if ( diff < -180.0 ) {
-            diff += 360.0;
-        } elsif ( diff > 180.0 ) {
-            diff -= 180.0;
-        }
-        # print("* offset = ", offset, " tgthdg = ", tgthdg, " diff = ", diff);
-
-        hdg_error = getprop("/autopilot/internal/nav1-heading-error-deg");
-        hdg_error -= xtrackoffset;
-        # max bank = 30, so this means roll out begins at 15 dgs off target hdg
-        bank = 2 * hdg_error;
-        if ( bank < -30.0 ) {
-            bank = -30.0;
-        }
-        if ( bank > 30.0 ) {
-            bank = 30.0;
-        }
-        vbar_bank = bank;
-
+        vbar_bank = getprop("/autopilot/internal/target-roll-deg");
+        setprop("/autopilot/locks/heading", "dg-heading-hold");
+    } elsif ( hdgmode == "nav-cpld" ) {
+        vbar_bank = getprop("/autopilot/internal/target-roll-deg");
+        setprop("/autopilot/locks/heading", "nav1-hold");
     } else {
         # assume off if nothing else specified, and hide vbars
         vbar_bank = 0.0;
-        vbar_pitch= 180.0;
+        setprop("/autopilot/locks/heading", "");
     }
 
-    fdmode_last = fdmode;
+    if ( altmode == "alt" ) {
+
+        if ( altmode_last != "alt" ) {
+            current_alt
+                = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+            if ( current_alt == nil ) { current_alt = 0.0; }
+            setprop("/autopilot/settings/target-altitude-ft", current_alt);
+        }
+        vbar_pitch = getprop("/autopilot/settings/target-pitch-deg");
+        setprop("/autopilot/locks/altitude", "altitude-hold");
+    } else {
+        vbar_pitch= -180.0;
+        setprop("/autopilot/locks/altitude", "");
+    }
+
+    hdgmode_last = hdgmode;
+    altmode_last = altmode;
 
     # set vbar properties
+    if ( vbar_bank == nil ) { vbar_bank = 0; }
+    if ( vbar_pitch == nil ) { vbar_pitch = 0; }
     setprop("/instrumentation/kfc200/vbar-roll", aircraft_bank - vbar_bank);
     setprop("/instrumentation/kfc200/vbar-pitch", vbar_pitch - aircraft_pitch);
-    
+
+    # configure flightgear AP
+    ap_enable = getprop("/instrumentation/kfc200/ap-enable");
+    if ( ap_enable == 1 ) {
+        setprop("/autopilot/locks/passive-mode", 0);
+    } else {
+        setprop("/autopilot/locks/passive-mode", 1);
+    }
 }
 
 
