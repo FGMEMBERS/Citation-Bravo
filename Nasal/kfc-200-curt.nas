@@ -33,10 +33,13 @@
 # yd - Yaw Damper: system senses motion around ayw axis and moves rudder to
 #                  oppose yaw.
 
+fdmode = 0;
 hdgmode = "off";
 altmode = "off";
+setprop("/instrumentation/kfc200/fdmode", fdmode);
 setprop("/instrumentation/kfc200/hdgmode", hdgmode);
 setprop("/instrumentation/kfc200/altmode", altmode);
+fdmode_last = 0;
 hdgmode_last = "off";
 altmode_last = "off";
 target_alt = 0;
@@ -55,9 +58,10 @@ ap_enable = 0;
 
 INIT = func {
     # default values
-    setprop("/instrumentation/kfc200/hdgmode", "off");
-    setprop("/instrumentation/kfc200/altmode", "off");
-    setprop("/instrumentation/kfc200/vbar-pitch", 0.0);
+    setprop("/instrumentation/kfc200/fdmode", fdmode);
+    setprop("/instrumentation/kfc200/hdgmode", hdgmode);
+    setprop("/instrumentation/kfc200/altmode", altmode);
+    setprop("/instrumentation/kfc200/vbar-pitch", -180.0);
     setprop("/instrumentation/kfc200/vbar-roll", 0.0);
     setprop("/instrumentation/kfc200/ap-enable", 0);
 }
@@ -77,6 +81,7 @@ handle_inputs = func {
 #############################################################################
 
 update_mode = func {
+    fdmode = getprop("/instrumentation/kfc200/fdmode");
     hdgmode = getprop("/instrumentation/kfc200/hdgmode");
     altmode = getprop("/instrumentation/kfc200/altmode");
 
@@ -85,11 +90,16 @@ update_mode = func {
     nav_dt = nav_time - last_nav_time;
     last_nav_time = nav_time;
 
+    if ( !fdmode ) {
+        return;
+    }
+
     ###
     ### FIXME: check conditions for starting out in coupled mode
     ###
 
-    if ( hdgmode == "nav-arm" ) {
+    if ( hdgmode == "nav-arm" or hdgmode == "appr-arm" ) {
+        # logic to determine when to switch from arm to coupled mode
         curhdg = getprop("/orientation/heading-magnetic-deg");
         tgtrad = getprop("/instrumentation/nav/radials/selected-deg");
         time_to_int_sec = getprop("/instrumentation/nav/time-to-intercept-sec");
@@ -107,15 +117,37 @@ update_mode = func {
         time_to_hdg_sec = abs(diff) / 3.0;
         time_to_hdg_sec = time_to_hdg_sec + 10; # 5 seconds to roll in, 5 out
 
-        # print("tti = ", time_to_int_sec, " hdgdiff = ", diff, " rollout = ", time_to_hdg_sec );
+        # print("tti = ", time_to_int_sec, " hdgdiff = ", diff,
+        #       " rollout = ", time_to_hdg_sec );
+
         if ( time_to_hdg_sec >= abs(time_to_int_sec) ) {
             # switch from arm to cpld
-            hdgmode = "nav-cpld";
+            if ( hdgmode == "nav-arm" ) {
+                hdgmode = "nav-cpld";
+            } elsif ( hdgmode == "appr-arm" ) {
+                hdgmode = "appr-cpld";
+            }
         }
+    }
 
+    if ( hdgmode == "appr-arm" or hdgmode == "appr-cpld" ) {
+        # logic to capture the glide slope when in approach mode
+        has_gs = props.globals.getNode("/instrumentation/nav/has-gs");
+        if ( has_gs.getBoolValue() ) {
+            gs_needle = getprop("/instrumentation/nav/gs-needle-deflection");
+            if ( gs_needle > -2.5 and gs_needle < 2.5 ) {
+                # capture the glide slope if within 0.5 degrees by switching
+                # to gs altitude mode.  (2.5 = 0.5 * 5, FG has an odd 5x factor
+                # that came from some unknown place but it hard to get rid of
+                # because so many instruments are build with this converstion
+                # factor
+                altmode = "gs";
+            }
+        }
     }
 
     setprop("/instrumentation/kfc200/hdgmode", hdgmode);
+    setprop("/instrumentation/kfc200/altmode", altmode);
 }
 
 
@@ -129,62 +161,74 @@ update_vbar = func {
     aircraft_pitch = getprop("/orientation/pitch-deg");
     if ( aircraft_pitch == nil ) { aircraft_pitch = 0; }
 
-    if ( hdgmode == "fd" ) {        
-        # wings level maintain pitch at time of mode activation
-        if ( hdgmode_last != "fd" ) {
-            vbar_bank = 0.0;
-            vbar_pitch = aircraft_pitch;
-        }
-        setprop("/autopilot/locks/heading", "wing-leveler");
-    } elsif ( hdgmode == "hdg" or hdgmode == "nav-arm" ) {
-        if ( hdgmode == "hdg" and hdgmode_last != "hdg" ) {
-            vbar_pitch = aircraft_pitch;
-        }
-        if ( hdgmode == "nav-arm" and hdgmode_last != "nav-arm" ) {
-            vbar_pitch = aircraft_pitch;
-        }
-        vbar_bank = getprop("/autopilot/internal/target-roll-deg");
-        setprop("/autopilot/locks/heading", "dg-heading-hold");
-    } elsif ( hdgmode == "nav-cpld" ) {
-        vbar_bank = getprop("/autopilot/internal/target-roll-deg");
-        setprop("/autopilot/locks/heading", "nav1-hold");
-    } else {
-        # assume off if nothing else specified, and hide vbars
+    if ( fdmode == 0 ) {
+        # fd off
+        # hide vbars, no autopilot modes, disable autopilot
         vbar_bank = 0.0;
-        setprop("/autopilot/locks/heading", "");
-    }
-
-    if ( altmode == "alt" ) {
-
-        if ( altmode_last != "alt" ) {
-            current_alt
-                = getprop("/instrumentation/altimeter/indicated-altitude-ft");
-            if ( current_alt == nil ) { current_alt = 0.0; }
-            setprop("/autopilot/settings/target-altitude-ft", current_alt);
-        }
-        vbar_pitch = getprop("/autopilot/settings/target-pitch-deg");
-        setprop("/autopilot/locks/altitude", "altitude-hold");
-    } else {
         vbar_pitch= -180.0;
+        setprop("/autopilot/locks/heading", "");
         setprop("/autopilot/locks/altitude", "");
+        setprop("/autopilot/locks/passive-mode", 0);
+    } else {
+        if ( hdgmode == "hdg" or hdgmode == "nav-arm" 
+             or hdgmode == "appr-arm" ) {
+            # track heading bug
+            if ( hdgmode == "hdg" and hdgmode_last != "hdg" ) {
+                setprop("/autopilot/settings/target-pitch-deg", aircraft_pitch);
+            }
+            if ( hdgmode == "nav-arm" and hdgmode_last != "nav-arm" ) {
+                setprop("/autopilot/settings/target-pitch-deg", aircraft_pitch);
+            }
+            if ( hdgmode == "appr-arm" and hdgmode_last != "appr-arm" ) {
+                setprop("/autopilot/settings/target-pitch-deg", aircraft_pitch);
+            }
+            setprop("/autopilot/locks/heading", "dg-heading-hold");
+        } elsif ( hdgmode == "nav-cpld" or hdgmode == "appr-cpld" ) {
+            # track nav1 cdi
+            setprop("/autopilot/locks/heading", "nav1-hold");
+        } else {
+            # simple wing leveler
+            if ( hdgmode_last != "" ) {
+                setprop("/autopilot/settings/target-pitch-deg", aircraft_pitch);
+            }
+            setprop("/autopilot/internal/target-roll-deg", 0);
+            setprop("/autopilot/locks/heading", "wing-leveler");
+        }
+
+        if ( altmode == "alt" ) {
+            if ( altmode_last != "alt" ) {
+                current_alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+                if ( current_alt == nil ) { current_alt = 0.0; }
+                setprop("/autopilot/settings/target-altitude-ft", current_alt);
+            }
+            setprop("/autopilot/locks/altitude", "altitude-hold");
+        } elsif ( altmode == "gs" ) {
+            setprop("/autopilot/locks/altitude", "gs1-hold");
+        } else {
+            setprop("/autopilot/locks/altitude", "pitch-hold");
+        }
+
+        # configure flightgear AP
+        ap_enable = getprop("/instrumentation/kfc200/ap-enable");
+        if ( ap_enable == 1 ) {
+            setprop("/autopilot/locks/passive-mode", 0);
+        } else {
+            setprop("/autopilot/locks/passive-mode", 1);
+        }
+
+        vbar_bank = getprop("/autopilot/internal/target-roll-deg");
+        if ( vbar_bank == nil ) { vbar_bank = 0; }
+        vbar_pitch = getprop("/autopilot/settings/target-pitch-deg");
+        if ( vbar_pitch == nil ) { vbar_pitch = 0; }
     }
 
+    fdmode_last = fdmode;
     hdgmode_last = hdgmode;
     altmode_last = altmode;
 
-    # set vbar properties
-    if ( vbar_bank == nil ) { vbar_bank = 0; }
-    if ( vbar_pitch == nil ) { vbar_pitch = 0; }
+    # set vbar position properties
     setprop("/instrumentation/kfc200/vbar-roll", aircraft_bank - vbar_bank);
     setprop("/instrumentation/kfc200/vbar-pitch", vbar_pitch - aircraft_pitch);
-
-    # configure flightgear AP
-    ap_enable = getprop("/instrumentation/kfc200/ap-enable");
-    if ( ap_enable == 1 ) {
-        setprop("/autopilot/locks/passive-mode", 0);
-    } else {
-        setprop("/autopilot/locks/passive-mode", 1);
-    }
 }
 
 
