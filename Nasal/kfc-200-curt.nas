@@ -94,12 +94,10 @@ update_mode = func {
         return;
     }
 
-    ###
-    ### FIXME: check conditions for starting out in coupled mode
-    ###
-
     if ( hdgmode == "nav-arm" or hdgmode == "appr-arm" ) {
-        # logic to determine when to switch from arm to coupled mode
+        # logic to determine when to switch from arm to coupled mode in time
+        # to prevent overshoot
+
         curhdg = getprop("/orientation/heading-magnetic-deg");
         tgtrad = getprop("/instrumentation/nav/radials/selected-deg");
         time_to_int_sec = getprop("/instrumentation/nav/time-to-intercept-sec");
@@ -128,6 +126,22 @@ update_mode = func {
                 hdgmode = "appr-cpld";
             }
         }
+
+        # logic to determine if we are close enough to go straight to coupled
+        # mode
+
+        aircraft_bank = getprop("/orientation/roll-deg");
+        if ( aircraft_bank >= -4 and aircraft_bank <= 4 ) {
+            cdi = getprop("/instrumentation/nav/heading-needle-deflection");
+            if ( cdi >= -3 and cdi <= 3 ) {
+                if ( hdgmode == "nav-arm" ) {
+                    hdgmode = "nav-cpld";
+                } elsif ( hdgmode == "appr-arm" ) {
+                    hdgmode = "appr-cpld";
+                }
+            }
+        }
+
     }
 
     if ( hdgmode == "appr-arm" or hdgmode == "appr-cpld" ) {
