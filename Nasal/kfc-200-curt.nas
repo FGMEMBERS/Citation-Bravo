@@ -33,22 +33,29 @@
 # yd - Yaw Damper: system senses motion around ayw axis and moves rudder to
 #                  oppose yaw.
 
+# initialize nasal values
 fdmode = 0;
-hdgmode = "off";
-altmode = "off";
-setprop("/instrumentation/kfc200/fdmode", fdmode);
-setprop("/instrumentation/kfc200/hdgmode", hdgmode);
-setprop("/instrumentation/kfc200/altmode", altmode);
+hdgmode = "";
+bcmode = 0;
+altmode = "";
 fdmode_last = 0;
-hdgmode_last = "off";
-altmode_last = "off";
+hdgmode_last = hdgmode;
+altmode_last = altmode;
 target_alt = 0;
 vbar_bank = 0.0;
-vbar_pitch = 0.0;
+vbar_pitch = -180.0;
 nav_dist = 0.0;
 last_nav_dist = 0.0;
 last_nav_time = 0.0;
 ap_enable = 0;
+
+# initialize property values
+setprop("/instrumentation/kfc200/fdmode", fdmode);
+setprop("/instrumentation/kfc200/hdgmode", hdgmode);
+setprop("/instrumentation/kfc200/altmode", altmode);
+setprop("/instrumentation/kfc200/vbar-pitch", vbar_pitch);
+setprop("/instrumentation/kfc200/vbar-roll", vbar_bank);
+setprop("/instrumentation/kfc200/ap-enable", ap_enable);
 
 
 #############################################################################
@@ -57,13 +64,8 @@ ap_enable = 0;
 #############################################################################
 
 INIT = func {
-    # default values
-    setprop("/instrumentation/kfc200/fdmode", fdmode);
-    setprop("/instrumentation/kfc200/hdgmode", hdgmode);
-    setprop("/instrumentation/kfc200/altmode", altmode);
-    setprop("/instrumentation/kfc200/vbar-pitch", -180.0);
-    setprop("/instrumentation/kfc200/vbar-roll", 0.0);
-    setprop("/instrumentation/kfc200/ap-enable", 0);
+    # put any onetime initialization code here that needs to run after
+    # everythiing else is fully initialized.
 }
 settimer(INIT, 0);
 
@@ -81,8 +83,8 @@ handle_inputs = func {
 #############################################################################
 
 update_mode = func {
-    fdmode = getprop("/instrumentation/kfc200/fdmode");
     hdgmode = getprop("/instrumentation/kfc200/hdgmode");
+    bcmode = getprop("/instrumentation/nav/back-course-btn");
     altmode = getprop("/instrumentation/kfc200/altmode");
 
     # compute elapsed time since last iteration
@@ -90,6 +92,8 @@ update_mode = func {
     nav_dt = nav_time - last_nav_time;
     last_nav_time = nav_time;
 
+    fdNode = props.globals.getNode("/instrumentation/kfc200/fdmode");
+    fdmode = fdNode.getBoolValue();
     if ( !fdmode ) {
         return;
     }
@@ -146,8 +150,8 @@ update_mode = func {
 
     if ( hdgmode == "appr-arm" or hdgmode == "appr-cpld" ) {
         # logic to capture the glide slope when in approach mode
-        has_gs = props.globals.getNode("/instrumentation/nav/has-gs");
-        if ( has_gs.getBoolValue() ) {
+        has_gsNode = props.globals.getNode("/instrumentation/nav/has-gs");
+        if ( has_gsNode.getBoolValue() ) {
             gs_needle = getprop("/instrumentation/nav/gs-needle-deflection");
             if ( gs_needle > -2.5 and gs_needle < 2.5 ) {
                 # capture the glide slope if within 0.5 degrees by switching
@@ -155,12 +159,16 @@ update_mode = func {
                 # that came from some unknown place but it hard to get rid of
                 # because so many instruments are build with this converstion
                 # factor
-                altmode = "gs";
+                altmode = "glide-slope";
             }
         }
+    } else {
+        # BC mode (can only be active in appr mode)
+        bcmode = 0;
     }
 
     setprop("/instrumentation/kfc200/hdgmode", hdgmode);
+    setprop("/instrumentation/nav/back-course-btn", bcmode);
     setprop("/instrumentation/kfc200/altmode", altmode);
 }
 
@@ -175,7 +183,7 @@ update_vbar = func {
     aircraft_pitch = getprop("/orientation/pitch-deg");
     if ( aircraft_pitch == nil ) { aircraft_pitch = 0; }
 
-    if ( fdmode == 0 ) {
+    if ( !fdmode ) {
         # fd off
         # hide vbars, no autopilot modes, disable autopilot
         vbar_bank = 0.0;
@@ -184,6 +192,7 @@ update_vbar = func {
         setprop("/autopilot/locks/altitude", "");
         setprop("/autopilot/locks/passive-mode", 0);
     } else {
+        # handle heading modes
         if ( hdgmode == "hdg" or hdgmode == "nav-arm" 
              or hdgmode == "appr-arm" ) {
             # track heading bug
@@ -200,8 +209,16 @@ update_vbar = func {
         } elsif ( hdgmode == "nav-cpld" or hdgmode == "appr-cpld" ) {
             # track nav1 cdi
             setprop("/autopilot/locks/heading", "nav1-hold");
+        } elsif ( hdgmode == "go-around" ) {
+            # go around mode (wing leveler with fixed pitch up)
+
+            # WAG, pitch up to 5 degrees?  We want a conservative
+            # value I think.
+            setprop("/autopilot/settings/target-pitch-deg", 5);
+            setprop("/autopilot/internal/target-roll-deg", 0);
+            setprop("/autopilot/locks/heading", "wing-leveler");
         } else {
-            # simple wing leveler
+            # wing leveler with fixed pitch
             if ( hdgmode_last != "" ) {
                 setprop("/autopilot/settings/target-pitch-deg", aircraft_pitch);
             }
@@ -209,6 +226,7 @@ update_vbar = func {
             setprop("/autopilot/locks/heading", "wing-leveler");
         }
 
+        # handle vertical modes
         if ( altmode == "alt" ) {
             if ( altmode_last != "alt" ) {
                 current_alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
@@ -216,15 +234,16 @@ update_vbar = func {
                 setprop("/autopilot/settings/target-altitude-ft", current_alt);
             }
             setprop("/autopilot/locks/altitude", "altitude-hold");
-        } elsif ( altmode == "gs" ) {
+        } elsif ( altmode == "glide-slope" ) {
             setprop("/autopilot/locks/altitude", "gs1-hold");
         } else {
             setprop("/autopilot/locks/altitude", "pitch-hold");
         }
 
         # configure flightgear AP
-        ap_enable = getprop("/instrumentation/kfc200/ap-enable");
-        if ( ap_enable == 1 ) {
+        apNode = props.globals.getNode("/instrumentation/kfc200/ap-enable");
+        ap_enable = apNode.getBoolValue();
+        if ( ap_enable ) {
             setprop("/autopilot/locks/passive-mode", 0);
         } else {
             setprop("/autopilot/locks/passive-mode", 1);
