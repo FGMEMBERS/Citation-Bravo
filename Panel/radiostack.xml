@@ -514,7 +514,7 @@ Allied Signal CNI-5000 radio stack
      <button>0</button>
      <x>38</x>
      <y>-35</y>
-     <w>`12</w>
+     <w>12</w>
      <h>16</h>
      <binding>
        <command>property-adjust</command>
