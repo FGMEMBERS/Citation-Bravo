@@ -14,9 +14,9 @@ nm_calc=0.0;
 
 
 strobe_switch = props.globals.getNode("controls/switches/strobe", 1);
-aircraft.light.new("sim/model/Bravo/lighting/strobe", 0.05, 1.50, strobe_switch);
+aircraft.light.new("sim/model/Bravo/lighting/strobe", [0.05, 1.50], strobe_switch);
 beacon_switch = props.globals.getNode("controls/switches/beacon", 1);
-aircraft.light.new("sim/model/Bravo/lighting/beacon", 1.0, 1.0, beacon_switch);
+aircraft.light.new("sim/model/Bravo/lighting/beacon", [1.0, 1.0], beacon_switch);
 
 init_controls = func {
 setprop("/instrumentation/gps/wp/wp/waypoint-type","airport");
