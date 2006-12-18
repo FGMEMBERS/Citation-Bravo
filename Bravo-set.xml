@@ -80,6 +80,8 @@ Feb 2005  Syd Adams   ()
     <model>
         <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
       <material>
+      
+      
         
         <instruments>
           <diffuse>
@@ -141,6 +143,27 @@ Feb 2005  Syd Adams   ()
       </material>
     </model>
 
+        <weight n="0">
+        <name>Crew</name>
+        <weight-lb>180</weight-lb> 
+        <max-lb>400</max-lb>
+       <min-lb>180</min-lb>
+        </weight>
+
+        <weight n="1">
+        <name>Passengers</name>
+        <weight-lb>700</weight-lb> 
+        <max-lb>1500</max-lb>
+        <min-lb>0</min-lb>      
+        </weight>
+
+        <replay>
+        <disable>1</disable>
+        </replay>
+
+        <multiplay>
+        <chat_display>1</chat_display>
+        </multiplay>
     
   </sim>
 
@@ -151,14 +174,6 @@ Feb 2005  Syd Adams   ()
     <nav2pointer type="double">0.0</nav2pointer>
   </primus1000>
 </instrumentation>
-
-  <yasim>
-    <Bravo>
-      <pilot-lbs>180</pilot-lbs>
-      <copilot-lbs>190</copilot-lbs>
-      <passenger-lbs>700</passenger-lbs>
-    </Bravo>
-  </yasim>
 
   <nasal>
     <Bravo>

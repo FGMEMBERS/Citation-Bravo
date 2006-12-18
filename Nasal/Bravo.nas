@@ -1,24 +1,22 @@
-rev1 = nil;
-r1 = nil;
-r2 = nil;
-v1 = nil;
-cl = 0.0;
-c2 = 0.0;
-hpsi = 0.0;
-pph1=0.0;
-pph2=0.0;
-fuel_density=0.0;
-n_offset=0;
-nm_calc=0.0;
-
-
-
+var rev1 = nil;
+var r1 = nil;
+var r2 = nil;
+var v1 = nil;
+var cl = 0.0;
+var c2 = 0.0;
+var hpsi = 0.0;
+var pph1=0.0;
+var pph2=0.0;
+var fuel_density=0.0;
+var n_offset=0;
+var nm_calc=0.0;
+var FDM=0;
 strobe_switch = props.globals.getNode("controls/switches/strobe", 1);
 aircraft.light.new("sim/model/Bravo/lighting/strobe", [0.05, 1.50], strobe_switch);
 beacon_switch = props.globals.getNode("controls/switches/beacon", 1);
 aircraft.light.new("sim/model/Bravo/lighting/beacon", [1.0, 1.0], beacon_switch);
 
-init_controls = func {
+_setlistener("/sim/signals/fdm-initialized", func {
 setprop("/instrumentation/gps/wp/wp/waypoint-type","airport");
 setprop("/instrumentation/gps/wp/wp/ID",getprop("/sim/tower/airport-id"));
 setprop("/instrumentation/gps/serviceable","true");
@@ -31,7 +29,7 @@ setprop("/controls/gear/brake-parking",1.0);
 setprop("/instrumentation/annunciator/master-caution",0.0);
 setprop("/systems/hydraulic/pump-psi[0]",0.0);
 setprop("/systems/hydraulic/pump-psi[1]",0.0);
-fuel_density=getprop("consumables/fuel/tank[0]/density-ppg");
+var fuel_density=getprop("consumables/fuel/tank[0]/density-ppg");
 setprop("/instrumentation/primus1000/nav1pointer",0.0);
 setprop("/instrumentation/primus1000/nav2pointer",0.0);
 setprop("/instrumentation/primus1000/nav1pointer-heading-offset",0.0);
@@ -39,10 +37,8 @@ setprop("/instrumentation/primus1000/nav2pointer-heading-offset",0.0);
 setprop("/instrumentation/primus1000/ra-mode",0.0);
 setprop("/instrumentation/primus1000/nav-dist-nm",0.0);
 print("Aircraft systems initialized");
-}
-settimer(init_controls, 0);
-
-
+FDM=1;
+},1);
 
 
 ToggleReverser = func {
@@ -66,6 +62,7 @@ setprop("/instrumentation/annunciator/master-caution",0.0);
 }
 
 update_systems = func {
+if(FDM !=0){
 cl = getprop("/systems/electrical/outputs/cabin-lights");
 if(cl == nil){cl = 0.0;}
 if( cl > 0.2 ){
@@ -135,5 +132,5 @@ setprop("/instrumentation/primus1000/nav-dist-nm",nm_calc);
 }
 
 settimer(update_systems,0);
-}
+} }
 settimer(update_systems,0);
