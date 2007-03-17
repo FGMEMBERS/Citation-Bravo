@@ -28,8 +28,7 @@ update_gforce = func {
 	if(getprop("/sim/current-view/view-number") < 1){
 		setprop("/sim/current-view/y-offset-m",eyepoint);
 		}
-	update_sounds();
-	settimer(gforce, 0);
+	settimer(update_gforce, 0);
 }
 
 update_lighting = func {
