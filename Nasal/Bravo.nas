@@ -7,18 +7,11 @@ strobe_switch = props.globals.getNode("controls/switches/strobe", 1);
 aircraft.light.new("sim/model/Bravo/lighting/strobe", [0.05, 1.50], strobe_switch);
 beacon_switch = props.globals.getNode("controls/switches/beacon", 1);
 aircraft.light.new("sim/model/Bravo/lighting/beacon", [1.0, 1.0], beacon_switch);
-Reverser = props.globals.getNode("/surface-positions/reverser-norm",1);
 
 setlistener("/sim/signals/fdm-initialized", func {
-	Reverser.setValue(0.0);
 	setprop("/environment/turbulence/use-cloud-turbulence","true");
 	setprop("/instrumentation/annunciator/master-caution",0.0);
 });
-
-setlistener("/controls/engines/engine/reverser", func {
-    rvrs = cmdarg().getValue();
-    interpolate(Reverser,rvrs, 1.4);
-});	 
 
 update_gforce = func {
 	force = getprop("/accelerations/pilot-g");
@@ -28,7 +21,6 @@ update_gforce = func {
 	if(getprop("/sim/current-view/view-number") < 1){
 		setprop("/sim/current-view/y-offset-m",eyepoint);
 		}
-	settimer(update_gforce, 0);
 }
 
 update_lighting = func {

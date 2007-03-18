@@ -237,7 +237,7 @@
       <condition>
         <and>
 		<greater-than>
-          <property>/controls/engines/reverser-position</property>
+          <property>/surface-positions/reverser-norm</property>
 		  <value>0</value>
 		  </greater-than>
           <equals>
@@ -249,7 +249,7 @@
  <path>Sounds/exhaust_loop.wav</path>
  <mode>looped</mode>
       <volume>
-        <property>/controls/engines/reverser-position</property>
+        <property>/surface-positions/reverser-norm</property>
         <factor>0.5</factor>\
 		<min>0.0</min>
 		<max>0.5</max>
@@ -269,7 +269,7 @@
       <condition>
 	  <and>
           <greater-than>
-	  <property>/controls/engines/reverser-position</property>
+	  <property>/surface-positions/reverser-norm</property>
 		<value>0</value>
 		</greater-than>
           <greater-than>
@@ -281,7 +281,7 @@
       <path>Sounds/exhaust_loop.wav</path>
       <mode>looped</mode>
       <volume>
-        <property>/controls/engines/reverser-position</property>
+        <property>/surface-positions/reverser-norm</property>
       </volume>
 	  <pitch>
       <offset>1.5</offset>
