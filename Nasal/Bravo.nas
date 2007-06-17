@@ -13,16 +13,6 @@ setlistener("/sim/signals/fdm-initialized", func {
 	setprop("/instrumentation/annunciator/master-caution",0.0);
 });
 
-update_gforce = func {
-	force = getprop("/accelerations/pilot-g");
-	if(force == nil) {force = 1.0;}
-	eyepoint = getprop("sim/view/config/y-offset-m") +0.01;
-	eyepoint -= (force * 0.01);
-	if(getprop("/sim/current-view/view-number") < 1){
-		setprop("/sim/current-view/y-offset-m",eyepoint);
-		}
-}
-
 update_lighting = func {
 	cl = getprop("/systems/electrical/outputs/cabin-lights");
 	if(cl == nil){cl = 0.0;}
@@ -31,16 +21,15 @@ update_lighting = func {
 		}else{setprop("/sim/model/material/cabin/factor", 0.0);}
 
 	cl = getprop("/systems/electrical/outputs/instrument-lights");
-	if(cl == nil){cl = 0.0;} 
+	if(cl == nil){cl = 0.0;}
 	if( cl > 0.2 ){
 		setprop("/sim/model/material/instruments/factor", cl * 0.033);
 		}else{setprop("/sim/model/material/instruments/factor", 0.0);}
 }
 
 update_systems = func {
-	update_gforce();
 	update_lighting();
 	settimer(update_systems,0);
-} 
+}
 	settimer(update_systems,0);
 
