@@ -193,6 +193,14 @@ Feb 2005  Syd Adams   ()
 			<brake-parking>1</brake-parking>
 		</gear>
 	</controls>
+    <engines>
+        <engine n="0">
+            <running>false</running>
+        </engine>
+        <engine n="1">
+            <running>false</running>
+        </engine>
+    </engines>
 
   	<nasal>
     	<Bravo>

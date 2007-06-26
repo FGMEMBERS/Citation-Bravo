@@ -1985,5 +1985,25 @@
     		</greater-than>
   		</condition>
 	</animation>
+	
+	<animation>
+  		<type>rotate</type>
+  		<object-name>AoA.needle</object-name>
+  		<property>orientation/alpha-deg</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>13.0</ind><dep>220</dep></entry>
+        </interpolation>
+  		<axis>
+      		<x>0.985</x>
+      		<y>0.0</y>
+      		<z>0.174</z>
+		</axis>
+  		<center>
+   			<x-m>2.410</x-m>
+   			<y-m>-0.471</y-m>
+			<z-m>0.742</z-m>
+		</center>
+	</animation>
 
 </PropertyList>
