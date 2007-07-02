@@ -5,53 +5,39 @@
   <fx>
 
     <engine>
-      <name>left engine</name>
-      <condition>
-        <and>
-          <property>/engines/engine[0]/running</property>
-          <greater-than>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </greater-than>
-        </and>
-      </condition>
-      <path>Sounds/jet.wav</path>
-      <mode>looped</mode>
-      <volume>
-        <property>/engines/engine[0]/thrust-lbs</property>
-        <factor>0.00035</factor>
-        <min>0.1</min>
-        <max>1.0</max>
-      </volume>
-      <position>
+        <name>left engine</name>
+        <condition>
+            <property>/engines/engine[0]/running</property>
+        </condition>
+        <path>Sounds/jet.wav</path>
+        <mode>looped</mode>
+        <volume>
+            <property>/engines/engine[0]/thrust-lbs</property>
+            <factor>0.00035</factor>
+        </volume>
+        <volume>
+        <property>/sim/sound/Ovolume</property>
+        </volume>
+        <position>
         <x>-1.3</x>
         <y>0.3</y>
         <z>10.0</z>
       </position>
     </engine>
-    
+
     <engine>
       <name>left n1</name>
       <condition>
-        <and>
           <property>/engines/engine[0]/running</property>
-          <greater-than>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </greater-than>
-        </and>
       </condition>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <volume>
-       <property>/engines/engine[0]/running</property>
-        <factor>0.5</factor>
+       <property>/sim/sound/Ovolume</property>
       </volume>
       <pitch>
         <property>/engines/engine[0]/n1</property>
         <factor>0.01</factor>
-        <min>0.0</min>
-        <max>0.8</max>
       </pitch>
       <position>
         <x>-1.3</x>
@@ -63,21 +49,16 @@
     <engine>
       <name>right engine</name>
       <condition>
-        <and>
           <property>/engines/engine[1]/running</property>
-          <greater-than>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </greater-than>
-        </and>
       </condition>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
       <volume>
         <property>/engines/engine[1]/thrust-lbs</property>
         <factor>0.00035</factor>
-        <min>0.1</min>
-        <max>1.0</max>
+      </volume>
+      <volume>
+        <property>/sim/sound/Ovolume</property>
       </volume>
       <position>
         <x>1.3</x>
@@ -89,25 +70,16 @@
     <engine>
       <name>right n1</name>
       <condition>
-        <and>
           <property>/engines/engine[1]/running</property>
-          <greater-than>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </greater-than>
-        </and>
       </condition>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <volume>
-        <property>/engines/engine[1]/running</property>
-        <factor>0.5</factor>
+        <property>/sim/sound/Ovolume</property>
       </volume>
       <pitch>
         <property>/engines/engine[1]/n1</property>
         <factor>0.01</factor>
-        <min>0.0</min>
-        <max>0.8</max>
       </pitch>
       <position>
         <x>1.3</x>
@@ -115,146 +87,25 @@
         <z>10.0</z>
       </position>
     </engine>
-    
+
     <engine>
-      <name>left engine inside</name>
-      <condition>
-        <and>
-          <property>/engines/engine[0]/running</property>
-          <equals>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </equals>
-        </and>
-      </condition>
-      <path>Sounds/jet.wav</path>
-      <mode>looped</mode>
-      <volume>
-        <property>/engines/engine[0]/thrust-lbs</property>
-        <factor>0.0002</factor>
-        <min>0.0</min>
-        <max>0.2</max>
-      </volume>
-      <position>
-        <x>-1.3</x>
-        <y>0.3</y>
-        <z>10.0</z>
-      </position>
-    </engine>
-    
-    <engine>
-      <name>left n1 inside</name>
-      <condition>
-        <and>
-          <property>/engines/engine[0]/running</property>
-          <equals>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </equals>
-        </and>
-      </condition>
-      <path>Sounds/whine.wav</path>
-      <mode>looped</mode>
-      <volume>
-        <property>/engines/engine[0]/running</property>
-        <factor>0.3</factor>
-		<min>0.0</min>
-		<max>0.2</max>
-      </volume>
-      <pitch>
-        <property>/engines/engine[0]/n1</property>
-        <factor>0.01</factor>
-        <min>0.0</min>
-        <max>1.0</max>
-      </pitch>
-      <position>
-        <x>-1.3</x>
-        <y>0.3</y>
-        <z>10.0</z>
-      </position>
-    </engine>
-    
-    <engine>
-      <name>right engine inside</name>
-      <condition>
-        <and>
-          <property>/engines/engine[1]/running</property>
-          <equals>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </equals>
-        </and>
-      </condition>
-      <path>Sounds/jet.wav</path>
-      <mode>looped</mode>
-      <volume>
-        <property>/engines/engine[1]/thrust-lbs</property>
-        <factor>0.0002</factor>
-        <min>0.0</min>
-        <max>0.2</max>
-      </volume>
-      <position>
-        <x>1.3</x>
-        <y>0.3</y>
-        <z>10.0</z>
-      </position>
-    </engine>
-    
-    <engine>
-      <name>right n1 inside</name>
-      <condition>
-        <and>
-          <property>/engines/engine[1]/running</property>
-          <equals>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </equals>
-        </and>
-      </condition>
-      <path>Sounds/whine.wav</path>
-      <mode>looped</mode>
-      <volume>
-      <property>/engines/engine[1]/running</property>
-        <factor>0.3</factor>
-		<min>0.0</min>
-		<max>0.2</max>
-      </volume>
-      <pitch>
-        <property>/engines/engine[1]/n1</property>
-        <factor>0.01</factor>
-        <min>0.0</min>
-        <max>1.0</max>
-      </pitch>
-      <position>
-        <x>1.3</x>
-        <y>0.3</y>
-        <z>10.0</z>
-      </position>
-    </engine>
-	
-    <engine>
-      <name>reverser inside</name>
-      <condition>
-        <and>
-		<greater-than>
-          <property>/surface-positions/reverser-norm</property>
-		  <value>0</value>
-		  </greater-than>
-          <equals>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </equals>
-        </and>
-      </condition>
- <path>Sounds/exhaust_loop.wav</path>
- <mode>looped</mode>
-      <volume>
+        <name>reverser</name>
+        <condition>
+            <greater-than>
+                <property>/surface-positions/reverser-norm</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        <path>Sounds/exhaust_loop.wav</path>
+        <mode>looped</mode>
+        <volume>
         <property>/surface-positions/reverser-norm</property>
-        <factor>0.5</factor>\
-		<min>0.0</min>
-		<max>0.5</max>
+        <factor>1.0</factor>\
       </volume>
-	  <pitch>
+      <volume>
+        <property>/sim/sound/Ovolume</property>
+      </volume>
+      <pitch>
       <offset>1.5</offset>
       </pitch>
       <position>
@@ -263,38 +114,6 @@
         <z>10.0</z>
       </position>
     </engine>
-
-    <engine>
-      <name>reverser outside</name>
-      <condition>
-	  <and>
-          <greater-than>
-	  <property>/surface-positions/reverser-norm</property>
-		<value>0</value>
-		</greater-than>
-          <greater-than>
-            <property>/sim/current-view/view-number</property>
-            <value>0</value>
-          </greater-than>
-		  </and>
-      </condition>
-      <path>Sounds/exhaust_loop.wav</path>
-      <mode>looped</mode>
-      <volume>
-        <property>/surface-positions/reverser-norm</property>
-      </volume>
-	  <pitch>
-      <offset>1.5</offset>
-      </pitch>
-      <position>
-        <x>0</x>
-        <y>0</y>
-        <z>10.0</z>
-      </position>
-    </engine>
-
-	
-	
 
     <rumble>
       <name>rumble</name>
@@ -308,37 +127,38 @@
         </or>
       </condition>
       <volume>
-        <property>/velocities/airspeed-kt</property>
-        <type>log</type>
-        <factor>0.5</factor>
+        <property>/velocities/groundspeed-kt</property>
+        <factor>0.02</factor>
+        <min>0</min>
+        <max>0.5</max>
       </volume>
     </rumble>
 
     <gear>
-	    <name>gear</name>
-	    <mode>in-transit</mode>
-	    <path>Sounds/gear.wav</path>
-	    <property>gear/gear[0]/position-norm</property>
-	    <pitch>
-		    <internal>dt_play</internal>
-		    <offset>0.8</offset>
-		    <factor>-0.001</factor>
-	    </pitch>
-	    <reference-dist>10.0</reference-dist>
-	    <max-dist>20.0</max-dist>
+        <name>gear</name>
+        <mode>in-transit</mode>
+        <path>Sounds/gear.wav</path>
+        <property>gear/gear[0]/position-norm</property>
+        <pitch>
+            <internal>dt_play</internal>
+            <offset>0.8</offset>
+            <factor>-0.001</factor>
+        </pitch>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
   </gear>
 
     <gear>
-	    <name>gear-lock</name>
-	    <path>Sounds/gear-lck.wav</path>
-	    <condition>
-		    <equals>
-			    <property>gear/gear[0]/position-norm</property>
-			    <value>0</value>
-		    </equals>
-	    </condition>
-	    <reference-dist>10.0</reference-dist>
-	    <max-dist>20.0</max-dist>
+        <name>gear-lock</name>
+        <path>Sounds/gear-lck.wav</path>
+        <condition>
+            <equals>
+                <property>gear/gear[0]/position-norm</property>
+                <value>0</value>
+            </equals>
+        </condition>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
   </gear>
 
     <squeal>
@@ -360,9 +180,7 @@
         <factor>0.01</factor>
       </volume>
       <volume>
-        <internal>dt_stop</internal>
-        <factor>0.05</factor>
-        <max>1.0</max>
+        <property>/sim/sound/Ovolume</property>
       </volume>
       <pitch>
         <property>/velocities/airspeed-kt</property>
@@ -377,6 +195,7 @@
       <path>Sounds/flaps.wav</path>
       <property>/surface-positions/flap-pos-norm</property>
       <volume>
+        <property>/sim/sound/Cvolume</property>
         <factor>0.5</factor>
       </volume>
     </flap>

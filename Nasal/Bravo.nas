@@ -1,35 +1,53 @@
-var v1 = nil;
-var cl = 0.0;
-var c2 = 0.0;
 var FDM=0;
+var ViewNum=0;
+var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
+var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
 
-strobe_switch = props.globals.getNode("controls/switches/strobe", 1);
-aircraft.light.new("sim/model/Bravo/lighting/strobe", [0.05, 1.50], strobe_switch);
-beacon_switch = props.globals.getNode("controls/switches/beacon", 1);
-aircraft.light.new("sim/model/Bravo/lighting/beacon", [1.0, 1.0], beacon_switch);
+var Annun = props.globals.getNode("instrumentation/annunciator",1);
+var MstrWarn =props.globals.getNode("instrumentation/annunciator/master-warning",1);
+var MstrCaution = props.globals.getNode("instrumentation/annunciator/master-caution",1);
 
 setlistener("/sim/signals/fdm-initialized", func {
-	setprop("/environment/turbulence/use-cloud-turbulence","true");
-	setprop("/instrumentation/annunciator/master-caution",0.0);
+    SndIn.setDoubleValue(0.75);
+    SndOut.setDoubleValue(0.25);
+    MstrWarn.setBoolValue(0);
+    MstrCaution.setBoolValue(0);
+    Annun.getNode("fuel-lo",1).setBoolValue(0);
+    Annun.getNode("grnd-idle",1).setBoolValue(1);
+    Annun.getNode("spd-brk",1).setBoolValue(0);
+    settimer(update,1);
 });
 
-update_lighting = func {
-	cl = getprop("/systems/electrical/outputs/cabin-lights");
-	if(cl == nil){cl = 0.0;}
-	if( cl > 0.2 ){
-		setprop("/sim/model/material/cabin/factor", cl * 0.033);
-		}else{setprop("/sim/model/material/cabin/factor", 0.0);}
+setlistener("/sim/current-view/view-number", func {
+    ViewNum= cmdarg().getValue();
+    if(ViewNum ==0){
+    SndIn.setDoubleValue(0.75);
+    SndOut.setDoubleValue(0.15);
+    }else{
+    SndIn.setDoubleValue(0.15);
+    SndOut.setDoubleValue(0.75);
+    }
+});
 
-	cl = getprop("/systems/electrical/outputs/instrument-lights");
-	if(cl == nil){cl = 0.0;}
-	if( cl > 0.2 ){
-		setprop("/sim/model/material/instruments/factor", cl * 0.033);
-		}else{setprop("/sim/model/material/instruments/factor", 0.0);}
+annunciators = func() {
+if(props.globals.getNode("/consumables/fuel/total-fuel-lbs").getValue() < 400){
+    Annun.getNode("fuel-lo").setBoolValue(1);
+}else{
+        Annun.getNode("fuel-lo").setBoolValue(0);
+        }
+
+    Annun.getNode("grnd-idle").setBoolValue(props.globals.getNode("gear/gear[1]/wow").getBoolValue());
+
+if(props.globals.getNode("/surface-positions/spoiler-pos-norm").getValue() == 1.0){
+    Annun.getNode("spd-brk").setBoolValue(1);
+}else{
+        Annun.getNode("spd-brk").setBoolValue(0);
+        }
+
+
 }
 
-update_systems = func {
-	update_lighting();
-	settimer(update_systems,0);
+update = func(){
+annunciators();
+settimer(update,0);
 }
-	settimer(update_systems,0);
-
