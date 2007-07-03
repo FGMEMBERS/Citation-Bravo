@@ -105,63 +105,6 @@ Feb 2005  Syd Adams   ()
 
     <model>
     <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
-    <material>
-        <instruments>
-            <diffuse>
-                <red type="string">1.0</red>
-                <green type="string">1.0</green>
-                <blue type="string">1.0</blue>
-            </diffuse>
-            <ambient>
-                <red type="string">1.0</red>
-                <green type="string">1.0</green>
-                <blue type="string">1.0</blue>
-            </ambient>
-            <specular>
-                <red type="string">0.0</red>
-                <green type="string">0.0</green>
-                <blue type="string">0.0</blue>
-            </specular>
-            <emission>
-                <red type="string">0.8</red>
-                <green type="string">0.8</green>
-                <blue type="string">0.8</blue>
-            </emission>
-            <transparency>
-                <alpha>1.0</alpha>
-            </transparency>
-            <shininess>0</shininess>
-            <factor>1.0</factor>
-        </instruments>
-        
-        <cabin>
-            <diffuse>
-                <red type="string">1.0</red>
-                <green type="string">1.0</green>
-                <blue type="string">1.0</blue>
-            </diffuse>
-            <ambient>
-                <red type="string">0.2</red>
-                <green type="string">0.2</green>
-                <blue type="string">0.2</blue>
-            </ambient>
-            <specular>
-                <red type="string">0.0</red>
-                <green type="string">0.0</green>
-                <blue type="string">0.0</blue>
-            </specular>
-            <emission>
-                <red type="string">0.2</red>
-                <green type="string">0.15</green>
-                <blue type="string">0.1</blue>
-            </emission>
-            <transparency>
-                <alpha>1.0</alpha>
-            </transparency>
-            <shininess>0</shininess>
-            <factor>1.0</factor>
-        </cabin>
-    </material>
     </model>
 
     <weight n="0">
@@ -185,7 +128,13 @@ Feb 2005  Syd Adams   ()
     <multiplay>
         <chat_display>1</chat_display>
     </multiplay>
-    
+
+    <flaps>
+        <setting>0.00</setting> <!-- Cruise -->
+        <setting>0.333</setting> <!-- Cruise -->
+        <setting>0.666</setting> <!-- Cruise -->
+        <setting>1.0</setting> <!-- Full -->
+    </flaps>
 </sim>
 
     <controls>

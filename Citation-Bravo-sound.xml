@@ -27,9 +27,12 @@
 
     <engine>
       <name>left n1</name>
-      <condition>
-          <property>/engines/engine[0]/running</property>
-      </condition>
+        <condition>
+            <greater-than>
+                <property>/engines/engine[0]/n1</property>
+                <value>0.1</value>
+            </greater-than>
+        </condition>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <volume>
@@ -37,6 +40,7 @@
       </volume>
       <pitch>
         <property>/engines/engine[0]/n1</property>
+        <offset>0</offset>
         <factor>0.01</factor>
       </pitch>
       <position>
@@ -69,9 +73,12 @@
     
     <engine>
       <name>right n1</name>
-      <condition>
-          <property>/engines/engine[1]/running</property>
-      </condition>
+        <condition>
+            <greater-than>
+                <property>/engines/engine[1]/n1</property>
+                <value>0.1</value>
+            </greater-than>
+        </condition>
       <path>Sounds/whine.wav</path>
       <mode>looped</mode>
       <volume>
@@ -79,6 +86,7 @@
       </volume>
       <pitch>
         <property>/engines/engine[1]/n1</property>
+        <offset>0</offset>
         <factor>0.01</factor>
       </pitch>
       <position>

@@ -1,4 +1,5 @@
 var FDM=0;
+var FDMjsb = 0;
 var ViewNum=0;
 var SndIn = props.globals.getNode("/sim/sound/Cvolume",1);
 var SndOut = props.globals.getNode("/sim/sound/Ovolume",1);
@@ -9,12 +10,13 @@ var MstrCaution = props.globals.getNode("instrumentation/annunciator/master-caut
 
 setlistener("/sim/signals/fdm-initialized", func {
     SndIn.setDoubleValue(0.75);
-    SndOut.setDoubleValue(0.25);
+    SndOut.setDoubleValue(0.15);
     MstrWarn.setBoolValue(0);
     MstrCaution.setBoolValue(0);
     Annun.getNode("fuel-lo",1).setBoolValue(0);
     Annun.getNode("grnd-idle",1).setBoolValue(1);
     Annun.getNode("spd-brk",1).setBoolValue(0);
+    if(getprop("/sim/flight-model")=="jsb"){FDMjsb=1;}
     settimer(update,1);
 });
 
@@ -43,9 +45,8 @@ if(props.globals.getNode("/surface-positions/spoiler-pos-norm").getValue() == 1.
 }else{
         Annun.getNode("spd-brk").setBoolValue(0);
         }
-
-
 }
+
 
 update = func(){
 annunciators();
