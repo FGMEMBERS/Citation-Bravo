@@ -9,8 +9,10 @@ var ammeter_ave = 0.0;
 FDM = 0;
 OutPuts = props.globals.getNode("/systems/electrical/outputs",1); 
 Volts = props.globals.getNode("/systems/electrical/volts",1);
+ACVolts = props.globals.getNode("/systems/electrical/ac-volts",1);
 Amps = props.globals.getNode("/systems/electrical/amps",1);
 BATT = props.globals.getNode("/controls/electric/battery-switch",1);
+INVTR = props.globals.getNode("/controls/electric/inverter-switch",1);
 L_ALT = props.globals.getNode("/controls/electric/engine[0]/generator",1);
 R_ALT = props.globals.getNode("/controls/electric/engine[1]/generator",1);
 EXT  = props.globals.getNode("/controls/electric/external-power",1); 
@@ -128,9 +130,11 @@ setlistener("/sim/signals/fdm-initialized", func {
     ENG_DIMMER.setDoubleValue(0.6);
     EFIS_DIMMER.setDoubleValue(0.9);
     PANEL_DIMMER.setDoubleValue(0.6);
+    INVTR.setBoolValue(1);
+    ACVolts.setDoubleValue(0);
     FDM = 1;
     settimer(update_electrical,1);
-    print("Electrical System ... ok");
+    print("Electrical System ... check");
 });
 
 
@@ -176,7 +180,7 @@ update_virtual_bus = func( dt ) {
    
     load += electrical_bus(bus_volts);
     load += avionics_bus(bus_volts);
-
+    load+=ac_bus(bus_volts);
     ammeter = 0.0;
     if ( bus_volts > 1.0 ) {
         load += 15.0;
@@ -411,6 +415,21 @@ avionics_bus = func() {
         OutPuts.getNode("comm[1]",1).setValue(0.0);
     }
 
+    return load;
+}
+
+ac_bus = func(){
+    bus_volts = arg[0]; 
+    load = 0.0;
+
+    if(INVTR.getBoolValue()){
+        if(bus_volts > 10.0){
+        load =bus_volts* 0.05;
+        ACVolts.setDoubleValue(115);
+        }
+    }else{
+        ACVolts.setValue(0.0);
+    }
     return load;
 }
 

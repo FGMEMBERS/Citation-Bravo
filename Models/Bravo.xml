@@ -1,22 +1,22 @@
 <?xml version = '1.0' encoding = 'UTF-8' ?>
 <PropertyList>
-  
+
     <path>bravo.ac</path>
 
     <panel>
         <path>Aircraft/Citation-Bravo/Panel/Citation-Bravo-panel.xml</path>
         <bottom-left>
-            <x-m>2.476</x-m>
+            <x-m>2.480</x-m>
             <y-m>-0.660</y-m>
             <z-m>0.363</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>2.476</x-m>
+            <x-m>2.480</x-m>
             <y-m>0.660</y-m>
             <z-m>0.363</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.304</x-m>
+            <x-m>2.308</x-m>
             <y-m>-0.660</y-m>
             <z-m>1.337</z-m>
         </top-left>
@@ -1266,14 +1266,6 @@
 
     <animation>
         <type>select</type>
-        <object-name>Annc.007</object-name>
-        <condition>
-            <property>instrumentation/annunciator/fuel-lo</property>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
         <object-name>Rvrsr-arm</object-name>
         <condition>
             <greater-than>
@@ -1355,6 +1347,109 @@
 
     <animation>
         <type>select</type>
+        <object-name>Annc</object-name>
+        <condition>
+            <property>instrumentation/annunciator/batt</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.001</object-name>
+        <condition>
+            <property>instrumentation/annunciator/ac-fail</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.002</object-name>
+        <condition>
+            <not>
+                <property>instrumentation/annunciator/oil-pressure</property>
+            </not>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.003</object-name>
+        <condition>
+            <property>instrumentation/annunciator/fire-det-fail</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.004</object-name>
+        <condition>
+            <property>instrumentation/annunciator/oil-fltr-bp</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.005</object-name>
+        <condition>
+            <property>instrumentation/annunciator/fuel-gauge</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.006</object-name>
+        <condition>
+            <property>instrumentation/annunciator/fuel-boost</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.007</object-name>
+        <condition>
+            <and>
+            <property>instrumentation/annunciator/fuel-lo</property>
+            <not>
+            <property>instrumentation/annunciator/state</property>
+            </not>
+    </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.008</object-name>
+        <condition>
+            <property>instrumentation/annunciator/lo-fuel-psi</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.009</object-name>
+        <condition>
+            <property>instrumentation/annunciator/fuel-fltr-bp</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.010</object-name>
+        <condition>
+            <property>instrumentation/annunciator/gen-off</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.011</object-name>
+        <condition>
+            <property>instrumentation/annunciator/invtr-fail</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>Annc.031</object-name>
         <condition>
             <property>instrumentation/annunciator/grnd-idle</property>
@@ -1369,15 +1464,6 @@
         </condition>
     </animation>
 
-    <animation>
-        <type>select</type>
-        <object-name>Annc.002</object-name>
-        <condition>
-            <not>
-                <property>instrumentation/annunciator/oil-pressure</property>
-            </not>
-        </condition>
-    </animation>
 
 <!--####    Instruments    ####-->  
 

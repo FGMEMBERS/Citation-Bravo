@@ -357,7 +357,33 @@
   </binding>
 </action>
 
+<action>
+  <name>Master Warn reset</name>
+  <button>0</button>
+  <x>-344</x>
+  <y>-67</y>
+  <w>17</w>
+  <h>13</h>
+  <binding>
+    <command>property-assign</command>
+    <property>instrumentation/annunciator/master-warning</property>
+    <value>0</value>
+  </binding>
+</action>
 
+<action>
+  <name>Master Caution reset</name>
+  <button>0</button>
+  <x>-344</x>
+  <y>-84</y>
+  <w>17</w>
+  <h>13</h>
+  <binding>
+    <command>property-assign</command>
+    <property>instrumentation/annunciator/master-caution</property>
+    <value>0</value>
+  </binding>
+</action>
 
 </actions>
 
