@@ -27,7 +27,7 @@ Vmcg: 62 kts CE-550/551
 -->
 
 <airplane mass="9040">
-    <approach speed="100" aoa="5" fuel="0.8">
+    <approach speed="120" aoa="7.5" fuel="1.0">
         <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
         <control-setting axis="/controls/engines/engine[1]/throttle" value="0.2"/>
         <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
@@ -55,12 +55,12 @@ Vmcg: 62 kts CE-550/551
     width="1.60" taper="0.75" midpoint="0.4" idrag="0" cx="1.1" cy="1.1"/>
 
     <wing x="-7.29" y="0.48" z="-0.11" length="7.4" chord="2.72" 
-    sweep="0" dihedral="4" taper="0.32" camber="0.045" 
+    sweep="0" dihedral="4" taper="0.32" camber="0.12" 
     incidence="2.0" twist="-2.5" >
         <stall aoa="15" width="8" peak="1.5"/>
         <flap0 start="0" end=".52" lift="1.5" drag="1.9"/>
         <flap1 start=".52" end=".88" lift="1.3" drag="1.2"/>
-        <spoiler start="0.0" end="0.52" lift="0.5" drag="4.0"/>
+        <spoiler start="0.0" end="0.52" lift="0.5" drag="3.0"/>
         <control-input axis="/controls/flight/flaps" control="FLAP0"/>
         <control-input axis="/controls/flight/aileron" control="FLAP1" split="true"/>
         <control-input axis="/controls/flight/aileron-trim" control="FLAP1" split="true"/>
@@ -76,7 +76,7 @@ Vmcg: 62 kts CE-550/551
     <hstab x="-12.64" y="0.05" z="1.48" length="2.88" chord="1.48"
     sweep="0" dihedral="10" taper="0.53" effectiveness="3.5">
         <stall aoa="16" width="4" peak="1.5"/>
-        <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
+        <flap0 start="0" end="1" lift="1.7" drag="1.2"/>
         <control-input axis="/controls/flight/elevator" control="FLAP0"/>
         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
@@ -84,7 +84,7 @@ Vmcg: 62 kts CE-550/551
   
     <vstab x="-12.43" y="0.00" z="1.03" length="2.60" chord="2.48" sweep="26.5" taper="0.46">
         <stall aoa="16" width="4" peak="1.5"/>
-        <flap0 start="0" end="1" lift="1.4" drag="1.2"/>
+        <flap0 start="0" end="1" lift="1.5" drag="1.2"/>
         <control-input axis="/controls/flight/rudder" control="FLAP0" invert="true" square="true"/>
         <control-input axis="/controls/flight/rudder-trim" control="FLAP0" invert="true"/>
         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm"/>

@@ -100,12 +100,12 @@ Alternator = {
 };
 #var battery = Battery.new(volts,amps,amp_hours,charge_percent,charge_amps);
 
-var battery = Battery.new(24,30,34,1.0,7.0);
+var battery = Battery.new(24,44,44, 1.0,7.0);
 
 # var alternator = Alternator.new("rpm-source",rpm_threshold,volts,amps);
 
-alternator1 = Alternator.new("/engines/engine[0]/n2",20.0,28.0,60.0);
-alternator2 = Alternator.new("/engines/engine[1]/n2",20.0,28.0,60.0);
+alternator1 = Alternator.new("/engines/engine[0]/n2",20.0,28.5,400.0);
+alternator2 = Alternator.new("/engines/engine[1]/n2",20.0,28.5,400.0);
 
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {
@@ -146,34 +146,40 @@ update_virtual_bus = func( dt ) {
     var alternator1_volts = 0.0;
     var alternator2_volts = 0.0;
     battery_volts = battery.get_output_volts();
-    
+    var alt_load=0;
+
     if (engine0_state){
     alternator1_volts = alternator1.get_output_volts();
-    }
-    props.globals.getNode("/engines/engine[0]/amp-v",1).setValue(alternator1_volts);
-
+}
     if (engine1_state){
     alternator2_volts = alternator2.get_output_volts();
     }
-    props.globals.getNode("/engines/engine[1]/amp-v",1).setValue(alternator2_volts);
 
     external_volts = 0.0;
     load = 0.0;
-
     bus_volts = 0.0;
     power_source = nil;
+
     if ( BATT.getBoolValue()) {
         if(PWR){bus_volts = battery_volts;}
         power_source = "battery";
+    }
+   if ( L_ALT.getBoolValue() ) {
+        if(PWR){bus_volts = alternator1_volts;
+        if(R_ALT.getBoolValue()){alt_load = 0.5;}else{alt_load=1;}
         }
-   if ( L_ALT.getBoolValue() and (alternator1_volts > bus_volts) ) {
-        if(PWR){bus_volts = alternator1_volts;}
         power_source = "alternator1";
+    }
+    setprop("/engines/engine[0]/amp-v",alternator1.get_output_amps() * alt_load);
+    alt_load=0;
+    if ( R_ALT.getBoolValue()) {
+        if(PWR){bus_volts = alternator2_volts;
+        if(L_ALT.getBoolValue()) {alt_load = 0.5;}else{alt_load=1;}
         }
-    if ( R_ALT.getBoolValue() and (alternator2_volts > bus_volts) ) {
-        if(PWR){bus_volts = alternator2_volts;}
         power_source = "alternator2";
-        }
+    }
+    setprop("/engines/engine[1]/amp-v",alternator2.get_output_amps() * alt_load);
+
     if ( EXT.getBoolValue() and ( external_volts > bus_volts) ) {
         if(PWR){bus_volts = external_volts;}
         }

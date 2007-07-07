@@ -9,7 +9,8 @@ var MstrWarn =props.globals.getNode("instrumentation/annunciator/master-warning"
 var MstrCaution = props.globals.getNode("instrumentation/annunciator/master-caution",1);
 
 aircraft.light.new("instrumentation/annunciator", [0.5, 0.5], MstrCaution);
-
+var FHmeter = aircraft.timer.new("/instrumentation/clock/flight-meter-sec", 10);
+FHmeter.stop();
 setlistener("/sim/signals/fdm-initialized", func {
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
@@ -27,7 +28,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     Annun.getNode("fuel-fltr-bp",1).setBoolValue(0);
     Annun.getNode("gen-off",1).setBoolValue(0);
     Annun.getNode("invtr-fail",1).setBoolValue(0);
-
+    setprop("/instrumentation/clock/flight-meter-hour",0);
     Annun.getNode("grnd-idle",1).setBoolValue(1);
     Annun.getNode("spd-brk",1).setBoolValue(0);
     if(getprop("/sim/flight-model")=="jsb"){FDMjsb=1;}
@@ -43,6 +44,12 @@ setlistener("/sim/current-view/view-number", func {
     SndIn.setDoubleValue(0.15);
     SndOut.setDoubleValue(0.75);
     }
+});
+
+setlistener("/gear/gear[1]/wow", func {
+    if(cmdarg().getBoolValue()){
+    FHmeter.stop();
+    }else{FHmeter.start();}
 });
 
 annunciators = func{
@@ -73,8 +80,15 @@ if(props.globals.getNode("/surface-positions/speedbrake-pos-norm").getValue() ==
         }
 }
 
+flight_meter = func{
+var fmeter = getprop("/instrumentation/clock/flight-meter-sec");
+var fminute = fmeter * 0.016666;
+var fhour = fminute * 0.016666;
+setprop("/instrumentation/clock/flight-meter-hour",fhour);
+}
 
 update_systems = func{
 annunciators();
+flight_meter();
 settimer(update_systems,0);
 }
