@@ -348,6 +348,24 @@
         <object-name>Redglow.001</object-name>
     </animation>
 
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>chrome.rgb</texture>
+        <object-name>LwrReverser</object-name>
+        <object-name>UprReverser</object-name>
+        <object-name>Engines.chrome</object-name>
+        <object-name>Wings.heater</object-name>
+    </animation>
+
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>chrome1.rgb</texture>
+        <object-name>window.001</object-name>
+        <object-name>window</object-name>
+    </animation>
+
 <!--        yasim control surfaces                  -->
 
     <animation>
@@ -634,6 +652,27 @@
 
 <!--  ____________________ Flight controls _________________________ -->
  
+<animation>
+        <type>rotate</type>
+        <object-name>Cabin.door</object-name>
+        <object-name>window</object-name>
+        <property>controls/cabin-door/position-norm</property>
+        <interpolation>
+            <entry><ind>0.0</ind><dep>0.0</dep></entry>
+            <entry><ind>1.0</ind><dep>-175.0</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>4.129</x-m>
+            <y-m>-0.805</y-m>
+            <z-m>0.535</z-m>
+        </center>
+        <axis>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>1.0</z>
+        </axis>
+    </animation>    
+
     <animation>
         <type>rotate</type>
         <object-name>GearLever</object-name>
@@ -1408,11 +1447,11 @@
         <object-name>Annc.007</object-name>
         <condition>
             <and>
-            <property>instrumentation/annunciator/fuel-lo</property>
-            <not>
-            <property>instrumentation/annunciator/state</property>
-            </not>
-    </and>
+                <property>instrumentation/annunciator/fuel-lo</property>
+                <not>
+                    <property>instrumentation/annunciator/state</property>
+                </not>
+            </and>
         </condition>
     </animation>
 
@@ -1445,6 +1484,19 @@
         <object-name>Annc.011</object-name>
         <condition>
             <property>instrumentation/annunciator/invtr-fail</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.019</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/annunciator/cabin-door</property>
+                <not>
+                    <property>instrumentation/annunciator/state</property>
+                </not>
+            </and>
         </condition>
     </animation>
 

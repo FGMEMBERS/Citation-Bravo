@@ -98,8 +98,12 @@ Feb 2005  Syd Adams   ()
             <desc>toggle thrust reversers</desc>
         </key>
         <key>
-            <name>Control B</name>	
-            <desc>Speedbrakes</desc>	
+            <name>Control B</name>
+            <desc>Speedbrakes</desc>
+        </key>
+        <key>
+            <name>Control D</name>
+            <desc>open/close cabin door</desc>
         </key>
     </help>
 
@@ -116,9 +120,9 @@ Feb 2005  Syd Adams   ()
 
     <weight n="1">
         <name>Passengers</name>
-        <weight-lb>700</weight-lb> 
+        <weight-lb>700</weight-lb>
         <max-lb>1500</max-lb>
-        <min-lb>0</min-lb>      
+        <min-lb>0</min-lb>
     </weight>
 
     <replay>
@@ -131,8 +135,8 @@ Feb 2005  Syd Adams   ()
 
     <flaps>
         <setting>0.00</setting> <!-- Cruise -->
-        <setting>0.333</setting> <!-- Cruise -->
-        <setting>0.666</setting> <!-- Cruise -->
+        <setting>0.333</setting> <!-- Appr / Takeoff -->
+        <setting>0.666</setting> <!-- Land -->
         <setting>1.0</setting> <!-- Full -->
     </flaps>
 </sim>
@@ -190,6 +194,14 @@ Feb 2005  Syd Adams   ()
                 <binding>
                     <command>property-toggle</command>
                     <property>controls/engines/engine[1]/reverser</property>
+                </binding>
+            </key>
+            <key n="4">
+                <name>Ctrl-D</name>
+                <desc>Open/close canopy</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>Bravo.cabin_door.toggle()</script>
                 </binding>
             </key>
         </keyboard>

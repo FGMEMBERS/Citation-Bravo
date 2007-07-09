@@ -11,6 +11,9 @@ var MstrCaution = props.globals.getNode("instrumentation/annunciator/master-caut
 aircraft.light.new("instrumentation/annunciator", [0.5, 0.5], MstrCaution);
 var FHmeter = aircraft.timer.new("/instrumentation/clock/flight-meter-sec", 10);
 FHmeter.stop();
+
+var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
+
 setlistener("/sim/signals/fdm-initialized", func {
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
@@ -31,6 +34,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     setprop("/instrumentation/clock/flight-meter-hour",0);
     Annun.getNode("grnd-idle",1).setBoolValue(1);
     Annun.getNode("spd-brk",1).setBoolValue(0);
+    Annun.getNode("cabin-door",1).setBoolValue(0);
     if(getprop("/sim/flight-model")=="jsb"){FDMjsb=1;}
     settimer(update_systems,1);
 });
@@ -53,7 +57,7 @@ setlistener("/gear/gear[1]/wow", func {
 });
 
 annunciators = func{
-if(props.globals.getNode("/consumables/fuel/total-fuel-lbs").getValue() < 400){
+if(getprop("/consumables/fuel/total-fuel-lbs") < 400){
     MstrCaution.setBoolValue(1);
     Annun.getNode("fuel-lo").setBoolValue(1);
 }else{
@@ -78,6 +82,14 @@ if(props.globals.getNode("/surface-positions/speedbrake-pos-norm").getValue() ==
 }else{
         Annun.getNode("spd-brk").setBoolValue(0);
         }
+
+if(getprop("/controls/cabin-door/position-norm") != 0.0){
+    MstrCaution.setBoolValue(1);
+    Annun.getNode("cabin-door").setBoolValue(1);
+}else{
+        Annun.getNode("cabin-door").setBoolValue(0);
+        }
+
 }
 
 flight_meter = func{

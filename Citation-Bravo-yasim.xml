@@ -27,7 +27,7 @@ Vmcg: 62 kts CE-550/551
 -->
 
 <airplane mass="9040">
-    <approach speed="120" aoa="7.5" fuel="1.0">
+    <approach speed="110" aoa="7" fuel="1.0">
         <control-setting axis="/controls/engines/engine[0]/throttle" value="0.2"/>
         <control-setting axis="/controls/engines/engine[1]/throttle" value="0.2"/>
         <control-setting axis="/controls/engines/engine[0]/condition" value="1.0"/>
@@ -55,7 +55,7 @@ Vmcg: 62 kts CE-550/551
     width="1.60" taper="0.75" midpoint="0.4" idrag="0" cx="1.1" cy="1.1"/>
 
     <wing x="-7.29" y="0.48" z="-0.11" length="7.4" chord="2.72" 
-    sweep="0" dihedral="4" taper="0.32" camber="0.12" 
+    sweep="0" dihedral="4" taper="0.32" camber="0.08" 
     incidence="2.0" twist="-2.5" >
         <stall aoa="15" width="8" peak="1.5"/>
         <flap0 start="0" end=".52" lift="1.5" drag="1.9"/>
