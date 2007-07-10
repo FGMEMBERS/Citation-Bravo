@@ -135,9 +135,9 @@ Feb 2005  Syd Adams   ()
 
     <flaps>
         <setting>0.00</setting> <!-- Cruise -->
-        <setting>0.333</setting> <!-- Appr / Takeoff -->
-        <setting>0.666</setting> <!-- Land -->
-        <setting>1.0</setting> <!-- Full -->
+        <setting>0.375</setting> <!-- Appr / Takeoff  15-->
+        <setting>0.75</setting> <!-- Land  30-->
+        <setting>1.0</setting> <!-- Ground Only  40-->
     </flaps>
 </sim>
 

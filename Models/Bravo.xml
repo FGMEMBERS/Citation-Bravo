@@ -430,7 +430,7 @@
             </equals>
         </condition>
         <property>surface-positions/flap-pos-norm</property>
-        <factor>35</factor>
+        <factor>40</factor>
         <center>
             <x-m>7.842</x-m>
             <y-m>-3.083</y-m>
@@ -453,7 +453,7 @@
             </equals>
         </condition>
         <property>surface-positions/flap-pos-norm</property>
-        <factor>35</factor>
+        <factor>40</factor>
         <center>
             <x-m>7.842</x-m>
             <y-m>3.083</y-m>
