@@ -11,7 +11,7 @@
     <instrument include="radiostack.xml">
         <name>Radiostack</name>
         <x>614</x>
-        <y>150</y>
+        <y>152</y>
         <w>136</w>
         <h>196</h>
     </instrument>
@@ -20,7 +20,7 @@
     <instrument include="davtronclock.xml">
         <name>DavtronClock</name>
         <x>99</x>
-        <y>296</y>
+        <y>298</y>
         <w>24</w>
         <h>24</h>
     </instrument>
@@ -216,7 +216,7 @@
     </action>
 
    <!--               BRG1 mode                                -->
-   
+
    <action>
      <name>BRG 1 mode minus</name>
      <button>0</button>
@@ -233,7 +233,7 @@
        <wrap>false</wrap>
      </binding>
    </action>
-   
+
    <action>
      <name>BRG 1 mode plus</name>
      <button>0</button>
@@ -250,9 +250,9 @@
        <wrap>false</wrap>
      </binding>
    </action>
-   
+
    <!--               BRG2 mode                                -->
-   
+
    <action>
      <name>BRG 2 mode minus</name>
      <button>0</button>
@@ -269,7 +269,7 @@
        <wrap>false</wrap>
      </binding>
    </action>
-   
+
    <action>
      <name>BRG 2 mode plus</name>
      <button>0</button>
@@ -289,101 +289,280 @@
 
 <!--  HSI course set  -->
 
-<action>
-  <name>small decrease</name>
-  <button>0</button>
-  <x>-181</x>
-  <y>-223</y>
-  <w>10</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <step>-1</step>
-    <min>0</min>
-    <max>360</max>
-    <wrap>1</wrap>
-  </binding>
-</action>
+    <action>
+        <name>small decrease</name>
+        <button>0</button>
+        <x>-181</x>
+        <y>-223</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-adjust</command>
+            <property>instrumentation/nav/radials/selected-deg</property>
+            <step>-1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>1</wrap>
+        </binding>
+    </action>
 
-<action>
-  <name>large decrease</name>
-  <button>1</button>
-  <x>-181</x>
-  <y>-223</y>
-  <w>10</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <step>-5</step>
-    <min>0</min>
-    <max>360</max>
-    <wrap>1</wrap>
-  </binding>
-</action>
+    <action>
+        <name>large decrease</name>
+        <button>1</button>
+        <x>-181</x>
+        <y>-223</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-adjust</command>
+            <property>instrumentation/nav/radials/selected-deg</property>
+            <step>-5</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>1</wrap>
+        </binding>
+    </action>
 
-<action>
-  <name>small increase</name>
-  <button>0</button>
-  <x>-171</x>
-  <y>-223</y>
-  <w>10</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <step>1</step>
-    <min>0</min>
-    <max>360</max>
-    <wrap>1</wrap>
-  </binding>
-</action>
+    <action>
+        <name>small increase</name>
+        <button>0</button>
+        <x>-171</x>
+        <y>-223</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-adjust</command>
+            <property>instrumentation/nav/radials/selected-deg</property>
+            <step>1</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>1</wrap>
+        </binding>
+    </action>
 
-<action>
-  <name>large increase</name>
-  <button>1</button>
-  <x>-171</x>
-  <y>-223</y>
-  <w>10</w>
-  <h>10</h>
-  <binding>
-    <command>property-adjust</command>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <step>5</step>
-    <min>0</min>
-    <max>360</max>
-    <wrap>1</wrap>
-  </binding>
-</action>
+    <action>
+        <name>large increase</name>
+        <button>1</button>
+        <x>-171</x>
+        <y>-223</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-adjust</command>
+            <property>instrumentation/nav/radials/selected-deg</property>
+            <step>5</step>
+            <min>0</min>
+            <max>360</max>
+            <wrap>1</wrap>
+        </binding>
+    </action>
 
-<action>
-  <name>Master Warn reset</name>
-  <button>0</button>
-  <x>-344</x>
-  <y>-67</y>
-  <w>17</w>
-  <h>13</h>
-  <binding>
-    <command>property-assign</command>
-    <property>instrumentation/annunciator/master-warning</property>
-    <value>0</value>
-  </binding>
-</action>
+    <action>
+        <name>Master Warn reset</name>
+        <button>0</button>
+        <x>-344</x>
+        <y>-67</y>
+        <w>17</w>
+        <h>13</h>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/annunciator/master-warning</property>
+            <value>0</value>
+        </binding>
+    </action>
 
-<action>
-  <name>Master Caution reset</name>
-  <button>0</button>
-  <x>-344</x>
-  <y>-84</y>
-  <w>17</w>
-  <h>13</h>
-  <binding>
-    <command>property-assign</command>
-    <property>instrumentation/annunciator/master-caution</property>
-    <value>0</value>
-  </binding>
-</action>
+    <action>
+        <name>Master Caution reset</name>
+        <button>0</button>
+        <x>-344</x>
+        <y>-84</y>
+        <w>17</w>
+        <h>13</h>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/annunciator/master-caution</property>
+            <value>0</value>
+        </binding>
+    </action>
+
+<!-- Engine Controls-->
+
+    <action>
+        <name>Batt Switch</name>
+        <button>0</button>
+        <x>-439</x>
+        <y>-269</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/battery-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>LGen Switch</name>
+        <button>0</button>
+        <x>-463</x>
+        <y>-269</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/electric/engine[0]/generator</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>RGen Switch</name>
+        <button>0</button>
+        <x>-415</x>
+        <y>-269</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/electric/engine[1]/generator</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>Inverter Switch</name>
+        <button>0</button>
+        <x>-368</x>
+        <y>-269</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/electric/inverter-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>LHstarter</name>
+        <button>0</button>
+        <x>-470</x>
+        <y>-305</y>
+        <w>14</w>
+        <h>14</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/engines/engine/starter</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>Starter Disengage</name>
+        <button>0</button>
+        <x>-444</x>
+        <y>-305</y>
+        <w>18</w>
+        <h>14</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/engines/engine/starter</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>RHstarter</name>
+        <button>0</button>
+        <x>-413</x>
+        <y>-305</y>
+        <w>14</w>
+        <h>14</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/engines/engine[1]/starter</property>
+        </binding>
+    </action>
+
+<!--    Lighting    -->
+
+    <action>
+        <name>Beacon</name>
+        <button>0</button>
+        <x>-422</x>
+        <y>-365</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/lighting/beacon</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>Strobe</name>
+        <button>0</button>
+        <x>-406</x>
+        <y>-365</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/lighting/strobe</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>Nav Lights</name>
+        <button>0</button>
+        <x>-389</x>
+        <y>-365</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/lighting/nav-lights</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>Wing Lights</name>
+        <button>0</button>
+        <x>-373</x>
+        <y>-365</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/lighting/wing-lights</property>
+        </binding>
+    </action>
 
 </actions>
 

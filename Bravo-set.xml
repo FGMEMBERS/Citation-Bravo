@@ -105,23 +105,47 @@ Feb 2005  Syd Adams   ()
             <name>Control D</name>
             <desc>open/close cabin door</desc>
         </key>
+        <key>
+            <name>y</name>
+            <desc>Toggle yokes on / off</desc>
+        </key>
     </help>
 
     <model>
-    <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
+        <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
+        <Bravo>
+            <n1 n="0" type="double">0</n1>
+            <n1 n="1" type="double">0</n1>
+            <start-cycle n="0" type="bool">0</start-cycle>
+            <start-cycle n="1" type="bool">0</start-cycle>
+        </Bravo>
     </model>
 
     <weight n="0">
         <name>Crew</name>
         <weight-lb>180</weight-lb> 
         <max-lb>400</max-lb>
-        <min-lb>180</min-lb>
+        <min-lb>120</min-lb>
     </weight>
 
     <weight n="1">
         <name>Passengers</name>
         <weight-lb>700</weight-lb>
-        <max-lb>1500</max-lb>
+        <max-lb>1200</max-lb>
+        <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="2">
+        <name>Front Baggage</name>
+        <weight-lb>100</weight-lb>
+        <max-lb>310</max-lb>
+        <min-lb>0</min-lb>
+    </weight>
+
+    <weight n="3">
+        <name>Rear Baggage</name>
+        <weight-lb>100</weight-lb>
+        <max-lb>500</max-lb>
         <min-lb>0</min-lb>
     </weight>
 
@@ -139,6 +163,9 @@ Feb 2005  Syd Adams   ()
         <setting>0.75</setting> <!-- Land  30-->
         <setting>1.0</setting> <!-- Ground Only  40-->
     </flaps>
+
+    <yokes-visible type="bool">1</yokes-visible>
+
 </sim>
 
     <controls>
@@ -146,21 +173,31 @@ Feb 2005  Syd Adams   ()
             <brake-parking>1</brake-parking>
         </gear>
         <electric>
-          <engine n="0">
-            <generator type="bool">1</generator>
-          </engine>
-          <engine n="1">
-            <generator type="bool">1</generator>
-          </engine>
-          <avionics-switch type="bool">1</avionics-switch>
-          <battery-switch type="bool">1</battery-switch>
+            <engine n="0">
+                <generator type="bool">1</generator>
+            </engine>
+            <engine n="1">
+                <generator type="bool">1</generator>
+            </engine>
+            <avionics-switch type="bool">1</avionics-switch>
+            <battery-switch type="bool">1</battery-switch>
         </electric>
         <lighting>
-        <instrument-lights type="bool">1</instrument-lights>
-        <beacon type="bool">1</beacon>
-        <strobe type="bool">1</strobe>
-        <nav-lights type="bool">1</nav-lights>
+            <instrument-lights type="bool">1</instrument-lights>
+            <beacon type="bool">1</beacon>
+            <strobe type="bool">1</strobe>
+            <nav-lights type="bool">1</nav-lights>
         </lighting>
+        <engines>
+            <engine n="0">
+                <throttle-lever type="double">0</throttle-lever>
+                <cutoff>0</cutoff><!--  Start with engines running-->
+            </engine>
+            <engine n="1">
+                <throttle-lever type="double">0</throttle-lever>
+                <cutoff>0</cutoff><!--  Start with engines running-->
+            </engine>
+        </engines>
     </controls>
 
     <engines>
@@ -202,6 +239,14 @@ Feb 2005  Syd Adams   ()
                 <binding>
                     <command>nasal</command>
                     <script>Bravo.cabin_door.toggle()</script>
+                </binding>
+            </key>
+            <key n="121">
+                <name>y</name>
+                <desc>Toggle yokes</desc>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/sim/yokes-visible</property>
                 </binding>
             </key>
         </keyboard>

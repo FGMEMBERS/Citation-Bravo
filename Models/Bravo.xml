@@ -20,27 +20,27 @@
             <y-m>-0.660</y-m>
             <z-m>1.337</z-m>
         </top-left>
-    </panel> 
+    </panel>
 
     <panel>
         <path>Aircraft/Citation-Bravo/Panel/center-panel.xml</path>
         <bottom-left>
-            <x-m>3.007</x-m>
+            <x-m>3.009</x-m>
             <y-m>-0.130</y-m>
-            <z-m>0.270</z-m>
+            <z-m>0.276</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>3.007</x-m>
+            <x-m>3.009</x-m>
             <y-m>0.170</y-m>
-            <z-m>0.270</z-m>
+            <z-m>0.276</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.408</x-m>
+            <x-m>2.500</x-m>
             <y-m>-0.130</y-m>
-            <z-m>0.299</z-m>
+            <z-m>0.305</z-m>
         </top-left>
     </panel>
- 
+
     <model>
         <path>Aircraft/Instruments-3d/primus-1000/primus1000-pfd.xml</path>
         <offsets>
@@ -70,7 +70,7 @@
             <pitch-deg>-10.0</pitch-deg>
         </offsets>
     </model>
- 
+
     <model>
         <path>Aircraft/Instruments-3d/primus-1000/dc550.xml</path>
         <offsets>
@@ -138,7 +138,7 @@
         <object-name>FrtWheel</object-name>
         <object-name>FrtWheel.hub</object-name>
     </animation>
- 
+
     <animation>
         <name>LeftGearGroup</name>
         <object-name>LHstrut</object-name>
@@ -148,7 +148,7 @@
         <object-name>LHLwrShock</object-name>
         <object-name>LHUprShock</object-name>
     </animation>
- 
+
     <animation>
         <name>RightGearGroup</name>
         <object-name>RHstrut</object-name>
@@ -158,8 +158,10 @@
         <object-name>RHLwrShock</object-name>
         <object-name>RHUprShock</object-name>
     </animation>
- 
+
+
 <!--                        Lights                               -->
+
     <animation>
         <type>material</type>
         <object-name>rednav</object-name>
@@ -170,7 +172,7 @@
             <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
         </emission>
     </animation>
-   
+
     <animation>
         <type>material</type>
         <object-name>greennav</object-name>
@@ -203,7 +205,7 @@
             <factor-prop>/systems/electrical/outputs/beacon</factor-prop>
         </emission>
     </animation>
-    
+
     <animation>
         <type>select</type>
         <object-name>Flash01</object-name>
@@ -211,7 +213,7 @@
             <property>controls/lighting/strobe-state/state</property>
         </condition>
     </animation>
- 
+
     <animation>
         <type>translate</type>
         <object-name>Flash01</object-name>
@@ -222,12 +224,12 @@
             <z>0.047</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>billboard</type>
         <object-name>Flash01</object-name>
     </animation>
- 
+
     <animation>
         <type>select</type>
         <object-name>Flash02</object-name>
@@ -235,7 +237,7 @@
             <property>controls/lighting/strobe-state/state</property>
         </condition>
     </animation>
- 
+
     <animation>
         <type>translate</type>
         <object-name>Flash02</object-name>
@@ -246,12 +248,12 @@
             <z>0.047</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>billboard</type>
         <object-name>Flash02</object-name>
     </animation>
- 
+
     <animation>
         <type>select</type>
         <object-name>Redglow</object-name>
@@ -268,7 +270,7 @@
             </and>
         </condition>
     </animation>
- 
+
     <animation>
         <type>translate</type>
         <object-name>Redglow</object-name>
@@ -279,12 +281,12 @@
             <z>0.047</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>billboard</type>
         <object-name>Redglow</object-name>
     </animation>
- 
+
     <animation>
         <type>select</type>
         <object-name>Greenglow</object-name>
@@ -301,7 +303,7 @@
             </and>
         </condition>
     </animation>
- 
+
     <animation>
         <type>translate</type>
         <object-name>Greenglow</object-name>
@@ -312,12 +314,12 @@
             <z>0.047</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>billboard</type>
         <object-name>Greenglow</object-name>
     </animation>
- 
+
     <animation>
         <type>select</type>
         <object-name>Redglow.001</object-name>
@@ -331,7 +333,7 @@
             </and>
         </condition>
     </animation>
- 
+
     <animation>
         <type>translate</type>
         <object-name>Redglow.001</object-name>
@@ -342,7 +344,7 @@
             <z>0.266</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>billboard</type>
         <object-name>Redglow.001</object-name>
@@ -482,7 +484,7 @@
             <z>-0.071</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>RHaileron</object-name>
@@ -651,8 +653,18 @@
     </animation>
 
 <!--  ____________________ Flight controls _________________________ -->
- 
-<animation>
+
+    <animation>
+        <type>select</type>
+        <condition>
+            <property>/sim/yokes-visible</property>
+        </condition>
+        <object-name>Yoke</object-name>
+        <object-name>Yoke1</object-name>
+        <object-name>Yoke2</object-name>
+    </animation>
+
+    <animation>
         <type>rotate</type>
         <object-name>Cabin.door</object-name>
         <object-name>window</object-name>
@@ -671,7 +683,7 @@
             <y>0.0</y>
             <z>1.0</z>
         </axis>
-    </animation>    
+    </animation>
 
     <animation>
         <type>rotate</type>
@@ -723,7 +735,7 @@
             <z>0.0</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>FlapLever</object-name>
@@ -740,7 +752,7 @@
             <z>0.0</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>Yoke</object-name>
@@ -759,7 +771,7 @@
             <z>0.0</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>Yoke1</object-name>
@@ -776,7 +788,7 @@
             <z>0.0</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>Yoke2</object-name>
@@ -793,6 +805,19 @@
             <z>0.0</z>
         </axis>
     </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>Ebrake.lever</object-name>
+        <property>controls/gear/brake-parking</property>
+        <factor>0.025</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
 <!--###### Front  Gear  ########-->
 
     <animation>
@@ -906,10 +931,10 @@
             <z>0</z>
         </axis>
     </animation>
-  
+
     <animation>
         <type>rotate</type>
-        <object-name>RRFrDoor</object-name>	
+        <object-name>RRFrDoor</object-name>
         <property>gear/gear[0]/position-norm</property>
         <interpolation>
             <entry>
@@ -936,7 +961,7 @@
 
     <animation>
         <type>rotate</type>
-        <object-name>RHFrDoor</object-name>	
+        <object-name>RHFrDoor</object-name>
         <property>gear/gear[0]/position-norm</property>
         <interpolation>
             <entry>
@@ -966,7 +991,7 @@
 
     <animation>
         <type>rotate</type>
-        <object-name>LHFrDoor</object-name>	
+        <object-name>LHFrDoor</object-name>
         <property>gear/gear[0]/position-norm</property>
         <interpolation>
             <entry>
@@ -1015,7 +1040,7 @@
             <z>0</z>
         </axis>
     </animation>
-  
+
     <animation>
         <type>rotate</type>
         <object-name>LHwheel</object-name>
@@ -1033,7 +1058,7 @@
             <z>0</z>
         </axis>
     </animation>
-    
+
     <animation>
         <type>rotate</type>
         <object-name>LHLwrShock</object-name>
@@ -1067,7 +1092,7 @@
             <z>0</z>
         </axis>
     </animation>
-  
+
     <animation>
         <type>rotate</type>
         <object-name>LeftGearGroup</object-name>
@@ -1162,7 +1187,6 @@
         </axis>
     </animation>
 
-  
     <animation>
         <type>rotate</type>
         <object-name>RHLwrShock</object-name>
@@ -1254,6 +1278,50 @@
 <!--####    Annunciator / Warning Lights    ####-->
 
     <animation>
+        <type>material</type>
+        <object-name>LHstarter</object-name>
+        <emission>
+            <red>1.0</red>
+            <green>1.0</green>
+            <blue>1.0</blue>
+            <factor-prop>sim/model/Bravo/start-cycle[0]</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>RHstarter</object-name>
+        <emission>
+            <red>1.0</red>
+            <green>1.0</green>
+            <blue>1.0</blue>
+            <factor-prop>sim/model/Bravo/start-cycle[1]</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>ign0.lamp</object-name>
+        <emission>
+            <red>0.3</red>
+            <green>0.7</green>
+            <blue>0.3</blue>
+            <factor-prop>controls/engines/engine/ignition</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>ign1.lamp</object-name>
+        <emission>
+            <red>0.3</red>
+            <green>0.7</green>
+            <blue>0.3</blue>
+            <factor-prop>controls/engines/engine[1]/ignition</factor-prop>
+        </emission>
+    </animation>
+
+	<animation>
         <type>select</type>
         <object-name>GrNose</object-name>
         <condition>
@@ -1314,7 +1382,7 @@
         </condition>
     </animation>
 
-<animation>
+    <animation>
         <type>select</type>
         <object-name>Rvrsr-unlock</object-name>
         <condition>
@@ -1325,7 +1393,7 @@
         </condition>
     </animation>
 
-<animation>
+    <animation>
         <type>select</type>
         <object-name>Rvrsr-deploy</object-name>
         <condition>
@@ -1489,6 +1557,45 @@
 
     <animation>
         <type>select</type>
+        <object-name>Annc.012</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/annunciator/antiskid</property>
+                <not>
+                    <property>instrumentation/annunciator/state</property>
+                </not>
+            </and>
+        </condition>
+    </animation>
+
+<animation>
+        <type>select</type>
+        <object-name>Annc.013</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/annunciator/hyd-psi</property>
+                <not>
+                    <property>instrumentation/annunciator/state</property>
+                </not>
+            </and>
+        </condition>
+    </animation>
+
+<animation>
+        <type>select</type>
+        <object-name>Annc.014</object-name>
+        <condition>
+            <and>
+                <property>instrumentation/annunciator/hyd-flow</property>
+                <not>
+                    <property>instrumentation/annunciator/state</property>
+                </not>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>Annc.019</object-name>
         <condition>
             <and>
@@ -1545,8 +1652,8 @@
                 <z>-1</z>
             </axis>
         </transform>
-    </animation>              
- 
+    </animation>
+
     <animation>
         <type>texrotate</type>
         <object-name>hdgring</object-name>
@@ -1562,7 +1669,7 @@
             <z>-1</z>
         </axis>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>CRSneedle2</object-name>
@@ -1579,7 +1686,7 @@
             <z-m>0.608</z-m>
         </center>
     </animation>
- 
+
     <animation>
         <type>rotate</type>
         <object-name>CRSneedle2</object-name>
@@ -1596,7 +1703,7 @@
             <z-m>0.608</z-m>
         </center>
     </animation>
- 
+
     <animation>
         <type>translate</type>
         <object-name>CRSneedle2.001</object-name>
@@ -1641,7 +1748,7 @@
             <entry>
             <ind>3</ind><dep>150.0</dep>
             </entry>
-        </interpolation>   
+        </interpolation>
         <axis>
             <x>-0.985</x>
             <y>0.0</y>
@@ -1650,16 +1757,16 @@
         <center>
             <x-m>2.446</x-m>
             <y-m>-0.190</y-m>
-            <z-m>0.532	</z-m>
+            <z-m>0.532</z-m>
         </center>
-    </animation> 
-   
+    </animation>
+
 <!--####    N1 Gauge    ####-->
- 
+
     <animation>
         <type>textranslate</type>
         <object-name>Fan01</object-name>
-        <property>engines/engine/n1</property>
+        <property>sim/model/Bravo/n1[0]</property>
         <interpolation>
             <entry>
             <ind>20.0</ind><dep>1.0</dep>
@@ -1670,7 +1777,7 @@
             <entry>
             <ind>110.0</ind><dep>0.875</dep>
             </entry>
-        </interpolation>  
+        </interpolation>
         <axis>
             <x>0</x>
             <y>1</y>
@@ -1681,7 +1788,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>Fan02</object-name>
-        <property>engines/engine[1]/n1</property>
+        <property>sim/model/Bravo/n1[1]</property>
         <interpolation>
             <entry>
                 <ind>20.0</ind><dep>1.0</dep>
@@ -1692,7 +1799,7 @@
             <entry>
                 <ind>110.0</ind><dep>0.875</dep>
             </entry>
-        </interpolation>  
+        </interpolation>
         <axis>
             <x>0</x>
             <y>1</y>
@@ -1749,8 +1856,8 @@
                 <z>0</z>
             </axis>
         </transform>
-    </animation>              
- 
+    </animation>
+
     <animation>
         <type>texmultiple</type>
         <object-name>FQty02</object-name>
@@ -1774,7 +1881,7 @@
                 <z>0</z>
             </axis>
         </transform>
-    </animation>              
+    </animation>
 
     <animation>
         <type>textranslate</type>
@@ -1787,7 +1894,7 @@
             <z>0</z>
         </axis>
     </animation>
-     
+
     <animation>
         <type>textranslate</type>
         <object-name>OilT02</object-name>
@@ -1811,7 +1918,7 @@
             <z>0</z>
         </axis>
     </animation>
-     
+
     <animation>
         <type>textranslate</type>
         <object-name>OilP02</object-name>
@@ -2042,7 +2149,6 @@
         </condition>
     </animation>
 
-
     <animation>
         <type>textranslate</type>
         <object-name>RHn2</object-name>
@@ -2268,7 +2374,7 @@
             </greater-than>
         </condition>
     </animation>
-    
+
     <animation>
         <type>rotate</type>
         <object-name>DCvolts</object-name>
@@ -2289,7 +2395,7 @@
         </center>
     </animation>
 
- <animation>
+    <animation>
         <type>rotate</type>
         <object-name>DCamps1</object-name>
         <property>engines/engine[0]/amp-v</property>
@@ -2310,7 +2416,7 @@
         </center>
     </animation>
 
-<animation>
+    <animation>
         <type>rotate</type>
         <object-name>DCamps2</object-name>
         <property>engines/engine[1]/amp-v</property>
@@ -2331,7 +2437,7 @@
         </center>
     </animation>
 
-<animation>
+    <animation>
         <type>rotate</type>
         <object-name>AoA.needle</object-name>
         <property>orientation/alpha-deg</property>
@@ -2350,5 +2456,213 @@
             <z-m>0.742</z-m>
         </center>
     </animation>
+
+<!-- Flight Meter-->
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Fmeter.001</object-name>
+        <property>instrumentation/clock/flight-meter-hour</property>
+        <factor>0.0001</factor>
+        <step>1000</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Fmeter.002</object-name>
+        <property>instrumentation/clock/flight-meter-hour</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Fmeter.003</object-name>
+        <property>instrumentation/clock/flight-meter-hour</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Fmeter.004</object-name>
+        <property>instrumentation/clock/flight-meter-hour</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>Fmeter.005</object-name>
+        <property>instrumentation/clock/flight-meter-hour</property>
+        <factor>1.0</factor>
+        <step>0.1</step>
+        <bias>0.05</bias>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+
+<!--    Switches    -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Lgen.toggle</object-name>
+        <property>controls/electric/engine/generator</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.451</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.514</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Batt.toggle</object-name>
+        <property>controls/electric/battery-switch</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.451</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.514</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Rgen.toggle</object-name>
+        <property>controls/electric/engine[1]/generator</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.451</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.514</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Invtr.toggle</object-name>
+        <property>controls/electric/inverter-switch</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.451</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.514</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>recog.toggle</object-name>
+        <property>controls/lighting/beacon</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.473</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.391</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>strobe.toggle</object-name>
+        <property>controls/lighting/strobe</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.473</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.391</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>nav.toggle</object-name>
+        <property>controls/lighting/nav-lights</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.473</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.391</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>wing.toggle</object-name>
+        <property>controls/lighting/wing-lights</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.473</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.391</z-m>
+        </center>
+    </animation>
+
 
 </PropertyList>

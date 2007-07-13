@@ -126,6 +126,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     props.globals.getNode("/controls/lighting/taxi-lights",1).setBoolValue(0);
     props.globals.getNode("/controls/cabin/fan",1).setBoolValue(0);
     props.globals.getNode("/controls/cabin/heat",1).setBoolValue(0);
+    setprop("systems/electrical/battery-temp", getprop("/environment/temperature-degf"));
     INSTR_DIMMER.setDoubleValue(0.6);
     ENG_DIMMER.setDoubleValue(0.6);
     EFIS_DIMMER.setDoubleValue(0.9);

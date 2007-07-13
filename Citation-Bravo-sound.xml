@@ -7,7 +7,9 @@
     <engine>
         <name>left engine</name>
         <condition>
-            <property>/engines/engine[0]/running</property>
+            <not>
+                <property>/controls/engines/engine[0]/cutoff</property>
+            </not>
         </condition>
         <path>Sounds/jet.wav</path>
         <mode>looped</mode>
@@ -29,7 +31,7 @@
       <name>left n1</name>
         <condition>
             <greater-than>
-                <property>/engines/engine[0]/n1</property>
+                <property>/sim/model/Bravo/n1</property>
                 <value>0.1</value>
             </greater-than>
         </condition>
@@ -39,7 +41,7 @@
        <property>/sim/sound/Ovolume</property>
       </volume>
       <pitch>
-        <property>/engines/engine[0]/n1</property>
+        <property>/sim/model/Bravo/n1</property>
         <offset>0</offset>
         <factor>0.01</factor>
       </pitch>
@@ -53,7 +55,7 @@
     <engine>
       <name>right engine</name>
       <condition>
-          <property>/engines/engine[1]/running</property>
+          <property>/controls/engines/engine[1]/cutoff</property>
       </condition>
       <path>Sounds/jet.wav</path>
       <mode>looped</mode>
@@ -75,7 +77,7 @@
       <name>right n1</name>
         <condition>
             <greater-than>
-                <property>/engines/engine[1]/n1</property>
+                <property>/sim/model/Bravo/n1[1]</property>
                 <value>0.1</value>
             </greater-than>
         </condition>
@@ -85,7 +87,7 @@
         <property>/sim/sound/Ovolume</property>
       </volume>
       <pitch>
-        <property>/engines/engine[1]/n1</property>
+        <property>/sim/model/Bravo/n1[1]</property>
         <offset>0</offset>
         <factor>0.01</factor>
       </pitch>
@@ -208,27 +210,18 @@
       </volume>
     </flap>
 
-<!--
-    <slat>
-      <name>slats</name>
+    <speedbrake>
+      <name>speedbrake</name>
       <mode>in-transit</mode>
       <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/L-slat-pos-norm</property>
+      <property>/surface-positions/speedbrake-pos-norm</property>
       <volume>
-        <factor>0.15</factor>
+        <property>/sim/sound/Cvolume</property>
+        <factor>0.5</factor>
       </volume>
-    </slat>
-
-    <slat>
-      <name>slats</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/R-slat-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </slat>
+    </speedbrake>
 -->
+
 <!--
     <wind>
       <name>wind</name>
@@ -248,23 +241,43 @@
       </pitch>
     </wind>
 -->
+
     <stall>
-      <name>stall</name>
-      <path>Sounds/stall.wav</path>
-      <property>/sim/alarms/stall-warning</property>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <min>90.0</min>
-      </volume>
+        <name>stall</name>
+        <path>Sounds/stall.wav</path>
+        <property>/sim/alarms/stall-warning</property>
+        <volume>
+            <property>/velocities/airspeed-kt</property>
+            <min>90.0</min>
+        </volume>
     </stall>
 
-<!-- no binding yet?
     <click>
-      <name>click</name>
-      <path>Sounds/click.wav</path>
+        <name>click1</name>
+        <path>Sounds/click.wav</path>
+        <condition>
+            <property>/sim/sound/click</property>
+        </condition>
+        <volume>
+        <property>/sim/sound/Cvolume</property>
+        <factor>0.3</factor>
+        </volume>
     </click>
--->
 
-  </fx>
+    <click>
+        <name>click2</name>
+        <path>Sounds/click.wav</path>
+        <condition>
+            <not>
+                <property>/sim/sound/click</property>
+            </not>
+        </condition>
+        <volume>
+        <property>/sim/sound/Cvolume</property>
+        <factor>0.3</factor>
+        </volume>
+    </click>
+
+    </fx>
 
 </PropertyList>
