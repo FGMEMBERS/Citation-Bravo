@@ -4,8 +4,8 @@
 #############################################################################
 
 # 0 - Off: v-bars hidden
-# lnav -0=off,1=HDG,2=NAV,3=APR,4=BC
-# vnav - 0=off,1=BARO ALT,2=ALT SELECT,3=VS,4=IAS, 5= DCS,6 = CLIMB
+# lnav -0=W-LVL,1=HDG,2=VOR,3=LOC,4=LNAV,5=VAPP,5=BC
+# vnav - 0=PIT,1=ALT,2=ASEL,3=GA,4=GS, 5= VNAV,6 = VS,7=FLC
 var MTR2KT=0.000539956803;
 var GPS_CDI=props.globals.getNode("/instrumentation/gps/cdi-deflection",1);
 var GO = 0;
@@ -18,7 +18,11 @@ var spd = 0.0;
 var alt_alert = 0.0;
 var course = 0.0;
 var slaved = 0;
+lnav_text=["wing-leveler","dg-heading-hold","nav1-hold","nav1-hold","true-heading-hold","nav1-hold","nav1-hold"];
+vnav_text=["pitch-hold","altitude-hold","altitude-hold","pitch-hold","gs1-hold","altitude-hold","vertical-speed-hold","altitude-hold"];
 var mag_offset=0;
+var lMode=[" ","HDG","LNAV","LOC","LNAV","VAPP","BC"];
+var vMode=[" ","ALT","ASEL","GA","GS","VNAV","VS","FLC"];
 var FMS = props.globals.getNode("/instrumentation/primus1000/dc550",1);
 AP_hdg = props.globals.getNode("/autopilot/locks/heading",1);
 AP_alt = props.globals.getNode("/autopilot/locks/altitude",1);
@@ -59,34 +63,34 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 setlistener("/instrumentation/flightdirector/lnav", func {
     lnav = cmdarg().getValue();
-    if(lnav == 0 or lnav ==nil){AP_hdg.setValue("wing-leveler");
+    if(lnav == 0 or lnav ==nil){
         BC_btn.setBoolValue(0);
-        AP_alt.setValue("pitch-hold");
+        setprop("instrumentation/flightdirector/vnav",0);
     }
-    if(lnav == 1){AP_hdg.setValue("dg-heading-hold");BC_btn.setBoolValue(0);if(vnav ==7 ){vnav = 0;}}
+    if(lnav == 1){
+        BC_btn.setBoolValue(0);
+        if(vnav ==7 ){vnav = 0;}
+    }
     if(lnav == 2){
-    
-    update_navmode(FMS.getNode("fms").getBoolValue());
+        update_navmode(FMS.getNode("fms").getBoolValue());
     }
-    if(lnav == 3){AP_hdg.setValue("nav1-hold");BC_btn.setBoolValue(0);}
-    if(lnav == 4){AP_hdg.setValue("nav1-hold");BC_btn.setBoolValue(1);if(vnav ==7 ){vnav = 0;}}
+    if(lnav == 3){BC_btn.setBoolValue(0);}
+    if(lnav == 4){BC_btn.setBoolValue(1);
+        if(vnav ==7 ){vnav = 0;}
+    }
+    AP_hdg.setValue(lnav_text[lnav]);
+    setprop("instrumentation/flightdirector/lateral-mode",lMode[lnav]);
 });
 
 setlistener("/instrumentation/flightdirector/vnav", func {
     vnav = cmdarg().getValue();
-    if(vnav == 0 or vnav == nil){AP_alt.setValue("pitch-hold");}
-    if(vnav == 1){AP_alt.setValue("altitude-hold");}
-    if(vnav == 2){AP_alt.setValue("altitude-hold");}
-    if(vnav == 3){AP_alt.setValue("vertical-speed-hold");}
-    if(vnav == 5){AP_spd.setValue("dcs-hold");}
-    if(vnav == 6){AP_alt.setValue("pitch-hold");}
     if(vnav == 7){
-        AP_alt.setValue("gs1-hold");
-        if (!props.globals.getNode("/instrumentation/nav/has-gs",1).getBoolValue()){
+        if (!getprop("/instrumentation/nav/has-gs",1)){
             vnav = 0;
-            AP_alt.setValue("pitch-hold");
         }
     }
+    AP_alt.setValue(vnav_text[vnav]);
+    setprop("instrumentation/flightdirector/vertical-mode",vMode[vnav]);
 });
 
 setlistener("/instrumentation/flightdirector/spd", func {
