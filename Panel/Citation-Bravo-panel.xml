@@ -111,8 +111,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 3){
-                setprop("/instrumentation/flightdirector/lnav",3);
+                if(getprop("/instrumentation/flightdirector/lnav")!= 5){
+                setprop("/instrumentation/flightdirector/lnav",5);
                 }else{
                 setprop("/instrumentation/flightdirector/lnav",0);
                 }
@@ -130,8 +130,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 4){
-                setprop("/instrumentation/flightdirector/lnav",4);
+                if(getprop("/instrumentation/flightdirector/lnav")!= 6){
+                setprop("/instrumentation/flightdirector/lnav",6);
                 }else{
                 setprop("/instrumentation/flightdirector/lnav",0);
                 }
@@ -149,8 +149,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/vnav")!= 7){
-                setprop("/instrumentation/flightdirector/vnav",7);
+                if(getprop("/instrumentation/flightdirector/vnav")!= 5){
+                setprop("/instrumentation/flightdirector/vnav",5);
                 }else{
                 setprop("/instrumentation/flightdirector/vnav",0);
                 }
@@ -187,8 +187,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/vnav")!= 3){
-                setprop("/instrumentation/flightdirector/vnav",3);
+                if(getprop("/instrumentation/flightdirector/vnav")!= 6){
+                setprop("/instrumentation/flightdirector/vnav",6);
                 }else{
                 setprop("/instrumentation/flightdirector/vnav",0);
                 }
@@ -215,7 +215,7 @@
         </binding>
     </action>
 
-   <!--               BRG1 mode                                -->
+<!--               DC550 PFD Display Controller                                -->
 
    <action>
      <name>BRG 1 mode minus</name>
@@ -251,8 +251,6 @@
      </binding>
    </action>
 
-   <!--               BRG2 mode                                -->
-
    <action>
      <name>BRG 2 mode minus</name>
      <button>0</button>
@@ -285,6 +283,105 @@
        <max>3</max>
        <wrap>false</wrap>
      </binding>
+   </action>
+
+   <action>
+     <name>DC550 HSI</name>
+     <button>0</button>
+     <x>-434</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>instrumentation/primus1000/dc550/hsi</property>
+        </binding>
+   </action>
+
+   <action>
+     <name>DC550 CP</name>
+     <button>0</button>
+     <x>-420</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>instrumentation/primus1000/dc550/cp</property>
+        </binding>
+   </action>
+
+   <action>
+     <name>DC550 HPA</name>
+     <button>0</button>
+     <x>-406</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>instrumentation/primus1000/dc550/hpa</property>
+        </binding>
+   </action>
+
+   <action>
+     <name>DC550 TTG</name>
+     <button>0</button>
+     <x>-392</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>instrumentation/primus1000/dc550/ttg</property>
+        </binding>
+   </action>
+
+   <action>
+     <name>DC550 ET</name>
+     <button>0</button>
+     <x>-378</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>instrumentation/primus1000/dc550/et</property>
+        </binding>
+   </action>
+
+   <action>
+     <name>DC550 NAV</name>
+     <button>0</button>
+     <x>-364</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/primus1000/dc550/fms</property>
+            <value>0</value>
+        </binding>
+   </action>
+
+   <action>
+     <name>DC550 FMS</name>
+     <button>0</button>
+     <x>-350</x>
+     <y>-127</y>
+     <w>12</w>
+     <h>12</h>
+     <condition>
+        <greater-than>
+            <property>autopilot/route-manager/route/num</property>
+            <value>0</value>
+        </greater-than>
+     </condition>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/primus1000/dc550/fms</property>
+            <value>1</value>
+        </binding>
    </action>
 
 <!--  HSI course set  -->
