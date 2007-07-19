@@ -166,6 +166,9 @@ Feb 2005  Syd Adams   ()
 
     <yokes-visible type="bool">1</yokes-visible>
 
+   <tutorials>
+        <tutorial include="Tutorials/startup_tutorial.xml"/>
+    </tutorials>
 </sim>
 
     <controls>
@@ -174,13 +177,14 @@ Feb 2005  Syd Adams   ()
         </gear>
         <electric>
             <engine n="0">
-                <generator type="bool">1</generator>
+                <generator type="bool">0</generator>
             </engine>
             <engine n="1">
-                <generator type="bool">1</generator>
+                <generator type="bool">0</generator>
             </engine>
             <avionics-switch type="bool">1</avionics-switch>
-            <battery-switch type="bool">1</battery-switch>
+            <battery-switch type="bool">0</battery-switch>
+            <inverter-switch type="bool">0</inverter-switch>
         </electric>
         <lighting>
             <instrument-lights type="bool">1</instrument-lights>
@@ -191,11 +195,13 @@ Feb 2005  Syd Adams   ()
         <engines>
             <engine n="0">
                 <throttle-lever type="double">0</throttle-lever>
-                <cutoff>0</cutoff><!--  Start with engines running-->
+                <cutoff>1</cutoff><!--  cutoff = 0 : Start with engines running-->
+                <ignition>0</ignition>
             </engine>
             <engine n="1">
                 <throttle-lever type="double">0</throttle-lever>
-                <cutoff>0</cutoff><!--  Start with engines running-->
+                <cutoff>1</cutoff><!--  cutoff = 0 : Start with engines running-->
+                <ignition>0</ignition>
             </engine>
         </engines>
     </controls>

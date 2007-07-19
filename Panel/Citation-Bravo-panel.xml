@@ -553,6 +553,40 @@
     </action>
 
     <action>
+        <name>LH ignition Switch</name>
+        <button>0</button>
+        <x>-392</x>
+        <y>-303</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/engines/engine[0]/ignition</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
+        <name>RH ignition Switch</name>
+        <button>0</button>
+        <x>-372</x>
+        <y>-303</y>
+        <w>10</w>
+        <h>10</h>
+        <binding>
+            <command>property-toggle</command>
+            <property>/controls/engines/engine[1]/ignition</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+
+    <action>
         <name>LHstarter</name>
         <button>0</button>
         <x>-470</x>

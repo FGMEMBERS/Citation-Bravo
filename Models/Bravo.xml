@@ -1306,7 +1306,7 @@
             <red>0.3</red>
             <green>0.7</green>
             <blue>0.3</blue>
-            <factor-prop>controls/engines/engine/ignition</factor-prop>
+            <factor-prop>instrumentation/annunciator/LHign</factor-prop>
         </emission>
     </animation>
 
@@ -1317,7 +1317,7 @@
             <red>0.3</red>
             <green>0.7</green>
             <blue>0.3</blue>
-            <factor-prop>controls/engines/engine[1]/ignition</factor-prop>
+            <factor-prop>instrumentation/annunciator/RHign</factor-prop>
         </emission>
     </animation>
 
@@ -2593,6 +2593,40 @@
             <x-m>2.451</x-m>
             <y-m>0.0</y-m>
             <z-m>0.514</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>LHign.toggle</object-name>
+        <property>controls/engines/engine[0]/ignition</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.459</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.471</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RHign.toggle</object-name>
+        <property>controls/engines/engine[1]/ignition</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.459</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.471</z-m>
         </center>
     </animation>
 

@@ -20,6 +20,8 @@ setlistener("/sim/signals/fdm-initialized", func {
     MstrWarn.setBoolValue(0);
     MstrCaution.setBoolValue(0);
     Annun.getNode("batt",1).setBoolValue(0);
+    Annun.getNode("LHign",1).setBoolValue(0);
+    Annun.getNode("RHign",1).setBoolValue(0);
     Annun.getNode("ac-fail",1).setBoolValue(0);
     Annun.getNode("fire-det-fail",1).setBoolValue(0);
     Annun.getNode("oil-fltr-bp",1).setBoolValue(0);
@@ -61,9 +63,9 @@ setlistener("/gear/gear[1]/wow", func {
 
 setlistener("/controls/engines/engine[0]/starter", func {
     if(cmdarg().getBoolValue()){
-        if(getprop("/systems/electrical/volts") > 15){
-    setprop("/sim/model/Bravo/start-cycle[0]",1);
-    }else{
+        if(getprop("/controls/engines/engine[0]/ignition") !=0){
+            setprop("/sim/model/Bravo/start-cycle[0]",1);
+        }else{
         setprop("/sim/model/Bravo/start-cycle[0]",0);
         }
     }
@@ -71,7 +73,7 @@ setlistener("/controls/engines/engine[0]/starter", func {
 
 setlistener("/controls/engines/engine[1]/starter", func {
     if(cmdarg().getBoolValue()){
-        if(getprop("/systems/electrical/volts") > 15){
+        if(getprop("/controls/engines/engine[1]/ignition") !=0){
     setprop("/sim/model/Bravo/start-cycle[1]",1);
     }else{
         setprop("/sim/model/Bravo/start-cycle[1]",0);
@@ -81,20 +83,20 @@ setlistener("/controls/engines/engine[1]/starter", func {
 
 setlistener("/sim/model/Bravo/start-cycle[0]", func {
     if(cmdarg().getBoolValue()){
-        setprop("/controls/engines/engine[0]/ignition",1);
+        setprop("/instrumentation/annunciator/LHign",1);
         setprop("/instrumentation/annunciator/fuel-boost",1);
     }else{
-        setprop("/controls/engines/engine[0]/ignition",0);
+        setprop("/instrumentation/annunciator/LHign",0);
         setprop("/instrumentation/annunciator/fuel-boost",0);
     }
 });
 
 setlistener("/sim/model/Bravo/start-cycle[1]", func {
     if(cmdarg().getBoolValue()){
-        setprop("/controls/engines/engine[1]/ignition",1);
+        setprop("/instrumentation/annunciator/RHign",1);
         setprop("/instrumentation/annunciator/fuel-boost",1);
     }else{
-        setprop("/controls/engines/engine[1]/ignition",0);
+        setprop("/instrumentation/annunciator/RHign",0);
         setprop("/instrumentation/annunciator/fuel-boost",0);
     }
 });
@@ -139,6 +141,19 @@ setlistener("/sim/freeze/fuel", func {
     }
 });
 
+setlistener("/controls/engines/engine[0]/ignition", func {
+    var ign=cmdarg().getValue();
+    if(ign == 0){
+    setprop("/controls/engines/engine[0]/cutoff",1);
+    }
+});
+
+setlistener("/controls/engines/engine[1]/ignition", func {
+    var ign=cmdarg().getValue();
+    if(ign == 0){
+    setprop("/controls/engines/engine[1]/cutoff",1);
+    }
+});
 
 annunciators_loop = func{
 
@@ -222,19 +237,17 @@ update_systems = func{
     }
 
 if(getprop("/sim/model/Bravo/start-cycle[0]")){
-    interpolate("/sim/model/Bravo/n1[0]",55.0,6);
+    interpolate("/sim/model/Bravo/n1[0]",55.0,5);
     if(getprop("/sim/model/Bravo/n1[0]") > 54.0){
         setprop("/controls/engines/engine[0]/cutoff",0);
-        setprop("/controls/engines/engine[0]/ignition",0);
         setprop("/sim/model/Bravo/start-cycle[0]",0);
     }
 }
 
 if(getprop("/sim/model/Bravo/start-cycle[1]")){
-    interpolate("/sim/model/Bravo/n1[1]",55.0,6);
+    interpolate("/sim/model/Bravo/n1[1]",55.0,5);
     if(getprop("/sim/model/Bravo/n1[1]") > 54.0){
         setprop("/controls/engines/engine[1]/cutoff",0);
-        setprop("/controls/engines/engine[1]/ignition",0);
         setprop("/sim/model/Bravo/start-cycle[1]",0);
     }
 }
