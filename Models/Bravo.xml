@@ -1954,7 +1954,7 @@
         <object-name>LHn1</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[0]/n1</property>
+                <property>sim/model/Bravo/n1[0]</property>
                 <value>99.999</value>
             </greater-than>
         </condition>
@@ -1963,7 +1963,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1</object-name>
-        <property>engines/engine[0]/n1</property>
+        <property>sim/model/Bravo/n1[0]</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -1976,7 +1976,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1.01</object-name>
-        <property>engines/engine[0]/n1</property>
+        <property>sim/model/Bravo/n1[0]</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -1989,7 +1989,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1.02</object-name>
-        <property>engines/engine[0]/n1</property>
+        <property>sim/model/Bravo/n1[0]</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2002,7 +2002,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1.03</object-name>
-        <property>engines/engine[0]/n1</property>
+        <property>sim/model/Bravo/n1[0]</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -2017,7 +2017,7 @@
         <object-name>RHn1</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[1]/n1</property>
+                <property>sim/model/Bravo/n1[1]</property>
                 <value>99.999</value>
             </greater-than>
         </condition>
@@ -2026,7 +2026,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1</object-name>
-        <property>engines/engine[1]/n1</property>
+        <property>sim/model/Bravo/n1[1]</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2039,7 +2039,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1.01</object-name>
-        <property>engines/engine[1]/n1</property>
+        <property>sim/model/Bravo/n1[1]</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2052,7 +2052,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1.02</object-name>
-        <property>engines/engine[1]/n1</property>
+        <property>sim/model/Bravo/n1[1]</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2065,7 +2065,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1.03</object-name>
-        <property>engines/engine[1]/n1</property>
+        <property>sim/model/Bravo/n1[1]</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -2080,7 +2080,7 @@
         <object-name>LHn2</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[0]/n2</property>
+                <property>sim/model/Bravo/n2[0]</property>
                 <value>99.999</value>
             </greater-than>
         </condition>
@@ -2089,7 +2089,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2</object-name>
-        <property>engines/engine[0]/n2</property>
+        <property>sim/model/Bravo/n2[0]</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2102,7 +2102,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2.01</object-name>
-        <property>engines/engine[0]/n2</property>
+        <property>sim/model/Bravo/n2[0]</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2115,7 +2115,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2.02</object-name>
-        <property>engines/engine[0]/n2</property>
+        <property>sim/model/Bravo/n2[0]</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2128,7 +2128,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2.03</object-name>
-        <property>engines/engine[0]/n2</property>
+        <property>sim/model/Bravo/n2[0]</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -2143,7 +2143,7 @@
         <object-name>RHn2</object-name>
         <condition>
             <greater-than>
-                <property>engines/engine[1]/n2</property>
+                <property>sim/model/Bravo/n2[1]</property>
                 <value>99.999</value>
             </greater-than>
         </condition>
@@ -2152,7 +2152,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2</object-name>
-        <property>engines/engine[1]/n2</property>
+        <property>sim/model/Bravo/n2[1]</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2165,7 +2165,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2.01</object-name>
-        <property>engines/engine[1]/n2</property>
+        <property>sim/model/Bravo/n2[1]</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2178,7 +2178,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2.02</object-name>
-        <property>engines/engine[1]/n2</property>
+        <property>sim/model/Bravo/n2[1]</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2191,7 +2191,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2.03</object-name>
-        <property>engines/engine[1]/n2</property>
+        <property>sim/model/Bravo/n2[1]</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>

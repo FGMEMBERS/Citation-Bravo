@@ -116,6 +116,8 @@ Feb 2005  Syd Adams   ()
         <Bravo>
             <n1 n="0" type="double">0</n1>
             <n1 n="1" type="double">0</n1>
+            <n2 n="0" type="double">0</n2>
+            <n2 n="1" type="double">0</n2>
             <start-cycle n="0" type="bool">0</start-cycle>
             <start-cycle n="1" type="bool">0</start-cycle>
         </Bravo>

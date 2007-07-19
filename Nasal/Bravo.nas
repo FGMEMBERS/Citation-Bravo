@@ -223,21 +223,26 @@ update_systems = func{
     if(!getprop("/controls/engines/engine/cutoff")){
         setprop("/controls/engines/engine/throttle-lever",getprop("/controls/engines/engine/throttle"));
         setprop("/sim/model/Bravo/n1[0]",getprop("/engines/engine/n1"));
+        setprop("/sim/model/Bravo/n2[0]",getprop("/engines/engine/n2"));
     }else{
         setprop("controls/engines/engine/throttle-lever",0);
         interpolate("/sim/model/Bravo/n1[0]",0,10);
+        interpolate("/sim/model/Bravo/n2[0]",0,10);
     }
 
     if(!getprop("/controls/engines/engine[1]/cutoff")){
         setprop("/controls/engines/engine[1]/throttle-lever",getprop("controls/engines/engine[1]/throttle"));
         setprop("/sim/model/Bravo/n1[1]",getprop("/engines/engine[1]/n1"));
+        setprop("/sim/model/Bravo/n2[1]",getprop("/engines/engine[1]/n2"));
     }else{
         setprop("/controls/engines/engine[1]/throttle-lever",0);
         interpolate("/sim/model/Bravo/n1[1]",0,10);
+        interpolate("/sim/model/Bravo/n2[1]",0,10);
     }
 
 if(getprop("/sim/model/Bravo/start-cycle[0]")){
     interpolate("/sim/model/Bravo/n1[0]",55.0,5);
+    interpolate("/sim/model/Bravo/n2[0]",75.0,5);
     if(getprop("/sim/model/Bravo/n1[0]") > 54.0){
         setprop("/controls/engines/engine[0]/cutoff",0);
         setprop("/sim/model/Bravo/start-cycle[0]",0);
@@ -246,6 +251,7 @@ if(getprop("/sim/model/Bravo/start-cycle[0]")){
 
 if(getprop("/sim/model/Bravo/start-cycle[1]")){
     interpolate("/sim/model/Bravo/n1[1]",55.0,5);
+    interpolate("/sim/model/Bravo/n2[1]",75.0,5);
     if(getprop("/sim/model/Bravo/n1[1]") > 54.0){
         setprop("/controls/engines/engine[1]/cutoff",0);
         setprop("/sim/model/Bravo/start-cycle[1]",0);
