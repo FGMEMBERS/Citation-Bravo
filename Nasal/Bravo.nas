@@ -156,13 +156,15 @@ setlistener("/controls/engines/engine[1]/ignition", func {
 });
 
 annunciators_loop = func{
-
-if(getprop("/consumables/fuel/total-fuel-lbs") < 400){
+var Tfuel = getprop("/consumables/fuel/total-fuel-lbs");
+if(Tfuel != nil){
+if( Tfuel< 400){
     MstrCaution.setBoolValue(1);
     Annun.getNode("fuel-lo").setBoolValue(1);
 }else{
         Annun.getNode("fuel-lo").setBoolValue(0);
         }
+    }
 
 
 if(props.globals.getNode("/systems/electrical/ac-volts").getValue() ==0){
