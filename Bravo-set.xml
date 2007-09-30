@@ -113,6 +113,7 @@ Feb 2005  Syd Adams   ()
 
     <model>
         <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
+        <variant type="int">0</variant>
         <Bravo>
             <n1 n="0" type="double">0</n1>
             <n1 n="1" type="double">0</n1>
