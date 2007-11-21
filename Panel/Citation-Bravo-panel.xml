@@ -35,7 +35,7 @@
     </instrument>
 
 <!-- primus 1000 pfd -->
-    <instrument include="../../Instruments-3d/primus-1000/primus1000-pfd-hotspots.xml">
+    <instrument include="../../Instruments-3d/primus-1000/pfd-hotspots.xml">
         <name>PFD</name>
         <x>258</x>
         <y>213</y>
@@ -44,7 +44,7 @@
     </instrument>
 
 <!-- primus 1000 mfd -->
-    <instrument include="../../Instruments-3d/primus-1000/primus1000-mfd-hotspots.xml">
+    <instrument include="../../Instruments-3d/primus-1000/mfd-hotspots.xml">
         <name>MFD</name>
         <x>471</x>
         <y>151</y>

@@ -1,4 +1,4 @@
-####    Two Generator electrical system    #### 
+####    Bravo electrical system    #### 
 ####    Syd Adams    ####
 #### Based on Curtis Olson's nasal electrical code ####
 
@@ -104,8 +104,8 @@ var battery = Battery.new(24,44,44, 1.0,7.0);
 
 # var alternator = Alternator.new("rpm-source",rpm_threshold,volts,amps);
 
-alternator1 = Alternator.new("/engines/engine[0]/n2",20.0,28.5,400.0);
-alternator2 = Alternator.new("/engines/engine[1]/n2",20.0,28.5,400.0);
+alternator1 = Alternator.new("/sim/model/Bravo/n2[0]",20.0,28.5,400.0);
+alternator2 = Alternator.new("/sim/model/Bravo/n2[1]",20.0,28.5,400.0);
 
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {

@@ -42,7 +42,7 @@
     </panel>
 
     <model>
-        <path>Aircraft/Instruments-3d/primus-1000/primus1000-pfd.xml</path>
+        <path>Aircraft/Instruments-3d/primus-1000/pfd.xml</path>
         <offsets>
             <x-m>2.430</x-m>
             <y-m>-0.327</y-m>
@@ -52,7 +52,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/primus-1000/primus1000-pfd.xml</path>
+        <path>Aircraft/Instruments-3d/primus-1000/pfd.xml</path>
         <offsets>
             <x-m>2.430</x-m>
             <y-m>0.350</y-m>
@@ -62,7 +62,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Instruments-3d/primus-1000/primus1000-mfd.xml</path>
+        <path>Aircraft/Instruments-3d/primus-1000/mfd.xml</path>
         <offsets>
             <x-m>2.444</x-m>
             <y-m>-0.055</y-m>
@@ -366,6 +366,7 @@
         <texture>chrome1.rgb</texture>
         <object-name>window.001</object-name>
         <object-name>window</object-name>
+        <object-name>glass</object-name>
     </animation>
 
 <!--        yasim control surfaces                  -->

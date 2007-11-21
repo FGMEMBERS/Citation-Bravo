@@ -58,7 +58,9 @@ setlistener("/sim/current-view/view-number", func {
 setlistener("/gear/gear[1]/wow", func {
     if(cmdarg().getBoolValue()){
     FHmeter.stop();
-    }else{FHmeter.start();}
+    ET.stop();
+    }else{FHmeter.start();
+            ET.start();}
 });
 
 setlistener("/controls/engines/engine[0]/starter", func {
