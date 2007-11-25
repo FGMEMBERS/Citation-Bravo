@@ -44,8 +44,8 @@ setlistener("/sim/signals/fdm-initialized", func {
     settimer(update_systems,1);
 });
 
-setlistener("/sim/current-view/view-number", func {
-    ViewNum= cmdarg().getValue();
+setlistener("/sim/current-view/view-number", func(vw){
+    ViewNum= vw.getValue();
     if(ViewNum ==0){
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
@@ -53,111 +53,111 @@ setlistener("/sim/current-view/view-number", func {
     SndIn.setDoubleValue(0.15);
     SndOut.setDoubleValue(0.75);
     }
-});
+},1,0);
 
-setlistener("/gear/gear[1]/wow", func {
-    if(cmdarg().getBoolValue()){
+setlistener("/gear/gear[1]/wow", func(gr){
+    if(gr.getBoolValue()){
     FHmeter.stop();
     ET.stop();
     }else{FHmeter.start();
             ET.start();}
-});
+},0,0);
 
-setlistener("/controls/engines/engine[0]/starter", func {
-    if(cmdarg().getBoolValue()){
+setlistener("/controls/engines/engine[0]/starter", func(st1){
+    if(st1.getBoolValue()){
         if(getprop("/controls/engines/engine[0]/ignition") !=0){
             setprop("/sim/model/Bravo/start-cycle[0]",1);
         }else{
         setprop("/sim/model/Bravo/start-cycle[0]",0);
         }
     }
-});
+},0,0);
 
-setlistener("/controls/engines/engine[1]/starter", func {
-    if(cmdarg().getBoolValue()){
+setlistener("/controls/engines/engine[1]/starter", func(st2){
+    if(st2.getBoolValue()){
         if(getprop("/controls/engines/engine[1]/ignition") !=0){
     setprop("/sim/model/Bravo/start-cycle[1]",1);
     }else{
         setprop("/sim/model/Bravo/start-cycle[1]",0);
         }
     }
-});
+},0,0);
 
-setlistener("/sim/model/Bravo/start-cycle[0]", func {
-    if(cmdarg().getBoolValue()){
+setlistener("/sim/model/Bravo/start-cycle[0]", func(cy1){
+    if(cy1.getBoolValue()){
         setprop("/instrumentation/annunciator/LHign",1);
         setprop("/instrumentation/annunciator/fuel-boost",1);
     }else{
         setprop("/instrumentation/annunciator/LHign",0);
         setprop("/instrumentation/annunciator/fuel-boost",0);
     }
-});
+},0,0);
 
-setlistener("/sim/model/Bravo/start-cycle[1]", func {
-    if(cmdarg().getBoolValue()){
+setlistener("/sim/model/Bravo/start-cycle[1]", func(cy2){
+    if(cy2.getBoolValue()){
         setprop("/instrumentation/annunciator/RHign",1);
         setprop("/instrumentation/annunciator/fuel-boost",1);
     }else{
         setprop("/instrumentation/annunciator/RHign",0);
         setprop("/instrumentation/annunciator/fuel-boost",0);
     }
-});
+},0,0);
 
-setlistener("/controls/electric/engine/generator", func {
-    var test=cmdarg().getBoolValue();
+setlistener("/controls/electric/engine/generator", func(alt1){
+    var test=alt1.getBoolValue();
     if(!test){
     MstrWarn.setBoolValue(1);
     Annun.getNode("gen-off").setBoolValue(1);
     }else{
     Annun.getNode("gen-off").setBoolValue(0);
     }
-});
+},0,0);
 
-setlistener("/controls/electric/engine[0]/generator", func {
-    var test=cmdarg().getBoolValue();
+setlistener("/controls/electric/engine[0]/generator", func(alt2){
+    var test=alt2.getBoolValue();
     if(!test){
     MstrWarn.setBoolValue(1);
     Annun.getNode("gen-off").setBoolValue(1);
     }else{
     Annun.getNode("gen-off").setBoolValue(0);
     }
-});
+},0,0);
 
-setlistener("/controls/gear/antiskid", func {
-    var test=cmdarg().getBoolValue();
+setlistener("/controls/gear/antiskid", func(as){
+    var test=as.getBoolValue();
     if(!test){
     MstrCaution.setBoolValue(1);
     Annun.getNode("antiskid").setBoolValue(1);
     }else{
     Annun.getNode("antiskid").setBoolValue(0);
     }
-});
+},0,0);
 
-setlistener("/sim/freeze/fuel", func {
-    var test=cmdarg().getBoolValue();
+setlistener("/sim/freeze/fuel", func(ffr){
+    var test=ffr.getBoolValue();
     if(test){
     MstrCaution.setBoolValue(1);
     Annun.getNode("fuel-gauge").setBoolValue(1);
     }else{
     Annun.getNode("fuel-gauge").setBoolValue(0);
     }
-});
+}.0.0);
 
-setlistener("/controls/engines/engine[0]/ignition", func {
-    var ign=cmdarg().getValue();
+setlistener("/controls/engines/engine[0]/ignition", func(ig1){
+    var ign=ig1.getValue();
     if(ign == 0){
     setprop("/controls/engines/engine[0]/cutoff",1);
     }
-});
+},0,0);
 
-setlistener("/controls/engines/engine[1]/ignition", func {
-    var ign=cmdarg().getValue();
+setlistener("/controls/engines/engine[1]/ignition", func(ig2){
+    var ign=ig2.getValue();
     if(ign == 0){
     setprop("/controls/engines/engine[1]/cutoff",1);
     }
-});
+},0,0);
 
-annunciators_loop = func{
+var annunciators_loop = func{
 var Tfuel = getprop("/consumables/fuel/total-fuel-lbs");
 if(Tfuel != nil){
 if( Tfuel< 400){
@@ -209,21 +209,19 @@ if(props.globals.getNode("/surface-positions/speedbrake-pos-norm").getValue() ==
 if(getprop("/controls/cabin-door/position-norm") != 0.0){
     MstrCaution.setBoolValue(1);
     Annun.getNode("cabin-door").setBoolValue(1);
-}else{
+    }else{
         Annun.getNode("cabin-door").setBoolValue(0);
         }
-
-
 }
 
-flight_meter = func{
+var flight_meter = func{
 var fmeter = getprop("/instrumentation/clock/flight-meter-sec");
 var fminute = fmeter * 0.016666;
 var fhour = fminute * 0.016666;
 setprop("/instrumentation/clock/flight-meter-hour",fhour);
 }
 
-update_systems = func{
+var update_systems = func{
     if(!getprop("/controls/engines/engine/cutoff")){
         setprop("/controls/engines/engine/throttle-lever",getprop("/controls/engines/engine/throttle"));
         setprop("/sim/model/Bravo/n1[0]",getprop("/engines/engine/n1"));
@@ -261,8 +259,6 @@ if(getprop("/sim/model/Bravo/start-cycle[1]")){
         setprop("/sim/model/Bravo/start-cycle[1]",0);
     }
 }
-
-
 
 annunciators_loop();
 flight_meter();

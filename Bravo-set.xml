@@ -152,14 +152,6 @@ Feb 2005  Syd Adams   ()
         <min-lb>0</min-lb>
     </weight>
 
-    <replay>
-        <disable>1</disable>
-    </replay>
-
-    <multiplay>
-        <chat_display>1</chat_display>
-    </multiplay>
-
     <flaps>
         <setting>0.00</setting> <!-- Cruise -->
         <setting>0.375</setting> <!-- Appr / Takeoff  15-->
@@ -175,9 +167,11 @@ Feb 2005  Syd Adams   ()
 </sim>
 
     <controls>
+
         <gear>
             <brake-parking>1</brake-parking>
         </gear>
+
         <electric>
             <engine n="0">
                 <generator type="bool">0</generator>
@@ -185,16 +179,26 @@ Feb 2005  Syd Adams   ()
             <engine n="1">
                 <generator type="bool">0</generator>
             </engine>
-            <avionics-switch type="bool">1</avionics-switch>
+            <avionics-switch type="bool">0</avionics-switch>
             <battery-switch type="bool">0</battery-switch>
             <inverter-switch type="bool">0</inverter-switch>
+            <external-power type="bool">0</external-power>
         </electric>
+
         <lighting>
-            <instrument-lights type="bool">1</instrument-lights>
-            <beacon type="bool">1</beacon>
-            <strobe type="bool">1</strobe>
-            <nav-lights type="bool">1</nav-lights>
+            <instrument-lights type="bool">0</instrument-lights>
+            <landing-lights type="bool" n="0">0</landing-lights>
+            <landing-lights type="bool" n="1">0</landing-lights>
+            <cabin-lights type="bool">0</cabin-lights>
+            <wing-lights type="bool">0</wing-lights>
+            <recog-lights type="bool">0</recog-lights>
+            <logo-lights type="bool">0</logo-lights>
+            <taxi-lights type="bool">0</taxi-lights>
+            <beacon type="bool">0</beacon>
+            <strobe type="bool">0</strobe>
+            <nav-lights type="bool">0</nav-lights>
         </lighting>
+
         <engines>
             <engine n="0">
                 <throttle-lever type="double">0</throttle-lever>
@@ -207,6 +211,16 @@ Feb 2005  Syd Adams   ()
                 <ignition>0</ignition>
             </engine>
         </engines>
+
+        <anti-ice>
+            <prop-heat type="bool"></prop-heat>
+            <pitot-heat type="bool"></pitot-heat>
+        </anti-ice>
+
+        <cabin>
+            <fan type="bool">0</fan>
+            <heat type="bool"></heat>
+        </cabin>
     </controls>
 
     <engines>

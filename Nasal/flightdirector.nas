@@ -61,8 +61,8 @@ setlistener("/sim/signals/fdm-initialized", func {
 
 ####    Mode Controller inputs    ####
 
-setlistener("/instrumentation/flightdirector/lnav", func {
-    lnav = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/lnav", func(ln){
+    lnav = ln.getValue();
     var Vn=getprop("/instrumentation/flightdirector/vnav");
     if(Vn==nil){Vn=0;}
     if(lnav == 0 or lnav ==nil){
@@ -93,10 +93,10 @@ setlistener("/instrumentation/flightdirector/lnav", func {
     AP_hdg.setValue(lnav_text[lnav]);
     setprop("instrumentation/flightdirector/lateral-mode",lMode[lnav]);
     setprop("instrumentation/flightdirector/vnav",Vn);
-});
+},1,0);
 
-setlistener("/instrumentation/flightdirector/vnav", func {
-    vnav = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/vnav", func(vn){
+    vnav = vn.getValue();
     if(vnav == 4){
         if (!getprop("/instrumentation/nav/has-gs",1)){
             vnav = 0;
@@ -104,31 +104,31 @@ setlistener("/instrumentation/flightdirector/vnav", func {
     }
     AP_alt.setValue(vnav_text[vnav]);
     setprop("instrumentation/flightdirector/vertical-mode",vMode[vnav]);
-});
+},1,0);
 
-setlistener("/instrumentation/flightdirector/spd", func {
-    spd = cmdarg().getValue();
+setlistener("/instrumentation/flightdirector/spd", func(sp){
+    spd = sp.getValue();
     if(spd == 0){AP_spd.setValue("");}
     if(spd == 1){AP_spd.setValue("speed-with-throttle");}
-});
+},1,0);
 
-setlistener("/instrumentation/nav/slaved-to-gps", func {
-    slaved = cmdarg().getBoolValue();
-});
+setlistener("/instrumentation/nav/slaved-to-gps", func(slv){
+    slaved = slv.getBoolValue();
+},1,0);
 
-setlistener("/instrumentation/nav/radials/selected-deg", func {
-    course = cmdarg().getValue();
+setlistener("/instrumentation/nav/radials/selected-deg", func(rd){
+    course = rd.getValue();
     if(course == nil){course=0.0;}
     course += mag_offset;
     if(course >360){course -= 360;}
     props.globals.getNode("instrumentation/gps/wp/wp[0]/desired-course-deg").setValue(course);
     props.globals.getNode("instrumentation/gps/wp/wp[1]/desired-course-deg").setValue(course);
-},1);
+},1,0);
 
-setlistener("/instrumentation/primus1000/dc550/fms", func {
+setlistener("/instrumentation/primus1000/dc550/fms", func(fms){
     var test =getprop("/instrumentation/flightdirector/lnav");
     var test1 =getprop("/instrumentation/flightdirector/vnav");
-    if(cmdarg().getBoolValue()){
+    if(fms.getBoolValue()){
         if(test ==2 or test==3){test=4;}
         if(test1 ==2){test1=1;}
     }else{
@@ -137,9 +137,9 @@ setlistener("/instrumentation/primus1000/dc550/fms", func {
     }
     setprop("/instrumentation/flightdirector/lnav",test);
     setprop("/instrumentation/flightdirector/vnav",test1);
-});
+},1,0);
 
-handle_inputs = func {
+var handle_inputs = func {
     var nm = 0.0;
     var hdg = 0.0;
     var nav_brg=0.0;
@@ -183,7 +183,7 @@ handle_inputs = func {
 
 ####    update nav gps or nav setting    ####
 
-update = func {
+var update = func {
 if(GO==0){return;}
     handle_inputs();
     settimer(update, 0); 

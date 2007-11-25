@@ -3,10 +3,8 @@
 #### Based on Curtis Olson's nasal electrical code ####
 
 var last_time = 0.0;
-var vbus_volts = 0.0;
 var ammeter_ave = 0.0;
 
-FDM = 0;
 OutPuts = props.globals.getNode("/systems/electrical/outputs",1); 
 Volts = props.globals.getNode("/systems/electrical/volts",1);
 ACVolts = props.globals.getNode("/systems/electrical/ac-volts",1);
@@ -16,7 +14,7 @@ INVTR = props.globals.getNode("/controls/electric/inverter-switch",1);
 L_ALT = props.globals.getNode("/controls/electric/engine[0]/generator",1);
 R_ALT = props.globals.getNode("/controls/electric/engine[1]/generator",1);
 EXT  = props.globals.getNode("/controls/electric/external-power",1); 
-NORM = 0.0357;
+var NORM = 0.0357;
 INSTR_DIMMER = props.globals.getNode("/controls/lighting/instruments-norm",1);
 EFIS_DIMMER = props.globals.getNode("/controls/lighting/efis-norm",1);
 ENG_DIMMER = props.globals.getNode("/controls/lighting/engines-norm",1);
@@ -104,28 +102,11 @@ var battery = Battery.new(24,44,44, 1.0,7.0);
 
 # var alternator = Alternator.new("rpm-source",rpm_threshold,volts,amps);
 
-alternator1 = Alternator.new("/sim/model/Bravo/n2[0]",20.0,28.5,400.0);
-alternator2 = Alternator.new("/sim/model/Bravo/n2[1]",20.0,28.5,400.0);
+var alternator1 = Alternator.new("/sim/model/Bravo/n2[0]",20.0,28.5,400.0);
+var alternator2 = Alternator.new("/sim/model/Bravo/n2[1]",20.0,28.5,400.0);
 
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {
-    props.globals.getNode("/controls/electric/external-power",1).setBoolValue(0);
-    props.globals.getNode("/controls/electric/avionics-switch",1).setBoolValue(1);
-    props.globals.getNode("/controls/anti-ice/prop-heat",1).setBoolValue(0);
-    props.globals.getNode("/controls/anti-ice/pitot-heat",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/instrument-lights",1).setBoolValue(1);
-    props.globals.getNode("/controls/lighting/landing-lights[0]",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/landing-lights[1]",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/beacon",1).setBoolValue(1);
-    props.globals.getNode("/controls/lighting/nav-lights",1).setBoolValue(1);
-    props.globals.getNode("/controls/lighting/cabin-lights",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/wing-lights",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/recog-lights",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/logo-lights",1).setBoolValue(0);
-    props.globals.getNode("/controls/lighting/strobe",1).setBoolValue(1);
-    props.globals.getNode("/controls/lighting/taxi-lights",1).setBoolValue(0);
-    props.globals.getNode("/controls/cabin/fan",1).setBoolValue(0);
-    props.globals.getNode("/controls/cabin/heat",1).setBoolValue(0);
     setprop("systems/electrical/battery-temp", getprop("/environment/temperature-degf"));
     INSTR_DIMMER.setDoubleValue(0.6);
     ENG_DIMMER.setDoubleValue(0.6);
@@ -133,14 +114,11 @@ setlistener("/sim/signals/fdm-initialized", func {
     PANEL_DIMMER.setDoubleValue(0.6);
     INVTR.setBoolValue(1);
     ACVolts.setDoubleValue(0);
-    FDM = 1;
-    settimer(update_electrical,1);
+    settimer(update_electrical,2);
     print("Electrical System ... check");
 });
 
-
-update_virtual_bus = func( dt ) {
-    if(FDM != 1 ){return;}
+var update_virtual_bus = func( dt ){
     var PWR = props.globals.getNode("systems/electrical/serviceable",1).getBoolValue();
     var engine0_state = props.globals.getNode("/engines/engine[0]/running").getBoolValue();
     var engine1_state = props.globals.getNode("/engines/engine[1]/running").getBoolValue();
@@ -211,7 +189,7 @@ update_virtual_bus = func( dt ) {
    return load;
 }
 
-electrical_bus = func() {
+var electrical_bus = func(){
     bus_volts = arg[0]; 
     load = 0.0;
     var starter_switch = props.globals.getNode("/controls/engines/engine[0]/starter").getBoolValue();
@@ -298,7 +276,7 @@ electrical_bus = func() {
 # nav[0] : nav [1] : comm[0] : comm[1]
 ####
 
-avionics_bus = func() {
+var avionics_bus = func(){
     var bus_volts = arg[0];
     var load = 0.0;
     var out = 0;
@@ -425,7 +403,7 @@ avionics_bus = func() {
     return load;
 }
 
-ac_bus = func(){
+var ac_bus = func(){
     bus_volts = arg[0]; 
     load = 0.0;
 
@@ -440,12 +418,10 @@ ac_bus = func(){
     return load;
 }
 
-update_electrical = func {
-    if(FDM == 1){
+var update_electrical = func {
     time = getprop("/sim/time/elapsed-sec");
     dt = time - last_time;
     last_time = time;
     update_virtual_bus( dt );
-    }
 settimer(update_electrical, 0);
 }
