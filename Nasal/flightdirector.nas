@@ -55,7 +55,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     GPS_on.setBoolValue(1);
     mag_offset=props.globals.getNode("/environment/magnetic-variation-deg").getValue();
     GO = 1;
-    settimer(update, 1);
+    settimer(update, 2);
     print("Flight Director ...Check");
 });
 
@@ -93,7 +93,7 @@ setlistener("/instrumentation/flightdirector/lnav", func(ln){
     AP_hdg.setValue(lnav_text[lnav]);
     setprop("instrumentation/flightdirector/lateral-mode",lMode[lnav]);
     setprop("instrumentation/flightdirector/vnav",Vn);
-},1,0);
+},0,0);
 
 setlistener("/instrumentation/flightdirector/vnav", func(vn){
     vnav = vn.getValue();
@@ -104,17 +104,17 @@ setlistener("/instrumentation/flightdirector/vnav", func(vn){
     }
     AP_alt.setValue(vnav_text[vnav]);
     setprop("instrumentation/flightdirector/vertical-mode",vMode[vnav]);
-},1,0);
+},0,0);
 
 setlistener("/instrumentation/flightdirector/spd", func(sp){
     spd = sp.getValue();
     if(spd == 0){AP_spd.setValue("");}
     if(spd == 1){AP_spd.setValue("speed-with-throttle");}
-},1,0);
+},0,0);
 
 setlistener("/instrumentation/nav/slaved-to-gps", func(slv){
     slaved = slv.getBoolValue();
-},1,0);
+},0,0);
 
 setlistener("/instrumentation/nav/radials/selected-deg", func(rd){
     course = rd.getValue();
@@ -123,7 +123,7 @@ setlistener("/instrumentation/nav/radials/selected-deg", func(rd){
     if(course >360){course -= 360;}
     props.globals.getNode("instrumentation/gps/wp/wp[0]/desired-course-deg").setValue(course);
     props.globals.getNode("instrumentation/gps/wp/wp[1]/desired-course-deg").setValue(course);
-},1,0);
+},0,0);
 
 setlistener("/instrumentation/primus1000/dc550/fms", func(fms){
     var test =getprop("/instrumentation/flightdirector/lnav");
@@ -137,7 +137,7 @@ setlistener("/instrumentation/primus1000/dc550/fms", func(fms){
     }
     setprop("/instrumentation/flightdirector/lnav",test);
     setprop("/instrumentation/flightdirector/vnav",test1);
-},1,0);
+},0,0);
 
 var handle_inputs = func {
     var nm = 0.0;

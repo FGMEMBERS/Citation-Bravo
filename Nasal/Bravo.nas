@@ -41,8 +41,18 @@ setlistener("/sim/signals/fdm-initialized", func {
     Annun.getNode("hyd-psi",1).setBoolValue(0);
     Annun.getNode("cabin-door",1).setBoolValue(0);
     if(getprop("/sim/flight-model")=="jsb"){FDMjsb=1;}
+    setprop("/sim/model/start-idling",0);
     settimer(update_systems,1);
 });
+
+setlistener("/sim/model/start-idling", func(idle){
+    var run= idle.getBoolValue();
+    if(run){
+    Startup();
+    }else{
+    Shutdown();
+    }
+},0,0);
 
 setlistener("/sim/current-view/view-number", func(vw){
     ViewNum= vw.getValue();
@@ -84,7 +94,8 @@ setlistener("/controls/engines/engine[1]/starter", func(st2){
 },0,0);
 
 setlistener("/sim/model/Bravo/start-cycle[0]", func(cy1){
-    if(cy1.getBoolValue()){
+    var c1=cy1.getBoolValue();
+    if(c1){
         setprop("/instrumentation/annunciator/LHign",1);
         setprop("/instrumentation/annunciator/fuel-boost",1);
     }else{
@@ -94,7 +105,8 @@ setlistener("/sim/model/Bravo/start-cycle[0]", func(cy1){
 },0,0);
 
 setlistener("/sim/model/Bravo/start-cycle[1]", func(cy2){
-    if(cy2.getBoolValue()){
+    var c2=cy2.getBoolValue();
+    if(c2){
         setprop("/instrumentation/annunciator/RHign",1);
         setprop("/instrumentation/annunciator/fuel-boost",1);
     }else{
@@ -141,7 +153,7 @@ setlistener("/sim/freeze/fuel", func(ffr){
     }else{
     Annun.getNode("fuel-gauge").setBoolValue(0);
     }
-}.0.0);
+},0,0);
 
 setlistener("/controls/engines/engine[0]/ignition", func(ig1){
     var ign=ig1.getValue();
@@ -219,6 +231,40 @@ var fmeter = getprop("/instrumentation/clock/flight-meter-sec");
 var fminute = fmeter * 0.016666;
 var fhour = fminute * 0.016666;
 setprop("/instrumentation/clock/flight-meter-hour",fhour);
+}
+
+var Startup = func{
+setprop("controls/electric/engine[0]/generator",1);
+setprop("controls/electric/engine[1]/generator",1);
+setprop("controls/electric/avionics-switch",1);
+setprop("controls/electric/battery-switch",1);
+setprop("controls/electric/inverter-switch",1);
+setprop("controls/lighting/instrument-lights",1);
+setprop("controls/lighting/nav-lights",1);
+setprop("controls/lighting/beacon",1);
+setprop("controls/engines/engine[0]/cutoff",0);
+setprop("controls/engines/engine[1]/cutoff",0);
+setprop("controls/engines/engine[0]/ignition",1);
+setprop("controls/engines/engine[1]/ignition",1);
+setprop("engines/engine[0]/running",1);
+setprop("engines/engine[1]/running",1);
+}
+
+var Shutdown = func{
+setprop("controls/electric/engine[0]/generator",0);
+setprop("controls/electric/engine[1]/generator",0);
+setprop("controls/electric/avionics-switch",0);
+setprop("controls/electric/battery-switch",0);
+setprop("controls/electric/inverter-switch",0);
+setprop("controls/lighting/instrument-lights",0);
+setprop("controls/lighting/nav-lights",0);
+setprop("controls/lighting/beacon",0);
+setprop("controls/engines/engine[0]/cutoff",1);
+setprop("controls/engines/engine[1]/cutoff",1);
+setprop("controls/engines/engine[0]/ignition",0);
+setprop("controls/engines/engine[1]/ignition",0);
+setprop("engines/engine[0]/running",0);
+setprop("engines/engine[1]/running",0);
 }
 
 var update_systems = func{

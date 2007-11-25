@@ -105,14 +105,11 @@ Feb 2005  Syd Adams   ()
             <name>Control D</name>
             <desc>open/close cabin door</desc>
         </key>
-        <key>
-            <name>y</name>
-            <desc>Toggle yokes on / off</desc>
-        </key>
     </help>
 
     <model>
         <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
+        <start-idling type="bool">0</start-idling>
         <variant type="int">0</variant>
         <Bravo>
             <n1 n="0" type="double">0</n1>
@@ -164,6 +161,30 @@ Feb 2005  Syd Adams   ()
    <tutorials>
         <tutorial include="Tutorials/startup_tutorial.xml"/>
     </tutorials>
+
+    <menubar>
+        <default>
+            <menu n="10">
+                <label>Bravo</label>
+                <enabled type="bool">true</enabled>
+                <item>
+                    <label>Start Idling</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/model/start-idling</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Yokes On/Off</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>sim/yokes-visible</property>
+                    </binding>
+                </item>
+            </menu>
+        </default>
+    </menubar>
+        
 </sim>
 
     <controls>
@@ -262,14 +283,6 @@ Feb 2005  Syd Adams   ()
                 <binding>
                     <command>nasal</command>
                     <script>Bravo.cabin_door.toggle()</script>
-                </binding>
-            </key>
-            <key n="121">
-                <name>y</name>
-                <desc>Toggle yokes</desc>
-                <binding>
-                    <command>property-toggle</command>
-                    <property>/sim/yokes-visible</property>
                 </binding>
             </key>
         </keyboard>
