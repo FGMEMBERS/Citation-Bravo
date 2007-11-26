@@ -8,7 +8,7 @@ Feb 2005  Syd Adams   ()
 <PropertyList>
 
 <sim>
-    <description>Cessna Citation-Bravo - 3d cockpit (YASim) </description>
+    <description>Cessna 550B - Citation-Bravo</description>
     <author>Syd Adams</author>
     <status>development</status>
     <flight-model>yasim</flight-model>
