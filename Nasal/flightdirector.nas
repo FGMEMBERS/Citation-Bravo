@@ -17,9 +17,10 @@ var vnav = 0.0;
 var spd = 0.0;
 var alt_alert = 0.0;
 var course = 0.0;
-var slaved = 0;
+var lp = aircraft.lowpass.new(0.5);
+
 lnav_text=["wing-leveler","dg-heading-hold","nav1-hold","nav1-hold","true-heading-hold","nav1-hold","nav1-hold"];
-vnav_text=["pitch-hold","altitude-hold","altitude-hold","pitch-hold","gs1-hold","altitude-hold","vertical-speed-hold","altitude-hold"];
+vnav_text=["pitch-hold","altitude-hold","altitude-hold","pitch-hold","gs1-hold","pitch-hold","vertical-speed-hold","altitude-hold"];
 var mag_offset=0;
 var lMode=[" ","HDG","VOR","LOC","LNAV","VAPP","BC"];
 var vMode=[" ","ALT","ASEL","GA","GS","VNAV","VS","FLC"];
@@ -30,6 +31,8 @@ AP_spd = props.globals.getNode("/autopilot/locks/speed",1);
 AP_lnav = props.globals.getNode("/instrumentation/flightdirector/lnav",1);
 FD_deflection = props.globals.getNode("/instrumentation/flightdirector/crs-deflection",1);
 FD_heading = props.globals.getNode("/instrumentation/flightdirector/hdg-deg",1);
+FD_pitch = props.globals.getNode("/instrumentation/flightdirector/Pitch",1);
+FD_roll = props.globals.getNode("/instrumentation/flightdirector/Roll",1);
 HDG_deflection = props.globals.getNode("/instrumentation/nav/heading-needle-deflection",1);
 AP_vnav = props.globals.getNode("/instrumentation/flightdirector/vnav",1);
 AP_speed = props.globals.getNode("/instrumentation/flightdirector/spd",1);
@@ -102,6 +105,13 @@ setlistener("/instrumentation/flightdirector/vnav", func(vn){
             vnav = 0;
         }
     }
+    if(vnav == 5){
+        if (!getprop("/instrumentation/nav/has-gs",1)){
+            vnav = 0;
+        }else{
+        setprop("/autopilot/settings/target-pitch-deg",0);
+        }
+    }
     AP_alt.setValue(vnav_text[vnav]);
     setprop("instrumentation/flightdirector/vertical-mode",vMode[vnav]);
 },0,0);
@@ -110,10 +120,6 @@ setlistener("/instrumentation/flightdirector/spd", func(sp){
     spd = sp.getValue();
     if(spd == 0){AP_spd.setValue("");}
     if(spd == 1){AP_spd.setValue("speed-with-throttle");}
-},0,0);
-
-setlistener("/instrumentation/nav/slaved-to-gps", func(slv){
-    slaved = slv.getBoolValue();
 },0,0);
 
 setlistener("/instrumentation/nav/radials/selected-deg", func(rd){
@@ -140,45 +146,16 @@ setlistener("/instrumentation/primus1000/dc550/fms", func(fms){
 },0,0);
 
 var handle_inputs = func {
-    var nm = 0.0;
-    var hdg = 0.0;
-    var nav_brg=0.0;
-    var ap_hdg=0;
-    var track =0;
-    track =props.globals.getNode("/orientation/heading-deg").getValue();
-    maxroll = props.globals.getNode("/orientation/roll-deg",1).getValue();
-    if(maxroll > 45 or maxroll < -45){AP_passive.setBoolValue(1);}
-    maxpitch = props.globals.getNode("/orientation/pitch-deg").getValue();
-    if(maxpitch > 45 or maxpitch < -45){AP_passive.setBoolValue(1);}
-    if(props.globals.getNode("/position/altitude-agl-ft").getValue() < 100){AP_passive.setBoolValue(1);}
-    if(WP1.getNode("ID").getValue()!=nil){
-            nm = WP1.getNode("course-error-nm").getValue();
-            if(nm > 10){nm=10;}
-            if(nm < -10){nm=-10;}
-        }
-    GPS_CDI.setValue(nm);
-    hdg =RADIAL.getValue() + mag_offset;
-    hdg-=track;
-    if(hdg > 180){hdg-=360;}
-    if(hdg < -180){hdg+=360;}
-    if(slaved){
-        FD_deflection.setValue(nm);
-        nav_brg= WP1.getNode("bearing-true-deg").getValue();
-        if(nav_brg == nil){nav_brg = 0.0;}
-        }else{
-            FD_deflection.setValue(HDG_deflection.getValue());
-            nav_brg= props.globals.getNode("instrumentation/nav/heading-deg").getValue();
-            if(nav_brg == nil){nav_brg = 0.0;}
-            nav_brg+= mag_offset;
-        }
-    nav_brg -=track;
-    if(nav_brg > 180){nav_brg -=360;}
-    if(nav_brg < -180){nav_brg +=360;}
-    NAV_BRG.setValue(nav_brg);
-    ap_hdg = hdg +(FD_deflection.getValue() *4);
-    if(ap_hdg > 180){ap_hdg -= 360;}
-    if(ap_hdg < -180){ap_hdg += 360;}
-    FD_heading.setValue(ap_hdg);
+      
+    var maxroll = getprop("/orientation/roll-deg");
+    var maxpitch = getprop("/orientation/pitch-deg");
+
+    if(maxroll > 45 or maxroll < -45)AP_passive.setBoolValue(1);
+    if(maxpitch > 45 or maxpitch < -45)AP_passive.setBoolValue(1);
+    if(getprop("/position/altitude-agl-ft") < 100)AP_passive.setBoolValue(1);
+
+
+
 }
 
 ####    update nav gps or nav setting    ####

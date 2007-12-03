@@ -25,19 +25,38 @@
     <panel>
         <path>Aircraft/Citation-Bravo/Panel/center-panel.xml</path>
         <bottom-left>
-            <x-m>3.009</x-m>
-            <y-m>-0.130</y-m>
-            <z-m>0.276</z-m>
+            <x-m>3.003</x-m>
+            <y-m>-0.056</y-m>
+            <z-m>0.271</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>3.009</x-m>
-            <y-m>0.170</y-m>
-            <z-m>0.276</z-m>
+            <x-m>3.003</x-m>
+            <y-m>0.096</y-m>
+            <z-m>0.271</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.40</x-m>
-            <y-m>-0.130</y-m>
-            <z-m>0.305</z-m>
+            <x-m>2.711</x-m>
+            <y-m>-0.056</y-m>
+            <z-m>0.282</z-m>
+        </top-left>
+    </panel>
+
+    <panel>
+        <path>Aircraft/Citation-Bravo/Panel/throttle-panel.xml</path>
+        <bottom-left>
+            <x-m>2.686</x-m>
+            <y-m>-0.053</y-m>
+            <z-m>0.265</z-m>
+        </bottom-left>
+        <bottom-right>
+            <x-m>2.686</x-m>
+            <y-m>0.187</y-m>
+            <z-m>0.265</z-m>
+        </bottom-right>
+        <top-left>
+            <x-m>2.465</x-m>
+            <y-m>-0.053</y-m>
+            <z-m>0.427</z-m>
         </top-left>
     </panel>
 
@@ -121,6 +140,36 @@
         </offsets>
     </model>
 
+    <model>
+        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
+        <offsets>
+            <x-m>2.409</x-m>
+            <y-m>-0.530</y-m>
+            <z-m>0.742</z-m>
+            <pitch-deg>-10.0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
+        <offsets>
+            <x-m>2.409</x-m>
+            <y-m>0.515</y-m>
+            <z-m>0.742</z-m>
+            <pitch-deg>-10.0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Aerostar-700/Models/testpilot.xml</path>
+        <offsets>
+            <x-m>3.05</x-m>
+            <y-m>-0.333</y-m>
+            <z-m>0.282</z-m>
+            <pitch-deg>0.0</pitch-deg>
+        </offsets>
+    </model>
+
     <animation>
         <type>noshadow</type>
         <object-name>Flash01</object-name>
@@ -164,46 +213,94 @@
 
     <animation>
         <type>material</type>
+        <object-name>litfaces</object-name>
+        <object-name>litfaces.001</object-name>
+        <object-name>hdgring</object-name>
+        <object-name>CRSneedle2.001</object-name>
+        <object-name>CRSneedle2</object-name>
+        <object-name>Plane.057</object-name>
+        <object-name>Plane.058</object-name>
+        <object-name>CRSneedle2.001</object-name>
+        <object-name>Gauge.1</object-name>
+        <object-name>Gauge.2</object-name>
+        <object-name>DCvolts</object-name>
+        <object-name>DCamps1</object-name>
+        <object-name>DCamps2</object-name>
+        <object-name>AoA.needle</object-name>
+        <emission>
+            <red>0.035</red>
+            <green>0.035</green>
+            <blue>0.035</blue>
+            <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Fan01</object-name>
+        <object-name>Fan02</object-name>
+        <object-name>ITT01</object-name>
+        <object-name>ITT02</object-name>
+        <object-name>OilP01</object-name>
+        <object-name>OilP02</object-name>
+        <object-name>OilT01</object-name>
+        <object-name>OilT02</object-name>
+        <object-name>FQty01</object-name>
+        <object-name>FQty02</object-name>
+        <object-name>LHn1</object-name>
+        <object-name>LHn1.01</object-name>
+        <object-name>LHn1.02</object-name>
+        <object-name>LHn1.03</object-name>
+        <object-name>RHn1</object-name>
+        <object-name>RHn1.01</object-name>
+        <object-name>RHn1.02</object-name>
+        <object-name>RHn1.03</object-name>
+        <object-name>LHn2</object-name>
+        <object-name>LHn2.01</object-name>
+        <object-name>LHn2.02</object-name>
+        <object-name>LHn2.03</object-name>
+        <object-name>RHn2</object-name>
+        <object-name>RHn2.01</object-name>
+        <object-name>RHn2.02</object-name>
+        <object-name>RHn2.03</object-name>
+        <object-name>LHflow.001</object-name>
+        <object-name>LHflow.002</object-name>
+        <object-name>LHflow.003</object-name>
+        <object-name>LHflow.004</object-name>
+        <object-name>RHflow.001</object-name>
+        <object-name>RHflow.002</object-name>
+        <object-name>RHflow.003</object-name>
+        <object-name>RHflow.004</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>rednav</object-name>
-        <emission>
-            <red>1.0</red>
-            <green>0.5</green>
-            <blue>0.2</blue>
-            <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
-        </emission>
-    </animation>
-
-    <animation>
-        <type>material</type>
         <object-name>greennav</object-name>
-        <emission>
-            <red>0.2</red>
-            <green>1.0</green>
-            <blue>0.4</blue>
-            <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
-        </emission>
-    </animation>
-
-    <animation>
-        <type>material</type>
         <object-name>whitenav</object-name>
-        <emission>
-            <red>1.0</red>
-            <green>1.0</green>
-            <blue>1.0</blue>
-            <factor-prop>/systems/electrical/outputs/nav-lights</factor-prop>
-        </emission>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/nav-lights</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
     </animation>
 
     <animation>
-        <type>material</type>
+        <type>select</type>
         <object-name>beacon</object-name>
-        <emission>
-            <red>1.0</red>
-            <green>0.3</green>
-            <blue>0.1</blue>
-            <factor-prop>/systems/electrical/outputs/beacon</factor-prop>
-        </emission>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/beacon</property>
+                <value>5</value>
+            </greater-than>
+        </condition>
     </animation>
 
     <animation>
@@ -231,6 +328,16 @@
     </animation>
 
     <animation>
+        <type>dist-scale</type>
+        <object-name>Flash01</object-name>
+        <interpolation>
+        <entry><ind>0</ind><dep>1</dep></entry>
+        <entry><ind>500</ind><dep>2.5</dep></entry>
+        <entry><ind>16000</ind><dep>10</dep></entry>
+        </interpolation>
+    </animation>
+
+    <animation>
         <type>select</type>
         <object-name>Flash02</object-name>
         <condition>
@@ -255,6 +362,16 @@
     </animation>
 
     <animation>
+        <type>dist-scale</type>
+        <object-name>Flash02</object-name>
+        <interpolation>
+        <entry><ind>0</ind><dep>1</dep></entry>
+        <entry><ind>500</ind><dep>2.5</dep></entry>
+        <entry><ind>16000</ind><dep>10</dep></entry>
+        </interpolation>
+    </animation>
+
+    <animation>
         <type>select</type>
         <object-name>Redglow</object-name>
         <condition>
@@ -267,6 +384,9 @@
                     <property>sim/time/sun-angle-rad</property>
                     <value>1.6</value>
                 </greater-than>
+                <not>
+                    <property>controls/lighting/strobe-state/state</property>
+                </not>
             </and>
         </condition>
     </animation>
@@ -288,6 +408,16 @@
     </animation>
 
     <animation>
+        <type>dist-scale</type>
+        <object-name>Redglow</object-name>
+        <interpolation>
+        <entry><ind>0</ind><dep>1</dep></entry>
+        <entry><ind>500</ind><dep>2.5</dep></entry>
+        <entry><ind>16000</ind><dep>10</dep></entry>
+        </interpolation>
+    </animation>
+
+    <animation>
         <type>select</type>
         <object-name>Greenglow</object-name>
         <condition>
@@ -300,6 +430,9 @@
                     <property>sim/time/sun-angle-rad</property>
                     <value>1.6</value>
                 </greater-than>
+                <not>
+                    <property>controls/lighting/strobe-state/state</property>
+                </not>
             </and>
         </condition>
     </animation>
@@ -318,6 +451,16 @@
     <animation>
         <type>billboard</type>
         <object-name>Greenglow</object-name>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>Greenglow</object-name>
+        <interpolation>
+        <entry><ind>0</ind><dep>1</dep></entry>
+        <entry><ind>500</ind><dep>2.5</dep></entry>
+        <entry><ind>16000</ind><dep>10</dep></entry>
+        </interpolation>
     </animation>
 
     <animation>
@@ -348,6 +491,16 @@
     <animation>
         <type>billboard</type>
         <object-name>Redglow.001</object-name>
+    </animation>
+
+    <animation>
+        <type>dist-scale</type>
+        <object-name>Redglow.001</object-name>
+        <interpolation>
+        <entry><ind>0</ind><dep>1</dep></entry>
+        <entry><ind>500</ind><dep>2.5</dep></entry>
+        <entry><ind>16000</ind><dep>10</dep></entry>
+        </interpolation>
     </animation>
 
     <animation>
@@ -1307,7 +1460,7 @@
             <red>0.3</red>
             <green>0.7</green>
             <blue>0.3</blue>
-            <factor-prop>instrumentation/annunciator/LHign</factor-prop>
+            <factor-prop>instrumentation/annunciators/LHign</factor-prop>
         </emission>
     </animation>
 
@@ -1318,11 +1471,11 @@
             <red>0.3</red>
             <green>0.7</green>
             <blue>0.3</blue>
-            <factor-prop>instrumentation/annunciator/RHign</factor-prop>
+            <factor-prop>instrumentation/annunciators/RHign</factor-prop>
         </emission>
     </animation>
 
-	<animation>
+    <animation>
         <type>select</type>
         <object-name>GrNose</object-name>
         <condition>
@@ -1441,7 +1594,7 @@
         <type>select</type>
         <object-name>Mcaution</object-name>
         <condition>
-            <property>instrumentation/annunciator/master-caution</property>
+            <property>instrumentation/annunciators/master-caution</property>
         </condition>
     </animation>
 
@@ -1449,15 +1602,29 @@
         <type>select</type>
         <object-name>Mwarning</object-name>
         <condition>
-            <property>instrumentation/annunciator/master-warning</property>
+            <property>instrumentation/annunciators/master-warning</property>
         </condition>
     </animation>
+
+
+
+<!--  Annunciators -->
+
+
 
     <animation>
         <type>select</type>
         <object-name>Annc</object-name>
         <condition>
-            <property>instrumentation/annunciator/batt</property>
+            <property>instrumentation/annunciators/batt</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/batt160</property>
         </condition>
     </animation>
 
@@ -1465,7 +1632,15 @@
         <type>select</type>
         <object-name>Annc.001</object-name>
         <condition>
-            <property>instrumentation/annunciator/ac-fail</property>
+            <property>instrumentation/annunciators/cab-alt</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.001B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/ac-fail</property>
         </condition>
     </animation>
 
@@ -1473,17 +1648,15 @@
         <type>select</type>
         <object-name>Annc.002</object-name>
         <condition>
-            <not>
-                <property>instrumentation/annunciator/oil-pressure</property>
-            </not>
-        </condition>
+            <property>instrumentation/annunciators/oil-psi</property>
+    </condition>
     </animation>
 
     <animation>
         <type>select</type>
         <object-name>Annc.003</object-name>
         <condition>
-            <property>instrumentation/annunciator/fire-det-fail</property>
+            <property>instrumentation/annunciators/fire-det</property>
         </condition>
     </animation>
 
@@ -1491,7 +1664,7 @@
         <type>select</type>
         <object-name>Annc.004</object-name>
         <condition>
-            <property>instrumentation/annunciator/oil-fltr-bp</property>
+            <property>instrumentation/annunciators/oil-fltr-bp</property>
         </condition>
     </animation>
 
@@ -1499,7 +1672,7 @@
         <type>select</type>
         <object-name>Annc.005</object-name>
         <condition>
-            <property>instrumentation/annunciator/fuel-gauge</property>
+            <property>instrumentation/annunciators/fuel-gauge</property>
         </condition>
     </animation>
 
@@ -1507,7 +1680,7 @@
         <type>select</type>
         <object-name>Annc.006</object-name>
         <condition>
-            <property>instrumentation/annunciator/fuel-boost</property>
+            <property>instrumentation/annunciators/fuel-boost</property>
         </condition>
     </animation>
 
@@ -1516,9 +1689,9 @@
         <object-name>Annc.007</object-name>
         <condition>
             <and>
-                <property>instrumentation/annunciator/fuel-lo</property>
+                <property>instrumentation/annunciators/fuel-lo</property>
                 <not>
-                    <property>instrumentation/annunciator/state</property>
+                    <property>instrumentation/annunciators/state</property>
                 </not>
             </and>
         </condition>
@@ -1528,7 +1701,7 @@
         <type>select</type>
         <object-name>Annc.008</object-name>
         <condition>
-            <property>instrumentation/annunciator/lo-fuel-psi</property>
+            <property>instrumentation/annunciators/fuel-psi</property>
         </condition>
     </animation>
 
@@ -1536,7 +1709,7 @@
         <type>select</type>
         <object-name>Annc.009</object-name>
         <condition>
-            <property>instrumentation/annunciator/fuel-fltr-bp</property>
+            <property>instrumentation/annunciators/fuel-fltr-bp</property>
         </condition>
     </animation>
 
@@ -1544,7 +1717,7 @@
         <type>select</type>
         <object-name>Annc.010</object-name>
         <condition>
-            <property>instrumentation/annunciator/gen-off</property>
+            <property>instrumentation/annunciators/gen-off</property>
         </condition>
     </animation>
 
@@ -1552,7 +1725,7 @@
         <type>select</type>
         <object-name>Annc.011</object-name>
         <condition>
-            <property>instrumentation/annunciator/invtr-fail</property>
+            <property>instrumentation/annunciators/invtr-fail</property>
         </condition>
     </animation>
 
@@ -1561,37 +1734,92 @@
         <object-name>Annc.012</object-name>
         <condition>
             <and>
-                <property>instrumentation/annunciator/antiskid</property>
+                <property>instrumentation/annunciators/lo-brk-psi</property>
                 <not>
-                    <property>instrumentation/annunciator/state</property>
+                    <property>instrumentation/annunciators/state</property>
                 </not>
             </and>
         </condition>
     </animation>
 
-<animation>
+    <animation>
+        <type>select</type>
+        <object-name>Annc.012B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/antiskid</property>
+        </condition>
+    </animation>
+
+    <animation>
         <type>select</type>
         <object-name>Annc.013</object-name>
         <condition>
-            <and>
-                <property>instrumentation/annunciator/hyd-psi</property>
-                <not>
-                    <property>instrumentation/annunciator/state</property>
-                </not>
-            </and>
+            <property>instrumentation/annunciators/emer-psi</property>
         </condition>
     </animation>
 
-<animation>
+    <animation>
+        <type>select</type>
+        <object-name>Annc.013B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/spd-brk</property>
+        </condition>
+    </animation>
+
+
+    <animation>
         <type>select</type>
         <object-name>Annc.014</object-name>
         <condition>
-            <and>
-                <property>instrumentation/annunciator/hyd-flow</property>
-                <not>
-                    <property>instrumentation/annunciator/state</property>
-                </not>
-            </and>
+            <property>instrumentation/annunciators/hyd-flow</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.015</object-name>
+        <condition>
+            <property>instrumentation/annunciators/lo-hyd-lvl</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.015B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/hyd-psi</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.016</object-name>
+        <condition>
+            <property>instrumentation/annunciators/eng-vib</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.017</object-name>
+        <condition>
+            <property>instrumentation/annunciators/door-seal</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.017B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/bld-air-gnd</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.018</object-name>
+        <condition>
+            <property>instrumentation/annunciators/bagg-door</property>
         </condition>
     </animation>
 
@@ -1599,31 +1827,145 @@
         <type>select</type>
         <object-name>Annc.019</object-name>
         <condition>
-            <and>
-                <property>instrumentation/annunciator/cabin-door</property>
-                <not>
-                    <property>instrumentation/annunciator/state</property>
-                </not>
-            </and>
+            <property>instrumentation/annunciators/cabin-door</property>
         </condition>
     </animation>
 
     <animation>
         <type>select</type>
-        <object-name>Annc.031</object-name>
+        <object-name>Annc.019B</object-name>
         <condition>
-            <property>instrumentation/annunciator/grnd-idle</property>
+            <property>instrumentation/annunciators/aft-bagg-door</property>
         </condition>
     </animation>
 
     <animation>
         <type>select</type>
-        <object-name>Annc.030</object-name>
+        <object-name>Annc.020</object-name>
         <condition>
-            <property>instrumentation/annunciator/spd-brk</property>
+            <property>instrumentation/annunciators/ap-pitch-trim</property>
         </condition>
     </animation>
 
+    <animation>
+        <type>select</type>
+        <object-name>Annc.020B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/ap-roll-trim</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.021</object-name>
+        <condition>
+            <property>instrumentation/annunciators/chk-pfd-1</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.021B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/chk-pfd-2</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.022</object-name>
+        <condition>
+            <property>instrumentation/annunciators/nose-av-fan</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.023</object-name>
+        <condition>
+            <property>instrumentation/annunciators/grnd-idle</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.023B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/tas-htr</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.024</object-name>
+        <condition>
+            <property>instrumentation/annunciators/fw-shutoff</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.025</object-name>
+        <condition>
+            <property>instrumentation/annunciators/stby-ps-htr</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.025B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/aoa-htr</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.026</object-name>
+        <condition>
+            <property>instrumentation/annunciators/ps-htr</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.027</object-name>
+        <condition>
+            <property>instrumentation/annunciators/eng-antice</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.028</object-name>
+        <condition>
+            <property>instrumentation/annunciators/ws-oheat</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.028B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/surf-deice</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.029</object-name>
+        <condition>
+            <property>instrumentation/annunciators/air-dct-oheat</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Annc.029B</object-name>
+        <condition>
+            <property>instrumentation/annunciators/acm-psi</property>
+        </condition>
+    </animation>
 
 <!--####    Instruments    ####-->  
 

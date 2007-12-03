@@ -130,21 +130,21 @@ Feb 2005  Syd Adams   ()
 
     <weight n="1">
         <name>Passengers</name>
-        <weight-lb>700</weight-lb>
+        <weight-lb>300</weight-lb>
         <max-lb>1200</max-lb>
         <min-lb>0</min-lb>
     </weight>
 
     <weight n="2">
         <name>Front Baggage</name>
-        <weight-lb>100</weight-lb>
+        <weight-lb>0</weight-lb>
         <max-lb>310</max-lb>
         <min-lb>0</min-lb>
     </weight>
 
     <weight n="3">
         <name>Rear Baggage</name>
-        <weight-lb>100</weight-lb>
+        <weight-lb>0</weight-lb>
         <max-lb>500</max-lb>
         <min-lb>0</min-lb>
     </weight>
@@ -187,6 +187,12 @@ Feb 2005  Syd Adams   ()
         
 </sim>
 
+    <systems>
+        <electrical>
+            <ac-volts>0</ac-volts>
+        </electrical>
+    </systems>
+
     <controls>
 
         <gear>
@@ -207,7 +213,7 @@ Feb 2005  Syd Adams   ()
         </electric>
 
         <lighting>
-            <instrument-lights type="bool">0</instrument-lights>
+            <instrument-lights type="bool">1</instrument-lights>
             <landing-lights type="bool" n="0">0</landing-lights>
             <landing-lights type="bool" n="1">0</landing-lights>
             <cabin-lights type="bool">0</cabin-lights>
@@ -221,6 +227,7 @@ Feb 2005  Syd Adams   ()
         </lighting>
 
         <engines>
+            <throttle_idle type="bool">1</throttle_idle>
             <engine n="0">
                 <throttle-lever type="double">0</throttle-lever>
                 <cutoff>1</cutoff><!--  cutoff = 0 : Start with engines running-->
@@ -244,6 +251,59 @@ Feb 2005  Syd Adams   ()
         </cabin>
     </controls>
 
+<!--Annunciator Setup-->
+    <instrumentation>
+        <annunciators>
+            <master-warning type="bool">0</master-warning>
+            <master-caution type="bool">0</master-caution>
+            <LHign type="bool">0</LHign>
+            <RHign type="bool">0</RHign>
+            <batt type="bool">0</batt>
+            <batt160 type="bool">0</batt160>
+            <cab-alt type="bool">0</cab-alt>
+            <ac-fail type="bool">0</ac-fail>
+            <oil-psi type="bool">0</oil-psi>
+            <fire-det type="bool">0</fire-det>
+            <oil-fltr-bp type="bool">0</oil-fltr-bp>
+            <fuel-gauge type="bool">0</fuel-gauge>
+            <fuel-boost type="bool">0</fuel-boost>
+            <fuel-lo type="bool">0</fuel-lo>
+            <fuel-psi type="bool">0</fuel-psi>
+            <fuel-fltr-bp type="bool">0</fuel-fltr-bp>
+            <gen-off type="bool">0</gen-off>
+            <invtr-fail type="bool">0</invtr-fail>
+            <lo-brk-psi type="bool">0</lo-brk-psi>
+            <antiskid type="bool">0</antiskid>
+            <emer-psi type="bool">0</emer-psi>
+            <spd-brk type="bool">0</spd-brk>
+            <hyd-flow type="bool">0</hyd-flow>
+            <lo-hyd-lvl type="bool">0</lo-hyd-lvl>
+            <hyd-psi type="bool">0</hyd-psi>
+            <eng-vib type="bool">0</eng-vib>
+            <door-seal type="bool">0</door-seal>
+            <bld-air-gnd type="bool">0</bld-air-gnd>
+            <bagg-door type="bool">0</bagg-door>
+            <cabin-door type="bool">0</cabin-door>
+            <aft-bagg-door type="bool">0</aft-bagg-door>
+            <ap-pitch-trim type="bool">0</ap-pitch-trim>
+            <ap-roll-trim type="bool">0</ap-roll-trim>
+            <chk-pfd-1 type="bool">0</chk-pfd-1>
+            <chk-pfd-2 type="bool">0</chk-pfd-2>
+            <nose-av-fan type="bool">0</nose-av-fan>
+            <grnd-idle type="bool">0</grnd-idle>
+            <tas-htr type="bool">0</tas-htr>
+            <fw-shutoff type="bool">0</fw-shutoff>
+            <stby-ps-htr type="bool">0</stby-ps-htr>
+            <aoa-htr type="bool">0</aoa-htr>
+            <ps-htr type="bool">0</ps-htr>
+            <eng-antice type="bool">0</eng-antice>
+            <ws-oheat type="bool">0</ws-oheat>
+            <surf-deice type="bool">0</surf-deice>
+            <air-dct-oheat type="bool">0</air-dct-oheat>
+            <acm-psi type="bool">0</acm-psi>
+        </annunciators>
+    </instrumentation>
+
     <engines>
         <engine n="0">
             <running>false</running>
@@ -259,7 +319,7 @@ Feb 2005  Syd Adams   ()
             <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
             <file>Aircraft/Instruments-3d/primus-1000/Primus1000.nas</file>
-            <file>Aircraft/Generic/annunciator.nas</file>
+            <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
         </Bravo>
     </nasal>
 

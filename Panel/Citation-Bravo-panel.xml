@@ -16,15 +16,6 @@
         <h>196</h>
     </instrument>
 
-<!-- davtron clock -->  
-    <instrument include="davtronclock.xml">
-        <name>DavtronClock</name>
-        <x>99</x>
-        <y>298</y>
-        <w>24</w>
-        <h>24</h>
-    </instrument>
-
 <!-- dme -->
     <instrument include="dme.xml">
         <name>DME</name>
@@ -50,6 +41,15 @@
         <y>151</y>
         <w>142</w>
         <h>190</h>
+    </instrument>
+
+<!-- m877 chronometer -->
+    <instrument include="../../Instruments-3d/clock/M877/m877-hotspots.xml">
+        <name>M877</name>
+        <x>101</x>
+        <y>302</y>
+        <w>51</w>
+        <h>51</h>
     </instrument>
 
     <instrument>
@@ -463,7 +463,7 @@
         <h>13</h>
         <binding>
             <command>property-assign</command>
-            <property>instrumentation/annunciator/master-warning</property>
+            <property>instrumentation/annunciators/master-warning</property>
             <value>0</value>
         </binding>
     </action>
@@ -477,7 +477,7 @@
         <h>13</h>
         <binding>
             <command>property-assign</command>
-            <property>instrumentation/annunciator/master-caution</property>
+            <property>instrumentation/annunciators/master-caution</property>
             <value>0</value>
         </binding>
     </action>
