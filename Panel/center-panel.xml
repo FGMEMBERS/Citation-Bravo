@@ -8,230 +8,24 @@
 
 <instruments>
 
-<instrument>
-  <name>centerpanel hotspots</name>
-  <x>76</x>
-  <y>146</y>
-  <w>152</w>
-  <h>292</h>
-  <w-base>152</w-base>
-  <h-base>292</h-base>
+<!-- RIC -->
+    <instrument include="../../Instruments-3d/primus-1000/ric-hotspots.xml">
+        <name>RIC</name>
+        <x>76</x>
+        <y>88</y>
+        <w>144</w>
+        <h>44</h>
+    </instrument>
 
- <actions> 
+<!-- AP -->
+    <instrument include="../../Instruments-3d/primus-1000/AP-hotspots.xml">
+        <name>AP</name>
+        <x>76</x>
+        <y>32</y>
+        <w>144</w>
+        <h>66</h>
+    </instrument>
 
-
-<!---            Remote Instrument Controller -->
-   
-   <action>
-     <name>Center Course Needle</name>
-     <button>0</button>
-     <x>-40</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-assign</command>
-       <property>instrumentation/nav/radials/selected-deg</property>
-       <property>instrumentation/nav/heading-deg</property>
-     </binding>
-   </action>
-   
-   <action>
-     <name>Course decrease 1</name>
-     <button>0</button>
-     <x>-52</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-adjust</command>
-       <property>instrumentation/nav/radials/selected-deg</property>
-       <step>-1</step>
-       <min>0</min>
-       <max>359</max>
-       <wrap>true</wrap>
-         </binding>
-       </action>
-       
-       <action>
-         <name>Course decrease 10</name>
-         <button>1</button>
-         <x>-52</x>
-         <y>-64</y>
-         <w>12</w>
-         <h>12</h>
-         <binding>
-           <command>property-adjust</command>
-           <property>instrumentation/nav/radials/selected-deg</property>
-           <step>-10</step>
-           <min>0</min>
-           <max>350</max>
-           <wrap>true</wrap>
-             </binding>
-           </action>
-           
-           <action>
-             <name>Course increase 1</name>
-             <button>0</button>
-             <x>-28</x>
-             <y>-64</y>
-             <w>12</w>
-             <h>12</h>
-             <binding>
-               <command>property-adjust</command>
-               <property>instrumentation/nav/radials/selected-deg</property>
-               <step>1</step>
-               <min>0</min>
-               <max>359</max>
-               <wrap>true</wrap>
-                 </binding>
-               </action>
-               
-               <action>
-                 <name>Course increase 10</name>
-                 <button>1</button>
-                 <x>-28</x>
-                 <y>-64</y>
-                 <w>12</w>
-                 <h>12</h>
-                 <binding>
-                   <command>property-adjust</command>
-                   <property>instrumentation/nav/radials/selected-deg</property>
-                   <step>10</step>
-                   <min>0</min>
-                   <max>350</max>
-                   <wrap>true</wrap>
-                     </binding>
-                   </action>
-                   
-
-   
-
-
-
-   
-   <action>
-     <name>Center Heading Bug</name>
-     <button>0</button>
-     <x>-5</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-assign</command>
-       <property>autopilot/settings/heading-bug-deg</property>
-       <property>/orientation/heading-magnetic-deg</property>
-     </binding>
-   </action>
-
-   <action>
-     <name>Heading Bug decrease1</name>
-     <button>0</button>
-     <x>-17</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-adjust</command>
-       <property>autopilot/settings/heading-bug-deg</property>
-       <step>-1</step>
-       <min>0</min>
-       <max>359</max>
-       <wrap>true</wrap>
-     </binding>
-   </action>
-   
-   <action>
-     <name>Heading Bug decrease10</name>
-     <button>1</button>
-     <x>-17</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-adjust</command>
-       <property>autopilot/settings/heading-bug-deg</property>
-       <step>-10</step>
-       <min>0</min>
-       <max>359</max>
-       <wrap>true</wrap>
-     </binding>
-   </action>
-   
-   <action>
-     <name>Heading Bug increase1</name>
-     <button>0</button>
-     <x>7</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-adjust</command>
-       <property>autopilot/settings/heading-bug-deg</property>
-       <step>1</step>
-       <min>0</min>
-       <max>359</max>
-       <wrap>true</wrap>
-     </binding>
-   </action>
-   
-   <action>
-     <name>Heading Bug increase10</name>
-     <button>1</button>
-     <x>7</x>
-     <y>-64</y>
-     <w>12</w>
-     <h>12</h>
-     <binding>
-       <command>property-adjust</command>
-       <property>autopilot/settings/heading-bug-deg</property>
-       <step>10</step>
-       <min>0</min>
-       <max>359</max>
-       <wrap>true</wrap>
-     </binding>
-   </action>
-
-<!--           AUTOPILOT          -->
-
-<action>
-  <name>Autopilot ON</name>
-  <button>0</button>
-  <x>-20</x>
-  <y>-120</y>
-  <w>14</w>
-  <h>10</h>
-  <binding>
-    <command>property-toggle</command>
-    <property>autopilot/locks/passive-mode</property>
-  </binding>
-</action>
-
-<action>
-  <name>Yaw Damper ON</name>
-  <button>0</button>
-  <x>-2</x>
-  <y>-120</y>
-  <w>14</w>
-  <h>10</h>
-  <binding>
-    <command>property-toggle</command>
-    <property>autopilot/locks/passive-mode</property>
-  </binding>
-</action>
-
-
-<!--               THROTTLE           -->
-
-
-
-
-<!--               FLAPS           -->
-
-
-
-</actions>
-
-</instrument>
 </instruments>
+
 </PropertyList>

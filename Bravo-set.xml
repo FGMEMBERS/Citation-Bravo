@@ -224,6 +224,10 @@ Feb 2005  Syd Adams   ()
             <beacon type="bool">0</beacon>
             <strobe type="bool">0</strobe>
             <nav-lights type="bool">0</nav-lights>
+            <instruments-norm type="double">0.8</instruments-norm>
+            <efis-norm type="double">0.8</efis-norm>
+            <engines-norm type="double">0.8</engines-norm>
+            <panel-norm type="double">0.8</panel-norm>
         </lighting>
 
         <engines>
@@ -301,7 +305,11 @@ Feb 2005  Syd Adams   ()
             <surf-deice type="bool">0</surf-deice>
             <air-dct-oheat type="bool">0</air-dct-oheat>
             <acm-psi type="bool">0</acm-psi>
+            <gear-unlocked type="bool">0</gear-unlocked>
         </annunciators>
+        <alerts>
+            <gear-horn type="bool">0</gear-horn>
+        </alerts>
     </instrumentation>
 
     <engines>
@@ -344,6 +352,21 @@ Feb 2005  Syd Adams   ()
                     <command>nasal</command>
                     <script>Bravo.cabin_door.toggle()</script>
                 </binding>
+            </key>
+
+             <key n="103">
+                <name>g</name>
+                <desc>Gear Up.</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>Bravo.gearDown(-1)</script>
+                </binding>
+                <mod-up>
+                    <binding>
+                        <command>nasal</command>
+                        <script>Bravo.gearDown(0)</script>
+                    </binding>
+                </mod-up>
             </key>
         </keyboard>
     </input>

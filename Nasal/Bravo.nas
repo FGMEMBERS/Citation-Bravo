@@ -147,7 +147,6 @@ setlistener("/controls/engines/engine[1]/ignition", func(ig2){
 
 
 var annunciators_loop = func{
-
 var Tfuel = getprop("/consumables/fuel/total-fuel-lbs");
 if(Tfuel != nil){
 if( Tfuel< 400){
@@ -270,6 +269,13 @@ setprop("engines/engine[1]/running",0);
 }
 
 var update_systems = func{
+var gr1=getprop("gear/gear[0]/position-norm");
+var gr2=getprop("gear/gear[1]/position-norm");
+var gr3=getprop("gear/gear[2]/position-norm");
+
+var GrWrn = 0;
+var Ghorn = 0;
+var GLock = 0;
     PWR2 =0;
     if(getprop("systems/electrical/volts") > 2.0)PWR2=1;
 
@@ -315,7 +321,35 @@ if(getprop("/sim/model/Bravo/start-cycle[1]")){
     }
 }
 
+if(gr1 != 1.0)GrWrn =1;
+if(gr2 != 1.0)GrWrn =1;
+if(gr3 != 1.0)GrWrn =1;
+
+if(GrWrn ==1){
+    if(getprop("engines/engine/n2")<70 or getprop("engines/engine[1]/n2")<70){
+        if(getprop("velocities/airspeed-kt") < 150)Ghorn =1;
+    }
+    if(getprop("/surface-positions/flap-pos-norm") > 0.5)Ghorn =1;
+
+if(gr1 != 0.0)GLock =1;
+if(gr2 != 0.0)GLock =1;
+if(gr3 != 0.0)GLock =1;
+}
+
+setprop("instrumentation/annunciators/gear-unlocked",GLock);
+setprop("instrumentation/alerts/gear-horn",Ghorn);
+
 annunciators_loop();
 flight_meter();
 settimer(update_systems,0);
+}
+
+var gearDown = func(v) {
+    if(!getprop("gear/gear[1]/wow") or !getprop("gear/gear[2]/wow")){
+        if (v < 0) {
+        setprop("/controls/gear/gear-down", 0);
+        } elsif (v > 0) {
+        setprop("/controls/gear/gear-down", 1);
+        }
+    }
 }

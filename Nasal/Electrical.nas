@@ -108,11 +108,6 @@ var alternator2 = Alternator.new("/sim/model/Bravo/n2[1]",20.0,28.5,400.0);
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {
     setprop("systems/electrical/battery-temp", getprop("/environment/temperature-degf"));
-    INSTR_DIMMER.setDoubleValue(0.6);
-    ENG_DIMMER.setDoubleValue(0.6);
-    EFIS_DIMMER.setDoubleValue(0.9);
-    PANEL_DIMMER.setDoubleValue(0.6);
-    INVTR.setBoolValue(1);
     setprop(ACVolts,0);
     settimer(update_electrical,0);
     print("Electrical System ... check");

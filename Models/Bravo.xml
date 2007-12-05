@@ -228,9 +228,9 @@
         <object-name>DCamps2</object-name>
         <object-name>AoA.needle</object-name>
         <emission>
-            <red>0.035</red>
-            <green>0.035</green>
-            <blue>0.035</blue>
+            <red>0.030-</red>
+            <green>0.025</green>
+            <blue>0.020</blue>
             <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
         </emission>
     </animation>
@@ -1512,16 +1512,15 @@
         <type>select</type>
         <object-name>GrUnlocked</object-name>
         <condition>
-            <and>
-                <less-than>
-                    <property>gear/gear[0]/position-norm</property>
-                    <value>1.0</value>
-                </less-than>
-                <greater-than>
-                    <property>gear/gear[0]/position-norm</property>
-                    <value>0.0</value>
-                </greater-than>
-            </and>
+            <property>instrumentation/annunciators/gear-unlocked</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>GWarn.lamp</object-name>
+        <condition>
+            <property>instrumentation/alerts/gear-horn</property>
         </condition>
     </animation>
 
