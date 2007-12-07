@@ -45,6 +45,15 @@ setlistener("/controls/engines/throttle_idle", func(gidle){
     }
 },1,0);
 
+setlistener("controls/gear/gear-down", func(grlock){
+    var glk= grlock.getBoolValue();
+    if(!glk){
+    var GLH =getprop("gear/gear[1]/wow");
+    var GRH =getprop("gear/gear[2]/wow");
+    if(GLH or GRH)setprop("controls/gear/gear-down",1);
+    }
+},0,0);
+
 setlistener("/sim/current-view/view-number", func(vw){
     ViewNum= vw.getValue();
     if(ViewNum ==0){
@@ -156,6 +165,26 @@ if( Tfuel< 400){
         Annun.getNode("fuel-lo").setBoolValue(0);
         }
     }
+
+if(getprop("/gear/gear[0]/position-norm") == 1.0){
+    Annun.getNode("gear-N").setBoolValue(1 * PWR2);
+    }else{
+    Annun.getNode("gear-N").setBoolValue(0);
+}
+
+if(getprop("/gear/gear[1]/position-norm") == 1.0){
+    Annun.getNode("gear-L").setBoolValue(1 * PWR2);
+    }else{
+    Annun.getNode("gear-L").setBoolValue(0);
+}
+
+if(getprop("/gear/gear[2]/position-norm") == 1.0){
+    Annun.getNode("gear-R").setBoolValue(1 * PWR2);
+    }else{
+    Annun.getNode("gear-R").setBoolValue(0);
+}
+
+
 
 if(getprop("/controls/electric/engine[0]/generator") == 0){
     MstrWarn.setBoolValue(1 * PWR2);

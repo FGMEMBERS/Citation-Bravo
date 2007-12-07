@@ -1479,10 +1479,7 @@
         <type>select</type>
         <object-name>GrNose</object-name>
         <condition>
-            <equals>
-                <property>gear/gear[0]/position-norm</property>
-                <value>1.0</value>
-            </equals>
+            <property>instrumentation/annunciators/gear-N</property>
         </condition>
     </animation>
 
@@ -1490,10 +1487,7 @@
         <type>select</type>
         <object-name>GrLH</object-name>
         <condition>
-            <equals>
-                <property>gear/gear[1]/position-norm</property>
-                <value>1.0</value>
-            </equals>
+            <property>instrumentation/annunciators/gear-L</property>
         </condition>
     </animation>
 
@@ -1501,10 +1495,7 @@
         <type>select</type>
         <object-name>GrRH</object-name>
         <condition>
-            <equals>
-                <property>gear/gear[2]/position-norm</property>
-                <value>1.0</value>
-            </equals>
+            <property>instrumentation/annunciators/gear-R</property>
         </condition>
     </animation>
 

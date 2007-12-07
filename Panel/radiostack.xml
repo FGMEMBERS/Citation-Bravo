@@ -29,6 +29,12 @@ Allied Signal CNI-5000 radio stack
   
    <layer>
     <name>com1 frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/comm</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
     <type>text</type>
     <font>led</font>
     <point-size>4</point-size>
@@ -65,6 +71,12 @@ Allied Signal CNI-5000 radio stack
 
   <layer>
     <name>com2 frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/comm[1]</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
     <type>text</type>
     <font>led</font>
     <point-size>4</point-size>
@@ -101,6 +113,12 @@ Allied Signal CNI-5000 radio stack
 
   <layer>
     <name>nav1 frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/nav</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
     <type>text</type>
     <font>led</font>
     <point-size>4</point-size>
@@ -135,6 +153,12 @@ Allied Signal CNI-5000 radio stack
   
   <layer>
     <name>nav2 frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/nav[1]</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
     <type>text</type>
     <font>led</font>
     <point-size>4</point-size>
@@ -169,6 +193,12 @@ Allied Signal CNI-5000 radio stack
 
   <layer>
     <name>adf frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
     <type>text</type>
     <font>led</font>
     <point-size>4</point-size>

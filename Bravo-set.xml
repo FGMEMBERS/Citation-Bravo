@@ -306,6 +306,9 @@ Feb 2005  Syd Adams   ()
             <air-dct-oheat type="bool">0</air-dct-oheat>
             <acm-psi type="bool">0</acm-psi>
             <gear-unlocked type="bool">0</gear-unlocked>
+            <gear-N type="bool">0</gear-N>
+            <gear-L type="bool">0</gear-L>
+            <gear-R type="bool">0</gear-R>
         </annunciators>
         <alerts>
             <gear-horn type="bool">0</gear-horn>
