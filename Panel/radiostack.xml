@@ -40,7 +40,7 @@ Allied Signal CNI-5000 radio stack
     <point-size>4</point-size>
     <color>
       <red>0.8</red>
-      <green>0.2</green>
+      <green>0.3</green>
       <blue>0.0</blue>
     </color>
     <chunks>
@@ -50,6 +50,36 @@ Allied Signal CNI-5000 radio stack
         <scale>0.999992</scale>
         <format>%.2f</format>
       </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>-50</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>80</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+   <layer>
+    <name>com1 stby frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/comm</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>4</point-size>
+    <color>
+      <red>0.6</red>
+      <green>0.1</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
       <chunk>
         <type>number-value</type>
         <property alias="../../../../../params/comm1-standby"/>
@@ -60,7 +90,7 @@ Allied Signal CNI-5000 radio stack
     <transformations>
       <transformation>
         <type>x-shift</type>
-        <offset>-56</offset>
+        <offset>-10</offset>
       </transformation>
       <transformation>
         <type>y-shift</type>
@@ -82,7 +112,7 @@ Allied Signal CNI-5000 radio stack
     <point-size>4</point-size>
     <color>
       <red>0.8</red>
-      <green>0.2</green>
+      <green>0.3</green>
       <blue>0.0</blue>
     </color>
     <chunks>
@@ -92,6 +122,36 @@ Allied Signal CNI-5000 radio stack
         <scale>0.999992</scale>
         <format>%.2f</format>
       </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>-50</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>54</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+  <layer>
+    <name>com2 stby frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/comm[1]</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>4</point-size>
+    <color>
+      <red>0.6</red>
+      <green>0.1</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
       <chunk>
         <type>number-value</type>
         <property alias="../../../../../params/comm2-standby"/>
@@ -102,7 +162,7 @@ Allied Signal CNI-5000 radio stack
     <transformations>
       <transformation>
         <type>x-shift</type>
-        <offset>-56</offset>
+        <offset>-10</offset>
       </transformation>
       <transformation>
         <type>y-shift</type>
@@ -124,7 +184,7 @@ Allied Signal CNI-5000 radio stack
     <point-size>4</point-size>
     <color>
       <red>0.8</red>
-      <green>0.2</green>
+      <green>0.3</green>
       <blue>0.0</blue>
     </color>
     <chunks>
@@ -133,6 +193,36 @@ Allied Signal CNI-5000 radio stack
         <property alias="../../../../../params/nav1-selected"/>
         <format>%.2f</format>
       </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>-50</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>28</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+  <layer>
+    <name>nav1 stby frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/nav</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>4</point-size>
+    <color>
+      <red>0.6</red>
+      <green>0.1</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
       <chunk>
         <type>number-value</type>
         <property alias="../../../../../params/nav1-standby"/>
@@ -142,7 +232,7 @@ Allied Signal CNI-5000 radio stack
     <transformations>
       <transformation>
         <type>x-shift</type>
-        <offset>-56</offset>
+        <offset>-10</offset>
       </transformation>
       <transformation>
         <type>y-shift</type>
@@ -150,7 +240,7 @@ Allied Signal CNI-5000 radio stack
       </transformation>
     </transformations>
   </layer>
-  
+
   <layer>
     <name>nav2 frequencies</name>
     <condition>
@@ -164,7 +254,7 @@ Allied Signal CNI-5000 radio stack
     <point-size>4</point-size>
     <color>
       <red>0.8</red>
-      <green>0.2</green>
+      <green>0.3</green>
       <blue>0.0</blue>
     </color>
     <chunks>
@@ -173,6 +263,36 @@ Allied Signal CNI-5000 radio stack
         <property alias="../../../../../params/nav2-selected"/>
         <format>%.2f</format>
       </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>-50</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>2</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+  <layer>
+    <name>nav2 stby frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/nav[1]</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>4</point-size>
+    <color>
+      <red>0.6</red>
+      <green>0.1</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
       <chunk>
         <type>number-value</type>
         <property alias="../../../../../params/nav2-standby"/>
@@ -182,7 +302,7 @@ Allied Signal CNI-5000 radio stack
     <transformations>
       <transformation>
         <type>x-shift</type>
-        <offset>-56</offset>
+        <offset>-10</offset>
       </transformation>
       <transformation>
         <type>y-shift</type>
@@ -204,7 +324,7 @@ Allied Signal CNI-5000 radio stack
     <point-size>4</point-size>
     <color>
       <red>0.8</red>
-      <green>0.2</green>
+      <green>0.3</green>
       <blue>0.0</blue>
     </color>
     <chunks>
@@ -213,6 +333,36 @@ Allied Signal CNI-5000 radio stack
         <property alias="../../../../../params/adf-selected"/>
         <format>%.2f</format>
       </chunk>
+    </chunks>
+    <transformations>
+      <transformation>
+        <type>x-shift</type>
+        <offset>-50</offset>
+      </transformation>
+      <transformation>
+        <type>y-shift</type>
+        <offset>-24</offset>
+      </transformation>
+    </transformations>
+  </layer>
+
+  <layer>
+    <name>adf stby frequencies</name>
+    <condition>
+        <greater-than>
+            <property>systems/electrical/outputs/adf</property>
+            <value>5</value>
+        </greater-than>
+    </condition>
+    <type>text</type>
+    <font>led</font>
+    <point-size>4</point-size>
+    <color>
+      <red>0.6</red>
+      <green>0.1</green>
+      <blue>0.0</blue>
+    </color>
+    <chunks>
       <chunk>
         <type>number-value</type>
         <property alias="../../../../../params/adf-standby"/>
@@ -222,7 +372,7 @@ Allied Signal CNI-5000 radio stack
     <transformations>
       <transformation>
         <type>x-shift</type>
-        <offset>-54</offset>
+        <offset>-10</offset>
       </transformation>
       <transformation>
         <type>y-shift</type>
@@ -230,6 +380,7 @@ Allied Signal CNI-5000 radio stack
       </transformation>
     </transformations>
   </layer>
+
 </layers>
 
  <actions>

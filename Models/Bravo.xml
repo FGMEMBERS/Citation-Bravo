@@ -171,7 +171,33 @@
     </model>
 
     <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>chrome.rgb</texture>
+        <object-name>LwrReverser</object-name>
+        <object-name>UprReverser</object-name>
+        <object-name>Engines.chrome</object-name>
+        <object-name>Wings.heater</object-name>
+    </animation>
+
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>chrome1.rgb</texture>
+        <object-name>Glass</object-name>
+    </animation>
+
+    <animation>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>chrome1.rgb</texture>
+        <object-name>window</object-name>
+    </animation>
+
+    <animation>
         <type>noshadow</type>
+        <object-name>Glass</object-name>
+        <object-name>window</object-name>
         <object-name>Flash01</object-name>
         <object-name>Flash02</object-name>
         <object-name>Redglow</object-name>
@@ -227,6 +253,16 @@
         <object-name>DCamps1</object-name>
         <object-name>DCamps2</object-name>
         <object-name>AoA.needle</object-name>
+        <object-name>Fan01</object-name>
+        <object-name>Fan02</object-name>
+        <object-name>ITT01</object-name>  
+        <object-name>ITT02</object-name>
+        <object-name>OilP01</object-name>
+        <object-name>OilP02</object-name>
+        <object-name>OilT01</object-name>  
+        <object-name>OilT02</object-name>
+        <object-name>FQty01</object-name>
+        <object-name>FQty02</object-name>
         <emission>
             <red>0.030-</red>
             <green>0.025</green>
@@ -247,26 +283,88 @@
         <object-name>OilT02</object-name>
         <object-name>FQty01</object-name>
         <object-name>FQty02</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>N1dec</object-name>
         <object-name>LHn1</object-name>
         <object-name>LHn1.01</object-name>
         <object-name>LHn1.02</object-name>
         <object-name>LHn1.03</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>RHn1</object-name>
         <object-name>RHn1.01</object-name>
         <object-name>RHn1.02</object-name>
         <object-name>RHn1.03</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>N2dec</object-name>
         <object-name>LHn2</object-name>
         <object-name>LHn2.01</object-name>
         <object-name>LHn2.02</object-name>
         <object-name>LHn2.03</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>RHn2</object-name>
         <object-name>RHn2.01</object-name>
         <object-name>RHn2.02</object-name>
         <object-name>RHn2.03</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>LHflow.001</object-name>
         <object-name>LHflow.002</object-name>
         <object-name>LHflow.003</object-name>
         <object-name>LHflow.004</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>RHflow.001</object-name>
         <object-name>RHflow.002</object-name>
         <object-name>RHflow.003</object-name>
@@ -501,25 +599,6 @@
         <entry><ind>500</ind><dep>2.5</dep></entry>
         <entry><ind>16000</ind><dep>10</dep></entry>
         </interpolation>
-    </animation>
-
-    <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>chrome.rgb</texture>
-        <object-name>LwrReverser</object-name>
-        <object-name>UprReverser</object-name>
-        <object-name>Engines.chrome</object-name>
-        <object-name>Wings.heater</object-name>
-    </animation>
-
-    <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>chrome1.rgb</texture>
-        <object-name>window.001</object-name>
-        <object-name>window</object-name>
-        <object-name>glass</object-name>
     </animation>
 
 <!--        yasim control surfaces                  -->
