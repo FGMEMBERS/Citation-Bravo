@@ -161,7 +161,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Aerostar-700/Models/testpilot.xml</path>
+        <path>Models/Aircraft/testpilot.xml</path>
         <offsets>
             <x-m>3.05</x-m>
             <y-m>-0.333</y-m>

@@ -113,7 +113,7 @@ stall speed  86kt -landing configuration at 13,500 lbs;
     <tank x="-7.18" y="0" z="0" capacity="0" jet="true"/>
 
     <gear x="-1.669" y="0.00" z="-0.964" compression=".4" retract-time="4"
-    sfric="1.5" dfric="1.5">
+    sfric="0.6" dfric="0.5">
         <control-input axis="/controls/flight/rudder" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="-0.8" dst1="0.8"/>
         <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
         <control-speed control="EXTEND" transition-time="4"/>
@@ -121,7 +121,7 @@ stall speed  86kt -landing configuration at 13,500 lbs;
     </gear>
     
     <gear x="-7.3" y="2.8" z="-0.961" compression=".4" retract-time="4.1"
-    sfric="1.5" dfric="1.5">
+    sfric="0.6" dfric="0.5">
         <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
         <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -130,7 +130,7 @@ stall speed  86kt -landing configuration at 13,500 lbs;
     </gear>
     
     <gear x="-7.3" y="-2.8" z="-0.961" compression=".4" retract-time="4.2"
-    sfric="1.5" dfric="1.5">
+    sfric="0.6" dfric="0.5">
         <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
         <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -144,9 +144,9 @@ stall speed  86kt -landing configuration at 13,500 lbs;
 -->
 
     <jet x="-8.9" y="1.35" z="0.9" mass="609.2" thrust="2887" tsfc="0.55" 
-    epr="3.5" rotate="0" n1-idle="50" n1-max="105.0" n2-idle="45.5" n2-max="100">
+    epr="3.4" rotate="0" n1-idle="45" n1-max="105.0" n2-idle="45.5" n2-max="108">
         <control-input axis="/controls/engines/engine[0]/throttle-lever"
-        control="THROTTLE" src0="0.0" src1="1.0" dst0="0.0" dst1="0.92"/>
+        control="THROTTLE"/>
         <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>
         <control-input axis="/controls/engines/engine[0]/reverser" control="REVERSE_THRUST"/>
         <control-output control="REVERSE_THRUST" prop="/surface-positions/reverser-norm"/>		
@@ -155,9 +155,9 @@ stall speed  86kt -landing configuration at 13,500 lbs;
     </jet>
   
     <jet x="-8.9" y="-1.35" z="0.9" mass="609,2" thrust="2887" tsfc="0.55"
-    epr="3.5" rotate="0" n1-idle="50" n1-max="105.0" n2-idle="45.5" n2-max="100">
+    epr="3.4" rotate="0" n1-idle="45" n1-max="105.0" n2-idle="45.5" n2-max="108">
         <control-input axis="/controls/engines/engine[1]/throttle-lever"
-        control="THROTTLE" src0="0.0" src1="1.0" dst0="0.0" dst1="0.92"/>
+        control="THROTTLE"/>
         <control-input axis="/controls/engines/engine[1]/mixture" control="MIXTURE"/>
         <control-input axis="/controls/engines/engine[1]/reverser" control="REVERSE_THRUST"/>
         <control-output control="REVERSE_THRUST" prop="/surface-positions/reverser-norm[1]"/>		

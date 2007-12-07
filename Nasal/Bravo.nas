@@ -281,7 +281,11 @@ var GLock = 0;
 
     var THR = getprop("/controls/engines/engine/throttle");
     var THR1 = getprop("/controls/engines/engine[1]/throttle");
-    if(Grd_Idle==0){THR+=0.080;THR1+=0.080;}
+    if(Grd_Idle==0){
+        THR=THR*0.92 +0.080;THR1=THR1*0.92 +0.080;
+        }else{
+        THR=THR*0.92;THR1=THR1*0.92;
+        }
     
     if(!getprop("/controls/engines/engine/cutoff")){
         setprop("/controls/engines/engine/throttle-lever",THR);
