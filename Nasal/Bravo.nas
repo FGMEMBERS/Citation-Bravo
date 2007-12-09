@@ -237,9 +237,15 @@ if(getprop("/sim/model/Bravo/n1[1]") < 40){
 
     Annun.getNode("grnd-idle").setBoolValue(Grd_Idle * PWR2);
 
-if(props.globals.getNode("/surface-positions/speedbrake-pos-norm").getValue() == 1){
-    Annun.getNode("spd-brk").setBoolValue(1 * PWR2);
+var spdbrk = getprop("/surface-positions/speedbrake-pos-norm");
+if(spdbrk> 0.0){
+    Annun.getNode("hyd-psi").setBoolValue(1 * PWR2);
+    if(spdbrk == 1.0){
+        Annun.getNode("spd-brk").setBoolValue(1 * PWR2);
+        Annun.getNode("hyd-psi").setBoolValue(0);
+    }
 }else{
+        Annun.getNode("hyd-psi").setBoolValue(0);
         Annun.getNode("spd-brk").setBoolValue(0);
         }
 

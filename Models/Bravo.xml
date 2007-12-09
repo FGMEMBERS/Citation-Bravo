@@ -141,6 +141,26 @@
     </model>
 
     <model>
+        <path>Aircraft/Instruments-3d/primus-1000/gnx.xml</path>
+        <offsets>
+            <x-m>2.835</x-m>
+            <y-m>0.02</y-m>
+            <z-m>0.273</z-m>
+            <pitch-deg>-87.3</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/Instruments-3d/primus-1000/mfc.xml</path>
+        <offsets>
+            <x-m>2.741</x-m>
+            <y-m>0.02</y-m>
+            <z-m>0.277</z-m>
+            <pitch-deg>-87.3</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
         <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
         <offsets>
             <x-m>2.409</x-m>
@@ -379,6 +399,170 @@
 
     <animation>
         <type>select</type>
+        <object-name>LndLight</object-name>
+        <object-name>LndLight.001</object-name>
+        <object-name>LndLight.002</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/landing-lights</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>LndLight</object-name>
+        <center>
+            <x-m>6.742</x-m>
+            <y-m>7.759</y-m>
+            <z-m>0.505</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>10</power>
+        <factor>2</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>5</max>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>LndLight.002</object-name>
+        <center>
+            <x-m>6.742</x-m>
+            <y-m>-7.759</y-m>
+            <z-m>0.505</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>10</power>
+        <factor>2</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>5</max>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Recog</object-name>
+        <object-name>RecogLight</object-name>
+        <object-name>Recog.001</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/recog-lights</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>Recog</object-name>
+        <center>
+            <x-m>6.685</x-m>
+            <y-m>7.492</y-m>
+            <z-m>0.505</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>5</power>
+        <factor>1</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>1</max>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>Recog.001</object-name>
+        <center>
+            <x-m>6.685</x-m>
+            <y-m>-7.492</y-m>
+            <z-m>0.505</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>5</power>
+        <factor>1</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>1</max>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Wlight1</object-name>
+        <object-name>Wlight</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/outputs/wing-lights</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>Wlight1</object-name>
+        <center>
+            <x-m>5.358</x-m>
+            <y-m>0.763</y-m>
+            <z-m>0.258</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>0.940</y>
+            <z>-0.342</z>
+        </axis>
+        <power>2</power>
+        <factor>1</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>2</max>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>Wlight</object-name>
+        <center>
+            <x-m>5.358</x-m>
+            <y-m>-0.762</y-m>
+            <z-m>0.258</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-0.940</y>
+            <z>-0.342</z>
+        </axis>
+        <power>2</power>
+        <factor>1</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>2</max>
+    </animation>
+
+    <animation>
+        <type>select</type>
         <object-name>rednav</object-name>
         <object-name>greennav</object-name>
         <object-name>whitenav</object-name>
@@ -559,6 +743,44 @@
         <entry><ind>500</ind><dep>2.5</dep></entry>
         <entry><ind>16000</ind><dep>10</dep></entry>
         </interpolation>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>Whiteglow</object-name>
+        <condition>
+            <and>
+                <greater-than>
+                    <property>systems/electrical/outputs/nav-lights</property>
+                    <value>0.2</value>
+                </greater-than>
+                <greater-than>
+                    <property>sim/time/sun-angle-rad</property>
+                    <value>1.6</value>
+                </greater-than>
+            </and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>flash</type>
+        <object-name>Whiteglow</object-name>
+        <center>
+            <x-m>13.676</x-m>
+            <y-m>0</y-m>
+            <z-m>0.887</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <power>5</power>
+        <factor>1</factor>
+        <offset>0</offset>
+        <two-sides type="bool">false</two-sides>
+        <min>0.01</min>
+        <max>5</max>
     </animation>
 
     <animation>
@@ -3045,7 +3267,7 @@
     <animation>
         <type>rotate</type>
         <object-name>recog.toggle</object-name>
-        <property>controls/lighting/beacon</property>
+        <property>controls/lighting/recog-lights</property>
         <factor>30</factor>
         <axis>
             <x>0.0</x>

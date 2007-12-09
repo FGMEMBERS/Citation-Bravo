@@ -636,7 +636,7 @@
 <!--    Lighting    -->
 
     <action>
-        <name>Beacon</name>
+        <name>Recog</name>
         <button>0</button>
         <x>-422</x>
         <y>-365</y>
@@ -644,7 +644,7 @@
         <h>10</h>
         <binding>
             <command>property-toggle</command>
-            <property>/controls/lighting/beacon</property>
+            <property>/controls/lighting/recog-lights</property>
         </binding>
         <binding>
             <command>property-toggle</command>

@@ -196,8 +196,8 @@ var electrical_bus = func(){
         }
 
     setprop(OutPuts~"pitot-heat",bus_volts * getprop("/controls/anti-ice/pitot-heat"));
-    setprop(OutPuts~"landing-lights[0]",bus_volts * getprop("/controls/lighting/landing-lights[0]"));
-    setprop(OutPuts~"landing-lights[1]",bus_volts * getprop("/controls/lighting/landing-lights[1]"));
+    setprop(OutPuts~"landing-lights",bus_volts * getprop("/controls/lighting/landing-lights[0]"));
+    setprop(OutPuts~"recog-lights",bus_volts * getprop("/controls/lighting/recog-lights"));
     setprop(OutPuts~"cabin-lights",bus_volts * getprop("/controls/lighting/cabin-lights"));
     setprop(OutPuts~"wing-lights",bus_volts * getprop("/controls/lighting/wing-lights"));
     setprop(OutPuts~"nav-lights",bus_volts * getprop("/controls/lighting/nav-lights"));

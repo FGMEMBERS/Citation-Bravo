@@ -214,8 +214,8 @@ Feb 2005  Syd Adams   ()
 
         <lighting>
             <instrument-lights type="bool">1</instrument-lights>
-            <landing-lights type="bool" n="0">0</landing-lights>
-            <landing-lights type="bool" n="1">0</landing-lights>
+            <landing-lights type="bool">0</landing-lights>
+            <recog-lights type="bool">0</recog-lights>
             <cabin-lights type="bool">0</cabin-lights>
             <wing-lights type="bool">0</wing-lights>
             <recog-lights type="bool">0</recog-lights>
