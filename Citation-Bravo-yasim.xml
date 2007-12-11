@@ -148,7 +148,8 @@ stall speed  86kt -landing configuration at 13,500 lbs;
 -->
 
     <jet x="-8.9" y="1.35" z="0.9" mass="609.2" thrust="2887" tsfc="0.55" 
-    epr="3.4" rotate="0" n1-idle="45" n1-max="105.0" n2-idle="45.5" n2-max="108">
+    epr="3.4" rotate="0" n1-idle="45" n1-max="105.0" n2-idle="45.5"
+    n2-max="108" spool-time="2.5">
         <control-input axis="/controls/engines/engine[0]/throttle-lever"
         control="THROTTLE"/>
         <control-input axis="/controls/engines/engine[0]/mixture" control="MIXTURE"/>
@@ -159,7 +160,8 @@ stall speed  86kt -landing configuration at 13,500 lbs;
     </jet>
   
     <jet x="-8.9" y="-1.35" z="0.9" mass="609,2" thrust="2887" tsfc="0.55"
-    epr="3.4" rotate="0" n1-idle="45" n1-max="105.0" n2-idle="45.5" n2-max="108">
+    epr="3.4" rotate="0" n1-idle="45" n1-max="105.0" n2-idle="45.5"
+    n2-max="108" spool-time="2.5">
         <control-input axis="/controls/engines/engine[1]/throttle-lever"
         control="THROTTLE"/>
         <control-input axis="/controls/engines/engine[1]/mixture" control="MIXTURE"/>
