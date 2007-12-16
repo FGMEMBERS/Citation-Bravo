@@ -111,8 +111,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 5){
-                setprop("/instrumentation/flightdirector/lnav",5);
+                if(getprop("/instrumentation/flightdirector/lnav")!= 7){
+                setprop("/instrumentation/flightdirector/lnav",7);
                 }else{
                 setprop("/instrumentation/flightdirector/lnav",0);
                 }
@@ -130,8 +130,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 6){
-                setprop("/instrumentation/flightdirector/lnav",6);
+                if(getprop("/instrumentation/flightdirector/lnav")!= 8){
+                setprop("/instrumentation/flightdirector/lnav",8);
                 }else{
                 setprop("/instrumentation/flightdirector/lnav",0);
                 }
@@ -149,8 +149,8 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/vnav")!= 5){
-                setprop("/instrumentation/flightdirector/vnav",5);
+                if(getprop("/instrumentation/flightdirector/vnav")!= 1){
+                setprop("/instrumentation/flightdirector/vnav",1);
                 }else{
                 setprop("/instrumentation/flightdirector/vnav",0);
                 }
@@ -168,11 +168,14 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/vnav")!= 2){
-                setprop("/instrumentation/flightdirector/vnav",2);
-                }else{
-                setprop("/instrumentation/flightdirector/vnav",0);
+                var ALTbtn = getprop("/instrumentation/flightdirector/vnav");
+                var MD = 0;
+                if(ALTbtn!= 3){
+                    MD=3;
+                    if(ALTbtn == 5)MD=4;
+                    if(ALTbtn == 4)MD=0;
                 }
+                setprop("/instrumentation/flightdirector/vnav",MD);
             </script>
         </binding>
     </action>
@@ -187,8 +190,9 @@
         <binding>
             <command>nasal</command>
             <script>
-                if(getprop("/instrumentation/flightdirector/vnav")!= 6){
-                setprop("/instrumentation/flightdirector/vnav",6);
+                var VSP =getprop("/instrumentation/flightdirector/vnav");
+                if(VSP != 5){
+                setprop("/instrumentation/flightdirector/vnav",5);
                 }else{
                 setprop("/instrumentation/flightdirector/vnav",0);
                 }

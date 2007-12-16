@@ -427,7 +427,7 @@
         <factor>2</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
+        <min>0.05</min>
         <max>5</max>
     </animation>
 
@@ -448,7 +448,7 @@
         <factor>2</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
+        <min>0.05</min>
         <max>5</max>
     </animation>
 
@@ -536,8 +536,8 @@
         <factor>1</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
-        <max>2</max>
+        <min>0.02</min>
+        <max>4</max>
     </animation>
 
     <animation>
@@ -557,8 +557,8 @@
         <factor>1</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
-        <max>2</max>
+        <min>0.02</min>
+        <max>4</max>
     </animation>
 
     <animation>
