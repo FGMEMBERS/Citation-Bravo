@@ -182,6 +182,20 @@ Feb 2005  Syd Adams   ()
                         <property>sim/yokes-visible</property>
                     </binding>
                 </item>
+                <item>
+                    <label>Map Lights</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>controls/lighting/map-lights</property>
+                    </binding>
+                </item>
+                <item>
+                    <label>Cabin Lights</label>
+                    <binding>
+                        <command>property-toggle</command>
+                        <property>controls/lighting/cabin-lights</property>
+                    </binding>
+                </item>
             </menu>
         </default>
     </menubar>
@@ -218,6 +232,7 @@ Feb 2005  Syd Adams   ()
             <landing-lights type="bool">0</landing-lights>
             <recog-lights type="bool">0</recog-lights>
             <cabin-lights type="bool">0</cabin-lights>
+            <map-lights type="bool">0</map-lights>
             <wing-lights type="bool">0</wing-lights>
             <recog-lights type="bool">0</recog-lights>
             <logo-lights type="bool">0</logo-lights>
@@ -232,6 +247,7 @@ Feb 2005  Syd Adams   ()
         </lighting>
 
         <engines>
+            <N1-limit type="double">94.0</N1-limit>
             <throttle_idle type="bool">1</throttle_idle>
             <engine n="0">
                 <throttle-lever type="double">0</throttle-lever>

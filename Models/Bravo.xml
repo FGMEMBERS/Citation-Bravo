@@ -254,8 +254,68 @@
         <object-name>RHUprShock</object-name>
     </animation>
 
+    <animation>
+        <name>Flightdeck</name>
+        <object-name>panel</object-name>
+        <object-name>fusebox</object-name>
+        <object-name>Bezels</object-name>
+        <object-name>Bezels.002</object-name>
+        <object-name>Bezels.004</object-name>
+        <object-name>Bezels.001</object-name>
+        <object-name>Radiostack</object-name>
+        <object-name>cockpit</object-name>
+        <object-name>Seats</object-name>
+        <object-name>seats.001</object-name>
+        <object-name>lgen.switch</object-name>
+        <object-name>batt.switch</object-name>
+        <object-name>lgen.switch</object-name>
+        <object-name>inverter.switch</object-name>
+        <object-name>inverter.select</object-name>
+        <object-name>LHboost.switch</object-name>
+        <object-name>RHboost.switch</object-name>
+        <object-name>LHign.switch</object-name>
+        <object-name>recog.switch</object-name>
+        <object-name>amt.switch</object-name>
+        <object-name>nav.switch</object-name>
+        <object-name>wing.switch</object-name>
+    </animation>
+
+    <animation>
+        <name>Cabin</name>
+        <object-name>cabin</object-name>
+        <object-name>seat1</object-name>
+        <object-name>seat2</object-name>
+        <object-name>seat1.001</object-name>
+        <object-name>seat2.001</object-name>
+        <object-name>seat1.002</object-name>
+        <object-name>seat2.002</object-name>
+        <object-name>Cabin.door.001</object-name>
+    </animation>
 
 <!--                        Lights                               -->
+
+    <animation>
+        <type>material</type>
+        <object-name>Cabin</object-name>
+        <emission>
+            <red>0.020-</red>
+            <green>0.015</green>
+            <blue>0.010</blue>
+            <factor-prop>systems/electrical/outputs/cabin-lights</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>Flightdeck</object-name>
+        <emission>
+            <red>0.010-</red>
+            <green>0.008</green>
+            <blue>0.002</blue>
+            <factor-prop>systems/electrical/outputs/map-lights</factor-prop>
+        </emission>
+    </animation>
+
 
     <animation>
         <type>material</type>
@@ -283,6 +343,7 @@
         <object-name>OilT02</object-name>
         <object-name>FQty01</object-name>
         <object-name>FQty02</object-name>
+        <object-name>StdbyBtn</object-name>
         <emission>
             <red>0.030-</red>
             <green>0.025</green>
@@ -318,6 +379,20 @@
         <object-name>LHn1.01</object-name>
         <object-name>LHn1.02</object-name>
         <object-name>LHn1.03</object-name>
+        <condition>
+            <greater-than>
+                <property>systems/electrical/volts</property>
+                <value>2.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>N1limit</object-name>
+        <object-name>N1limit.001</object-name>
+        <object-name>N1limit.002</object-name>
+        <object-name>N1limit.003</object-name>
         <condition>
             <greater-than>
                 <property>systems/electrical/volts</property>
@@ -1122,6 +1197,7 @@
     <animation>
         <type>rotate</type>
         <object-name>Cabin.door</object-name>
+        <object-name>Cabin.door.001</object-name>
         <object-name>window</object-name>
         <property>controls/cabin-door/position-norm</property>
         <interpolation>
@@ -2700,6 +2776,45 @@
         <type>textranslate</type>
         <object-name>RHn1.03</object-name>
         <property>sim/model/Bravo/n1[1]</property>
+        <factor>1.0</factor>
+        <step>0.1</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>N1limit.001</object-name>
+        <property>controls/engines/N1-limit</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>N1limit.002</object-name>
+        <property>controls/engines/N1-limit</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>textranslate</type>
+        <object-name>N1limit.003</object-name>
+        <property>controls/engines/N1-limit</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>

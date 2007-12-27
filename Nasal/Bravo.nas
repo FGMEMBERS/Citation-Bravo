@@ -13,6 +13,12 @@ aircraft.light.new("instrumentation/annunciators", [0.5, 0.5], MstrCaution);
 var FHmeter = aircraft.timer.new("/instrumentation/clock/flight-meter-sec", 10);
 FHmeter.stop();
 
+var view_list =[];
+var view = props.globals.getNode("/sim").getChildren("view");
+    for(var i=0; i<size(view); i+=1){
+        append(view_list,"sim/view["~i~"]/config/default-field-of-view-deg");
+        }
+aircraft.data.add(view_list);
 var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
 
 setlistener("/sim/signals/fdm-initialized", func {
@@ -23,6 +29,7 @@ setlistener("/sim/signals/fdm-initialized", func {
     setprop("/instrumentation/clock/flight-meter-hour",0);
     if(getprop("/sim/flight-model")=="jsb"){FDMjsb=1;}
     setprop("/sim/model/start-idling",0);
+    setprop("controls/engines/N1-limit",94.0);
     Grd_Idle=getprop("controls/engines/throttle_idle");
     settimer(update_systems,2);
 });
@@ -56,6 +63,7 @@ setlistener("controls/gear/gear-down", func(grlock){
 
 setlistener("/sim/current-view/view-number", func(vw){
     ViewNum= vw.getValue();
+    setprop("sim/current-view/field-of-view",getprop("sim/view["~ViewNum~"]/config/default-field-of-view-deg"));
     if(ViewNum ==0){
     SndIn.setDoubleValue(0.75);
     SndOut.setDoubleValue(0.15);
