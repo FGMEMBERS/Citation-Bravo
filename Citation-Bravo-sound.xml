@@ -34,8 +34,8 @@
         <path>Sounds/whine.wav</path>
         <condition>
             <greater-than>
-                <property>sim/model/Bravo/n1</property>
-                <value>0.1</value>
+                <property>engines/engine/rpm</property>
+                <value>10</value>
             </greater-than>
         </condition>
         <mode>looped</mode>
@@ -43,7 +43,7 @@
             <property>sim/sound/Ovolume</property>
         </volume>
         <pitch>
-            <property>sim/model/Bravo/n1</property>
+            <property>engines/engine/rpm</property>
             <offset>0</offset>
             <factor>0.01</factor>
         </pitch>
@@ -84,8 +84,8 @@
         <path>Sounds/whine.wav</path>
         <condition>
             <greater-than>
-                <property>sim/model/Bravo/n1[1]</property>
-                <value>0.1</value>
+                <property>engines/engine[1]/rpm</property>
+                <value>10</value>
             </greater-than>
         </condition>
         <mode>looped</mode>
@@ -93,7 +93,7 @@
             <property>sim/sound/Ovolume</property>
         </volume>
         <pitch>
-            <property>sim/model/Bravo/n1[1]</property>
+            <property>engines/engine[1]/rpm</property>
             <offset>0</offset>
             <factor>0.01</factor>
         </pitch>

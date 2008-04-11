@@ -23,7 +23,7 @@ Feb 2005  Syd Adams   ()
         <type>lookfrom</type>
         <internal type="bool">true</internal>
         <config>
-            <x-offset-m type="double">-0.27</x-offset-m>
+            <x-offset-m type="double">-0.36</x-offset-m>
             <y-offset-m type="double">1.0</y-offset-m>
             <z-offset-m type="double">3.1</z-offset-m>
             <pitch-offset-deg>-12</pitch-offset-deg>
@@ -109,7 +109,7 @@ Feb 2005  Syd Adams   ()
 
     <model>
         <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
-        <start-idling type="bool">0</start-idling>
+        <autostart type="bool">0</autostart>
         <variant type="int">0</variant>
         <Bravo>
             <n1 n="0" type="double">0</n1>
@@ -157,7 +157,12 @@ Feb 2005  Syd Adams   ()
         <setting>1.0</setting> <!-- Ground Only  40-->
     </flaps>
 
+        <instrumentation>
+            <path>Aircraft/Citation-Bravo/instrumentation.xml</path>
+        </instrumentation>
+
     <yokes-visible type="bool">1</yokes-visible>
+    <head-bounce type="bool">0</head-bounce>
 
    <tutorials>
         <tutorial include="Tutorials/startup_tutorial.xml"/>
@@ -172,7 +177,7 @@ Feb 2005  Syd Adams   ()
                     <label>Autostart</label>
                     <binding>
                         <command>property-toggle</command>
-                        <property>sim/model/start-idling</property>
+                        <property>sim/model/autostart</property>
                     </binding>
                 </item>
                 <item>
@@ -248,17 +253,6 @@ Feb 2005  Syd Adams   ()
 
         <engines>
             <N1-limit type="double">94.0</N1-limit>
-            <throttle_idle type="bool">1</throttle_idle>
-            <engine n="0">
-                <throttle-lever type="double">0</throttle-lever>
-                <cutoff>1</cutoff><!--  cutoff = 0 : Start with engines running-->
-                <ignition>0</ignition>
-            </engine>
-            <engine n="1">
-                <throttle-lever type="double">0</throttle-lever>
-                <cutoff>1</cutoff><!--  cutoff = 0 : Start with engines running-->
-                <ignition>0</ignition>
-            </engine>
         </engines>
 
         <anti-ice>
@@ -274,6 +268,31 @@ Feb 2005  Syd Adams   ()
 
 <!--Annunciator Setup-->
     <instrumentation>
+        <radar>
+            <switch type="string" archive="y">on</switch>
+            <mode-control type="int" archive="y">1</mode-control>
+            <display-controls>
+                <WX type="bool" archive="y">false</WX>
+                <pos type="bool" archive="y">true</pos>
+                <data type="bool" archive="y">false</data>
+                <symbol type="bool" archive="y">true</symbol>
+                <centre type="bool" archive="y">true</centre>
+                <rotate type="bool" archive="y">true</rotate>
+            </display-controls>
+            <serviceable type="bool">true</serviceable>
+            <range type="int" archive="y">5</range>
+            <reference-range-nm type="double" archive="y">160</reference-range-nm>
+            <mode type="string" archive="y">WX</mode>
+            <font type="string" archive="y">typewriter.txf</font>
+            <lightning type="bool" archive="y">false</lightning>
+            <display-mode type="string" archive="y">plan</display-mode>
+            <radar-texture-path type="string" archive="y">Aircraft/Citation-Bravo/Models/Instruments/od_wxradar.rgb</radar-texture-path>
+            <echo-texture-path type="string" archive="y">Aircraft/Citation-Bravo/Models/Instruments/wxecho.rgb</echo-texture-path>
+            <minimized type="bool" archive="y">false</minimized>
+            <heading-marker type="bool" archive="y">true</heading-marker>
+            <limit-deg type="int">360</limit-deg>
+        </radar>
+
         <annunciators>
             <master-warning type="bool">0</master-warning>
             <master-caution type="bool">0</master-caution>
@@ -342,13 +361,13 @@ Feb 2005  Syd Adams   ()
     </engines>
 
     <nasal>
-        <Bravo>
+        <bravo>
             <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
-            <file>Aircraft/Instruments-3d/primus-1000/Primus1000.nas</file>
-            <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
-        </Bravo>
+            <file>Aircraft/Citation-Bravo/Nasal/Primus1000.nas</file>
+            <file>Aircraft/Citation-Bravo/Nasal/M877.nas</file>
+        </bravo>
     </nasal>
 
     <input>
@@ -370,7 +389,7 @@ Feb 2005  Syd Adams   ()
                 <desc>Open/close canopy</desc>
                 <binding>
                     <command>nasal</command>
-                    <script>Bravo.cabin_door.toggle()</script>
+                    <script>bravo.cabin_door.toggle();</script>
                 </binding>
             </key>
         </keyboard>

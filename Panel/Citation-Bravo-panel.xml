@@ -26,7 +26,7 @@
     </instrument>
 
 <!-- primus 1000 pfd -->
-    <instrument include="../../Instruments-3d/primus-1000/pfd-hotspots.xml">
+    <instrument include="../Models/Instruments/pfd-hotspots.xml">
         <name>PFD</name>
         <x>258</x>
         <y>213</y>
@@ -35,7 +35,7 @@
     </instrument>
 
 <!-- primus 1000 mfd -->
-    <instrument include="../../Instruments-3d/primus-1000/mfd-hotspots.xml">
+    <instrument include="../Models/Instruments/mfd-hotspots.xml">
         <name>MFD</name>
         <x>471</x>
         <y>151</y>
@@ -44,7 +44,7 @@
     </instrument>
 
 <!-- m877 chronometer -->
-    <instrument include="../../Instruments-3d/clock/M877/m877-hotspots.xml">
+    <instrument include="../Models/Instruments/m877-hotspots.xml">
         <name>M877</name>
         <x>101</x>
         <y>302</y>
@@ -72,13 +72,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 1){
-                setprop("/instrumentation/flightdirector/lnav",1);
-                }else{
-                setprop("/instrumentation/flightdirector/lnav",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("hdg");</script>
         </binding>
     </action>
 
@@ -91,13 +85,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 2){
-                setprop("/instrumentation/flightdirector/lnav",2);
-                }else{
-                setprop("/instrumentation/flightdirector/lnav",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("nav");</script>
         </binding>
     </action>
 
@@ -110,13 +98,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 7){
-                setprop("/instrumentation/flightdirector/lnav",7);
-                }else{
-                setprop("/instrumentation/flightdirector/lnav",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("apr");</script>
         </binding>
     </action>
 
@@ -129,13 +111,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                if(getprop("/instrumentation/flightdirector/lnav")!= 8){
-                setprop("/instrumentation/flightdirector/lnav",8);
-                }else{
-                setprop("/instrumentation/flightdirector/lnav",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("bc");</script>
         </binding>
     </action>
 
@@ -148,13 +124,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                if(getprop("/instrumentation/flightdirector/vnav")!= 1){
-                setprop("/instrumentation/flightdirector/vnav",1);
-                }else{
-                setprop("/instrumentation/flightdirector/vnav",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("vnav");</script>
         </binding>
     </action>
 
@@ -167,16 +137,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                var ALTbtn = getprop("/instrumentation/flightdirector/vnav");
-                var MD = 0;
-                if(ALTbtn!= 3){
-                    MD=3;
-                    if(ALTbtn == 5)MD=4;
-                    if(ALTbtn == 4)MD=0;
-                }
-                setprop("/instrumentation/flightdirector/vnav",MD);
-            </script>
+            <script>bravo.FlDr.set_mode("alt");</script>
         </binding>
     </action>
 
@@ -189,14 +150,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                var VSP =getprop("/instrumentation/flightdirector/vnav");
-                if(VSP != 5){
-                setprop("/instrumentation/flightdirector/vnav",5);
-                }else{
-                setprop("/instrumentation/flightdirector/vnav",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("vs");</script>
         </binding>
     </action>
 
@@ -209,19 +163,40 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>
-                if(getprop("/instrumentation/flightdirector/spd")!= 1){
-                setprop("/instrumentation/flightdirector/spd",1);
-                }else{
-                setprop("/instrumentation/flightdirector/spd",0);
-                }
-            </script>
+            <script>bravo.FlDr.set_mode("spd");</script>
         </binding>
     </action>
 
 <!--               DC550 PFD Display Controller                                -->
 
-   <action>
+    <action>
+        <name>RA decr</name>
+        <button>0</button>
+        <x>-415</x>
+        <y>-150</y>
+        <w>14</w>
+        <h>12</h>
+        <binding>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("ra-dn");</script>
+        </binding>
+    </action>
+
+    <action>
+        <name>RA inc</name>
+        <button>0</button>
+        <x>-401</x>
+        <y>-150</y>
+        <w>14</w>
+        <h>12</h>
+        <binding>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("ra-up");</script>
+        </binding>
+    </action>
+
+
+    <action>
      <name>BRG 1 mode minus</name>
      <button>0</button>
      <x>-440</x>
@@ -297,8 +272,8 @@
      <w>12</w>
      <h>12</h>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/hsi</property>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("hsi");</script>
         </binding>
    </action>
 
@@ -310,8 +285,8 @@
      <w>12</w>
      <h>12</h>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/cp</property>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("cp");</script>
         </binding>
    </action>
 
@@ -323,8 +298,8 @@
      <w>12</w>
      <h>12</h>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/hpa</property>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("hpa");</script>
         </binding>
    </action>
 
@@ -336,8 +311,8 @@
      <w>12</w>
      <h>12</h>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/ttg</property>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("ttg");</script>
         </binding>
    </action>
 
@@ -349,8 +324,8 @@
      <w>12</w>
      <h>12</h>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/et</property>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("et");</script>
         </binding>
    </action>
 
@@ -362,9 +337,8 @@
      <w>12</w>
      <h>12</h>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/primus1000/dc550/fms</property>
-            <value>0</value>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("nav");</script>
         </binding>
    </action>
 
@@ -375,16 +349,9 @@
      <y>-127</y>
      <w>12</w>
      <h>12</h>
-     <condition>
-        <greater-than>
-            <property>autopilot/route-manager/route/num</property>
-            <value>0</value>
-        </greater-than>
-     </condition>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/primus1000/dc550/fms</property>
-            <value>1</value>
+            <command>nasal</command>
+            <script>bravo.primus.dc550_set("fms");</script>
         </binding>
    </action>
 
@@ -599,12 +566,20 @@
         <h>14</h>
         <binding>
             <command>property-toggle</command>
-            <property>/controls/engines/engine/starter</property>
-        </binding>
-        <binding>
-            <command>property-toggle</command>
             <property>sim/sound/click</property>
         </binding>
+     <binding>
+       <command>property-assign</command>
+       <property>controls/engines/engine[0]/starter</property>
+       <value>1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>controls/engines/engine[0]/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
     </action>
 
     <action>
@@ -633,8 +608,20 @@
         <h>14</h>
         <binding>
             <command>property-toggle</command>
-            <property>/controls/engines/engine[1]/starter</property>
+            <property>sim/sound/click</property>
         </binding>
+     <binding>
+       <command>property-assign</command>
+       <property>controls/engines/engine[1]/starter</property>
+       <value>1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>controls/engines/engine[1]/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
     </action>
 
 <!--    Lighting    -->

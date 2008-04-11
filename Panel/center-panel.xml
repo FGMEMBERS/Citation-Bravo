@@ -9,7 +9,7 @@
 <instruments>
 
 <!-- RIC -->
-    <instrument include="../../Instruments-3d/primus-1000/ric-hotspots.xml">
+    <instrument include="../Models/Instruments/ric-hotspots.xml">
         <name>RIC</name>
         <x>76</x>
         <y>88</y>
@@ -18,12 +18,21 @@
     </instrument>
 
 <!-- AP -->
-    <instrument include="../../Instruments-3d/primus-1000/AP-hotspots.xml">
+    <instrument include="../Models/Instruments/AP-hotspots.xml">
         <name>AP</name>
         <x>76</x>
         <y>32</y>
+        <w>140</w>
+        <h>60</h>
+    </instrument>
+
+<!-- MFD -->
+    <instrument include="../Models/Instruments/MFD-controller.xml">
+        <name>MFD</name>
+        <x>74</x>
+        <y>262</y>
         <w>144</w>
-        <h>66</h>
+        <h>62</h>
     </instrument>
 
 </instruments>

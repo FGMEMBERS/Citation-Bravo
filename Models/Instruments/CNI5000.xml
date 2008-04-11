@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+Author : Syd Adams
+CNI-5000 radio stack
+-->
+<PropertyList>
+
+    <path>CNI5000.ac</path>
+
+</PropertyList>
