@@ -13,7 +13,7 @@ Primus 1000 PFD  messages
 
     <layers>
 
-	<layer>
+    <layer>
             <name>VNV/FMS</name>
             <condition>
                 <property>instrumentation/primus1000/pfd/serviceable</property>
@@ -251,6 +251,98 @@ Primus 1000 PFD  messages
             </transformations>
         </layer>
 
+        <layer>
+            <name>INHG</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/primus1000/baro-kpa</property>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>58</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-12</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>INHG mrkr</name>
+            <condition>
+                <not>
+                    <property>instrumentation/primus1000/dc550/hpa</property>
+                </not>
+            </condition>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>4</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text> IN</text>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>78</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-12</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>HPA mrkr</name>
+            <condition>
+                <property>instrumentation/primus1000/dc550/hpa</property>
+            </condition>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>4</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>HPA</text>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>78</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-12</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
 <!--    FD MODE ANNUNCIATORS-->
 
         <layer>
@@ -314,7 +406,7 @@ Primus 1000 PFD  messages
                     <type>text-value</type>
                     <property>instrumentation/flightdirector/LAT-annun</property>
                 </chunk>
-	    </chunks>
+        </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>
@@ -345,7 +437,7 @@ Primus 1000 PFD  messages
                     <type>text-value</type>
                     <property>instrumentation/flightdirector/LAT-arm-annun</property>
                 </chunk>
-	    </chunks>
+        </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>
@@ -376,7 +468,7 @@ Primus 1000 PFD  messages
                     <type>text-value</type>
                     <property>instrumentation/flightdirector/VRT-annun</property>
                 </chunk>
-	    </chunks>
+        </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>
@@ -407,7 +499,7 @@ Primus 1000 PFD  messages
                     <type>text-value</type>
                     <property>instrumentation/flightdirector/VRT-arm-annun</property>
                 </chunk>
-	    </chunks>
+        </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>

@@ -59,14 +59,20 @@ var P1000 = {
         m.baro_mode=m.primus.getNode("baro-mode",1);
         m.baro_mode.setBoolValue(1);
         m.baro_kpa = m.primus.getNode("baro-kpa",1);
-        m.baro_kpa.setDoubleValue(0);
+        m.baro_kpa.setValue("     ");
     return m;
     },
 #### convert inhg to kpa ####
     calc_kpa : func{
         var kp = getprop("instrumentation/altimeter/setting-inhg");
-        if(me.baro_mode.getBoolValue())kp = kp * 33.8637526;
-        me.baro_kpa.setValue(kp);
+        var buf="";
+        if(me.dc550_hpa.getBoolValue()){
+            kp = kp * 33.8637526;
+            buf = sprintf("%4.0f",kp);
+        }else{
+            buf = sprintf("%2.2f",kp);
+        }
+        me.baro_kpa.setValue(buf);
     },
 #### pointer needle update ####
     get_pointer_offset : func(test,src){

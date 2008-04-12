@@ -813,45 +813,6 @@ Primus 1000 Primary Flight Display
 
 <animation>
     <type>textranslate</type>
-    <object-name>crstext</object-name>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <factor>0.001</factor>
-    <step>100</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>crstext.001</object-name>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <factor>0.01</factor>
-    <step>10</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>crstext.002</object-name>
-    <property>instrumentation/nav/radials/selected-deg</property>
-    <factor>0.1</factor>
-    <step>1</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
- 
-<animation>
-    <type>textranslate</type>
     <object-name>alttext</object-name>
     <property>autopilot/settings/target-altitude-ft</property>
     <factor>0.00001</factor>
