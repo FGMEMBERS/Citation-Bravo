@@ -19,7 +19,7 @@ Display Control 550
     <object-name>nav-pointer.001</object-name>
     <object-name>nav-pointer.002</object-name>
     <emission>
-        <red>0.025-</red>
+        <red>0.025</red>
         <green>0.015</green>
         <blue>0.010</blue>
         <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>

@@ -280,7 +280,7 @@
     <model>
         <path>Aircraft/Citation-Bravo/Models/Instruments/CNI5000.xml</path>
         <offsets>
-            <x-m>2.443</x-m>
+            <x-m>2.442</x-m>
             <y-m>0.127</y-m>
             <z-m>0.557</z-m>
             <pitch-deg>-10.0</pitch-deg>

@@ -10,10 +10,10 @@
 <!-- radio stack -->
     <instrument include="radiostack.xml">
         <name>Radiostack</name>
-        <x>614</x>
-        <y>152</y>
-        <w>136</w>
-        <h>196</h>
+        <x>610</x>
+        <y>153</y>
+        <w>127</w>
+        <h>194</h>
     </instrument>
 
 <!-- dme -->

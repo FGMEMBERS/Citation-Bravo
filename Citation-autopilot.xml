@@ -24,8 +24,8 @@
         <prop>autopilot/internal/target-roll-deg</prop>
     </output>
     <config>
-        <Kp>0.7</Kp>
-        <Ki>0.001</Ki>
+        <Kp>1.0</Kp>
+        <Ki>0.0</Ki>
         <u_min>
             <prop>instrumentation/flightdirector/roll-min</prop>
         </u_min>
@@ -142,7 +142,7 @@
         <alpha>0.1</alpha>
         <gamma>0.0</gamma>
         <Ti>1.0</Ti>
-        <Td>0.02</Td>
+        <Td>0.0</Td>
         <u_min>
             <value>-1.0</value>
         </u_min>

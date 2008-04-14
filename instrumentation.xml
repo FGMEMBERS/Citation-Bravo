@@ -79,12 +79,12 @@ This file selects the instrumentation modules that should be available.
     </radar>
 
     <KT-70>
-        <name>KT-70</name>
+        <name>kt-70</name>
         <number>0</number>
     </KT-70>
 
     <KT-70>
-        <name>KT-70</name>
+        <name>kt-70</name>
         <number>1</number>
     </KT-70>
 

@@ -341,6 +341,44 @@ var dme_step = func(stp){
     }
 }
 
+var set_radios = func(src,stp){
+# Comm 118 - 136
+# Nav 108-118
+#ADF 100 - 1300
+    var frq =0;
+    if(src=="comm"){
+        frq=getprop("instrumentation/comm/frequencies/standby-mhz");
+        frq = frq+ stp;
+        if(frq > 136.000)frq = frq-18.000;
+        if(frq < 118.000)frq = frq+18.000;
+        setprop("instrumentation/comm/frequencies/standby-mhz",frq);
+    }elsif(src=="comm1"){
+        frq=getprop("instrumentation/comm[1]/frequencies/standby-mhz");
+        frq = frq+ stp;
+        if(frq > 136.000)frq = frq-18.000;
+        if(frq < 118.000)frq = frq+18.000;
+        setprop("instrumentation/comm[1]/frequencies/standby-mhz",frq);
+    }elsif(src=="nav"){
+        frq=getprop("instrumentation/nav/frequencies/standby-mhz");
+        frq = frq+ stp;
+        if(frq > 118.000)frq = frq-10.000;
+        if(frq < 108.000)frq = frq+10.000;
+        setprop("instrumentation/nav/frequencies/standby-mhz",frq);
+    }elsif(src=="nav1"){
+        frq=getprop("instrumentation/nav[1]/frequencies/standby-mhz");
+        frq = frq+ stp;
+        if(frq > 118.000)frq = frq-10.000;
+        if(frq < 108.000)frq = frq+10.000;
+        setprop("instrumentation/nav[1]/frequencies/standby-mhz",frq);
+    }elsif(src=="adf"){
+        frq=getprop("instrumentation/adf/frequencies/standby-khz");
+        frq = frq+ stp;
+        if(frq > 1300)frq = frq-1200;
+        if(frq < 100)frq = frq+1200;
+        setprop("instrumentation/adf/frequencies/standby-khz",frq);
+    }
+}
+
 var FHupdate = func(tenths){
         var fmeter = getprop("/instrumentation/clock/flight-meter-sec");
         var fhour = fmeter/3600;
