@@ -74,10 +74,16 @@ adjustable with pitch wheel
         <type>select</type>
         <object-name>FD.apr</object-name>
         <condition>
-            <equals>
-                <property>instrumentation/flightdirector/lnav</property>
-                <value>7</value>
-            </equals>
+            <or>
+                <equals>
+                    <property>instrumentation/flightdirector/lnav</property>
+                    <value>4</value>
+                </equals>
+                <equals>
+                    <property>instrumentation/flightdirector/lnav</property>
+                    <value>5</value>
+                </equals>
+            </or>
         </condition>
     </animation>
 
@@ -93,16 +99,10 @@ adjustable with pitch wheel
         <type>select</type>
         <object-name>FD.vnav</object-name>
         <condition>
-            <and>
-                <greater-than>
-                    <property>instrumentation/flightdirector/vnav</property>
-                    <value>0</value>
-                </greater-than>
-                <less-than>
-                    <property>instrumentation/flightdirector/vnav</property>
-                    <value>3</value>
-                </less-than>
-            </and>
+            <equals>
+                <property>instrumentation/flightdirector/vnav</property>
+                <value>1</value>
+            </equals>
         </condition>
     </animation>
 
@@ -110,16 +110,10 @@ adjustable with pitch wheel
         <type>select</type>
         <object-name>FD.alt</object-name>
         <condition>
-            <or>
-                <equals>
-                    <property>instrumentation/flightdirector/vnav</property>
-                    <value>3</value>
-                </equals>
-                <equals>
-                    <property>instrumentation/flightdirector/vnav</property>
-                    <value>4</value>
-                </equals>
-            </or>
+            <equals>
+                <property>instrumentation/flightdirector/vnav</property>
+                <value>2</value>
+            </equals>
         </condition>
     </animation>
 
@@ -129,7 +123,7 @@ adjustable with pitch wheel
         <condition>
             <equals>
                 <property>instrumentation/flightdirector/vnav</property>
-                <value>5</value>
+                <value>3</value>
             </equals>
         </condition>
     </animation>

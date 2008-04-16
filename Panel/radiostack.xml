@@ -12,6 +12,8 @@ Allied Signal CNI-5000 radio stack
 
     <layers>
 
+<!-- Comm 1-->
+
         <layer>
             <name>com1 frequencies</name>
             <condition>
@@ -55,6 +57,8 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
             </transformations>
         </layer>
+
+<!-- Comm 2-->
 
         <layer>
             <name>com2 frequencies</name>
@@ -100,6 +104,8 @@ Allied Signal CNI-5000 radio stack
             </transformations>
         </layer>
 
+<!-- Nav 1-->
+
         <layer>
             <name>nav1 frequencies</name>
             <condition>
@@ -143,6 +149,8 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
             </transformations>
         </layer>
+
+<!-- Nav 2-->
 
         <layer>
             <name>nav2 frequencies</name>
@@ -188,8 +196,10 @@ Allied Signal CNI-5000 radio stack
             </transformations>
         </layer>
 
+<!-- KR-87-->
+
         <layer>
-            <name>adf frequencies</name>
+            <name>kr-87 frequencies</name>
             <condition>
                 <greater-than>
                     <property>systems/electrical/outputs/adf</property>
@@ -207,33 +217,48 @@ Allied Signal CNI-5000 radio stack
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/adf/frequencies/selected-khz</property>
+                    <property>instrumentation/kr-87/outputs/selected-khz</property>
                     <format>%3.0f</format>
                 </chunk>
                 <chunk>
                     <type>literal</type>
-                    <text>          </text>
+                    <text>              </text>
                 </chunk>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/adf/frequencies/standby-khz</property>
+                    <property>instrumentation/kr-87/outputs/standby-khz</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-30</offset>
+                    <offset>-32</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-23</offset>
+                    <offset>-25</offset>
                 </transformation>
             </transformations>
         </layer>
 
+
+<!-- KT70 1-->
+
         <layer>
             <name>xpdr1</name>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/kt-70/inputs/func-knob</property>
+                        <value>0</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>systems/electrical/outputs/transponder</property>
+                        <value>5</value>
+                    </greater-than>
+                </and>
+            </condition>
             <type>text</type>
             <font>led</font>
             <point-size>3</point-size>
@@ -250,7 +275,7 @@ Allied Signal CNI-5000 radio stack
                 </chunk>
                 <chunk>
                     <type>literal</type>
-                    <text>          </text>
+                    <text>                  </text>
                 </chunk>
                 <chunk>
                     <type>number-value</type>
@@ -265,13 +290,27 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-49</offset>
+                    <offset>-51</offset>
                 </transformation>
             </transformations>
         </layer>
 
+<!-- KT70 2-->
+
         <layer>
             <name>xpdr2</name>
+            <condition>
+                <and>
+                    <greater-than>
+                        <property>instrumentation/kt-70[1]/inputs/func-knob</property>
+                        <value>0</value>
+                    </greater-than>
+                    <greater-than>
+                        <property>systems/electrical/outputs/transponder</property>
+                        <value>5</value>
+                    </greater-than>
+                </and>
+            </condition>
             <type>text</type>
             <font>led</font>
             <point-size>3</point-size>
@@ -288,7 +327,7 @@ Allied Signal CNI-5000 radio stack
                 </chunk>
                 <chunk>
                     <type>literal</type>
-                    <text>          </text>
+                    <text>                  </text>
                 </chunk>
                 <chunk>
                     <type>number-value</type>
@@ -299,11 +338,11 @@ Allied Signal CNI-5000 radio stack
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-30</offset>
+                    <offset>-28</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-75</offset>
+                    <offset>-77</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -604,7 +643,7 @@ Allied Signal CNI-5000 radio stack
             <name>swap nav1 frequencies</name>
             <button>0</button>
             <x>-20</x>
-            <y>14</y>
+            <y>15</y>
             <w>10</w>
             <h>6</h>
             <binding>
@@ -628,17 +667,130 @@ Allied Signal CNI-5000 radio stack
             </binding>
         </action>
 
+<!-- kr-87-->
+
         <action>
-            <name>swap adf frequencies</name>
+            <name>ADF btn</name>
             <button>0</button>
-            <x>-14</x>
+            <x>-42</x>
             <y>-37</y>
-            <w>8</w>
+            <w>10</w>
             <h>6</h>
             <binding>
-                <command>property-swap</command>
-                <property>instrumentation/adf/frequencies/selected-khz</property>
-                <property>instrumentation/adf/frequencies/standby-khz</property>
+                <command>property-toggle</command>
+                <property>instrumentation/kr-87/inputs/adf-btn</property>
+            </binding>
+        </action>
+
+        <action>
+            <name>BFO btn</name>
+            <button>0</button>
+            <x>-29</x>
+            <y>-37</y>
+            <w>10</w>
+            <h>6</h>
+            <binding>
+                <command>property-toggle</command>
+                <property>instrumentation/kr-87/inputs/bfo-btn</property>
+            </binding>
+        </action>
+
+        <action>
+            <name>FRQ-btn</name>
+            <button>0</button>
+            <x>-16</x>
+            <y>-37</y>
+            <w>10</w>
+            <h>6</h>
+            <binding>
+                <command>property-assign</command>
+                <property>instrumentation/kr-87/inputs/frq-btn</property>
+                <value>true</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/kr-87/inputs/frq-btn</property>
+                    <value>false</value>
+                </binding>
+            </mod-up>
+        </action>
+
+        <action>
+            <name>FLT-ET btn</name>
+            <button>0</button>
+            <x>-2</x>
+            <y>-37</y>
+            <w>10</w>
+            <h>6</h>
+            <binding>
+                <command>property-assign</command>
+                    <property>instrumentation/kr-87/inputs/flt-et-btn</property>
+                    <value>true</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/kr-87/inputs/flt-et-btn</property>
+                    <value>false</value>
+                </binding>
+            </mod-up>
+        </action>
+
+        <action>
+            <name>SET-RST btn</name>
+            <button>0</button>
+            <x>12</x>
+            <y>-37</y>
+            <w>10</w>
+            <h>6</h>
+            <binding>
+                <command>property-assign</command>
+                <property>instrumentation/kr-87/inputs/set-rst-btn</property>
+                <value>true</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/kr-87/inputs/set-rst-btn</property>
+                    <value>false</value>
+                </binding>
+            </mod-up>
+        </action>
+
+<!-- KT-70 1-->
+
+        <action>
+            <name>func knob decrease </name>
+            <button>0</button>
+            <x>38</x>
+            <y>-62</y>
+            <w>12</w>
+            <h>16</h>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/kt-70/inputs/func-knob</property>
+                <step>-1</step>
+                <min>0</min>
+                <max>5</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+
+        <action>
+            <name>func knob increase</name>
+            <button>0</button>
+            <x>50</x>
+            <y>-62</y>
+            <w>12</w>
+            <h>16</h>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/kt-70/inputs/func-knob</property>
+                <step>1</step>
+                <min>0</min>
+                <max>5</max>
+                <wrap>false</wrap>
             </binding>
         </action>
 
@@ -661,6 +813,42 @@ Allied Signal CNI-5000 radio stack
                     <value>false</value>
                 </binding>
             </mod-up>
+        </action>
+
+<!-- KT-70 2-->
+
+        <action>
+            <name>func knob decrease </name>
+            <button>0</button>
+            <x>38</x>
+            <y>-88</y>
+            <w>12</w>
+            <h>16</h>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/kt-70[1]/inputs/func-knob</property>
+                <step>-1</step>
+                <min>0</min>
+                <max>5</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+
+        <action>
+            <name>func knob increase</name>
+            <button>0</button>
+            <x>50</x>
+            <y>-88</y>
+            <w>12</w>
+            <h>16</h>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/kt-70[1]/inputs/func-knob</property>
+                <step>1</step>
+                <min>0</min>
+                <max>5</max>
+                <wrap>false</wrap>
+            </binding>
         </action>
 
         <action>

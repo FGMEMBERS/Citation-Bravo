@@ -85,7 +85,7 @@ var P1000 = {
             if(offset < -180){offset += 360;}
             elsif(offset > 180){offset -= 360;}
         }elsif(test == 2){
-            offset = getprop("/instrumentation/adf/indicated-bearing-deg");
+            offset = getprop("/instrumentation/kr-87/outputs/needle-deg");
         }elsif(test == 3){
                 offset = getprop("/autopilot/internal/true-heading-error-deg");
         }

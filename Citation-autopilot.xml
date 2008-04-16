@@ -177,7 +177,7 @@
         <beta>1.0</beta>
         <alpha>0.1</alpha>
         <gamma>0.0</gamma>
-        <Ti>10.0</Ti>
+        <Ti>50.0</Ti>
         <Td>0.0</Td>
         <u_min>
             <prop>instrumentation/flightdirector/pitch-min</prop>

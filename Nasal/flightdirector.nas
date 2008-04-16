@@ -39,10 +39,10 @@ var flightdirector = {
         m.vnav_text=["pitch-hold","altitude-hold","altitude-hold","vertical-speed-hold","vertical-speed-hold","gs1-hold"];
         m.spd_text=["","speed-with-throttle","speed-with-pitch"];
         m.LAT=["ROL","HDG","HDG","VOR","HDG","LOC","LNAV"];
-	m.subLAT=["   ","   ","VOR","   ","LOC","   ","   "];
+    m.subLAT=["   ","   ","VOR","   ","LOC","   ","   "];
         m.VRT=["PIT","VNAV","ALT","VS","   ","GS"];
-	m.subVRT=["   ","GS"];
-	m.node = props.globals.getNode(fdprop,1);
+    m.subVRT=["   ","GS"];
+    m.node = props.globals.getNode(fdprop,1);
         m.yawdamper = props.globals.getNode("autopilot/locks/yaw-damper",1);
         m.yawdamper.setBoolValue(0);
         m.lnav = m.node.getNode("lnav",1);
@@ -59,7 +59,7 @@ var flightdirector = {
         m.GSDefl = props.globals.getNode("instrumentation/nav/gs-needle-deflection");
         m.NavLoc = props.globals.getNode("instrumentation/nav/nav-loc");
         m.hasGS = props.globals.getNode("instrumentation/nav/has-gs");
-	m.Valid = props.globals.getNode("instrumentation/nav/in-range");
+    m.Valid = props.globals.getNode("instrumentation/nav/in-range");
         m.FMS = props.globals.getNode("instrumentation/primus1000/dc550/fms",1);
 
         m.AP_hdg = props.globals.getNode("/autopilot/locks/heading",1);
@@ -71,14 +71,14 @@ var flightdirector = {
         m.AP_spd.setValue(m.spd_text[0]);
         m.AP_off = props.globals.getNode("/autopilot/locks/passive-mode",1);
         m.AP_off.setBoolValue(1);
-	
-	m.AP_lat_annun = m.node.getNode("LAT-annun",1);
+    
+    m.AP_lat_annun = m.node.getNode("LAT-annun",1);
         m.AP_lat_annun.setValue(" ");
-	m.AP_sublat_annun = m.node.getNode("LAT-arm-annun",1);
+    m.AP_sublat_annun = m.node.getNode("LAT-arm-annun",1);
         m.AP_sublat_annun.setValue(" ");
-	m.AP_vert_annun = m.node.getNode("VRT-annun",1);
+    m.AP_vert_annun = m.node.getNode("VRT-annun",1);
         m.AP_vert_annun.setValue(" ");
-	m.AP_subvert_annun = m.node.getNode("VRT-arm-annun",1);
+    m.AP_subvert_annun = m.node.getNode("VRT-arm-annun",1);
         m.AP_subvert_annun.setValue(" ");
 
         m.pitch_active=props.globals.getNode("/autopilot/locks/pitch-active",1);
@@ -100,8 +100,8 @@ var flightdirector = {
     },
     ############################
     set_lateral_mode : func(lnv){
-	var tst =me.lnav.getValue();
-	if(lnv ==tst)lnv=0;
+    var tst =me.lnav.getValue();
+    if(lnv ==tst)lnv=0;
         if(lnv==4){
             if(!me.NavLoc.getBoolValue()){
                 lnv=2;
@@ -117,8 +117,8 @@ var flightdirector = {
     },
 ###########################
     set_vertical_mode : func(vnv){
-	var tst =me.vnav.getValue();
-	if(vnv ==tst)vnv=0;
+    var tst =me.vnav.getValue();
+    if(vnv ==tst)vnv=0;
         if(vnv==1){
             if(!me.FMS.getBoolValue()){
                 vnv = 0;
@@ -182,39 +182,39 @@ var flightdirector = {
     update_lnav : func(){
         var lnv = me.lnav.getValue();
         if(lnv   >1 and lnv<6){
-		if(me.FMS.getBoolValue())lnv=6;
-	}
-	if(lnv==2){
-		var defl = me.Defl.getValue();
-		if(me.Valid.getBoolValue()){
-			if(defl <= 9 and defl >= -9)lnv=3;
-		}
-	}elsif(lnv==4){
-		var defl = me.Defl.getValue();
-		if(me.Valid.getBoolValue()){
-			if(defl <= 9 and defl >= -9)lnv=5;
-		}
-	}
-	me.lnav.setValue(lnv);
+        if(me.FMS.getBoolValue())lnv=6;
+    }
+    if(lnv==2){
+        var defl = me.Defl.getValue();
+        if(me.Valid.getBoolValue()){
+            if(defl <= 9 and defl >= -9)lnv=3;
+        }
+    }elsif(lnv==4){
+        var defl = me.Defl.getValue();
+        if(me.Valid.getBoolValue()){
+            if(defl <= 9 and defl >= -9)lnv=5;
+        }
+    }
+    me.lnav.setValue(lnv);
         me.AP_hdg.setValue(me.lnav_text[lnv]);
-	me.AP_lat_annun.setValue(me.LAT[lnv]);
-	me.AP_sublat_annun.setValue(me.subLAT[lnv]);
-	},
+    me.AP_lat_annun.setValue(me.LAT[lnv]);
+    me.AP_sublat_annun.setValue(me.subLAT[lnv]);
+    },
 #### update vnav####
     update_vnav : func(){
         var vnv = me.vnav.getValue();
         if(me.gs_arm.getBoolValue()){
             var defl = me.GSDefl.getValue();
             if(defl < 1 and defl > -1){
-	    vnv=5;
-	    me.gs_arm.setBoolValue(0);
-	    }
+        vnv=5;
+        me.gs_arm.setBoolValue(0);
         }
-	me.vnav.setValue(vnv);
+        }
+    me.vnav.setValue(vnv);
         me.AP_alt.setValue(me.vnav_text[vnv]);
-	me.AP_vert_annun.setValue(me.VRT[vnv]);
-	me.AP_subvert_annun.setValue(me.subVRT[me.gs_arm.getValue()]);
-	},
+    me.AP_vert_annun.setValue(me.VRT[vnv]);
+    me.AP_subvert_annun.setValue(me.subVRT[me.gs_arm.getValue()]);
+    },
 #### autopilot engage####
     toggle_autopilot : func(apmd){
         var md1=0;
@@ -242,6 +242,15 @@ var flightdirector = {
             }
         }
     },
+#### pitch wheel####
+    pitch_wheel : func(amt){
+        var factor=amt;
+        var vmd = me.vnav.getValue();
+        if(vmd==0){
+        
+        }elsif(vmd==3){
+        }
+    }
 };
 
 var FlDr=flightdirector.new("instrumentation/flightdirector");

@@ -10,12 +10,160 @@ CNI-5000 radio stack
     <animation>
         <type>material</type>
         <object-name>CNI.btns</object-name>
-    <emission>
-        <red>0.025</red>
-        <green>0.015</green>
-        <blue>0.010</blue>
-        <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
-    </emission>
+        <emission>
+            <red>0.025</red>
+            <green>0.015</green>
+            <blue>0.010</blue>
+            <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    </animation>
+<!--  KR-87-->
+    <animation>
+        <type>select</type>
+        <object-name>CNI.adf</object-name>
+        <condition>
+            <property>instrumentation/kr-87/annunciators/adf</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.ant</object-name>
+        <condition>
+            <property>instrumentation/kr-87/annunciators/ant</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.bfo</object-name>
+        <condition>
+            <property>instrumentation/kr-87/annunciators/bfo</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.frq</object-name>
+        <condition>
+            <property>instrumentation/kr-87/annunciators/frq</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.flt</object-name>
+        <condition>
+            <property>instrumentation/kr-87/annunciators/flt</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.et</object-name>
+        <condition>
+            <property>instrumentation/kr-87/annunciators/et</property>
+        </condition>
+    </animation>
+
+<!-- KT-70 unit 1-->
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.alt1</object-name>
+        <condition>
+            <property>instrumentation/kt-70/annunciators/alt</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.fl1</object-name>
+        <condition>
+            <property>instrumentation/kt-70/annunciators/fl</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.gnd1</object-name>
+        <condition>
+            <property>instrumentation/kt-70/annunciators/gnd</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.on1</object-name>
+        <condition>
+            <property>instrumentation/kt-70/annunciators/on</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.R1</object-name>
+        <condition>
+            <property>instrumentation/kt-70/annunciators/reply</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.sby1</object-name>
+        <condition>
+            <property>instrumentation/kt-70/annunciators/sby</property>
+        </condition>
+    </animation>
+
+<!-- KT-70 unit 2-->
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.alt2</object-name>
+        <condition>
+            <property>instrumentation/kt-70[1]/annunciators/alt</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.fl2</object-name>
+        <condition>
+            <property>instrumentation/kt-70[1]/annunciators/fl</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.gnd2</object-name>
+        <condition>
+            <property>instrumentation/kt-70[1]/annunciators/gnd</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.on2</object-name>
+        <condition>
+            <property>instrumentation/kt-70[1]/annunciators/on</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.R2</object-name>
+        <condition>
+            <property>instrumentation/kt-70[1]/annunciators/reply</property>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>CNI.sby2</object-name>
+        <condition>
+            <property>instrumentation/kt-70[1]/annunciators/sby</property>
+        </condition>
     </animation>
 
 </PropertyList>
