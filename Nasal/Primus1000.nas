@@ -27,6 +27,8 @@ var P1000 = {
         m.dc550_hpa.setBoolValue(0);
         m.dc550_gspd = m.DC550.getNode("timer",1);
         m.dc550_gspd.setIntValue(0);
+        m.dc550_nav = m.DC550.getNode("nav",1);
+        m.dc550_nav.setIntValue(0);
         m.dc550_fms = m.DC550.getNode("fms",1);
         m.dc550_fms.setBoolValue(0);
         m.dc550_RA = m.DC550.getNode("RA-alert",1);
@@ -125,22 +127,20 @@ var P1000 = {
         }elsif(dc=="et"){
             me.dc550_gspd.setIntValue(2);
         }elsif(dc=="nav"){
+            var nv = me.dc550_nav.getValue();
+            nv= 1- nv;
+            me.dc550_nav.setValue(nv);
             me.dc550_fms.setBoolValue(0);
             me.fms_mode.setValue(me.FMS_VNAV[0]);
-            if(getprop("instrumentation/nav/has-gs")){
-                me.NavType.setValue(2);
+            if(getprop("instrumentation/nav["~nv~"]/has-gs")){
+                me.NavType.setValue(2 + nv);
             }else{
-                me.NavType.setValue(0);
+                me.NavType.setValue(0 + nv);
             }
         }elsif(dc=="fms"){
             if(getprop("autopilot/route-manager/route/num") > 0){
                 me.dc550_fms.setBoolValue(1);
                 me.NavType.setValue(4);
-            }else{
-                me.dc550_fms.setBoolValue(0);
-                var ntype=0;
-                if(getprop("instrumentation/nav/has-gs"))ntype=2;
-                me.NavType.setValue(ntype);
             }
 #        me.fms_mode.setValue(me.FMS_VNAV[fmp]);
         me.NavString.setValue(me.NAV_SRC[me.NavType.getValue()]);
@@ -159,12 +159,13 @@ var P1000 = {
             me.NavType.setValue(4);
             ttg=getprop("autopilot/route-manager/wp/eta");
         }else{
-            if(props.globals.getNode("/instrumentation/nav/data-is-valid").getBoolValue()){
-                nm_calc = getprop("/instrumentation/nav/nav-distance");
+            var nv = me.dc550_nav.getValue();
+            if(props.globals.getNode("/instrumentation/nav["~nv~"]/data-is-valid").getBoolValue()){
+                nm_calc = getprop("/instrumentation/nav["~nv~"]/nav-distance");
                 if(nm_calc == nil)nm_calc = 0.0;
                 nm_calc = 0.000539 * nm_calc;
-                if(getprop("/instrumentation/nav/has-gs"))me.NavType.setValue(2);
-                id = getprop("instrumentation/nav/nav-id");
+                if(getprop("/instrumentation/nav["~nv~"]/has-gs"))me.NavType.setValue(2);
+                id = getprop("instrumentation/nav["~nv~"]/nav-id");
                 if(id ==nil)id= "---";
                 ttg=getprop("instrumentation/dme/indicated-time-min");
                 if(ttg==nil or ttg == 0){

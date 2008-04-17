@@ -28,6 +28,19 @@ Feb 2005  Syd Adams   ()
             <z-offset-m type="double">3.1</z-offset-m>
             <pitch-offset-deg>-12</pitch-offset-deg>
             <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+            <limits>
+                <enabled type="bool">true</enabled>
+                <left>
+                  <heading-max-deg type="double">140</heading-max-deg>
+                  <x-offset-max-m type="double">0.2</x-offset-max-m>
+                  <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                </left>
+                <right>
+                    <heading-max-deg type="double">160</heading-max-deg>
+                    <x-offset-max-m type="double">0.25</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                </right>
+            </limits>
         </config>
     </view>
 
