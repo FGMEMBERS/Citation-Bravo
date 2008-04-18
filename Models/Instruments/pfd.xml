@@ -903,19 +903,6 @@ Primus 1000 Primary Flight Display
 </animation>
 
 <animation>
-    <type>textranslate</type>
-    <object-name>crsmsg</object-name>
-    <property>instrumentation/primus1000/dc550/nav1ptr</property>
-    <factor>0.0099</factor>
-    <step>3</step>
-    <axis>
-        <x>0</x>
-        <y>-1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
     <type>select</type>
     <object-name>FromFlag</object-name>
     <condition>

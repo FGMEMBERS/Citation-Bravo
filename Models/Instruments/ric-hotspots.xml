@@ -31,9 +31,8 @@ Remote Instrument Controller  hotspots
         <w>14</w>
         <h>14</h>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <property>instrumentation/nav/heading-deg</property>
+            <command>nasal</command>
+            <script>bravo.FlDr.set_course(0,0)</script>
         </binding>
     </action>
 
@@ -45,12 +44,8 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>359</max>
-            <wrap>true</wrap>
+            <command>nasal</command>
+            <script>bravo.FlDr.set_course(0,-1)</script>
         </binding>
     </action>
 
@@ -62,12 +57,8 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>-10</step>
-            <min>0</min>
-            <max>350</max>
-            <wrap>true</wrap>
+            <command>nasal</command>
+            <script>bravo.FlDr.set_course(0,-10)</script>
         </binding>
     </action>
 
@@ -79,12 +70,8 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>1</step>
-            <min>0</min>
-            <max>359</max>
-            <wrap>true</wrap>
+            <command>nasal</command>
+            <script>bravo.FlDr.set_course(0,1)</script>
         </binding>
     </action>
 
@@ -96,12 +83,8 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>10</step>
-            <min>0</min>
-            <max>350</max>
-            <wrap>true</wrap>
+            <command>nasal</command>
+            <script>bravo.FlDr.set_course(0,10)</script>
         </binding>
     </action>
 
@@ -195,9 +178,8 @@ Remote Instrument Controller  hotspots
         <w>14</w>
         <h>14</h>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <property>instrumentation/nav/heading-deg</property>
+            <command>nasal</command>
+            <script>bravo.FlDr.set_course(1,0)</script>
         </binding>
     </action>
 
@@ -209,12 +191,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>359</max>
-            <wrap>true</wrap>
+            <script>bravo.FlDr.set_course(1,-1)</script>
         </binding>
     </action>
 
@@ -226,12 +203,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>-10</step>
-            <min>0</min>
-            <max>350</max>
-            <wrap>true</wrap>
+            <script>bravo.FlDr.set_course(1,-10)</script>
         </binding>
     </action>
 
@@ -243,12 +215,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>1</step>
-            <min>0</min>
-            <max>359</max>
-            <wrap>true</wrap>
+            <script>bravo.FlDr.set_course(1,1)</script>
         </binding>
     </action>
 
@@ -260,12 +227,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/nav/radials/selected-deg</property>
-            <step>10</step>
-            <min>0</min>
-            <max>350</max>
-            <wrap>true</wrap>
+            <script>bravo.FlDr.set_course(1,10)</script>
         </binding>
     </action>
 

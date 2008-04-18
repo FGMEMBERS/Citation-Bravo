@@ -59,9 +59,9 @@ var flightdirector = {
         m.GSDefl = props.globals.getNode("instrumentation/nav/gs-needle-deflection");
         m.NavLoc = props.globals.getNode("instrumentation/nav/nav-loc");
         m.hasGS = props.globals.getNode("instrumentation/nav/has-gs");
-    m.Valid = props.globals.getNode("instrumentation/nav/in-range");
+        m.Valid = props.globals.getNode("instrumentation/nav/in-range");
         m.FMS = props.globals.getNode("instrumentation/primus1000/dc550/fms",1);
-
+        m.NAV = props.globals.getNode("instrumentation/primus1000/dc550/nav",1);
         m.AP_hdg = props.globals.getNode("/autopilot/locks/heading",1);
         m.AP_hdg.setValue(m.lnav_text[0]);
         m.AP_hdg_setting = props.globals.getNode("/autopilot/settings/heading",1);
@@ -135,6 +135,21 @@ var flightdirector = {
         }
         me.vnav.setValue(vnv);
         me.AP_alt.setValue(me.vnav_text[vnv]);
+    },
+###########################
+    set_course : func(nvnum,crs){
+        var rd =0;
+        if(!me.FMS.getBoolValue()){
+            rd = getprop("instrumentation/nav["~nvnum~"]/radials/selected-deg");
+            if(crs ==0){
+                rd=int(getprop("orientation/heading-magnetic-deg"));
+            }else{
+                rd = rd+crs;
+                if(rd >360)rd =rd-360;
+                if(rd <1)rd = rd +360;
+            }
+            setprop("instrumentation/nav["~nvnum~"]/radials/selected-deg",rd);
+        }
     },
 #### button press handler####
     set_mode : func(mode){
@@ -246,10 +261,31 @@ var flightdirector = {
     pitch_wheel : func(amt){
         var factor=amt;
         var vmd = me.vnav.getValue();
+        var ptc=0;
+            var mx=0;
+            var mn=0;
         if(vmd==0){
-        
+            mx=me.max_pitch.getValue();
+            mn=me.min_pitch.getValue();
+            ptc = getprop("autopilot/settings/target-pitch-deg");
+            if(ptc==nil)ptc=0;
+            ptc=ptc+0.01 *  amt;
+            if(ptc>mx)ptc=mx;
+            if(ptc<mn)ptc=mn;
+            setprop("autopilot/settings/target-pitch-deg",ptc);
         }elsif(vmd==3){
+            mx=6000;
+            mn=-6000;
+            ptc = getprop("autopilot/settings/vertical-speed-fpm");
+            if(ptc==nil)ptc=0;
+            ptc=ptc+10 *amt;
+            if(ptc>mx)ptc=mx;
+            if(ptc<mn)ptc=mn;
+            setprop("autopilot/settings/vertical-speed-fpm",ptc);
         }
+    },
+#### roll knob ###
+    roll_knob : func(rl){
     }
 };
 

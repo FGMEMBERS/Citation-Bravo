@@ -44,7 +44,7 @@ var P1000 = {
         m.NavPtr1_offset.setDoubleValue(0);
         m.NavPtr2_offset =m.DC550.getNode("nav2ptr-hdg-offset",1);
         m.NavPtr2_offset.setDoubleValue(0);
-        m.NavDist =m.primus.getNode("nav-dist-nm",1);
+         m.NavDist =m.primus.getNode("nav-dist-nm",1);
         m.NavDist.setDoubleValue(0);
         m.NavType =m.primus.getNode("nav-type",1);
         m.NavType.setIntValue(0);
@@ -65,7 +65,7 @@ var P1000 = {
     return m;
     },
 #### convert inhg to kpa ####
-    calc_kpa : func{
+    calc_kpa : func(){
         var kp = getprop("instrumentation/altimeter/setting-inhg");
         var buf="";
         if(me.dc550_hpa.getBoolValue()){
@@ -116,6 +116,7 @@ var P1000 = {
         }elsif(dc=="hpa"){
             tmp = me.dc550_hpa.getBoolValue();
             me.dc550_hpa.setBoolValue(1-tmp);
+            me.calc_kpa();
         }elsif(dc=="ttg"){
             tmp = me.dc550_gspd.getValue();
             if(tmp ==0){
@@ -190,7 +191,6 @@ var P1000 = {
     me.NavPtr1_offset.setValue(me.get_pointer_offset(me.NavPtr1.getValue(),0));
     me.NavPtr2_offset.setValue(me.get_pointer_offset(me.NavPtr2.getValue(),1));
     me.update_nav();
-    me.calc_kpa();
     },
 #### MC800 controls  ####
     mc800_input : func(mcmd){
@@ -249,4 +249,9 @@ setlistener("/sim/signals/fdm-initialized", func {
     print("Primus 1000 systems ... check");
     settimer(update_p1000,1);
     });
+
+
+setlistener("instrumentation/altimeter/setting-inhg", func(){
+    primus.calc_kpa();
+    },1,0);
 
