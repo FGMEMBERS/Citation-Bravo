@@ -3043,7 +3043,7 @@
     <animation>
         <type>rotate</type>
         <object-name>DCvolts</object-name>
-        <property>systems/electrical/bus-volts</property>
+        <property>systems/electrical/bat-volts</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>40.0</ind><dep>-280</dep></entry>
@@ -3063,11 +3063,10 @@
     <animation>
         <type>rotate</type>
         <object-name>DCamps1</object-name>
-        <property>engines/engine[0]/amp-v</property>
+        <property>systems/electrical/gen-load</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>200.0</ind><dep>-160</dep></entry>
-            <entry><ind>400.0</ind><dep>-280</dep></entry>
+            <entry><ind>1.0</ind><dep>-280</dep></entry>
         </interpolation>
         <axis>
             <x>0.985</x>
@@ -3084,11 +3083,10 @@
     <animation>
         <type>rotate</type>
         <object-name>DCamps2</object-name>
-        <property>engines/engine[1]/amp-v</property>
+        <property>systems/electrical/gen-load[1]</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>200.0</ind><dep>-160</dep></entry>
-            <entry><ind>400.0</ind><dep>-280</dep></entry>
+            <entry><ind>1.0</ind><dep>-280</dep></entry>
         </interpolation>
         <axis>
             <x>0.985</x>

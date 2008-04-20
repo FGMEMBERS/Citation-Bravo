@@ -142,8 +142,8 @@ var P1000 = {
             if(getprop("autopilot/route-manager/route/num") > 0){
                 me.dc550_fms.setBoolValue(1);
                 me.NavType.setValue(4);
+                me.fms_mode.setValue(me.FMS_VNAV[1]);
             }
-#        me.fms_mode.setValue(me.FMS_VNAV[fmp]);
         me.NavString.setValue(me.NAV_SRC[me.NavType.getValue()]);
         }
     },
@@ -161,7 +161,7 @@ var P1000 = {
             ttg=getprop("autopilot/route-manager/wp/eta");
         }else{
             var nv = me.dc550_nav.getValue();
-            if(props.globals.getNode("/instrumentation/nav["~nv~"]/data-is-valid").getBoolValue()){
+            if(getprop("/instrumentation/nav["~nv~"]/data-is-valid")=="true"){
                 nm_calc = getprop("/instrumentation/nav["~nv~"]/nav-distance");
                 if(nm_calc == nil)nm_calc = 0.0;
                 nm_calc = 0.000539 * nm_calc;
