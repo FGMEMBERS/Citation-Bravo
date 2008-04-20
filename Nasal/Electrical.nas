@@ -361,7 +361,7 @@ setprop(outPut~"panel-lights",(bus_volts * PANEL_DIMMER) * srvc);
 }
 
 update_electrical = func {
-    var scnd = getprop("sim/time/delta-realtime-sec");
+    var scnd = getprop("sim/time/delta-sec");
     update_virtual_bus( scnd );
 settimer(update_electrical, 0);
 }

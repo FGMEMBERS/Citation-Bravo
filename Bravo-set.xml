@@ -31,9 +31,9 @@ Feb 2005  Syd Adams   ()
             <limits>
                 <enabled type="bool">true</enabled>
                 <left>
-                  <heading-max-deg type="double">140</heading-max-deg>
-                  <x-offset-max-m type="double">0.2</x-offset-max-m>
-                  <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                  <heading-max-deg type="double">120</heading-max-deg>
+                  <x-offset-max-m type="double">0.22</x-offset-max-m>
+                  <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
                 </left>
                 <right>
                     <heading-max-deg type="double">160</heading-max-deg>

@@ -238,7 +238,7 @@
         <prop>autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-        <Kp>0.3</Kp>
+        <Kp>0.2</Kp>
         <Ki>0.0</Ki>
         <u_min>
             <prop>instrumentation/flightdirector/pitch-min</prop>

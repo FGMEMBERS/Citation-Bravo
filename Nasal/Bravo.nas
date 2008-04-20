@@ -63,7 +63,7 @@ var JetEngine = {
             }else{
                 var tmprpm = me.rpm.getValue();
                 if(tmprpm > 0.0){
-                    tmprpm -= getprop("sim/time/delta-realtime-sec") * 2;
+                    tmprpm -= getprop("sim/time/delta-sec") * 2;
                     me.rpm.setValue(tmprpm);
                     me.fake_n2.setValue(tmprpm);
                 }
@@ -84,9 +84,9 @@ var JetEngine = {
         var n2=me.n2.getValue() ;
         var n2factor = n2/scnds;
         var tmprpm = me.rpm.getValue();
-            tmprpm += getprop("sim/time/delta-realtime-sec") * n1factor;
+            tmprpm += getprop("sim/time/delta-sec") * n1factor;
             var tmprpm2 = me.fake_n2.getValue();
-            tmprpm2 += getprop("sim/time/delta-realtime-sec") * n2factor;
+            tmprpm2 += getprop("sim/time/delta-sec") * n2factor;
             me.rpm.setValue(tmprpm);
             me.fake_n2.setValue(tmprpm2);
             if(tmprpm >= me.n1.getValue()){
