@@ -3043,7 +3043,7 @@
     <animation>
         <type>rotate</type>
         <object-name>DCvolts</object-name>
-        <property>systems/electrical/bat-volts</property>
+        <property>systems/electrical/bus-volts</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>40.0</ind><dep>-280</dep></entry>

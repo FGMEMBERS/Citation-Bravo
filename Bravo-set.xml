@@ -82,7 +82,14 @@ Feb 2005  Syd Adams   ()
         </config>
     </view>
         
-    <allow-toggle-cockpit>true</allow-toggle-cockpit>
+
+    <airport>
+        <runways>
+            <start-offset-m>30</start-offset-m>
+        </runways>
+    </airport>
+
+<allow-toggle-cockpit>true</allow-toggle-cockpit>
         
     <systems>
         <electrical>
@@ -179,6 +186,7 @@ Feb 2005  Syd Adams   ()
 
    <tutorials>
         <tutorial include="Tutorials/startup_tutorial.xml"/>
+        <tutorial include="Tutorials/primus-tutorial.xml"/>
     </tutorials>
 
     <menubar>
