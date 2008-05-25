@@ -186,7 +186,7 @@ Feb 2005  Syd Adams   ()
 
    <tutorials>
         <tutorial include="Tutorials/startup_tutorial.xml"/>
-        <tutorial include="Tutorials/primus-tutorial.xml"/>
+<!--        <tutorial include="Tutorials/primus-tutorial.xml"/> -->
     </tutorials>
 
     <menubar>
