@@ -32,14 +32,17 @@
 #FlightDirector/Autopilot 
 # ie: var fltdir = flightdirector.new(property);
 
+var ap_settings = gui.Dialog.new("/sim/gui/dialogs/primus-autopilot/dialog",
+        "Aircraft/Citation-Bravo/Systems/autopilot-dlg.xml");
+
 var flightdirector = {
     new : func(fdprop){
         m = {parents : [flightdirector]};
-        m.lnav_text=["wing-leveler","dg-heading-hold","dg-heading-hold","nav1-hold","dg-heading-hold","nav1-hold","true-heading-hold"];
-        m.vnav_text=["pitch-hold","altitude-hold","altitude-hold","vertical-speed-hold","vertical-speed-hold","gs1-hold"];
-        m.spd_text=["","speed-with-throttle","speed-with-pitch"];
+        m.lnav_text=["ROLL","HDG","NAV-ARM","NAV","LOC-ARM","LOC","LNAV"];
+        m.vnav_text=["PTCH","VNAV","ALT","VS","GS-ARM","GS"];
+        m.spd_text=["","IAS","speed-with-pitch"];
         m.LAT=["ROL","HDG","HDG","VOR","HDG","LOC","LNAV"];
-    m.subLAT=["   ","   ","VOR","   ","LOC","   ","   "];
+        m.subLAT=["   ","   ","VOR","   ","LOC","   ","   "];
         m.VRT=["PIT","VNAV","ALT","VS","   ","GS"];
     m.subVRT=["   ","GS"];
     m.node = props.globals.getNode(fdprop,1);
@@ -54,6 +57,7 @@ var flightdirector = {
         m.asel = m.node.getNode("Asel",1);
         m.asel.setDoubleValue(0);
         m.speed = m.node.getNode("spd",1);
+        m.speed.setDoubleValue(0);
         m.DH = props.globals.getNode("autopilot/route-manager/min-lock-altitude-agl-ft",1);
         m.Defl = props.globals.getNode("instrumentation/nav/heading-needle-deflection");
         m.GSDefl = props.globals.getNode("instrumentation/nav/gs-needle-deflection");
@@ -65,6 +69,9 @@ var flightdirector = {
         m.AP_hdg = props.globals.getNode("/autopilot/locks/heading",1);
         m.AP_hdg.setValue(m.lnav_text[0]);
         m.AP_hdg_setting = props.globals.getNode("/autopilot/settings/heading",1);
+        m.AP_hdg_setting.setDoubleValue(0);
+        m.AP_spd_setting = props.globals.getNode("/autopilot/settings/target-speed-kt",1);
+        m.AP_spd_setting.setDoubleValue(0);
         m.AP_alt = props.globals.getNode("/autopilot/locks/altitude",1);
         m.AP_alt.setValue(m.vnav_text[0]);
         m.AP_spd = props.globals.getNode("/autopilot/locks/speed",1);
@@ -151,6 +158,34 @@ var flightdirector = {
             setprop("instrumentation/nav["~nvnum~"]/radials/selected-deg",rd);
         }
     },
+###########################
+    set_hdg_bug : func(hbg){
+        var rd =0;
+            rd = getprop("autopilot/settings/heading-bug-deg");
+            if(rd==nil)rd=0;
+            if(hbg ==0){
+                rd=int(getprop("orientation/heading-magnetic-deg"));
+            }else{
+                rd = rd+hbg;
+                if(rd >360)rd =rd-360;
+                if(rd <1)rd = rd +360;
+            }
+            setprop("autopilot/settings/heading-bug-deg",rd);
+    },
+###########################
+    ias_set : func(spd){
+        var rd =0;
+            rd = me.AP_spd_setting.getValue();
+            if(rd==nil)rd=0;
+            if(spd ==0){
+                rd=0;
+            }else{
+                rd = rd+spd;
+                if(rd >400)rd =400;
+                if(rd <0)rd = 0;
+            }
+            me.AP_spd_setting.setValue(rd);
+    },
 #### button press handler####
     set_mode : func(mode){
         if(mode=="hdg"){
@@ -171,6 +206,13 @@ var flightdirector = {
             me.set_vertical_mode(2);
         }elsif(mode=="vs"){
             me.set_vertical_mode(3);
+        }elsif(mode=="ias"){
+            var sp=me.speed.getValue();
+            sp=1-sp;
+            me.speed.setValue(sp);
+            var kt= int(getprop("velocities/airspeed-kt"));
+            me.AP_spd_setting.setValue(kt);
+            me.AP_spd.setValue(me.spd_text[sp]);
         }
     },
 #### check AP errors####
@@ -269,7 +311,7 @@ var flightdirector = {
             mn=me.min_pitch.getValue();
             ptc = getprop("autopilot/settings/target-pitch-deg");
             if(ptc==nil)ptc=0;
-            ptc=ptc+0.01 *  amt;
+            ptc=ptc+0.10 *  amt;
             if(ptc>mx)ptc=mx;
             if(ptc<mn)ptc=mn;
             setprop("autopilot/settings/target-pitch-deg",ptc);
@@ -278,7 +320,7 @@ var flightdirector = {
             mn=-6000;
             ptc = getprop("autopilot/settings/vertical-speed-fpm");
             if(ptc==nil)ptc=0;
-            ptc=ptc+10 *amt;
+            ptc=ptc+100 *amt;
             if(ptc>mx)ptc=mx;
             if(ptc<mn)ptc=mn;
             setprop("autopilot/settings/vertical-speed-fpm",ptc);
@@ -294,7 +336,10 @@ var FlDr=flightdirector.new("instrumentation/flightdirector");
 ######################################
 
 setlistener("/sim/signals/fdm-initialized", func {
-    setprop("autopilot/settings/target-altitude-ft",0);
+    setprop("autopilot/settings/target-altitude-ft",10000);
+    setprop("autopilot/settings/heading-bug-deg",0);
+    setprop("autopilot/settings/vertical-speed-fpm",0);
+    setprop("autopilot/settings/target-pitch-deg",0);
     settimer(update_fd, 5);
     print("Flight Director ...Check");
 });

@@ -15,9 +15,6 @@ Primus 1000 PFD  messages
 
     <layer>
             <name>VNV/FMS</name>
-            <condition>
-                <property>instrumentation/primus1000/pfd/serviceable</property>
-            </condition>
             <type>text</type>
             <font>arial_black</font>
             <point-size>4</point-size>
@@ -46,10 +43,7 @@ Primus 1000 PFD  messages
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/primus1000/pfd/serviceable</property>
                     <property>instrumentation/primus1000/dc550/fms</property>
-                </and>
             </condition>
             <type>group</type>
 
@@ -142,12 +136,9 @@ Primus 1000 PFD  messages
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/primus1000/pfd/serviceable</property>
                     <not>
                         <property>instrumentation/primus1000/dc550/fms</property>
                     </not>
-                </and>
             </condition>
             <type>group</type>
 
@@ -322,9 +313,6 @@ Primus 1000 PFD  messages
 
         <layer>
             <name>Wind Speed</name>
-            <condition>
-                <property>instrumentation/primus1000/pfd/serviceable</property>
-            </condition>
             <type>text</type>
             <font>arial_black</font>
             <point-size>4.5</point-size>
@@ -354,13 +342,10 @@ Primus 1000 PFD  messages
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/primus1000/pfd/serviceable</property>
                     <equals>
                         <property>instrumentation/primus1000/dc550/timer</property>
                         <value>0</value>
                     </equals>
-                </and>
             </condition>
             <name>Ground Speed</name>
             <type>text</type>
@@ -392,13 +377,10 @@ Primus 1000 PFD  messages
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/primus1000/pfd/serviceable</property>
                     <equals>
                         <property>instrumentation/primus1000/dc550/timer</property>
                         <value>2</value>
                     </equals>
-                </and>
             </condition>
             <name>ET</name>
             <type>text</type>
@@ -429,13 +411,10 @@ Primus 1000 PFD  messages
 
         <layer>
             <condition>
-                <and>
                     <equals>
                         <property>instrumentation/primus1000/dc550/timer</property>
                         <value>1</value>
                     </equals>
-                    <property>instrumentation/primus1000/pfd/serviceable</property>
-                </and>
             </condition>
             <name>TTG</name>
             <type>text</type>
@@ -603,9 +582,6 @@ Primus 1000 PFD  messages
 
         <layer>
             <name>LAT mode</name>
-            <condition>
-                <property>instrumentation/primus1000/pfd/serviceable</property>
-            </condition>
             <type>text</type>
             <font>arial_black</font>
             <point-size>5</point-size>
@@ -634,9 +610,6 @@ Primus 1000 PFD  messages
 
         <layer>
             <name>LAT arm mode</name>
-            <condition>
-                <property>instrumentation/primus1000/pfd/serviceable</property>
-            </condition>
             <type>text</type>
             <font>arial_black</font>
             <point-size>5</point-size>
@@ -665,9 +638,6 @@ Primus 1000 PFD  messages
 
         <layer>
             <name>VRT mode</name>
-            <condition>
-                <property>instrumentation/primus1000/pfd/serviceable</property>
-            </condition>
             <type>text</type>
             <font>arial_black</font>
             <point-size>5</point-size>
@@ -696,9 +666,6 @@ Primus 1000 PFD  messages
 
         <layer>
             <name>VRT  sub mode</name>
-            <condition>
-                <property>instrumentation/primus1000/pfd/serviceable</property>
-            </condition>
             <type>text</type>
             <font>arial_black</font>
             <point-size>5</point-size>
@@ -726,11 +693,6 @@ Primus 1000 PFD  messages
         </layer>
 
         <layer>
-            <condition>
-                <and>
-                    <property>instrumentation/primus1000/pfd/serviceable</property>
-                    </and>
-            </condition>
             <type>group</type>
 
         <layer>
@@ -953,8 +915,223 @@ Primus 1000 PFD  messages
                 </transformation>
             </transformations>
         </layer>
+    </layer>
 
+<!-- IAS annunciator-->
+
+        <layer>
+            <name>IAS indicator</name>
+            <condition>
+                <equals>
+                    <property>autopilot/locks/speed</property>
+                    <value>IAS</value>
+                </equals>
+            </condition>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>6</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/settings/target-speed-kt</property>
+                    <format>%03.0f</format>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-85</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>90</offset>
+                </transformation>
+            </transformations>
         </layer>
+
+<!-- ALTitude Preset-->
+
+        <layer>
+            <name>ALT setting</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>6</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/settings/target-altitude-ft</property>
+                    <scale>0.01</scale>
+                    <format>%03.0f</format>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>58</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>90</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>ALT tenths setting</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>4</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>00</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>75</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>90</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+<!-- MACH nimber-->
+
+        <layer>
+            <name>MACH value</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.1</red>
+                <green>0.9</green>
+                <blue>0.4</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>velocities/mach</property>
+                    <format>%1.3f</format>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-90</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-13</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>MACH annun</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>M</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-70</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-13</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+<!-- HDG bug deg-->
+
+        <layer>
+            <name>HDG bug deg</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>HDG</text>
+                </chunk>
+        </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-90</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-85</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>HDG value</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5.5</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/settings/heading-bug-deg</property>
+                    <format>%03.0f</format>
+                </chunk>
+        </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-90</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-93</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
 
     </layers>
 

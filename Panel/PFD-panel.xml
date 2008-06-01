@@ -10,6 +10,15 @@
 
         <instrument include="pfd-text.xml">
             <name>pfd</name>
+            <condition>
+                <and>
+                    <property>instrumentation/primus1000/mfd/serviceable</property>
+                    <greater-than>
+                        <property>systems/electrical/ac-volts</property>
+                        <value>15</value>
+                    </greater-than>
+                </and>
+            </condition>
             <x>150</x>
             <y>100</y>
             <w>300</w>

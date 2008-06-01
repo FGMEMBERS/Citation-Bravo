@@ -26,9 +26,15 @@ Primus 1000 Primary Flight Display
     <type>select</type>
     <object-name>PFD.off</object-name>
     <condition>
-        <not>
-            <property>instrumentation/primus1000/pfd/serviceable</property>
-        </not>
+        <or>
+            <not>
+                <property>instrumentation/primus1000/pfd/serviceable</property>
+            </not>
+            <less-than>
+                <property>systems/electrical/ac-volts</property>
+                <value>15</value>
+            </less-than>
+        </or>
     </condition>
 </animation>
 
@@ -730,152 +736,6 @@ Primus 1000 Primary Flight Display
     </center>
 </animation>
 
-<animation>
-    <type>textranslate</type>
-    <object-name>hdgtext</object-name>
-    <property>autopilot/settings/heading-bug-deg</property>
-    <factor>0.001</factor>
-    <step>100</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>hdgtext.001</object-name>
-    <property>autopilot/settings/heading-bug-deg</property>
-    <factor>0.01</factor>
-    <step>10</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>hdgtext.002</object-name>
-    <property>autopilot/settings/heading-bug-deg</property>
-    <factor>0.1</factor>
-    <step>1</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>mach.001</object-name>
-    <property>velocities/mach</property>
-    <factor>1.0</factor>
-    <step>0.1</step>
-    <bias>0.0005</bias>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>mach.002</object-name>
-    <property>velocities/mach</property>
-    <factor>10.0</factor>
-    <step>0.01</step>
-    <bias>0.0005</bias>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>mach.003</object-name>
-    <property>velocities/mach</property>
-    <factor>100.0</factor>
-    <step>0.001</step>
-    <bias>0.0005</bias>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>alttext</object-name>
-    <property>autopilot/settings/target-altitude-ft</property>
-    <factor>0.00001</factor>
-    <step>10000</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
-    <type>textranslate</type>
-    <object-name>alttext.001</object-name>
-    <property>autopilot/settings/target-altitude-ft</property>
-    <factor>0.0001</factor>
-    <step>1000</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
- 
-<animation>
-    <type>textranslate</type>
-    <object-name>alttext.002</object-name>
-    <property>autopilot/settings/target-altitude-ft</property>
-    <factor>0.001</factor>
-    <step>100</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
- 
-<animation>
-    <type>textranslate</type>
-    <object-name>alttext.003</object-name>
-    <property>autopilot/settings/target-altitude-ft</property>
-    <factor>0.01</factor>
-    <step>10</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
- 
-<animation>
-    <type>textranslate</type>
-    <object-name>alttext.004</object-name>
-    <property>autopilot/settings/target-altitude-ft</property>
-    <factor>0.1</factor>
-    <step>1</step>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
- 
 <animation>
     <type>textranslate</type>
     <object-name>nav1msg</object-name>

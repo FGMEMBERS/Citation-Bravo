@@ -96,7 +96,7 @@ Feb 2005  Syd Adams   ()
             <path></path>
         </electrical>
         <autopilot>
-            <path>Aircraft/Citation-Bravo/Citation-autopilot.xml</path>
+            <path>Aircraft/Citation-Bravo/Systems/Citation-autopilot.xml</path>
         </autopilot>
     </systems>
     
@@ -191,6 +191,15 @@ Feb 2005  Syd Adams   ()
 
     <menubar>
         <default>
+            <menu n="3">
+                <item n="0">
+                <label>Autopilot Settings</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>bravo.ap_settings.open()</script>
+                    </binding>
+                </item>
+            </menu>
             <menu n="10">
                 <label>Bravo</label>
                 <enabled type="bool">true</enabled>
@@ -295,17 +304,26 @@ Feb 2005  Syd Adams   ()
             <display-controls>
                 <WX type="bool" archive="y">false</WX>
                 <pos type="bool" archive="y">true</pos>
-                <data type="bool" archive="y">false</data>
+                <data type="bool" archive="y">true</data>
                 <symbol type="bool" archive="y">true</symbol>
-                <centre type="bool" archive="y">true</centre>
                 <rotate type="bool" archive="y">true</rotate>
             </display-controls>
             <serviceable type="bool">true</serviceable>
             <range type="int" archive="y">5</range>
-            <reference-range-nm type="double" archive="y">160</reference-range-nm>
+            <reference-range-nm type="double" archive="y">640</reference-range-nm>
             <mode type="string" archive="y">WX</mode>
-            <font type="string" archive="y">typewriter.txf</font>
-            <lightning type="bool" archive="y">false</lightning>
+            <font>
+                <name type="string">typewriter.txf</name>
+                <size type="float">6</size>
+                <line-spacing type="float">0.4</line-spacing>
+                <color>
+                    <red type="float">0.7</red>
+                    <green type="float">0.7</green>
+                    <blue type="float">0.7</blue>
+                    <alpha type="float">1</alpha>
+                </color>
+            </font>
+            <lightning type="bool" archive="y">true</lightning>
             <display-mode type="string" archive="y">plan</display-mode>
             <radar-texture-path type="string" archive="y">Aircraft/Citation-Bravo/Models/Instruments/od_wxradar.rgb</radar-texture-path>
             <echo-texture-path type="string" archive="y">Aircraft/Citation-Bravo/Models/Instruments/wxecho.rgb</echo-texture-path>
@@ -411,6 +429,14 @@ Feb 2005  Syd Adams   ()
                 <binding>
                     <command>nasal</command>
                     <script>bravo.cabin_door.toggle();</script>
+                </binding>
+            </key>
+            <key n="267">
+                <name>F11</name>
+                <desc>Pop up autopilot dialog</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>bravo.ap_settings.toggle()</script>
                 </binding>
             </key>
         </keyboard>

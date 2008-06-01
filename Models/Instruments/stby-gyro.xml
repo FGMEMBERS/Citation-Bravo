@@ -6,6 +6,18 @@ Standby Gyro
 <PropertyList>
 <path>stby-gyro.ac</path>
 
+<animation>
+    <type>select</type>
+    <object-name>AIbackup</object-name>
+    <condition>
+            <greater-than>
+                <property>systems/electrical/bus-volts</property>
+                <value>5</value>
+            </greater-than>
+    </condition>
+</animation>
+
+
     <animation>
         <type>texmultiple</type>
         <object-name>AIbackup</object-name>

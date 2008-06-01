@@ -11,17 +11,42 @@ Primus 1000 MFD  hotspots
  
     <layers>
 
+        <layer>
+            <name>HDG</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>9</point-size>
+            <color>
+                <red>0.14</red>
+                <green>0.65</green>
+                <blue>0.28</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>orientation/heading-magnetic-deg</property>
+                    <format>%3.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-13</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>116</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
 <!-- NAV INFO-->
 
         <layer>
             <condition>
-                <and>
-                    <property>instrumentation/primus1000/mfd/serviceable</property>
                     <property>instrumentation/primus1000/dc550/fms</property>
-                </and>
             </condition>
             <type>group</type>
-
             <layer>
                 <name>NAV/SRC</name>
                 <type>text</type>
@@ -45,7 +70,7 @@ Primus 1000 MFD  hotspots
                     </transformation>
                     <transformation>
                         <type>y-shift</type>
-                        <offset>118</offset>
+                        <offset>115</offset>
                     </transformation>
                 </transformations>
             </layer>
@@ -192,6 +217,9 @@ Primus 1000 MFD  hotspots
 <!-- FLIGHT INFO-->
 
         <layer>
+            <type>group</type>
+
+        <layer>
             <name>LAT</name>
             <type>text</type>
             <font>arial_black</font>
@@ -214,7 +242,7 @@ Primus 1000 MFD  hotspots
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-80</offset>
+                    <offset>-70</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -238,20 +266,52 @@ Primus 1000 MFD  hotspots
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-75</offset>
+                    <offset>0</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-90</offset>
+                    <offset>-10</offset>
+                </transformation>
+            </transformations>
+        </layer>
+    </layer>
+
+<!--Speed Display-->
+    <layer>
+        <type>group</type>
+        <layer>
+            <name>TASlabel</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>TAS</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>80</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-60</offset>
                 </transformation>
             </transformations>
         </layer>
 
         <layer>
-            <name>HDG</name>
+            <name>TAS</name>
             <type>text</type>
             <font>arial_black</font>
-            <point-size>9</point-size>
+            <point-size>5</point-size>
             <color>
                 <red>0.14</red>
                 <green>0.65</green>
@@ -260,22 +320,480 @@ Primus 1000 MFD  hotspots
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>orientation/heading-magnetic-deg</property>
+                    <property>instrumentation/primus1000/TAS</property>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-13</offset>
+                    <offset>0</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>116</offset>
+                    <offset>-8</offset>
                 </transformation>
             </transformations>
         </layer>
 
+        <layer>
+            <name>GSPlabel</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>GSPD</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>GSP</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.14</red>
+                <green>0.65</green>
+                <blue>0.28</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>velocities/groundspeed-kt</property>
+                    <format>%3.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>ALT</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text> ALT</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-20</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>ALTselect</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/settings/target-altitude-ft</property>
+                    <format>%5.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+</layer>
+
+<!--Radar Annun-->
+    <layer>
+        <type>group</type>
+        <layer>
+            <name>TCAS</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>TCAS</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-110</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-32</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>AUTO</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>AUTO</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>HDG</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>HDG</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>HDGbug</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/settings/heading-bug-deg</property>
+                    <format>%3.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>WX</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.14</red>
+                <green>0.65</green>
+                <blue>0.28</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/radar/status</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>TGT</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.74</red>
+                <green>0.45</green>
+                <blue>0.18</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>TGT</text>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>TILT</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.14</red>
+                <green>0.65</green>
+                <blue>0.28</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>instrumentation/radar/tilt</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>0</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-8</offset>
+                </transformation>
+            </transformations>
+        </layer>
+    </layer>
+
+<!--Menus-->
+
+        <layer>
+            <name>Menu1</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/primus1000/mfd/menu-text[0]</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-110</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-103</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>Menu-item1</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/primus1000/mfd/menu-val[0]</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-50</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-113</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>Menu-item2</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/primus1000/mfd/menu-val[1]</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-19</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-113</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>Menu-item3</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/primus1000/mfd/menu-val[2]</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>19</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-113</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <name>Menu-item4</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.8</red>
+                <green>0.8</green>
+                <blue>0.8</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>text-value</type>
+                    <property>instrumentation/primus1000/mfd/menu-val[3]</property>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>50</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-113</offset>
+                </transformation>
+            </transformations>
+        </layer>
 
     </layers>
 

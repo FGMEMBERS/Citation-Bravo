@@ -7,6 +7,13 @@ var P1000 = {
         m.FMS_VNAV =["VNV","FMS"];
         m.NAV_SRC = ["VOR1","VOR2","ILS1","ILS2","FMS"];
         m.RNG_STEP = [5,10,25,50,100,200,300,600,1200];
+        m.MFD_MENU1 = ["                       VNAV     VSPEED     TERR     FMS",
+        "            RTN       FMS      SNGP",
+        "            RTN       CNCL",
+        "SET      RTN        TO        ST EL     VANG        VS",
+        "            RTN                      T/O       LNDG",
+        "SET      RTN        V1          VR          V2",
+        "SET      RTN      VREF      VAPP"];
         m.primus = props.globals.getNode(prop1000,1);
         m.PFD = m.primus.getNode("pfd",1);
         m.PFD_serv = m.PFD.getNode("serviceable",1);
@@ -18,6 +25,18 @@ var P1000 = {
         m.MFD_serv.setBoolValue(1);
         m.MFD_bright = m.MFD.getNode("dimmer",1);
         m.MFD_bright.setDoubleValue(0.8);
+        m.MFD_menu_num = m.MFD.getNode("menu-num",1);
+        m.MFD_menu_num.setIntValue(0);
+        m.MFD_menu_line1 = m.MFD.getNode("menu-text",1);
+        m.MFD_menu_line1.setValue(m.MFD_MENU1[0]);
+        m.MFD_menu_col1 = m.MFD.getNode("menu-val[0]",1);
+        m.MFD_menu_col1.setValue("     ");
+        m.MFD_menu_col2 = m.MFD.getNode("menu-val[1]",1);
+        m.MFD_menu_col2.setValue("     ");
+        m.MFD_menu_col3 = m.MFD.getNode("menu-val[2]",1);
+        m.MFD_menu_col3.setValue("     ");
+        m.MFD_menu_col4 = m.MFD.getNode("menu-val[3]",1);
+        m.MFD_menu_col4.setValue("     ");
         m.DC550 = m.primus.getNode("dc550",1);
         m.dc550_hsi = m.DC550.getNode("hsi",1);
         m.dc550_hsi.setBoolValue(0);
@@ -62,6 +81,10 @@ var P1000 = {
         m.baro_mode.setBoolValue(1);
         m.baro_kpa = m.primus.getNode("baro-kpa",1);
         m.baro_kpa.setValue("     ");
+        m.IAS = props.globals.getNode("instrumentation/airspeed-indicator/indicated-speed-kt",1);
+        m.ALT = props.globals.getNode("instrumentation/altimeter/indicated-altitude-ft",1);
+        m.TAS = m.primus.getNode("TAS",1);
+        m.TAS.setDoubleValue(0.0);
     return m;
     },
 #### convert inhg to kpa ####
@@ -75,6 +98,14 @@ var P1000 = {
             buf = sprintf("%2.2f",kp);
         }
         me.baro_kpa.setValue(buf);
+    },
+#### calculate TAS ####
+    calc_tas : func(){
+        var tas = me.ALT.getValue();
+        if(tas ==nil)return;
+        tas = (tas*0.001) *5;
+        var ias=me.IAS.getValue();
+        me.TAS.setValue(ias+tas);
     },
 #### pointer needle update ####
     get_pointer_offset : func(test,src){
@@ -191,6 +222,7 @@ var P1000 = {
     me.NavPtr1_offset.setValue(me.get_pointer_offset(me.NavPtr1.getValue(),0));
     me.NavPtr2_offset.setValue(me.get_pointer_offset(me.NavPtr2.getValue(),1));
     me.update_nav();
+        primus.calc_tas();
     },
 #### MC800 controls  ####
     mc800_input : func(mcmd){
@@ -231,7 +263,79 @@ var P1000 = {
             setprop("instrumentation/radar/display-controls/symbol",tmp);
         }
     },
+#### MFD controller  ####
+    mfd_menu : func(inp){
+        var pg =me.MFD_menu_num.getValue();
+        var altsetting=getprop("autopilot/settings/target-altitude-ft");
+        if(inp=="page0"){
+            pg=0;
+        }elsif(inp=="page1"){
+            if(pg==1){
+                pg=2;
+            }elsif(pg==0){
+                pg=1;
+            }
+        }elsif(inp=="page2"){
+            if(pg==0){
+                pg=4;
+            }elsif(pg==1){
+                pg=3;
+            }elsif(pg==4){
+                pg=5;
+            }
+        }elsif(inp=="page3"){
+            if(pg==4)pg=6;
+        }elsif(inp=="page4"){
+        }elsif(inp=="alt-dec"){
+            altsetting -=100;
+            if(altsetting < 0)altsetting=0;
+        }elsif(inp=="alt-inc"){
+        altsetting +=100;
+            if(altsetting > 45000)altsetting=45000;
+        }
+        setprop("autopilot/settings/target-altitude-ft",altsetting);
+        
+        if(pg == 0){
+            me.MFD_menu_col1.setValue("        ");
+            me.MFD_menu_col2.setValue("        ");
+            me.MFD_menu_col3.setValue("        ");
+            me.MFD_menu_col4.setValue("        ");
+        }elsif(pg==1){
+            me.MFD_menu_col1.setValue("        ");
+            me.MFD_menu_col2.setValue("        ");
+            me.MFD_menu_col3.setValue("        ");
+            me.MFD_menu_col4.setValue("        ");
+        }elsif(pg==2){
+            me.MFD_menu_col1.setValue("  VNAV ");
+            me.MFD_menu_col2.setValue("        ");
+            me.MFD_menu_col3.setValue("        ");
+            me.MFD_menu_col4.setValue("        ");
+        }elsif(pg==3){
+            me.MFD_menu_col1.setValue("  - - . - ");
+            me.MFD_menu_col2.setValue("  - - - - -");
+            me.MFD_menu_col3.setValue("  - . -");
+            me.MFD_menu_col4.setValue("- - - - - -");
+        }elsif(pg==4){
+            me.MFD_menu_col1.setValue("        ");
+            me.MFD_menu_col2.setValue("SPEEDS");
+            me.MFD_menu_col3.setValue("SPEEDS");
+            me.MFD_menu_col4.setValue("        ");
+            }elsif(pg==5){
+            me.MFD_menu_col1.setValue("  - - -");
+            me.MFD_menu_col2.setValue("  - - - ");
+            me.MFD_menu_col3.setValue("  - - - ");
+            me.MFD_menu_col4.setValue("        ");
+            }elsif(pg==6){
+            me.MFD_menu_col1.setValue("  - - - ");
+            me.MFD_menu_col2.setValue("  - - - ");
+            me.MFD_menu_col3.setValue("       ");
+            me.MFD_menu_col4.setValue("       ");
+        }
+        me.MFD_menu_num.setValue(pg);
+        me.MFD_menu_line1.setValue(me.MFD_MENU1[pg]);
+    },
 };
+#######################################
 
 var primus = P1000.new("instrumentation/primus1000");
 var APoff=props.globals.getNode("/autopilot/locks/passive-mode",1);

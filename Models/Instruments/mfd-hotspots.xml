@@ -32,16 +32,12 @@ Primus 1000 MFD  hotspots
             <name>Alt decrease</name>
             <button>0</button>
             <x>67</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>8</w>
-            <h>14</h>
+            <h>18</h>
             <binding>
-                <command>property-adjust</command>
-                <property>autopilot/settings/target-altitude-ft</property>
-                <step>-100</step>
-                <min>0</min>
-                <max>99999</max>
-                <wrap>0</wrap>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("alt-dec")</script>
             </binding>
         </action>
 
@@ -49,24 +45,20 @@ Primus 1000 MFD  hotspots
             <name>Alt increase</name>
             <button>0</button>
             <x>75</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>8</w>
-            <h>14</h>
+            <h>18</h>
             <binding>
-                <command>property-adjust</command>
-                <property>autopilot/settings/target-altitude-ft</property>
-                <step>100</step>
-                <min>0</min>
-                <max>99999</max>
-                <wrap>0</wrap>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("alt-inc")</script>
             </binding>
         </action>
 
         <action>
-            <name>mode1</name>
+            <name>setmode</name>
             <button>0</button>
             <x>-70</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>14</w>
             <h>10</h>
             <binding>
@@ -77,10 +69,12 @@ Primus 1000 MFD  hotspots
             <name>mode2</name>
             <button>0</button>
             <x>-50</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>18</w>
-            <h>10</h>
+            <h>18</h>
             <binding>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("page0")</script>
             </binding>
         </action>
 
@@ -88,10 +82,12 @@ Primus 1000 MFD  hotspots
             <name>mode3</name>
             <button>0</button>
             <x>-28</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>18</w>
-            <h>10</h>
+            <h>18</h>
             <binding>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("page1")</script>
             </binding>
         </action>
 
@@ -99,10 +95,12 @@ Primus 1000 MFD  hotspots
             <name>mode4</name>
             <button>0</button>
             <x>-7</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>18</w>
-            <h>10</h>
+            <h>18</h>
             <binding>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("page2")</script>
             </binding>
         </action>
 
@@ -110,10 +108,12 @@ Primus 1000 MFD  hotspots
             <name>mode5</name>
             <button>0</button>
             <x>14</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>18</w>
-            <h>10</h>
+            <h>18</h>
             <binding>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("page3")</script>
             </binding>
         </action>
 
@@ -121,10 +121,12 @@ Primus 1000 MFD  hotspots
             <name>mode6</name>
             <button>0</button>
             <x>36</x>
-            <y>-110</y>
+            <y>-100</y>
             <w>18</w>
-            <h>10</h>
+            <h>18</h>
             <binding>
+                <command>nasal</command>
+                <script>bravo.primus.mfd_menu("page4")</script>
             </binding>
         </action>
 

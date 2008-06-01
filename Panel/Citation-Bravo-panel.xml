@@ -163,7 +163,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("spd");</script>
+            <script>bravo.FlDr.set_mode("ias");</script>
         </binding>
     </action>
 

@@ -10,6 +10,15 @@
 
         <instrument include="radar.xml">
             <name>radar</name>
+            <condition>
+                <and>
+                    <property>instrumentation/primus1000/mfd/serviceable</property>
+                    <greater-than>
+                        <property>systems/electrical/ac-volts</property>
+                        <value>15</value>
+                    </greater-than>
+                </and>
+            </condition>
             <x>150</x>
             <y>118</y>
             <w>260</w>
@@ -18,6 +27,15 @@
 
         <instrument include="mfd-text.xml">
             <name>MFD text</name>
+            <condition>
+                <and>
+                    <property>instrumentation/primus1000/mfd/serviceable</property>
+                    <greater-than>
+                        <property>systems/electrical/ac-volts</property>
+                        <value>15</value>
+                    </greater-than>
+                </and>
+            </condition>
             <x>150</x>
             <y>100</y>
             <w>300</w>

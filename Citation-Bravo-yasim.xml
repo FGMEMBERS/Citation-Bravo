@@ -97,8 +97,8 @@ stall speed  86kt -landing configuration at 13,500 lbs;
 
 <!-- gear drag-->
 
-    <mstab x="-7.5" y="2.8" z="-0.5" length="0.5" chord="0.5">
-        <flap0 start="0" end="1" lift="0" drag="20"/>
+    <mstab x="-7.36" y="2.7" z="0" length="0.5" chord="0.5">
+        <flap0 start="0" end="1" lift="1" drag="20"/>
         <control-input axis="gear/gear[0]/position-norm" control="FLAP0"/>
     </mstab>
 
