@@ -70,17 +70,41 @@
   </checkbox>
 
   <checkbox>
-   <x>220</x>
+   <x>235</x>
    <y>10</y>
    <width>14</width>
    <height>14</height>
-   <label>FMS mode</label>
+   <label></label>
    <property>instrumentation/primus1000/dc550/fms</property>
    <live>true</live>
    <binding>
     <command>dialog-update</command>
    </binding>
   </checkbox>
+
+    <button>
+    <x>250</x>
+    <y>10</y>
+   <width>35</width>
+   <height>15</height>
+    <legend>FMS</legend>
+    <binding>
+   <command>nasal</command>
+    <script>bravo.primus.dc550_set("fms");</script>
+    </binding>
+    </button>
+
+    <button>
+    <x>290</x>
+    <y>10</y>
+   <width>35</width>
+   <height>15</height>
+    <legend>NAV</legend>
+    <binding>
+   <command>nasal</command>
+    <script>bravo.primus.dc550_set("nav");</script>
+    </binding>
+    </button>
 
 </frame>
 
@@ -187,7 +211,7 @@
     <legend>ALT</legend>
     <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_mode("alt");</script>
+    <script>bravo.FlDr.set_mode("alt")</script>
     </binding>
     </button>
 
@@ -630,7 +654,7 @@
   <input>
    <x>10</x>
    <y>50</y>
-   <width>50</width>
+   <width>60</width>
    <height>20</height>
    <label>V/S</label>
    <property>autopilot/settings/vertical-speed-fpm</property>
@@ -643,7 +667,7 @@
   <input>
    <x>10</x>
    <y>30</y>
-   <width>50</width>
+   <width>60</width>
    <height>20</height>
    <label>PITCH</label>
    <property>autopilot/settings/target-pitch-deg</property>
@@ -673,7 +697,7 @@
    <legend>Low Bank</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.toggle_autopilot("bank")</script>
+    <script>bravo.FlDr.toggle_autopilot("bank");</script>
     </binding>
     </button>
 
@@ -694,7 +718,7 @@
    <legend>A / P</legend>
    <binding>
         <command>nasal</command>
-        <script>bravo.FlDr.toggle_autopilot("ap")</script>
+        <script>bravo.FlDr.toggle_autopilot("ap");</script>
     </binding>
     </button>
 
@@ -732,7 +756,7 @@
    <legend>Y / D</legend>
    <binding>
         <command>nasal</command>
-        <script>bravo.FlDr.toggle_autopilot("yd")</script>
+        <script>bravo.FlDr.toggle_autopilot("yd");</script>
     </binding>
     </button>
 

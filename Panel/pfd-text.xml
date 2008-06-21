@@ -331,11 +331,11 @@ Primus 1000 PFD  messages
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>-60</offset>
+                    <offset>-65</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-87</offset>
+                    <offset>-85</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -553,7 +553,7 @@ Primus 1000 PFD  messages
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>autopilot/route-manager/min-lock-altitude-agl-ft</property>
+                    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
                     <format>%3.0f</format>
                 </chunk>
                 <color>
@@ -579,6 +579,39 @@ Primus 1000 PFD  messages
         </layer>
 
 <!-- AP Annunciators-->
+
+        <layer>
+            <name>AP annun</name>
+            <condition>
+                <not>
+                    <property>autopilot/locks/passive-mode</property>
+                </not>
+            </condition>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.2</red>
+                <green>0.8</green>
+                <blue>0.3</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>literal</type>
+                    <text>AP ENG</text>
+                </chunk>
+        </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-14</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>84</offset>
+                </transformation>
+            </transformations>
+        </layer>
 
         <layer>
             <name>LAT mode</name>

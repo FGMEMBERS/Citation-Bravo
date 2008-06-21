@@ -40,6 +40,22 @@ Primus 1000 Primary Flight Display
 
 <animation>
     <type>select</type>
+    <object-name>Std</object-name>
+    <object-name>RaBaro</object-name>
+<object-name>SlipBall</object-name>
+    <condition>
+        <and>
+            <property>instrumentation/primus1000/pfd/serviceable</property>
+            <greater-than>
+                <property>systems/electrical/ac-volts</property>
+                <value>15</value>
+            </greater-than>
+        </and>
+    </condition>
+</animation>
+
+<animation>
+    <type>select</type>
     <object-name>FDbars</object-name>
     <condition>
         <or>
@@ -740,7 +756,7 @@ Primus 1000 Primary Flight Display
     <type>textranslate</type>
     <object-name>nav1msg</object-name>
     <property>instrumentation/primus1000/dc550/nav1ptr</property>
-    <factor>0.025</factor>
+    <factor>0.0341</factor>
     <step>1</step>
     <axis>
         <x>0</x>
@@ -753,7 +769,7 @@ Primus 1000 Primary Flight Display
     <type>textranslate</type>
     <object-name>nav2msg</object-name>
     <property>instrumentation/primus1000/dc550/nav2ptr</property>
-    <factor>0.025</factor>
+    <factor>0.0341</factor>
     <step>1</step>
     <axis>
         <x>0</x>
@@ -817,5 +833,94 @@ Primus 1000 Primary Flight Display
         </greater-than>
     </condition>
 </animation>
+
+<!-- Hotspots -->
+
+    <animation>
+        <type>pick</type>
+        <object-name>Std</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-assign</command>
+                <property>instrumentation/altimeter/setting-inhg</property>
+                <value>29.92</value>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>PFD.inhg-dn</object-name>
+        <visible>false</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-inhg</property>
+                <step>-0.01</step>
+                <min>26.0</min>
+                <max>33.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>PFD.inhg-dn</object-name>
+        <visible>false</visible>
+        <action>
+            <button>1</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-inhg</property>
+                <step>-0.1</step>
+                <min>26.0</min>
+                <max>33.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>PFD.inhg-up</object-name>
+        <visible>false</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-inhg</property>
+                <step>0.01</step>
+                <min>26.0</min>
+                <max>33.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>PFD.inhg-up</object-name>
+        <visible>false</visible>
+        <action>
+            <button>1</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-inhg</property>
+                <step>0.1</step>
+                <min>26.0</min>
+                <max>33.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
 
 </PropertyList>

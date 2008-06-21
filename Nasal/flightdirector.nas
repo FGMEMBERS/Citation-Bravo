@@ -261,11 +261,13 @@ var flightdirector = {
     update_vnav : func(){
         var vnv = me.vnav.getValue();
         if(me.gs_arm.getBoolValue()){
-            var defl = me.GSDefl.getValue();
-            if(defl < 1 and defl > -1){
-        vnv=5;
-        me.gs_arm.setBoolValue(0);
-        }
+            if(me.lnav.getValue() ==5){
+                var defl = me.GSDefl.getValue();
+                if(defl < 1 and defl > -1){
+                    vnv=5;
+                    me.gs_arm.setBoolValue(0);
+                }
+            }
         }
     me.vnav.setValue(vnv);
         me.AP_alt.setValue(me.vnav_text[vnv]);

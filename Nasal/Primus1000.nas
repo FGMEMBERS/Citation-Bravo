@@ -52,7 +52,8 @@ var P1000 = {
         m.dc550_fms.setBoolValue(0);
         m.dc550_RA = m.DC550.getNode("RA-alert",1);
         m.dc550_RA.setBoolValue(1);
-        m.DH = props.globals.getNode("autopilot/route-manager/min-lock-altitude-agl-ft",1);
+        m.DH = props.globals.getNode("instrumentation/mk-viii/inputs/arinc429/decision-height",1);
+        m.DH.setDoubleValue(200);
         m.mc800_rng = m.primus.getNode("mc800/rng-switch",1);
         m.mc800_rng.setDoubleValue(0);
         m.NavPtr1 =m.DC550.getNode("nav1ptr",1);

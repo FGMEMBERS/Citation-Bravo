@@ -68,7 +68,7 @@
     <debug>false</debug>
     <enable>
         <prop>autopilot/locks/heading</prop>
-        <value>FMS</value>
+        <value>LNAV</value>
     </enable>
     <input>
         <prop>autopilot/internal/true-heading-error-deg</prop>
@@ -289,7 +289,7 @@
 		<prop>autopilot/settings/target-pitch-deg</prop>
 	</output>
 	<config>
-		<Kp>-1.0</Kp>
+		<Kp>-1.5</Kp>
 		<beta>1.0</beta>
 		<alpha>0.1</alpha>
 		<gamma>0.0</gamma>
@@ -333,6 +333,35 @@
     </config>
 </pi-simple-controller>
 
+<pi-simple-controller>
+    <name>VNAV</name>
+    <debug>false</debug>
+    <enable>
+        <prop>autopilot/locks/altitude</prop>
+        <value>VNAV</value>
+    </enable>
+    <input>
+        <prop>velocities/vertical-speed-fps</prop>
+    </input>
+    <reference>
+        <prop>autopilot/settings/vertical-speed-fpm</prop>
+        <scale>0.01667</scale>
+    </reference>
+    <output>
+        <prop>autopilot/settings/target-pitch-deg</prop>
+    </output>
+    <config>
+        <Kp>0.2</Kp>
+        <Ki>0.0</Ki>
+        <u_min>
+            <prop>instrumentation/flightdirector/pitch-min</prop>
+        </u_min>
+        <u_max>
+            <prop>instrumentation/flightdirector/pitch-max</prop>
+        </u_max>
+    </config>
+</pi-simple-controller>
+
 <pid-controller>
     <name>Elevator Trim Control</name>
     <debug>false</debug>
@@ -351,12 +380,12 @@
         <prop>controls/flight/elevator-trim</prop>
     </output>
     <config>
-        <Kp>-0.05</Kp>
+        <Kp>-0.15</Kp>
         <beta>1.0</beta>
         <alpha>0.1</alpha>
         <gamma>0.0</gamma>
         <Ti>10.0</Ti>
-        <Td>0.0</Td>
+        <Td>0.2</Td>
         <u_min>-0.7</u_min>
         <u_max>0.7</u_max>
     </config>

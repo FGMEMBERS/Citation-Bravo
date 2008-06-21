@@ -25,17 +25,17 @@
     <panel>
         <path>Aircraft/Citation-Bravo/Panel/PFD-panel.xml</path>
         <bottom-left>
-            <x-m>2.448</x-m>
+            <x-m>2.449</x-m>
             <y-m>-0.406</y-m>
             <z-m>0.559</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>2.448</x-m>
+            <x-m>2.449</x-m>
             <y-m>-0.248</y-m>
             <z-m>0.559</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.416</x-m>
+            <x-m>2.417</x-m>
             <y-m>-0.406</y-m>
             <z-m>0.743</z-m>
         </top-left>
@@ -44,17 +44,17 @@
     <panel>
         <path>Aircraft/Citation-Bravo/Panel/PFD-panel.xml</path>
         <bottom-left>
-            <x-m>2.448</x-m>
+            <x-m>2.449</x-m>
             <y-m>0.271</y-m>
             <z-m>0.559</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>2.448</x-m>
+            <x-m>2.449</x-m>
             <y-m>0.429</y-m>
             <z-m>0.559</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.416</x-m>
+            <x-m>2.417</x-m>
             <y-m>0.271</y-m>
             <z-m>0.743</z-m>
         </top-left>
@@ -63,17 +63,17 @@
     <panel>
         <path>Aircraft/Citation-Bravo/Panel/MFD-panel.xml</path>
         <bottom-left>
-            <x-m>2.462</x-m>
+            <x-m>2.463</x-m>
             <y-m>-0.130</y-m>
             <z-m>0.480</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>2.462</x-m>
+            <x-m>2.463</x-m>
             <y-m>0.028</y-m>
             <z-m>0.480</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.430</x-m>
+            <x-m>2.431</x-m>
             <y-m>-0.130</y-m>
             <z-m>0.664</z-m>
         </top-left>
