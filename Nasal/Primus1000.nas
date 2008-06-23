@@ -192,8 +192,9 @@ var P1000 = {
             me.NavType.setValue(4);
             ttg=getprop("autopilot/route-manager/wp/eta");
         }else{
+            nm_calc = 0;
             var nv = me.dc550_nav.getValue();
-            if(getprop("/instrumentation/nav["~nv~"]/data-is-valid")=="true"){
+            if(getprop("/instrumentation/nav["~nv~"]/data-is-valid")){
                 nm_calc = getprop("/instrumentation/nav["~nv~"]/nav-distance");
                 if(nm_calc == nil)nm_calc = 0.0;
                 nm_calc = 0.000539 * nm_calc;

@@ -58,12 +58,22 @@ var flightdirector = {
         m.asel.setDoubleValue(0);
         m.speed = m.node.getNode("spd",1);
         m.speed.setDoubleValue(0);
-        m.DH = props.globals.getNode("autopilot/route-manager/min-lock-altitude-agl-ft",1);
-        m.Defl = props.globals.getNode("instrumentation/nav/heading-needle-deflection");
-        m.GSDefl = props.globals.getNode("instrumentation/nav/gs-needle-deflection");
-        m.NavLoc = props.globals.getNode("instrumentation/nav/nav-loc");
-        m.hasGS = props.globals.getNode("instrumentation/nav/has-gs");
-        m.Valid = props.globals.getNode("instrumentation/nav/in-range");
+        m.crs = m.node.getNode("crs",1);
+        m.crs.setDoubleValue(0);
+        m.Defl = m.node.getNode("crs-deflection",1);
+        m.Defl.setDoubleValue(0);
+        m.DH= props.globals.getNode("instrumentation/mk-viii/inputs/arinc429/decision-height",1);
+        m.GSDefl = m.node.getNode("gs-deflection",1);
+        m.GSDefl.setDoubleValue(0);
+        m.NavLoc = m.node.getNode("localizer",1);
+        m.NavLoc.setBoolValue(0);
+        m.hasGS = m.node.getNode("glideslope",1);
+        m.hasGS.setBoolValue(0);
+        m.navValid = m.node.getNode("in-range",1);
+        m.navValid.setBoolValue(0);
+        m.navDist = props.globals.getNode("instrumentation/primus1000/nav-dist-nm",1);
+        m.navCRS = m.node.getNode("nav-crs-offset",1);
+        m.navCRS.setDoubleValue(0);
         m.FMS = props.globals.getNode("instrumentation/primus1000/dc550/fms",1);
         m.NAV = props.globals.getNode("instrumentation/primus1000/dc550/nav",1);
         m.AP_hdg = props.globals.getNode("/autopilot/locks/heading",1);
@@ -144,8 +154,10 @@ var flightdirector = {
         me.AP_alt.setValue(me.vnav_text[vnv]);
     },
 ###########################
-    set_course : func(nvnum,crs){
+    set_course : func(crs){
         var rd =0;
+        var nvnum =getprop("instrumentation/primus1000/dc550/nav");
+        if(nvnum == nil)nvnum=0;
         if(!me.FMS.getBoolValue()){
             rd = getprop("instrumentation/nav["~nvnum~"]/radials/selected-deg");
             if(crs ==0){
@@ -218,6 +230,22 @@ var flightdirector = {
 #### check AP errors####
     check_AP_limits : func(){
         var apmode = me.AP_off.getBoolValue();
+        var navunit =me.NAV.getValue();
+        me.nav_crs(navunit);
+        var tmp_nav="instrumentation/nav["~navunit~"]/";
+            me.crs.setValue(getprop(tmp_nav~"radials/selected-deg"));
+            me.Defl.setValue(getprop(tmp_nav~"heading-needle-deflection"));
+            me.GSDefl.setValue(getprop(tmp_nav~"gs-needle-deflection"));
+        if(getprop(tmp_nav~"data-is-valid")){
+            me.NavLoc.setValue(getprop(tmp_nav~"nav-loc"));
+            me.hasGS.setValue(getprop(tmp_nav~"has-gs"));
+            me.navValid.setValue(getprop(tmp_nav~"in-range"));
+         }else{
+            me.NavLoc.setValue(0);
+            me.hasGS.setValue(0);
+            me.navValid.setValue(0);
+        }
+
         var agl=getprop("/position/altitude-agl-ft");
         if(!apmode){
             var maxroll = getprop("/orientation/roll-deg");
@@ -236,19 +264,28 @@ var flightdirector = {
         return apmode;
     },
 #### update lnav####
+    nav_crs : func(unit){
+    var  hdg= me.crs.getValue() -getprop("orientation/heading-magnetic-deg");
+    hdg+=me.Defl.getValue()*3;
+    if(hdg>180)hdg-=360;
+    if(hdg<-180)hdg+=360;
+    me.navCRS.setValue(hdg);
+    },
+#### update lnav####
     update_lnav : func(){
         var lnv = me.lnav.getValue();
+        var valid=me.navValid.getBoolValue();
         if(lnv   >1 and lnv<6){
         if(me.FMS.getBoolValue())lnv=6;
     }
     if(lnv==2){
         var defl = me.Defl.getValue();
-        if(me.Valid.getBoolValue()){
+        if(valid){
             if(defl <= 9 and defl >= -9)lnv=3;
         }
     }elsif(lnv==4){
         var defl = me.Defl.getValue();
-        if(me.Valid.getBoolValue()){
+        if(valid){
             if(defl <= 9 and defl >= -9)lnv=5;
         }
     }
@@ -261,7 +298,7 @@ var flightdirector = {
     update_vnav : func(){
         var vnv = me.vnav.getValue();
         if(me.gs_arm.getBoolValue()){
-            if(me.lnav.getValue() ==5){
+            if(me.lnav.getValue() ==5 and me.navDist.getValue() <30){
                 var defl = me.GSDefl.getValue();
                 if(defl < 1 and defl > -1){
                     vnv=5;
@@ -328,8 +365,17 @@ var flightdirector = {
             setprop("autopilot/settings/vertical-speed-fpm",ptc);
         }
     },
-#### roll knob ###
-    roll_knob : func(rl){
+#### altitude ###
+    preset_altitude : func(alt){
+        if(alt==0){
+            setprop("autopilot/settings/target-altitude-ft",0);
+        }else{
+            var asel =getprop("autopilot/settings/target-altitude-ft");
+            asel +=alt;
+            if(asel<0)asel=0;
+            if(asel>50000)asel=50000;
+            setprop("autopilot/settings/target-altitude-ft",asel);
+        }
     }
 };
 

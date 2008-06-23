@@ -32,7 +32,7 @@ OBJECT poly
 name "AI.001"
 data 8
 Mesh.003
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 46
@@ -334,10 +334,10 @@ texture "alttape.rgb"
 texrep 1 1
 crease 30.000000
 numvert 4
-0.002453 0.094541 -0.068019
-0.002453 0.094541 -0.044923
-0.002454 0.011905 -0.044923
-0.002454 0.011905 -0.068019
+0.002453 0.095788 -0.068845
+0.002453 0.095788 -0.044097
+0.002454 0.010658 -0.044097
+0.002454 0.010658 -0.068845
 numsurf 1
 SURF 0x10
 mat 1
@@ -355,10 +355,10 @@ texture "alttape.rgb"
 texrep 1 1
 crease 30.000000
 numvert 4
-0.001392 0.094541 -0.068019
-0.001392 0.094541 -0.044923
-0.001393 0.011905 -0.044923
-0.001393 0.011905 -0.068019
+0.001392 0.095786 -0.068738
+0.001392 0.095786 -0.044204
+0.001393 0.01066 -0.044204
+0.001393 0.01066 -0.068738
 numsurf 1
 SURF 0x10
 mat 1
@@ -376,10 +376,10 @@ texture "speedtape.rgb"
 texrep 1 1
 crease 30.000000
 numvert 4
-0.001848 0.093687 0.052235
-0.001849 0.011265 0.052235
-0.001849 0.011265 0.069717
-0.001848 0.093687 0.069717
+0.0018 0.094542 0.051598
+0.001801 0.01041 0.051598
+0.001801 0.01041 0.070354
+0.0018 0.094542 0.070354
 numsurf 1
 SURF 0x00
 mat 1
@@ -573,7 +573,7 @@ OBJECT poly
 name "Bezel_0"
 data 8
 Mesh.032
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 45.000000
 numvert 18
@@ -1010,7 +1010,7 @@ OBJECT poly
 name "Bezels.003"
 data 8
 Mesh.051
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 45.000000
 numvert 4
@@ -1425,7 +1425,7 @@ OBJECT poly
 name "FDbars"
 data 8
 Mesh.016
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 6
@@ -1496,7 +1496,7 @@ OBJECT poly
 name "GSscale"
 data 8
 Mesh.037
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 6
@@ -1526,7 +1526,7 @@ OBJECT poly
 name "NAV1pointer"
 data 8
 Mesh.070
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 21
@@ -1816,7 +1816,7 @@ OBJECT poly
 name "PFD.knob"
 data 8
 Mesh.002
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 45.000000
 numvert 24
@@ -1988,7 +1988,7 @@ OBJECT poly
 name "Plane"
 data 8
 Mesh.062
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 9
@@ -2034,7 +2034,7 @@ OBJECT poly
 name "Plane.003"
 data 8
 Mesh.072
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 24
@@ -2138,7 +2138,7 @@ OBJECT poly
 name "RaBaro"
 data 10
 Circle.011
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 9
@@ -2260,7 +2260,7 @@ OBJECT poly
 name "Std"
 data 10
 Circle.015
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 9
@@ -2547,7 +2547,7 @@ OBJECT poly
 name "coupled.annun"
 data 8
 Mesh.068
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -2568,7 +2568,7 @@ OBJECT poly
 name "crt.arc"
 data 10
 Circle.002
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 31
@@ -2726,7 +2726,7 @@ OBJECT poly
 name "crt.et"
 data 9
 Plane.031
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -2758,7 +2758,7 @@ OBJECT poly
 name "crt.gspd"
 data 9
 Plane.030
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -2790,7 +2790,7 @@ OBJECT poly
 name "crt.rose"
 data 6
 Circle
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 31
@@ -2948,7 +2948,7 @@ OBJECT poly
 name "crt.ttg"
 data 9
 Plane.029
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 8
@@ -3030,7 +3030,7 @@ OBJECT poly
 name "inner.marker"
 data 4
 Mesh
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -3051,7 +3051,7 @@ OBJECT poly
 name "middle.marker"
 data 8
 Mesh.006
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -3072,7 +3072,7 @@ OBJECT poly
 name "nav1msg"
 data 8
 Mesh.075
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -3093,7 +3093,7 @@ OBJECT poly
 name "nav2msg"
 data 8
 Mesh.069
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -3114,7 +3114,7 @@ OBJECT poly
 name "outer.marker"
 data 8
 Mesh.004
-texture "pfdobj.rgb"
+texture "pfdobj.png"
 texrep 1 1
 crease 30.000000
 numvert 4

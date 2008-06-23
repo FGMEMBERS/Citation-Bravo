@@ -8,21 +8,6 @@ Primus 1000 Primary Flight Display
 <path>pfd.ac</path>
 
 <animation>
-    <type>textranslate</type>
-    <object-name>AP.annun</object-name>
-    <property>autopilot/locks/passive-mode</property>
-    <interpolation>
-        <entry><ind>0</ind><dep>-0.0273</dep></entry>
-        <entry><ind>1</ind><dep>0.0</dep></entry>
-    </interpolation>
-    <axis>
-        <x>0</x>
-        <y>1</y>
-        <z>0</z>
-    </axis>
-</animation>
-
-<animation>
     <type>select</type>
     <object-name>PFD.off</object-name>
     <condition>
@@ -78,13 +63,10 @@ Primus 1000 Primary Flight Display
     <condition>
         <and>
             <equals>
-                <property>instrumentation/nav/has-gs</property>
+                <property>instrumentation/flightdirector/glideslope</property>
                 <value>true</value>
             </equals>
-            <less-than>
-                <property>instrumentation/nav/gs-distance</property>
-                <value>30000</value>
-            </less-than>
+            <property>instrumentation/flightdirector/in-range</property>
         </and>
     </condition>
 </animation>
@@ -394,7 +376,7 @@ Primus 1000 Primary Flight Display
     <object-name>CRSneedle.001</object-name>
     <object-name>ToFlag</object-name>
     <object-name>FromFlag</object-name>
-    <property>instrumentation/nav/radials/selected-deg</property>
+    <property>instrumentation/flightdirector/crs</property>
     <axis>
         <x>-1.0</x>
         <y>0.0</y>
@@ -410,7 +392,7 @@ Primus 1000 Primary Flight Display
 <animation>
     <type>translate</type>
     <object-name>CRSneedle.001</object-name>
-    <property>instrumentation/nav/heading-needle-deflection</property>
+    <property>instrumentation/flightdirector/crs-deflection</property>
     <interpolation>
         <entry>
             <ind>-10.0</ind><dep>-0.0148</dep>
@@ -437,7 +419,7 @@ Primus 1000 Primary Flight Display
 <animation>
     <type>translate</type>
     <object-name>GSneedle</object-name>
-    <property>instrumentation/nav/gs-needle-deflection</property>
+    <property>instrumentation/flightdirector/gs-deflection</property>
     <interpolation>
         <entry>
             <ind>-10.0</ind><dep>-0.0188</dep>

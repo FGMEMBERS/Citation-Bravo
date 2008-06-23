@@ -92,7 +92,7 @@
 </pi-simple-controller>
 
 <pi-simple-controller>
-    <name>Nav armed</name>
+    <name>Nav1 armed</name>
     <debug>false</debug>
     <enable>
         <prop>autopilot/locks/heading</prop>
@@ -127,7 +127,7 @@
         <value>NAV</value>
     </enable>
     <input>
-        <prop>autopilot/internal/nav1-heading-error-deg</prop>
+        <prop>instrumentation/flightdirector/nav-crs-offset</prop>
     </input>
     <reference>
         <value>0.0</value>
@@ -280,7 +280,7 @@
 		<value>GS</value>
 	</enable>
 	<input>
-		<prop>instrumentation/nav/gs-needle-deflection</prop>
+		<prop>instrumentation/flightdirector/gs-deflection</prop>
 	</input>
 	<reference>
 		<value>0</value>
@@ -322,7 +322,7 @@
         <prop>autopilot/settings/target-pitch-deg</prop>
     </output>
     <config>
-        <Kp>0.2</Kp>
+        <Kp>0.5</Kp>
         <Ki>0.0</Ki>
         <u_min>
             <prop>instrumentation/flightdirector/pitch-min</prop>

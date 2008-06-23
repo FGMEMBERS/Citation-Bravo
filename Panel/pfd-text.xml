@@ -195,7 +195,7 @@ Primus 1000 PFD  messages
                 <chunks>
                     <chunk>
                         <type>number-value</type>
-                        <property>/instrumentation/primus1000/nav-dist-nm</property>
+                        <property>instrumentation/primus1000/nav-dist-nm</property>
                         <format>%3.1f</format>
                     </chunk>
                 </chunks>
@@ -794,15 +794,9 @@ Primus 1000 PFD  messages
         <layer>
             <name>CRS1 mode</name>
             <condition>
-                <and>
-                    <equals>
-                        <property>instrumentation/primus1000/dc550/nav</property>
-                        <value>0</value>
-                    </equals>
-                    <not>
-                        <property>instrumentation/primus1000/dc550/fms</property>
-                    </not>
-                </and>
+                <not>
+                    <property>instrumentation/primus1000/dc550/fms</property>
+                </not>
             </condition>
             <type>text</type>
             <font>arial_black</font>
@@ -833,15 +827,9 @@ Primus 1000 PFD  messages
         <layer>
             <name>CRS1 value</name>
             <condition>
-                <and>
-                    <equals>
-                        <property>instrumentation/primus1000/dc550/nav</property>
-                        <value>0</value>
-                    </equals>
-                    <not>
-                        <property>instrumentation/primus1000/dc550/fms</property>
-                    </not>
-                </and>
+                <not>
+                    <property>instrumentation/primus1000/dc550/fms</property>
+                </not>
             </condition>
             <type>text</type>
             <font>arial_black</font>
@@ -854,86 +842,7 @@ Primus 1000 PFD  messages
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/nav/radials/selected-deg</property>
-                    <format>%3.0f</format>
-                </chunk>
-        </chunks>
-            <transformations>
-                <transformation>
-                    <type>x-shift</type>
-                    <offset>0</offset>
-                </transformation>
-                <transformation>
-                    <type>y-shift</type>
-                    <offset>-8</offset>
-                </transformation>
-            </transformations>
-        </layer>
-
-        <layer>
-            <name>CRS2 mode</name>
-            <condition>
-                <and>
-                    <equals>
-                        <property>instrumentation/primus1000/dc550/nav</property>
-                        <value>1</value>
-                    </equals>
-                    <not>
-                        <property>instrumentation/primus1000/dc550/fms</property>
-                    </not>
-                </and>
-            </condition>
-            <type>text</type>
-            <font>arial_black</font>
-            <point-size>5</point-size>
-            <color>
-                <red>0.8</red>
-                <green>0.8</green>
-                <blue>0.8</blue>
-            </color>
-            <chunks>
-                <chunk>
-                    <type>literal</type>
-                    <text>CRS</text>
-                </chunk>
-        </chunks>
-            <transformations>
-                <transformation>
-                    <type>x-shift</type>
-                    <offset>-90</offset>
-                </transformation>
-                <transformation>
-                    <type>y-shift</type>
-                    <offset>-26</offset>
-                </transformation>
-            </transformations>
-        </layer>
-
-        <layer>
-            <name>CRS2 value</name>
-            <condition>
-                <and>
-                    <equals>
-                        <property>instrumentation/primus1000/dc550/nav</property>
-                        <value>1</value>
-                    </equals>
-                    <not>
-                        <property>instrumentation/primus1000/dc550/fms</property>
-                    </not>
-                </and>
-            </condition>
-            <type>text</type>
-            <font>arial_black</font>
-            <point-size>5.5</point-size>
-            <color>
-                <red>0.1</red>
-                <green>0.9</green>
-                <blue>0.4</blue>
-            </color>
-            <chunks>
-                <chunk>
-                    <type>number-value</type>
-                    <property>instrumentation/nav[1]/radials/selected-deg</property>
+                    <property>instrumentation/flightdirector/crs</property>
                     <format>%3.0f</format>
                 </chunk>
         </chunks>
@@ -949,7 +858,6 @@ Primus 1000 PFD  messages
             </transformations>
         </layer>
     </layer>
-
 <!-- IAS annunciator-->
 
         <layer>
@@ -986,6 +894,38 @@ Primus 1000 PFD  messages
                 </transformation>
             </transformations>
         </layer>
+
+<!-- IAS-->
+
+        <layer>
+            <name>IAS setting</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>6</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.75</green>
+                <blue>0.85</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/settings/target-speed-kt</property>
+                    <format>%03.0f</format>
+                    </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>-85</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>90</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
 
 <!-- ALTitude Preset-->
 

@@ -363,8 +363,17 @@
     <text>
    <x>5</x>
    <y>75</y>
-    <label>COURSE:</label>
+    <label>CRS:nav</label>
     </text>
+
+  <text>
+   <x>50</x>
+   <y>75</y>
+   <label>-99.99</label> <!-- placeholder for width -->
+   <format>% 3.0f</format>
+   <property>instrumentation/primus1000/dc550/nav</property>
+   <live>true</live>
+  </text>
 
     <button>
    <x>75</x>
@@ -401,7 +410,7 @@
    <y>75</y>
    <width>40</width>
    <height>20</height>
-   <property>instrumentation/nav[0]/radials/selected-deg</property>
+   <property>instrumentation/flightdirector/crs</property>
    <live>true</live>
    <binding>
     <command>dialog-apply</command>
