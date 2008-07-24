@@ -19,7 +19,7 @@
             <h>8</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.dme_step(-1)</script>
+                <script>citation.dme_step(-1)</script>
             </binding>
         </action>
 
@@ -32,7 +32,7 @@
             <h>8</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.dme_step(1)</script>
+                <script>citation.dme_step(1)</script>
             </binding>
         </action>
 

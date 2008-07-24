@@ -12,7 +12,7 @@
             <name>pfd</name>
             <condition>
                 <and>
-                    <property>instrumentation/primus1000/mfd/serviceable</property>
+                    <property>instrumentation/primus1000/pfd/serviceable</property>
                     <greater-than>
                         <property>systems/electrical/ac-volts</property>
                         <value>15</value>

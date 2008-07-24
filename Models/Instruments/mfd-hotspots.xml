@@ -37,7 +37,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("alt-dec")</script>
+                <script>citation.primus.mfd_menu("alt-dec")</script>
             </binding>
         </action>
 
@@ -50,7 +50,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("alt-inc")</script>
+                <script>citation.primus.mfd_menu("alt-inc")</script>
             </binding>
         </action>
 
@@ -74,7 +74,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("page0")</script>
+                <script>citation.primus.mfd_menu("page0")</script>
             </binding>
         </action>
 
@@ -87,7 +87,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("page1")</script>
+                <script>citation.primus.mfd_menu("page1")</script>
             </binding>
         </action>
 
@@ -100,7 +100,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("page2")</script>
+                <script>citation.primus.mfd_menu("page2")</script>
             </binding>
         </action>
 
@@ -113,7 +113,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("page3")</script>
+                <script>citation.primus.mfd_menu("page3")</script>
             </binding>
         </action>
 
@@ -126,7 +126,7 @@ Primus 1000 MFD  hotspots
             <h>18</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.primus.mfd_menu("page4")</script>
+                <script>citation.primus.mfd_menu("page4")</script>
             </binding>
         </action>
 

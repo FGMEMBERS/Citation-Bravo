@@ -90,7 +90,7 @@
     <legend>FMS</legend>
     <binding>
    <command>nasal</command>
-    <script>bravo.primus.dc550_set("fms");</script>
+    <script>citation.primus.dc550_set("fms");</script>
     </binding>
     </button>
 
@@ -102,7 +102,7 @@
     <legend>NAV</legend>
     <binding>
    <command>nasal</command>
-    <script>bravo.primus.dc550_set("nav");</script>
+    <script>citation.primus.dc550_set("nav");</script>
     </binding>
     </button>
 
@@ -132,7 +132,7 @@
     <legend>HDG</legend>
     <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_mode("hdg");</script>
+    <script>citation.FlDr.set_mode("hdg");</script>
     </binding>
     </button>
 
@@ -144,7 +144,7 @@
     <legend>NAV</legend>
     <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_mode("nav");</script>
+    <script>citation.FlDr.set_mode("nav");</script>
     </binding>
    </button>
 
@@ -156,7 +156,7 @@
     <legend>APPR</legend>
     <binding>
      <command>nasal</command>
-    <script>bravo.FlDr.set_mode("apr");</script>
+    <script>citation.FlDr.set_mode("apr");</script>
     </binding>
    </button>
 
@@ -168,7 +168,7 @@
     <legend>B/C</legend>
     <binding>
      <command>nasal</command>
-    <script>bravo.FlDr.set_mode("bc");</script>
+    <script>citation.FlDr.set_mode("bc");</script>
     </binding>
    </button>
 
@@ -181,7 +181,7 @@
     <legend>CLIMB</legend>
     <binding>
      <command>nasal</command>
-    <script>bravo.FlDr.set_mode("climb");</script>
+    <script>citation.FlDr.set_mode("climb");</script>
     </binding>
    </button>
 -->
@@ -199,7 +199,7 @@
     <legend>VNAV</legend>
     <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_mode("vnav");</script>
+    <script>citation.FlDr.set_mode("vnav");</script>
     </binding>
    </button>
 
@@ -211,7 +211,7 @@
     <legend>ALT</legend>
     <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_mode("alt")</script>
+    <script>citation.FlDr.set_mode("alt")</script>
     </binding>
     </button>
 
@@ -223,7 +223,7 @@
     <legend>VS</legend>
     <binding>
      <command>nasal</command>
-    <script>bravo.FlDr.set_mode("vs");</script>
+    <script>citation.FlDr.set_mode("vs");</script>
     </binding>
    </button>
 
@@ -235,7 +235,7 @@
     <legend>SPD</legend>
     <binding>
      <command>nasal</command>
-    <script>bravo.FlDr.set_mode("ias");</script>
+    <script>citation.FlDr.set_mode("ias");</script>
     </binding>
    </button>
 
@@ -248,7 +248,7 @@
     <legend>DCS</legend>
     <binding>
      <command>nasal</command>
-    <script>bravo.FlDr.set_mode("dcs");</script>
+    <script>citation.FlDr.set_mode("dcs");</script>
     </binding>
    </button>
 -->
@@ -279,7 +279,7 @@
    <legend>&lt;&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_hdg_bug(-10)</script>
+    <script>citation.FlDr.set_hdg_bug(-10)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -294,7 +294,7 @@
    <legend>&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_hdg_bug(-1)</script>
+    <script>citation.FlDr.set_hdg_bug(-1)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -321,7 +321,7 @@
    <legend>&gt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_hdg_bug(1)</script>
+    <script>citation.FlDr.set_hdg_bug(1)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -336,7 +336,7 @@
    <legend>&gt;&gt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_hdg_bug(10)</script>
+    <script>citation.FlDr.set_hdg_bug(10)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -351,7 +351,7 @@
    <legend>CNTR</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_hdg_bug(0)</script>
+    <script>citation.FlDr.set_hdg_bug(0)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -383,7 +383,7 @@
    <legend>&lt;&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_course(-10)</script>
+    <script>citation.FlDr.set_course(-10)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -398,7 +398,7 @@
    <legend>&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_course(-1)</script>
+    <script>citation.FlDr.set_course(-1)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -425,7 +425,7 @@
    <legend>&gt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_course(1)</script>
+    <script>citation.FlDr.set_course(1)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -440,7 +440,7 @@
    <legend>&gt;&gt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_course(10)</script>
+    <script>citation.FlDr.set_course(10)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -455,7 +455,7 @@
    <legend>CNTR</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.set_course(0)</script>
+    <script>citation.FlDr.set_course(0)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -478,7 +478,7 @@
    <legend>&lt;&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.preset_altitude(-1000)</script>
+    <script>citation.FlDr.preset_altitude(-1000)</script>
    </binding>
   </button>
 
@@ -490,7 +490,7 @@
    <legend>&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.preset_altitude(-100)</script>
+    <script>citation.FlDr.preset_altitude(-100)</script>
    </binding>
   </button>
 
@@ -515,7 +515,7 @@
    <legend>&gt;</legend>
    <binding>
        <command>nasal</command>
-    <script>bravo.FlDr.preset_altitude(100)</script>
+    <script>citation.FlDr.preset_altitude(100)</script>
 </binding>
   </button>
 
@@ -528,7 +528,7 @@
    <legend>&gt;&gt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.preset_altitude(1000)</script>
+    <script>citation.FlDr.preset_altitude(1000)</script>
    </binding>
   </button>
 
@@ -541,7 +541,7 @@
    <legend>RESET</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.preset_altitude(0)</script>
+    <script>citation.FlDr.preset_altitude(0)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -565,7 +565,7 @@
    <legend>&lt;&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.ias_set(-10)</script>
+    <script>citation.FlDr.ias_set(-10)</script>
    </binding>
   </button>
 
@@ -577,7 +577,7 @@
    <legend>&lt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.ias_set(-1)</script>
+    <script>citation.FlDr.ias_set(-1)</script>
    </binding>
   </button>
 
@@ -602,7 +602,7 @@
    <legend>&gt;</legend>
    <binding>
        <command>nasal</command>
-    <script>bravo.FlDr.ias_set(1)</script>
+    <script>citation.FlDr.ias_set(1)</script>
 </binding>
   </button>
 
@@ -615,7 +615,7 @@
    <legend>&gt;&gt;</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.ias_set(10)</script>
+    <script>citation.FlDr.ias_set(10)</script>
    </binding>
   </button>
 
@@ -628,7 +628,7 @@
    <legend>RESET</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.ias_set(0)</script>
+    <script>citation.FlDr.ias_set(0)</script>
    </binding>
    <binding>
     <command>dialog-update</command>
@@ -656,7 +656,7 @@
    <legend>DN</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.pitch_wheel(-1)</script>
+    <script>citation.FlDr.pitch_wheel(-1)</script>
    </binding>
   </button>
 
@@ -694,7 +694,7 @@
    <legend>UP</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.pitch_wheel(1)</script>
+    <script>citation.FlDr.pitch_wheel(1)</script>
    </binding>
   </button>
 
@@ -706,7 +706,7 @@
    <legend>Low Bank</legend>
    <binding>
     <command>nasal</command>
-    <script>bravo.FlDr.toggle_autopilot("bank");</script>
+    <script>citation.FlDr.toggle_autopilot("bank");</script>
     </binding>
     </button>
 
@@ -727,7 +727,7 @@
    <legend>A / P</legend>
    <binding>
         <command>nasal</command>
-        <script>bravo.FlDr.toggle_autopilot("ap");</script>
+        <script>citation.FlDr.toggle_autopilot("ap");</script>
     </binding>
     </button>
 
@@ -765,7 +765,7 @@
    <legend>Y / D</legend>
    <binding>
         <command>nasal</command>
-        <script>bravo.FlDr.toggle_autopilot("yd");</script>
+        <script>citation.FlDr.toggle_autopilot("yd");</script>
     </binding>
     </button>
 

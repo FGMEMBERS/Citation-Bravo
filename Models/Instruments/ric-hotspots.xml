@@ -32,7 +32,7 @@ Remote Instrument Controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_course(0,0)</script>
+            <script>citation.FlDr.set_course(0,0)</script>
         </binding>
     </action>
 
@@ -45,7 +45,7 @@ Remote Instrument Controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_course(0,-1)</script>
+            <script>citation.FlDr.set_course(0,-1)</script>
         </binding>
     </action>
 
@@ -58,7 +58,7 @@ Remote Instrument Controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_course(0,-10)</script>
+            <script>citation.FlDr.set_course(0,-10)</script>
         </binding>
     </action>
 
@@ -71,7 +71,7 @@ Remote Instrument Controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_course(0,1)</script>
+            <script>citation.FlDr.set_course(0,1)</script>
         </binding>
     </action>
 
@@ -84,7 +84,7 @@ Remote Instrument Controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_course(0,10)</script>
+            <script>citation.FlDr.set_course(0,10)</script>
         </binding>
     </action>
 
@@ -179,7 +179,7 @@ Remote Instrument Controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_course(1,0)</script>
+            <script>citation.FlDr.set_course(1,0)</script>
         </binding>
     </action>
 
@@ -191,7 +191,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <script>bravo.FlDr.set_course(1,-1)</script>
+            <script>citation.FlDr.set_course(1,-1)</script>
         </binding>
     </action>
 
@@ -203,7 +203,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <script>bravo.FlDr.set_course(1,-10)</script>
+            <script>citation.FlDr.set_course(1,-10)</script>
         </binding>
     </action>
 
@@ -215,7 +215,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <script>bravo.FlDr.set_course(1,1)</script>
+            <script>citation.FlDr.set_course(1,1)</script>
         </binding>
     </action>
 
@@ -227,7 +227,7 @@ Remote Instrument Controller  hotspots
         <w>10</w>
         <h>14</h>
         <binding>
-            <script>bravo.FlDr.set_course(1,10)</script>
+            <script>citation.FlDr.set_course(1,10)</script>
         </binding>
     </action>
 

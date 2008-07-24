@@ -44,8 +44,8 @@ var flightdirector = {
         m.LAT=["ROL","HDG","HDG","VOR","HDG","LOC","LNAV"];
         m.subLAT=["   ","   ","VOR","   ","LOC","   ","   "];
         m.VRT=["PIT","VNAV","ALT","VS","   ","GS"];
-    m.subVRT=["   ","GS"];
-    m.node = props.globals.getNode(fdprop,1);
+        m.subVRT=["   ","GS"];
+        m.node = props.globals.getNode(fdprop,1);
         m.yawdamper = props.globals.getNode("autopilot/locks/yaw-damper",1);
         m.yawdamper.setBoolValue(0);
         m.lnav = m.node.getNode("lnav",1);
@@ -54,8 +54,8 @@ var flightdirector = {
         m.vnav.setIntValue(0);
         m.gs_arm = m.node.getNode("gs-arm",1);
         m.gs_arm.setBoolValue(0);
-        m.asel = m.node.getNode("Asel",1);
-        m.asel.setDoubleValue(0);
+        m.vnav_alt = m.node.getNode("vnav-alt",1);
+        m.vnav_alt.setDoubleValue(30000);
         m.speed = m.node.getNode("spd",1);
         m.speed.setDoubleValue(0);
         m.crs = m.node.getNode("crs",1);
@@ -140,9 +140,7 @@ var flightdirector = {
             if(!me.FMS.getBoolValue()){
                 vnv = 0;
             }else{
-                var tmpalt =getprop("autopilot/route-manager/route/wp/altitude-ft");
-                if(tmpalt < 0)tmpalt=30000;
-                setprop("autopilot/settings/target-altitude-ft",tmpalt);
+                me.update_vnav_alt();
             }
         }
         if(vnv==2){
@@ -152,6 +150,13 @@ var flightdirector = {
         }
         me.vnav.setValue(vnv);
         me.AP_alt.setValue(me.vnav_text[vnv]);
+    },
+###########################
+    update_vnav_alt : func(){
+                var tmpalt =getprop("autopilot/route-manager/route/wp/altitude-ft");
+                if(tmpalt == nil)tmpalt = 0;
+                if(tmpalt <= 0) tmpalt=30000;
+                me.vnav_alt.setValue(tmpalt);
     },
 ###########################
     set_course : func(crs){
@@ -263,7 +268,7 @@ var flightdirector = {
         if(agl < 50)me.yawdamper.setBoolValue(0);
         return apmode;
     },
-#### update lnav####
+#### nav offset ####
     nav_crs : func(unit){
     var  hdg= me.crs.getValue() -getprop("orientation/heading-magnetic-deg");
     hdg+=me.Defl.getValue()*3;
@@ -297,6 +302,11 @@ var flightdirector = {
 #### update vnav####
     update_vnav : func(){
         var vnv = me.vnav.getValue();
+        if(vnv==1){
+        var alt =getprop("position/altitude-ft") * 0.0001;
+        var ptch = 5-alt;
+        me.max_pitch.setValue(ptch);
+        }
         if(me.gs_arm.getBoolValue()){
             if(me.lnav.getValue() ==5 and me.navDist.getValue() <30){
                 var defl = me.GSDefl.getValue();
@@ -391,6 +401,10 @@ setlistener("/sim/signals/fdm-initialized", func {
     settimer(update_fd, 5);
     print("Flight Director ...Check");
 });
+
+setlistener("autopilot/route-manager/route/num", func {
+FlDr.update_vnav_alt();
+},1,0);
 
 var update_fd = func {
 var APoff = FlDr.check_AP_limits();

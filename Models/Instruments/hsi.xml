@@ -8,23 +8,8 @@ STBY HSI
     <path>hsi.ac</path>
 
     <animation>
-        <type>texrotate</type>
-        <object-name>hdgring</object-name>
-        <property>orientation/heading-magnetic-deg</property>
-        <center>
-            <x>0.75</x>
-            <y>0.25</y>
-            <z>0</z>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>0</y>
-            <z>-1</z>
-        </axis>
-    </animation>
-
-    <animation>
         <type>rotate</type>
+        <object-name>hdgring</object-name>
         <object-name>CRSneedle2</object-name>
         <object-name>CRSneedle2.001</object-name>
         <property>orientation/heading-magnetic-deg</property>
@@ -44,7 +29,7 @@ STBY HSI
         <type>rotate</type>
         <object-name>CRSneedle2</object-name>
         <object-name>CRSneedle2.001</object-name>
-        <property>instrumentation/nav/radials/selected-deg</property>
+        <property>instrumentation/flightdirector/crs</property>
         <axis>
             <x>-1</x>
             <y>0</y>
@@ -60,7 +45,7 @@ STBY HSI
     <animation>
         <type>translate</type>
         <object-name>CRSneedle2.001</object-name>
-        <property>instrumentation/nav/heading-needle-deflection</property>
+        <property>instrumentation/flightdirector/crs-deflection</property>
         <interpolation>
             <entry>
                 <ind>-10.0</ind><dep>-0.013</dep>
@@ -103,6 +88,22 @@ STBY HSI
             <x>0</x>
             <y>0</y>
             <z>1</z>
+        </axis>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>ADF.needle</object-name>
+        <property>instrumentation/adf/indicated-bearing-deg</property>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
         </axis>
         <center>
             <x-m>0</x-m>

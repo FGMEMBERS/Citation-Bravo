@@ -20,6 +20,9 @@
             <property>engines/engine[0]/thrust-lbs</property>
             <factor>0.00035</factor>
         </volume>
+        <pitch>
+            <offset>1.2</offset>
+        </pitch>
         <position>
             <x>10</x>
             <y>1.3</y>
@@ -31,7 +34,7 @@
 
     <engine>
         <name>left n1</name>
-        <path>Sounds/whine.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/whine.wav</path>
         <condition>
             <greater-than>
                 <property>engines/engine/rpm</property>
@@ -44,8 +47,8 @@
         </volume>
         <pitch>
             <property>engines/engine/rpm</property>
-            <offset>0</offset>
-            <factor>0.01</factor>
+            <offset>0.5</offset>
+            <factor>0.005</factor>
         </pitch>
         <position>
             <x>10</x>
@@ -70,6 +73,9 @@
             <property>engines/engine[1]/thrust-lbs</property>
             <factor>0.00035</factor>
         </volume>
+        <pitch>
+            <offset>1.2</offset>
+        </pitch>
         <position>
             <x>10</x>
             <y>-1.3</y>
@@ -81,7 +87,7 @@
 
     <engine>
         <name>right n1</name>
-        <path>Sounds/whine.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/whine.wav</path>
         <condition>
             <greater-than>
                 <property>engines/engine[1]/rpm</property>
@@ -94,8 +100,8 @@
         </volume>
         <pitch>
             <property>engines/engine[1]/rpm</property>
-            <offset>0</offset>
-            <factor>0.01</factor>
+            <offset>0.5</offset>
+            <factor>0.005</factor>
         </pitch>
         <position>
             <x>10</x>
@@ -163,7 +169,7 @@
 
     <gear>
         <name>gear</name>
-        <path>Sounds/gear.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/gear.wav</path>
         <property>gear/gear[0]/position-norm</property>
         <mode>in-transit</mode>
         <pitch>
@@ -220,7 +226,7 @@
 
     <squeal>
         <name>squeal</name>
-        <path>Sounds/squeal.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/squeal.wav</path>
         <condition>
             <or>
                 <property>gear/gear[0]/wow</property>
@@ -255,7 +261,7 @@
 
     <flap>
         <name>flaps</name>
-        <path>Sounds/flaps.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/flaps.wav</path>
         <property>/surface-positions/flap-pos-norm</property>
         <mode>in-transit</mode>
         <volume>
@@ -273,13 +279,16 @@
 
     <speedbrake>
         <name>speedbrake</name>
-        <path>Sounds/flaps.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/flaps.wav</path>
         <property>surface-positions/speedbrake-pos-norm</property>
         <mode>in-transit</mode>
         <volume>
             <property>sim/sound/Cvolume</property>
-            <factor>0.5</factor>
+            <factor>0.3</factor>
         </volume>
+        <pitch>
+            <offset>1.5</offset>
+        </pitch>
         <position>
             <x>7</x>
             <y>0</y>

@@ -4,25 +4,27 @@
     <path>bravo.ac</path>
 
     <panel>
+        <name>MainPanel</name>
         <path>Aircraft/Citation-Bravo/Panel/Citation-Bravo-panel.xml</path>
         <bottom-left>
-            <x-m>2.480</x-m>
+            <x-m>2.479</x-m>
             <y-m>-0.660</y-m>
-            <z-m>0.363</z-m>
+            <z-m>0.364</z-m>
         </bottom-left>
         <bottom-right>
-            <x-m>2.480</x-m>
+            <x-m>2.479</x-m>
             <y-m>0.660</y-m>
-            <z-m>0.363</z-m>
+            <z-m>0.364</z-m>
         </bottom-right>
         <top-left>
-            <x-m>2.308</x-m>
+            <x-m>2.393</x-m>
             <y-m>-0.660</y-m>
-            <z-m>1.337</z-m>
+            <z-m>0.851</z-m>
         </top-left>
     </panel>
 
     <panel>
+        <name>PFD1</name>
         <path>Aircraft/Citation-Bravo/Panel/PFD-panel.xml</path>
         <bottom-left>
             <x-m>2.449</x-m>
@@ -42,6 +44,7 @@
     </panel>
 
     <panel>
+        <name>PFD2</name>
         <path>Aircraft/Citation-Bravo/Panel/PFD-panel.xml</path>
         <bottom-left>
             <x-m>2.449</x-m>
@@ -61,6 +64,7 @@
     </panel>
 
     <panel>
+        <name>MFD1</name>
         <path>Aircraft/Citation-Bravo/Panel/MFD-panel.xml</path>
         <bottom-left>
             <x-m>2.463</x-m>
@@ -288,6 +292,16 @@
     </model>
 
     <model>
+        <path>Aircraft/Citation-Bravo/Models/Instruments/aoa.xml</path>
+        <offsets>
+            <x-m>2.410</x-m>
+            <y-m>-0.471</y-m>
+            <z-m>0.742</z-m>
+            <pitch-deg>-10.0</pitch-deg>
+        </offsets>
+    </model>
+
+    <model>
         <path>Models/Aircraft/testpilot.xml</path>
         <offsets>
             <x-m>3.05</x-m>
@@ -369,7 +383,6 @@
         <object-name>Bezels.002</object-name>
         <object-name>Bezels.004</object-name>
         <object-name>Bezels.001</object-name>
-        <object-name>Radiostack</object-name>
         <object-name>cockpit</object-name>
         <object-name>Seats</object-name>
         <object-name>seats.001</object-name>
@@ -431,15 +444,12 @@
         <object-name>hdgring</object-name>
         <object-name>CRSneedle2.001</object-name>
         <object-name>CRSneedle2</object-name>
-        <object-name>Plane.057</object-name>
-        <object-name>Plane.058</object-name>
         <object-name>CRSneedle2.001</object-name>
         <object-name>Gauge.1</object-name>
         <object-name>Gauge.2</object-name>
         <object-name>DCvolts</object-name>
         <object-name>DCamps1</object-name>
         <object-name>DCamps2</object-name>
-        <object-name>AoA.needle</object-name>
         <object-name>Fan01</object-name>
         <object-name>Fan02</object-name>
         <object-name>ITT01</object-name>  
@@ -450,12 +460,11 @@
         <object-name>OilT02</object-name>
         <object-name>FQty01</object-name>
         <object-name>FQty02</object-name>
-        <object-name>StdbyBtn</object-name>
         <emission>
-            <red>0.030-</red>
-            <green>0.025</green>
-            <blue>0.020</blue>
-            <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+            <red>0.6-</red>
+            <green>0.5</green>
+            <blue>0.4</blue>
+            <factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
         </emission>
     </animation>
 
@@ -3097,26 +3106,6 @@
             <x-m>2.444</x-m>
             <y-m>-0.479</y-m>
             <z-m>0.557</z-m>
-        </center>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>AoA.needle</object-name>
-        <property>orientation/alpha-deg</property>
-        <interpolation>
-            <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>15.0</ind><dep>225</dep></entry>
-        </interpolation>
-        <axis>
-            <x>0.985</x>
-            <y>0.0</y>
-            <z>0.174</z>
-        </axis>
-        <center>
-            <x-m>2.410</x-m>
-            <y-m>-0.471</y-m>
-            <z-m>0.742</z-m>
         </center>
     </animation>
 

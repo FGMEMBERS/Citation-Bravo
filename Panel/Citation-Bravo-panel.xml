@@ -4,16 +4,16 @@
 <name>Bravo Panel</name>
 <background>Aircraft/Citation-Bravo/Panel/transparent-bg.rgb</background>
 <w>1024</w>
-<h>768</h>
+<h>384</h>
 
 <instruments>
 <!-- radio stack -->
     <instrument include="radiostack.xml">
         <name>Radiostack</name>
         <x>610</x>
-        <y>153</y>
+        <y>151</y>
         <w>127</w>
-        <h>194</h>
+        <h>196</h>
     </instrument>
 
 <!-- dme -->
@@ -27,7 +27,7 @@
 
 <!-- primus 1000 pfd -->
     <instrument include="../Models/Instruments/pfd-hotspots.xml">
-        <name>PFD</name>
+        <name>PFDhotspot</name>
         <x>258</x>
         <y>213</y>
         <w>144</w>
@@ -36,7 +36,7 @@
 
 <!-- primus 1000 mfd -->
     <instrument include="../Models/Instruments/mfd-hotspots.xml">
-        <name>MFD</name>
+        <name>MFDhotspot</name>
         <x>471</x>
         <y>151</y>
         <w>142</w>
@@ -72,7 +72,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("hdg");</script>
+            <script>citation.FlDr.set_mode("hdg");</script>
         </binding>
     </action>
 
@@ -85,7 +85,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("nav");</script>
+            <script>citation.FlDr.set_mode("nav");</script>
         </binding>
     </action>
 
@@ -98,7 +98,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("apr");</script>
+            <script>citation.FlDr.set_mode("apr");</script>
         </binding>
     </action>
 
@@ -111,7 +111,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("bc");</script>
+            <script>citation.FlDr.set_mode("bc");</script>
         </binding>
     </action>
 
@@ -124,7 +124,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("vnav");</script>
+            <script>citation.FlDr.set_mode("vnav");</script>
         </binding>
     </action>
 
@@ -137,7 +137,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("alt");</script>
+            <script>citation.FlDr.set_mode("alt");</script>
         </binding>
     </action>
 
@@ -150,7 +150,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("vs");</script>
+            <script>citation.FlDr.set_mode("vs");</script>
         </binding>
     </action>
 
@@ -163,7 +163,7 @@
         <h>10</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("ias");</script>
+            <script>citation.FlDr.set_mode("ias");</script>
         </binding>
     </action>
 
@@ -178,7 +178,7 @@
         <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("ra-dn");</script>
+            <script>citation.primus.dc550_set("ra-dn");</script>
         </binding>
     </action>
 
@@ -191,10 +191,43 @@
         <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("ra-up");</script>
+            <script>citation.primus.dc550_set("ra-up");</script>
         </binding>
     </action>
 
+    <action>
+        <name>PFD dim</name>
+        <button>1</button>
+        <x>-415</x>
+        <y>-150</y>
+        <w>14</w>
+        <h>12</h>
+        <binding>
+            <command>property-adjust</command>
+            <property>controls/lighting/efis-norm</property>
+            <step>-0.05</step>
+            <min>0</min>
+            <max>1</max>
+            <wrap>0</wrap>
+        </binding>
+    </action>
+
+    <action>
+        <name>PFD bright</name>
+        <button>0</button>
+        <x>-401</x>
+        <y>-150</y>
+        <w>14</w>
+        <h>12</h>
+        <binding>
+            <command>property-adjust</command>
+            <property>controls/lighting/efis-norm</property>
+            <step>0.05</step>
+            <min>0</min>
+            <max>1</max>
+            <wrap>0</wrap>
+        </binding>
+    </action>
 
     <action>
      <name>BRG 1 mode minus</name>
@@ -273,7 +306,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("hsi");</script>
+            <script>citation.primus.dc550_set("hsi");</script>
         </binding>
    </action>
 
@@ -286,7 +319,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("cp");</script>
+            <script>citation.primus.dc550_set("cp");</script>
         </binding>
    </action>
 
@@ -299,7 +332,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("hpa");</script>
+            <script>citation.primus.dc550_set("hpa");</script>
         </binding>
    </action>
 
@@ -312,7 +345,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("ttg");</script>
+            <script>citation.primus.dc550_set("ttg");</script>
         </binding>
    </action>
 
@@ -325,7 +358,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("et");</script>
+            <script>citation.primus.dc550_set("et");</script>
         </binding>
    </action>
 
@@ -338,7 +371,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("nav");</script>
+            <script>citation.primus.dc550_set("nav");</script>
         </binding>
    </action>
 
@@ -351,7 +384,7 @@
      <h>12</h>
         <binding>
             <command>nasal</command>
-            <script>bravo.primus.dc550_set("fms");</script>
+            <script>citation.primus.dc550_set("fms");</script>
         </binding>
    </action>
 

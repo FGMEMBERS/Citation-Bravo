@@ -150,7 +150,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("hdg");</script>
+            <script>citation.FlDr.set_mode("hdg");</script>
         </binding>
     </action>
 </animation>
@@ -163,7 +163,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("nav");</script>
+            <script>citation.FlDr.set_mode("nav");</script>
         </binding>
     </action>
 </animation>
@@ -176,7 +176,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("apr");</script>
+            <script>citation.FlDr.set_mode("apr");</script>
         </binding>
     </action>
 </animation>
@@ -189,7 +189,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("bc");</script>
+            <script>citation.FlDr.set_mode("bc");</script>
         </binding>
     </action>
 </animation>
@@ -202,7 +202,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("vnav");</script>
+            <script>citation.FlDr.set_mode("vnav");</script>
         </binding>
     </action>
 </animation>
@@ -215,7 +215,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("alt");</script>
+            <script>citation.FlDr.set_mode("alt");</script>
         </binding>
     </action>
 </animation>
@@ -228,7 +228,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("vs");</script>
+            <script>citation.FlDr.set_mode("vs");</script>
         </binding>
     </action>
 </animation>
@@ -241,7 +241,7 @@ adjustable with pitch wheel
         <repeatable>false</repeatable>
         <binding>
             <command>nasal</command>
-            <script>bravo.FlDr.set_mode("spd");</script>
+            <script>citation.FlDr.set_mode("spd");</script>
         </binding>
     </action>
 </animation>

@@ -30,7 +30,7 @@ MFD controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("map");</script>
+                <script>citation.primus.mc800_input("map");</script>
         </binding>
     </action>
 
@@ -43,7 +43,7 @@ MFD controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("tcas");</script>
+                <script>citation.primus.mc800_input("tcas");</script>
         </binding>
     </action>
 
@@ -56,7 +56,7 @@ MFD controller  hotspots
         <h>14</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("wx");</script>
+                <script>citation.primus.mc800_input("wx");</script>
         </binding>
     </action>
 
@@ -69,7 +69,7 @@ MFD controller  hotspots
         <h>10</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("apt");</script>
+                <script>citation.primus.mc800_input("apt");</script>
         </binding>
     </action>
 
@@ -82,7 +82,7 @@ MFD controller  hotspots
         <h>10</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("dat");</script>
+                <script>citation.primus.mc800_input("dat");</script>
         </binding>
     </action>
 
@@ -95,7 +95,7 @@ MFD controller  hotspots
         <h>12</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("radar-up");</script>
+                <script>citation.primus.mc800_input("radar-up");</script>
         </binding>
     </action>
 
@@ -108,7 +108,7 @@ MFD controller  hotspots
         <h>12</h>
         <binding>
             <command>nasal</command>
-                <script>bravo.primus.mc800_input("radar-dn");</script>
+                <script>citation.primus.mc800_input("radar-dn");</script>
         </binding>
     </action>
 

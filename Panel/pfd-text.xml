@@ -636,7 +636,7 @@ Primus 1000 PFD  messages
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>90</offset>
+                    <offset>92</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -664,7 +664,7 @@ Primus 1000 PFD  messages
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>90</offset>
+                    <offset>92</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -692,7 +692,7 @@ Primus 1000 PFD  messages
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>90</offset>
+                    <offset>92</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -720,7 +720,7 @@ Primus 1000 PFD  messages
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>90</offset>
+                    <offset>92</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -950,7 +950,7 @@ Primus 1000 PFD  messages
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>58</offset>
+                    <offset>60</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
@@ -978,7 +978,7 @@ Primus 1000 PFD  messages
             <transformations>
                 <transformation>
                     <type>x-shift</type>
-                    <offset>75</offset>
+                    <offset>77</offset>
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
@@ -1105,6 +1105,34 @@ Primus 1000 PFD  messages
             </transformations>
         </layer>
 
+        <layer>
+            <name>Vertical Speed</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>5</point-size>
+            <color>
+                <red>0.1</red>
+                <green>0.9</green>
+                <blue>0.4</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>autopilot/internal/vert-speed-fpm</property>
+                    <format>%04.0f</format>
+                </chunk>
+        </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>70</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-64</offset>
+                </transformation>
+            </transformations>
+        </layer>
 
     </layers>
 

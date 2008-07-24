@@ -53,7 +53,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>82</offset>
+                    <offset>81</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -99,7 +99,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>56</offset>
+                    <offset>55</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -145,7 +145,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>30</offset>
+                    <offset>29</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -191,7 +191,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>4</offset>
+                    <offset>3</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -237,7 +237,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-25</offset>
+                    <offset>-24</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -290,7 +290,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-51</offset>
+                    <offset>-50</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -342,7 +342,7 @@ Allied Signal CNI-5000 radio stack
                 </transformation>
                 <transformation>
                     <type>y-shift</type>
-                    <offset>-77</offset>
+                    <offset>-76</offset>
                 </transformation>
             </transformations>
         </layer>
@@ -360,7 +360,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm",-0.025);</script>
+                <script>citation.set_radios("comm",-0.025);</script>
             </binding>
         </action>
 
@@ -373,7 +373,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm",-1.000);</script>
+                <script>citation.set_radios("comm",-1.000);</script>
             </binding>
         </action>
 
@@ -386,7 +386,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm",0.025);</script>
+                <script>citation.set_radios("comm",0.025);</script>
             </binding>
         </action>
 
@@ -399,7 +399,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm",1.000);</script>
+                <script>citation.set_radios("comm",1.000);</script>
             </binding>
         </action>
 
@@ -412,7 +412,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm1",-0.025);</script>
+                <script>citation.set_radios("comm1",-0.025);</script>
             </binding>
         </action>
 
@@ -425,7 +425,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm1",-1.000);</script>
+                <script>citation.set_radios("comm1",-1.000);</script>
             </binding>
         </action>
 
@@ -438,7 +438,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm1",0.025);</script>
+                <script>citation.set_radios("comm1",0.025);</script>
             </binding>
         </action>
 
@@ -451,7 +451,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("comm1",1.000);</script>
+                <script>citation.set_radios("comm1",1.000);</script>
             </binding>
         </action>
 
@@ -464,7 +464,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav",-0.05);</script>
+                <script>citation.set_radios("nav",-0.05);</script>
             </binding>
         </action>
 
@@ -477,7 +477,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav",-1.00);</script>
+                <script>citation.set_radios("nav",-1.00);</script>
             </binding>
         </action>
 
@@ -490,7 +490,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav",0.05);</script>
+                <script>citation.set_radios("nav",0.05);</script>
             </binding>
         </action>
 
@@ -503,7 +503,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav",1.00);</script>
+                <script>citation.set_radios("nav",1.00);</script>
             </binding>
         </action>
 
@@ -516,7 +516,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav1",-0.05);</script>
+                <script>citation.set_radios("nav1",-0.05);</script>
             </binding>
         </action>
 
@@ -529,7 +529,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav1",-1.00);</script>
+                <script>citation.set_radios("nav1",-1.00);</script>
             </binding>
         </action>
 
@@ -542,7 +542,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav1",0.05);</script>
+                <script>citation.set_radios("nav1",0.05);</script>
             </binding>
         </action>
 
@@ -555,7 +555,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("nav1",1.00);</script>
+                <script>citation.set_radios("nav1",1.00);</script>
             </binding>
         </action>
 
@@ -568,7 +568,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("adf",-1);</script>
+                <script>citation.set_radios("adf",-1);</script>
             </binding>
         </action>
 
@@ -581,7 +581,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("adf",-100);</script>
+                <script>citation.set_radios("adf",-100);</script>
             </binding>
         </action>
 
@@ -594,7 +594,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("adf",1);</script>
+                <script>citation.set_radios("adf",1);</script>
             </binding>
         </action>
 
@@ -607,7 +607,7 @@ Allied Signal CNI-5000 radio stack
             <h>16</h>
             <binding>
                 <command>nasal</command>
-                <script>bravo.set_radios("adf",100);</script>
+                <script>citation.set_radios("adf",100);</script>
             </binding>
         </action>
 

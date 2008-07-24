@@ -371,11 +371,11 @@ var set_radios = func(src,stp){
         if(frq < 108.000)frq = frq+10.000;
         setprop("instrumentation/nav[1]/frequencies/standby-mhz",frq);
     }elsif(src=="adf"){
-        frq=getprop("instrumentation/adf/frequencies/standby-khz");
+        frq=getprop("instrumentation/kr-87/outputs/standby-khz");
         frq = frq+ stp;
         if(frq > 1300)frq = frq-1200;
         if(frq < 100)frq = frq+1200;
-        setprop("instrumentation/adf/frequencies/standby-khz",frq);
+        setprop("instrumentation/kr-87/outputs/standby-khz",frq);
     }
 }
 

@@ -101,7 +101,7 @@ Feb 2005  Syd Adams   ()
     </systems>
     
     <sound>
-        <path>Aircraft/Citation-Bravo/Citation-Bravo-sound.xml</path>
+        <path>Aircraft/Citation-Bravo/Sound/Citation-Bravo-sound.xml</path>
     </sound>
     
     <hud>
@@ -172,7 +172,6 @@ Feb 2005  Syd Adams   ()
     <flaps>
         <setting>0.00</setting> <!-- Cruise -->
         <setting>0.375</setting> <!-- Appr / Takeoff  15 degrees-->
-        <setting>0.5</setting> <!-- 20-->
         <setting>0.75</setting> <!-- Land  30-->
         <setting>1.0</setting> <!-- Ground Only  40-->
     </flaps>
@@ -196,7 +195,7 @@ Feb 2005  Syd Adams   ()
                 <label>Autopilot Settings</label>
                     <binding>
                         <command>nasal</command>
-                        <script>bravo.ap_settings.open()</script>
+                        <script>citation.ap_settings.open()</script>
                     </binding>
                 </item>
             </menu>
@@ -407,13 +406,13 @@ Feb 2005  Syd Adams   ()
     </engines>
 
     <nasal>
-        <bravo>
+        <citation>
             <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/Primus1000.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/M877.nas</file>
-        </bravo>
+        </citation>
     </nasal>
 
     <input>
@@ -435,7 +434,7 @@ Feb 2005  Syd Adams   ()
                 <desc>Open/close canopy</desc>
                 <binding>
                     <command>nasal</command>
-                    <script>bravo.cabin_door.toggle();</script>
+                    <script>citation.cabin_door.toggle();</script>
                 </binding>
             </key>
             <key n="267">
@@ -443,7 +442,7 @@ Feb 2005  Syd Adams   ()
                 <desc>Pop up autopilot dialog</desc>
                 <binding>
                     <command>nasal</command>
-                    <script>bravo.ap_settings.toggle()</script>
+                    <script>citation.ap_settings.toggle()</script>
                 </binding>
             </key>
         </keyboard>

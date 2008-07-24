@@ -320,7 +320,8 @@ Primus 1000 MFD  hotspots
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/primus1000/TAS</property>
+                    <property>velocities/uBody-fps</property>
+                    <scale>0.59248380</scale>
                     <format>%3.0f</format>
                 </chunk>
             </chunks>

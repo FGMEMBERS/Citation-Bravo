@@ -7,6 +7,47 @@ Primus 1000 Primary Flight Display
 
 <path>pfd.ac</path>
 
+
+<animation>
+    <name>AIscreen</name>
+    <object-name>AI</object-name>
+    <object-name>AI.001</object-name>
+    <object-name>coupled.annun</object-name>
+    <object-name>Asitext</object-name>
+    <object-name>Asitext.001</object-name>
+    <object-name>Asitext.002</object-name>
+    <object-name>Alt10000</object-name>
+    <object-name>Alt1000</object-name>
+    <object-name>Alt100</object-name>
+    <object-name>Alt10</object-name>
+    <object-name>ASIribbon</object-name>
+    <object-name>ALTribbon</object-name>
+</animation>
+
+<animation>
+    <name>HSIrose</name>
+    <object-name>crt.rose</object-name>
+    <object-name>rose</object-name>
+    <object-name>hdgbug</object-name>
+    <object-name>CRSneedle</object-name>
+    <object-name>CRSneedle.001</object-name>
+</animation>
+
+<animation>
+    <name>HSIarc</name>
+    <object-name>crt.arc</object-name>
+    <object-name>arc</object-name>
+</animation>
+
+<animation>
+    <name>HSImain</name>
+    <object-name>VSIneedle</object-name>
+    <object-name>Warrow</object-name>
+    <object-name>Std</object-name>
+    <object-name>RaBaro</object-name>
+    <object-name>SlipBall</object-name>
+</animation>
+
 <animation>
     <type>select</type>
     <object-name>PFD.off</object-name>
@@ -20,22 +61,6 @@ Primus 1000 Primary Flight Display
                 <value>15</value>
             </less-than>
         </or>
-    </condition>
-</animation>
-
-<animation>
-    <type>select</type>
-    <object-name>Std</object-name>
-    <object-name>RaBaro</object-name>
-<object-name>SlipBall</object-name>
-    <condition>
-        <and>
-            <property>instrumentation/primus1000/pfd/serviceable</property>
-            <greater-than>
-                <property>systems/electrical/ac-volts</property>
-                <value>15</value>
-            </greater-than>
-        </and>
     </condition>
 </animation>
 
@@ -73,8 +98,7 @@ Primus 1000 Primary Flight Display
 
 <animation>
     <type>select</type>
-    <object-name>arc</object-name>
-    <object-name>crt.arc</object-name>
+    <object-name>HSIarc</object-name>
     <condition>
         <property>instrumentation/primus1000/dc550/hsi</property>
     </condition>
@@ -115,10 +139,7 @@ Primus 1000 Primary Flight Display
 
 <animation>
     <type>select</type>
-    <object-name>rose</object-name>
-    <object-name>crt.rose</object-name>
-    <object-name>CRSneedle</object-name>
-    <object-name>CRSneedle.001</object-name>
+    <object-name>HSIrose</object-name>
     <condition>
         <not>
             <property>instrumentation/primus1000/dc550/hsi</property>
@@ -516,6 +537,7 @@ Primus 1000 Primary Flight Display
     <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
     <factor>0.001</factor>
     <step>100</step>
+    <scroll>1</scroll>
     <axis>
         <x>0</x>
         <y>1</y>
@@ -529,6 +551,7 @@ Primus 1000 Primary Flight Display
     <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
     <factor>0.01</factor>
     <step>10</step>
+    <scroll>1</scroll>
     <axis>
         <x>0</x>
         <y>1</y>
@@ -669,6 +692,7 @@ Primus 1000 Primary Flight Display
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.001</factor>
     <step>100</step>
+    <scroll>20</scroll>
     <axis>
         <x>0</x>
         <y>1</y>
@@ -682,6 +706,7 @@ Primus 1000 Primary Flight Display
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.0001</factor>
     <step>1000</step>
+    <scroll>20</scroll>
     <axis>
         <x>0</x>
         <y>1</y>
@@ -695,6 +720,7 @@ Primus 1000 Primary Flight Display
     <property>instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.00001</factor>
     <step>10000</step>
+    <scroll>20</scroll>
     <axis>
         <x>0</x>
         <y>1</y>
@@ -738,7 +764,7 @@ Primus 1000 Primary Flight Display
     <type>textranslate</type>
     <object-name>nav1msg</object-name>
     <property>instrumentation/primus1000/dc550/nav1ptr</property>
-    <factor>0.0341</factor>
+    <factor>0.0241</factor>
     <step>1</step>
     <axis>
         <x>0</x>
@@ -751,7 +777,7 @@ Primus 1000 Primary Flight Display
     <type>textranslate</type>
     <object-name>nav2msg</object-name>
     <property>instrumentation/primus1000/dc550/nav2ptr</property>
-    <factor>0.0341</factor>
+    <factor>0.0241</factor>
     <step>1</step>
     <axis>
         <x>0</x>

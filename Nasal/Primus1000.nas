@@ -25,6 +25,26 @@ var P1000 = {
         m.MFD_serv.setBoolValue(1);
         m.MFD_bright = m.MFD.getNode("dimmer",1);
         m.MFD_bright.setDoubleValue(0.8);
+        m.MFD_to=m.MFD.getNode("to",1);
+        m.MFD_to.setValue("0");
+        m.MFD_fr=m.MFD.getNode("fr",1);
+        m.MFD_fr.setValue("0");
+        m.MFD_st_el=m.MFD.getNode("st-el",1);
+        m.MFD_st_el.setValue("0");
+        m.MFD_vang=m.MFD.getNode("vang",1);
+        m.MFD_vang.setValue("0");
+        m.MFD_vs=m.MFD.getNode("vs",1);
+        m.MFD_vs.setValue("0");
+        m.MFD_v1=m.MFD.getNode("v1",1);
+        m.MFD_v1.setValue("95");
+        m.MFD_vr=m.MFD.getNode("vr",1);
+        m.MFD_vr.setValue("95");
+        m.MFD_v2=m.MFD.getNode("v2",1);
+        m.MFD_v2.setValue("95");
+        m.MFD_vref=m.MFD.getNode("vref",1);
+        m.MFD_vref.setValue("100");
+        m.MFD_vapp=m.MFD.getNode("vapp",1);
+        m.MFD_vapp.setValue("100");
         m.MFD_menu_num = m.MFD.getNode("menu-num",1);
         m.MFD_menu_num.setIntValue(0);
         m.MFD_menu_line1 = m.MFD.getNode("menu-text",1);
@@ -84,8 +104,6 @@ var P1000 = {
         m.baro_kpa.setValue("     ");
         m.IAS = props.globals.getNode("instrumentation/airspeed-indicator/indicated-speed-kt",1);
         m.ALT = props.globals.getNode("instrumentation/altimeter/indicated-altitude-ft",1);
-        m.TAS = m.primus.getNode("TAS",1);
-        m.TAS.setDoubleValue(0.0);
     return m;
     },
 #### convert inhg to kpa ####
@@ -99,14 +117,6 @@ var P1000 = {
             buf = sprintf("%2.2f",kp);
         }
         me.baro_kpa.setValue(buf);
-    },
-#### calculate TAS ####
-    calc_tas : func(){
-        var tas = me.ALT.getValue();
-        if(tas ==nil)return;
-        tas = (tas*0.001) *5;
-        var ias=me.IAS.getValue();
-        me.TAS.setValue(ias+tas);
     },
 #### pointer needle update ####
     get_pointer_offset : func(test,src){
@@ -224,7 +234,6 @@ var P1000 = {
     me.NavPtr1_offset.setValue(me.get_pointer_offset(me.NavPtr1.getValue(),0));
     me.NavPtr2_offset.setValue(me.get_pointer_offset(me.NavPtr2.getValue(),1));
     me.update_nav();
-        primus.calc_tas();
     },
 #### MC800 controls  ####
     mc800_input : func(mcmd){
@@ -323,13 +332,13 @@ var P1000 = {
             me.MFD_menu_col3.setValue("SPEEDS");
             me.MFD_menu_col4.setValue("        ");
             }elsif(pg==5){
-            me.MFD_menu_col1.setValue("  - - -");
-            me.MFD_menu_col2.setValue("  - - - ");
-            me.MFD_menu_col3.setValue("  - - - ");
+            me.MFD_menu_col1.setValue(me.MFD_v1.getValue());
+            me.MFD_menu_col2.setValue(me.MFD_vr.getValue());
+            me.MFD_menu_col3.setValue(me.MFD_v2.getValue());
             me.MFD_menu_col4.setValue("        ");
             }elsif(pg==6){
-            me.MFD_menu_col1.setValue("  - - - ");
-            me.MFD_menu_col2.setValue("  - - - ");
+            me.MFD_menu_col1.setValue(me.MFD_vref.getValue());
+            me.MFD_menu_col2.setValue(me.MFD_vapp.getValue());
             me.MFD_menu_col3.setValue("       ");
             me.MFD_menu_col4.setValue("       ");
         }
