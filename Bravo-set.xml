@@ -388,6 +388,7 @@ Feb 2005  Syd Adams   ()
             <gear-horn type="bool">0</gear-horn>
         </alerts>
         <mk-viii>
+            <serviceable>1</serviceable>
             <speaker>
                 <max-dist>2</max-dist>
                 <reference-dist>1</reference-dist>
