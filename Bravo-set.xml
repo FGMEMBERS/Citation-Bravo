@@ -395,6 +395,17 @@ Feb 2005  Syd Adams   ()
                 <volume>0.5</volume>
             </speaker>
         </mk-viii>
+        <kr-87>
+            <inputs>
+                <volume>0</volume>
+            </inputs>
+        </kr-87>
+        <nav>
+            <audio-btn>0</audio-btn>
+        </nav>
+        <nav n="1">
+            <audio-btn>0</audio-btn>
+        </nav>
     </instrumentation>
 
     <engines>
