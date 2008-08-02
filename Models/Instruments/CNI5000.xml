@@ -116,6 +116,30 @@ CNI-5000 radio stack
         </condition>
     </animation>
 
+    <animation>
+        <type>rotate</type>
+        <object-name>Xpdr1.knob</object-name>
+        <property>instrumentation/kt-70/inputs/func-knob</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0.0</dep></entry>
+            <entry><ind>1</ind><dep>30.0</dep></entry>
+            <entry><ind>2</ind><dep>60.0</dep></entry>
+            <entry><ind>3</ind><dep>90.0</dep></entry>
+			<entry><ind>4</ind><dep>130.0</dep></entry>
+			<entry><ind>5</ind><dep>160.0</dep></entry>
+        </interpolation>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.064</y-m>
+            <z-m>-0.070</z-m>
+        </center>
+    </animation>
+
 <!-- KT-70 unit 2-->
 
     <animation>
@@ -164,6 +188,30 @@ CNI-5000 radio stack
         <condition>
             <property>instrumentation/kt-70[1]/annunciators/sby</property>
         </condition>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Xpdr2.knob</object-name>
+        <property>instrumentation/kt-70[1]/inputs/func-knob</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0.0</dep></entry>
+            <entry><ind>1</ind><dep>30.0</dep></entry>
+            <entry><ind>2</ind><dep>60.0</dep></entry>
+            <entry><ind>3</ind><dep>90.0</dep></entry>
+			<entry><ind>4</ind><dep>130.0</dep></entry>
+			<entry><ind>5</ind><dep>160.0</dep></entry>
+        </interpolation>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>0.0</x-m>
+            <y-m>0.064</y-m>
+            <z-m>-0.105</z-m>
+        </center>
     </animation>
 
 </PropertyList>
