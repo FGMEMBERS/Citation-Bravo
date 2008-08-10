@@ -344,7 +344,7 @@
         <prop>instrumentation/altimeter/indicated-altitude-ft</prop>
     </input>
     <reference>
-        <prop>instrumentation/flightdirector/vnav-alt</prop>
+        <prop>autopilot/settings/target-altitude-ft</prop>
     </reference>
     <output>
         <prop>autopilot/settings/target-pitch-deg</prop>

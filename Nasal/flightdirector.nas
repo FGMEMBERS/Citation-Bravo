@@ -54,8 +54,8 @@ var flightdirector = {
         m.vnav.setIntValue(0);
         m.gs_arm = m.node.getNode("gs-arm",1);
         m.gs_arm.setBoolValue(0);
-        m.vnav_alt = m.node.getNode("vnav-alt",1);
-        m.vnav_alt.setDoubleValue(30000);
+        m.vnav_alt = props.globals.getNode("autopilot/settings/target-altitude-ft",1);
+        m.vnav_alt.setDoubleValue(10000);
         m.speed = m.node.getNode("spd",1);
         m.speed.setDoubleValue(0);
         m.crs = m.node.getNode("crs",1);
@@ -137,10 +137,8 @@ var flightdirector = {
     var tst =me.vnav.getValue();
     if(vnv ==tst)vnv=0;
         if(vnv==1){
-            if(!me.FMS.getBoolValue()){
-                vnv = 0;
-            }else{
-                me.update_vnav_alt();
+            if(me.FMS.getBoolValue()){
+            me.update_vnav_alt();
             }
         }
         if(vnv==2){
@@ -155,7 +153,7 @@ var flightdirector = {
     update_vnav_alt : func(){
                 var tmpalt =getprop("autopilot/route-manager/route/wp/altitude-ft");
                 if(tmpalt == nil)tmpalt = 0;
-                if(tmpalt <= 0) tmpalt=30000;
+                if(tmpalt <= 0) tmpalt=35000;
                 me.vnav_alt.setValue(tmpalt);
     },
 ###########################
