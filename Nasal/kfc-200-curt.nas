@@ -44,9 +44,7 @@ altmode_last = altmode;
 target_alt = 0;
 vbar_bank = 0.0;
 vbar_pitch = -180.0;
-nav_dist = 0.0;
-last_nav_dist = 0.0;
-last_nav_time = 0.0;
+last_time = 0.0;
 ap_enable = 0;
 
 # initialize property values
@@ -66,6 +64,8 @@ setprop("/instrumentation/kfc200/ap-enable", ap_enable);
 INIT = func {
     # put any onetime initialization code here that needs to run after
     # everythiing else is fully initialized.
+    setprop("/instrumentation/kfc200/inputs/trim-up-btn", 0);
+    setprop("/instrumentation/kfc200/inputs/trim-down-btn", 0);
 }
 settimer(INIT, 0);
 
@@ -86,11 +86,6 @@ update_mode = func {
     hdgmode = getprop("/instrumentation/kfc200/hdgmode");
     bcmode = getprop("/instrumentation/nav/back-course-btn");
     altmode = getprop("/instrumentation/kfc200/altmode");
-
-    # compute elapsed time since last iteration
-    nav_time = getprop("/sim/time/elapsed-sec");
-    nav_dt = nav_time - last_nav_time;
-    last_nav_time = nav_time;
 
     fdNode = props.globals.getNode("/instrumentation/kfc200/fdmode");
     fdmode = fdNode.getBoolValue();
@@ -178,6 +173,11 @@ update_mode = func {
 #############################################################################
 
 update_vbar = func {
+    # compute elapsed time since last iteration
+    current_time = getprop("/sim/time/elapsed-sec");
+    dt = current_time - last_time;
+    last_time = current_time;
+
     aircraft_bank = getprop("/orientation/roll-deg");
     if ( aircraft_bank == nil ) { aircraft_bank = 0; }
     aircraft_pitch = getprop("/orientation/pitch-deg");
@@ -227,6 +227,13 @@ update_vbar = func {
         }
 
         # handle vertical modes
+
+        # read trim button
+        trim_up_node = props.globals.getNode("/instrumentation/kfc200/inputs/trim-up-btn", 1);
+        trim_up_btn = trim_up_node.getBoolValue();
+        trim_down_node = props.globals.getNode("/instrumentation/kfc200/inputs/trim-down-btn", 1);
+        trim_down_btn = trim_down_node.getBoolValue();
+
         if ( altmode == "alt" ) {
             if ( altmode_last != "alt" ) {
                 current_alt = getprop("/instrumentation/altimeter/indicated-altitude-ft");
@@ -238,6 +245,17 @@ update_vbar = func {
             setprop("/autopilot/locks/altitude", "gs1-hold");
         } else {
             setprop("/autopilot/locks/altitude", "pitch-hold");
+            if ( trim_up_btn ) {
+                target_pitch = getprop("/autopilot/settings/target-pitch-deg");
+                if ( target_pitch == nil ) { target_pitch = 0; }
+                target_pitch += dt; # 1 deg per second
+                setprop("/autopilot/settings/target-pitch-deg", target_pitch);
+            } elsif ( trim_down_btn ) {
+                target_pitch = getprop("/autopilot/settings/target-pitch-deg");
+                if ( target_pitch == nil ) { target_pitch = 0; }
+                target_pitch -= dt; # 1 deg per second
+                setprop("/autopilot/settings/target-pitch-deg", target_pitch);
+            }
         }
 
         # configure flightgear AP
@@ -277,10 +295,6 @@ update = func {
     handle_inputs();
     update_mode();
     update_vbar();
-
-    # print( "vbar bank = ", vbar_bank, "(", getprop("/orientation/roll-deg"),
-    #        ") pitch = ", vbar_pitch, "(", getprop("/orientation/pitch-deg"),
-    #        ")" );
 
     registerTimer();
 }
