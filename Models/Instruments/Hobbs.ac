@@ -8,7 +8,7 @@ OBJECT poly
 name "Fmeter"
 data 9
 Plane.076
-texture "hobbs.rgb"
+texture "hobbs.png"
 texrep 1 1
 crease 40.000000
 numvert 66
@@ -481,7 +481,7 @@ OBJECT poly
 name "Fmeter.001"
 data 8
 Mesh.277
-texture "hobbs.rgb"
+texture "hobbs.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -507,7 +507,7 @@ OBJECT poly
 name "Fmeter.002"
 data 8
 Mesh.003
-texture "hobbs.rgb"
+texture "hobbs.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -533,7 +533,7 @@ OBJECT poly
 name "Fmeter.003"
 data 8
 Mesh.004
-texture "hobbs.rgb"
+texture "hobbs.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -559,7 +559,7 @@ OBJECT poly
 name "Fmeter.004"
 data 8
 Mesh.005
-texture "hobbs.rgb"
+texture "hobbs.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -585,7 +585,7 @@ OBJECT poly
 name "Fmeter.005"
 data 8
 Mesh.006
-texture "hobbs.rgb"
+texture "hobbs.png"
 texrep 1 1
 crease 30.000000
 numvert 4

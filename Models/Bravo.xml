@@ -3,126 +3,37 @@
 
     <path>bravo.ac</path>
 
-    <panel>
-        <name>MainPanel</name>
-        <path>Aircraft/Citation-Bravo/Panel/Citation-Bravo-panel.xml</path>
-        <bottom-left>
-            <x-m>2.479</x-m>
-            <y-m>-0.660</y-m>
-            <z-m>0.364</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>2.479</x-m>
-            <y-m>0.660</y-m>
-            <z-m>0.364</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>2.393</x-m>
-            <y-m>-0.660</y-m>
-            <z-m>0.851</z-m>
-        </top-left>
-    </panel>
+    <nasal>
+        <load>
+            var livery_update = aircraft.livery_update.new("Aircraft/Citation-Bravo/Models/Liveries", 10);
+        </load>
 
-    <panel>
-        <name>PFD1</name>
-        <path>Aircraft/Citation-Bravo/Panel/PFD-panel.xml</path>
-        <bottom-left>
-            <x-m>2.449</x-m>
-            <y-m>-0.406</y-m>
-            <z-m>0.559</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>2.449</x-m>
-            <y-m>-0.248</y-m>
-            <z-m>0.559</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>2.417</x-m>
-            <y-m>-0.406</y-m>
-            <z-m>0.743</z-m>
-        </top-left>
-    </panel>
+        <unload>
+            livery_update.stop();
+        </unload>
+    </nasal>
 
-    <panel>
-        <name>PFD2</name>
-        <path>Aircraft/Citation-Bravo/Panel/PFD-panel.xml</path>
-        <bottom-left>
-            <x-m>2.449</x-m>
-            <y-m>0.271</y-m>
-            <z-m>0.559</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>2.449</x-m>
-            <y-m>0.429</y-m>
-            <z-m>0.559</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>2.417</x-m>
-            <y-m>0.271</y-m>
-            <z-m>0.743</z-m>
-        </top-left>
-    </panel>
-
-    <panel>
-        <name>MFD1</name>
-        <path>Aircraft/Citation-Bravo/Panel/MFD-panel.xml</path>
-        <bottom-left>
-            <x-m>2.463</x-m>
-            <y-m>-0.130</y-m>
-            <z-m>0.480</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>2.463</x-m>
-            <y-m>0.028</y-m>
-            <z-m>0.480</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>2.431</x-m>
-            <y-m>-0.130</y-m>
-            <z-m>0.664</z-m>
-        </top-left>
-    </panel>
-
-    <panel>
-        <path>Aircraft/Citation-Bravo/Panel/center-panel.xml</path>
-        <bottom-left>
-            <x-m>3.003</x-m>
-            <y-m>-0.056</y-m>
-            <z-m>0.271</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>3.003</x-m>
-            <y-m>0.096</y-m>
-            <z-m>0.271</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>2.711</x-m>
-            <y-m>-0.056</y-m>
-            <z-m>0.282</z-m>
-        </top-left>
-    </panel>
-
-    <panel>
-        <path>Aircraft/Citation-Bravo/Panel/throttle-panel.xml</path>
-        <bottom-left>
-            <x-m>2.686</x-m>
-            <y-m>-0.053</y-m>
-            <z-m>0.265</z-m>
-        </bottom-left>
-        <bottom-right>
-            <x-m>2.686</x-m>
-            <y-m>0.187</y-m>
-            <z-m>0.265</z-m>
-        </bottom-right>
-        <top-left>
-            <x-m>2.465</x-m>
-            <y-m>-0.053</y-m>
-            <z-m>0.427</z-m>
-        </top-left>
-    </panel>
+    <animation>
+      <type>material</type>
+      <object-name>Engines</object-name>
+      <object-name>Fuselage</object-name>
+      <object-name>Cabin.door</object-name>
+      <object-name>Wings</object-name>
+      <object-name>Rudder</object-name>
+      <object-name>RHelevator</object-name>
+      <object-name>LHelevator</object-name>
+      <object-name>RHflap</object-name>
+      <object-name>RHaileron</object-name>
+      <object-name>LHflap</object-name>
+      <object-name>LHaileron</object-name>
+      <property-base>sim/model/livery</property-base>
+      <texture-prop>texture</texture-prop>
+      <texture>Paint1.png</texture>
+    </animation>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/pfd.xml</path>
+        <name>PFD1</name>
+        <path>Aircraft/Instruments-3d/primus-1000/PFD/PFD.xml</path>
         <offsets>
             <x-m>2.430</x-m>
             <y-m>-0.327</y-m>
@@ -132,7 +43,8 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/pfd.xml</path>
+        <name>PFD2</name>
+        <path>Aircraft/Instruments-3d/primus-1000/PFD/PFD.xml</path>
         <offsets>
             <x-m>2.430</x-m>
             <y-m>0.350</y-m>
@@ -142,7 +54,8 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/mfd.xml</path>
+        <name>MFD1</name>
+        <path>Aircraft/Instruments-3d/primus-1000/MFD/MFD.xml</path>
         <offsets>
             <x-m>2.444</x-m>
             <y-m>-0.051</y-m>
@@ -202,7 +115,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/gnx.xml</path>
+        <path>Aircraft/Citation-Bravo/Models/Instruments/CDU/gnx.xml</path>
         <offsets>
             <x-m>2.835</x-m>
             <y-m>0.02</y-m>
@@ -282,7 +195,8 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/CNI5000.xml</path>
+        <name>CNI5000</name>
+        <path>Aircraft/Citation-Bravo/Models/Instruments/CNI5000/CNI5000.xml</path>
         <offsets>
             <x-m>2.442</x-m>
             <y-m>0.127</y-m>
@@ -312,9 +226,21 @@
     </model>
 
     <animation>
+        <type>select</type>
+        <object-name>PFD1</object-name>
+        <object-name>PFD2</object-name>
+        <object-name>MFD1</object-name>
+        <object-name>CNI5000</object-name>
+        <condition>
+            <property>sim/current-view/internal</property>
+        </condition>
+    </animation>
+
+
+    <animation>
         <type>shader</type>
         <shader>chrome</shader>
-        <texture>chrome.rgb</texture>
+        <texture>chrome.png</texture>
         <object-name>LwrReverser</object-name>
         <object-name>UprReverser</object-name>
         <object-name>Engines.chrome</object-name>
@@ -324,14 +250,14 @@
     <animation>
         <type>shader</type>
         <shader>chrome</shader>
-        <texture>chrome1.rgb</texture>
+        <texture>chrome1.png</texture>
         <object-name>Glass</object-name>
     </animation>
 
     <animation>
         <type>shader</type>
         <shader>chrome</shader>
-        <texture>chrome1.rgb</texture>
+        <texture>chrome1.png</texture>
         <object-name>window</object-name>
     </animation>
 
@@ -452,11 +378,11 @@
         <object-name>DCamps2</object-name>
         <object-name>Fan01</object-name>
         <object-name>Fan02</object-name>
-        <object-name>ITT01</object-name>  
+        <object-name>ITT01</object-name>
         <object-name>ITT02</object-name>
         <object-name>OilP01</object-name>
         <object-name>OilP02</object-name>
-        <object-name>OilT01</object-name>  
+        <object-name>OilT01</object-name>
         <object-name>OilT02</object-name>
         <object-name>FQty01</object-name>
         <object-name>FQty02</object-name>
@@ -803,11 +729,10 @@
     <animation>
         <type>dist-scale</type>
         <object-name>Flash01</object-name>
-        <interpolation>
-        <entry><ind>0</ind><dep>1</dep></entry>
-        <entry><ind>500</ind><dep>2.5</dep></entry>
-        <entry><ind>16000</ind><dep>10</dep></entry>
-        </interpolation>
+        <factor>0.01</factor>
+        <offset>1.0</offset>
+        <min>1.0</min>
+        <max>500.0</max>
     </animation>
 
     <animation>
@@ -837,11 +762,10 @@
     <animation>
         <type>dist-scale</type>
         <object-name>Flash02</object-name>
-        <interpolation>
-        <entry><ind>0</ind><dep>1</dep></entry>
-        <entry><ind>500</ind><dep>2.5</dep></entry>
-        <entry><ind>16000</ind><dep>10</dep></entry>
-        </interpolation>
+        <factor>0.01</factor>
+        <offset>1.0</offset>
+        <min>1.0</min>
+        <max>500.0</max>
     </animation>
 
     <animation>
@@ -883,11 +807,10 @@
     <animation>
         <type>dist-scale</type>
         <object-name>Redglow</object-name>
-        <interpolation>
-        <entry><ind>0</ind><dep>1</dep></entry>
-        <entry><ind>500</ind><dep>2.5</dep></entry>
-        <entry><ind>16000</ind><dep>10</dep></entry>
-        </interpolation>
+        <factor>0.006</factor>
+        <offset>1.0</offset>
+        <min>1.0</min>
+        <max>500.0</max>
     </animation>
 
     <animation>
@@ -929,11 +852,10 @@
     <animation>
         <type>dist-scale</type>
         <object-name>Greenglow</object-name>
-        <interpolation>
-        <entry><ind>0</ind><dep>1</dep></entry>
-        <entry><ind>500</ind><dep>2.5</dep></entry>
-        <entry><ind>16000</ind><dep>10</dep></entry>
-        </interpolation>
+        <factor>0.006</factor>
+        <offset>1.0</offset>
+        <min>1.0</min>
+        <max>500.0</max>
     </animation>
 
     <animation>
@@ -1007,11 +929,10 @@
     <animation>
         <type>dist-scale</type>
         <object-name>Redglow.001</object-name>
-        <interpolation>
-        <entry><ind>0</ind><dep>1</dep></entry>
-        <entry><ind>500</ind><dep>2.5</dep></entry>
-        <entry><ind>16000</ind><dep>10</dep></entry>
-        </interpolation>
+        <factor>0.006</factor>
+        <offset>1.0</offset>
+        <min>1.0</min>
+        <max>500.0</max>
     </animation>
 
 <!--        yasim control surfaces                  -->
@@ -1303,7 +1224,7 @@
     <animation>
         <type>select</type>
         <condition>
-            <property>/sim/yokes-visible</property>
+            <property>sim/yokes-visible</property>
         </condition>
         <object-name>Yoke</object-name>
         <object-name>Yoke1</object-name>
@@ -2450,14 +2371,14 @@
         </condition>
     </animation>
 
-<!--####    Instruments    ####-->  
+<!--####    Instruments    ####-->
 
 <!--####    N1 Gauge    ####-->
 
     <animation>
         <type>textranslate</type>
         <object-name>Fan01</object-name>
-        <property>engines/engine[0]/rpm</property>
+        <property>engines/engine[0]/fan</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>80</ind><dep>0.1975</dep></entry>
@@ -2474,7 +2395,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>Fan02</object-name>
-        <property>engines/engine[1]/rpm</property>
+        <property>engines/engine[1]/fan</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>80</ind><dep>0.1975</dep></entry>
@@ -2631,7 +2552,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1</object-name>
-        <property>engines/engine[0]/rpm</property>
+        <property>engines/engine[0]/fan</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2644,7 +2565,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1.01</object-name>
-        <property>engines/engine[0]/rpm</property>
+        <property>engines/engine[0]/fan</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2657,7 +2578,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1.02</object-name>
-        <property>engines/engine[0]/rpm</property>
+        <property>engines/engine[0]/fan</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2670,7 +2591,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn1.03</object-name>
-        <property>engines/engine[0]/rpm</property>
+        <property>engines/engine[0]/fan</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -2683,7 +2604,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1</object-name>
-        <property>engines/engine[1]/rpm</property>
+        <property>engines/engine[1]/fan</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2696,7 +2617,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1.01</object-name>
-        <property>engines/engine[1]/rpm</property>
+        <property>engines/engine[1]/fan</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2709,7 +2630,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1.02</object-name>
-        <property>engines/engine[1]/rpm</property>
+        <property>engines/engine[1]/fan</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2722,7 +2643,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn1.03</object-name>
-        <property>engines/engine[1]/rpm</property>
+        <property>engines/engine[1]/fan</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -2774,7 +2695,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2</object-name>
-        <property>engines/engine[0]/startup-n2</property>
+        <property>engines/engine[0]/turbine</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2787,7 +2708,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2.01</object-name>
-        <property>engines/engine[0]/startup-n2</property>
+        <property>engines/engine[0]/turbine</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2800,7 +2721,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2.02</object-name>
-        <property>engines/engine[0]/startup-n2</property>
+        <property>engines/engine[0]/turbine</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2813,7 +2734,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>LHn2.03</object-name>
-        <property>engines/engine[0]/startup-n2</property>
+        <property>engines/engine[0]/turbine</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -2826,7 +2747,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2</object-name>
-        <property>engines/engine[1]/startup-n2</property>
+        <property>engines/engine[1]/turbine</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -2839,7 +2760,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2.01</object-name>
-        <property>engines/engine[1]/startup-n2</property>
+        <property>engines/engine[1]/turbine</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -2852,7 +2773,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2.02</object-name>
-        <property>engines/engine[1]/startup-n2</property>
+        <property>engines/engine[1]/turbine</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -2865,7 +2786,7 @@
     <animation>
         <type>textranslate</type>
         <object-name>RHn2.03</object-name>
-        <property>engines/engine[1]/startup-n2</property>
+        <property>engines/engine[1]/turbine</property>
         <factor>1.0</factor>
         <step>0.1</step>
         <axis>
@@ -3164,8 +3085,25 @@
 
     <animation>
         <type>rotate</type>
-        <object-name>Invtr.toggle</object-name>
+        <object-name>Invtr.select</object-name>
         <property>controls/electric/inverter-switch</property>
+        <factor>30</factor>
+        <axis>
+            <x>0.0</x>
+            <y>-1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>2.451</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.514</z-m>
+        </center>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>AVN.toggle</object-name>
+        <property>controls/electric/avionics-switch</property>
         <factor>30</factor>
         <axis>
             <x>0.0</x>
@@ -3280,6 +3218,275 @@
             <z-m>0.391</z-m>
         </center>
     </animation>
+
+<!-- Hotspots-->
+
+<animation>
+    <type>pick</type>
+    <object-name>MW.off</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/annunciators/master-warning</property>
+            <value>0</value>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>MC.off</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/annunciators/master-caution</property>
+            <value>0</value>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>Batt.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/battery-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>Lgen.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/engine[0]/generator</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>Rgen.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/engine[1]/generator</property>
+        </binding>
+            <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>Invtr.select</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/inverter-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>AVN.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/electric/avionics-switch</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>LHign.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/engines/engine[0]/ignition</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>RHign.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/engines/engine[1]/ignition</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>LHstarter</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+     <binding>
+       <command>property-assign</command>
+       <property>controls/engines/engine[0]/starter</property>
+       <value>1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>controls/engines/engine[0]/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>RHstarter</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+     <binding>
+       <command>property-assign</command>
+       <property>controls/engines/engine[1]/starter</property>
+       <value>1</value>
+     </binding>
+     <mod-up>
+       <binding>
+         <command>property-assign</command>
+         <property>controls/engines/engine[1]/starter</property>
+         <value>0</value>
+       </binding>
+     </mod-up>
+    </action>
+</animation>
+
+<!-- Lighting -->
+
+<animation>
+    <type>pick</type>
+    <object-name>recog.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/recog-lights</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>strobe.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/strobe</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>nav.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/nav-lights</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>wing.toggle</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+            <command>property-toggle</command>
+            <property>controls/lighting/wing-lights</property>
+        </binding>
+        <binding>
+            <command>property-toggle</command>
+            <property>sim/sound/click</property>
+        </binding>
+    </action>
+</animation>
 
 
 </PropertyList>

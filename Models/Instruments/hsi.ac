@@ -9,7 +9,7 @@ OBJECT poly
 name "ADF.needle"
 data 9
 Plane.022
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 7
@@ -46,7 +46,7 @@ OBJECT poly
 name "CRSneedle2"
 data 8
 Mesh.138
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 29
@@ -202,7 +202,7 @@ OBJECT poly
 name "CRSneedle2.001"
 data 8
 Mesh.098
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -223,7 +223,7 @@ OBJECT poly
 name "HSI"
 data 8
 Mesh.099
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 164
@@ -1397,7 +1397,7 @@ OBJECT poly
 name "HSI.face"
 data 10
 Circle.020
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 9
@@ -1464,7 +1464,7 @@ OBJECT poly
 name "HSI.gsneedle"
 data 9
 Plane.072
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 3
@@ -1483,7 +1483,7 @@ OBJECT poly
 name "HSI.knob"
 data 8
 Mesh.137
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 45.000000
 numvert 17
@@ -1614,7 +1614,7 @@ OBJECT poly
 name "hdgring"
 data 8
 Mesh.135
-texture "HSI.rgb"
+texture "HSI.png"
 texrep 1 1
 crease 30.000000
 numvert 32

@@ -8,7 +8,7 @@ OBJECT poly
 name "AOA"
 data 8
 Mesh.007
-texture "aoa.rgb"
+texture "aoa.png"
 texrep 1 1
 crease 30.000000
 numvert 16
@@ -83,7 +83,7 @@ OBJECT poly
 name "AOA.001"
 data 8
 Mesh.359
-texture "aoa.rgb"
+texture "aoa.png"
 texrep 1 1
 crease 30.000000
 numvert 64
@@ -493,7 +493,7 @@ OBJECT poly
 name "AoA.needle"
 data 9
 Plane.001
-texture "aoa.rgb"
+texture "aoa.png"
 texrep 1 1
 crease 30.000000
 numvert 5

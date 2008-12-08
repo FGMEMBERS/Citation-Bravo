@@ -8,28 +8,9 @@ Display Control 550
 <path>dc550.ac</path>
 
 <animation>
-    <type>material</type>
-    <object-name>DC550.hsi</object-name>
-    <object-name>DC550.sc-cp</object-name>
-    <object-name>DC550.in-hpa</object-name>
-    <object-name>DC550.gspd-ttg</object-name>
-    <object-name>DC550.et</object-name>
-    <object-name>DC550.nav</object-name>
-    <object-name>DC550.fms</object-name>
-    <object-name>nav-pointer.001</object-name>
-    <object-name>nav-pointer.002</object-name>
-    <emission>
-        <red>0.025</red>
-        <green>0.015</green>
-        <blue>0.010</blue>
-        <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
-    </emission>
-</animation>
-
-<animation>
     <type>rotate</type>
-    <object-name>nav-pointer.001</object-name>
-    <property>instrumentation/primus1000/dc550/nav1ptr</property>
+    <object-name>nav1.knob</object-name>
+    <property>instrumentation/primus1000/control/nav1ptr</property>
     <interpolation>
         <entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>1.0</ind><dep>35.0</dep></entry>
@@ -50,8 +31,8 @@ Display Control 550
 
 <animation>
     <type>rotate</type>
-    <object-name>nav-pointer.002</object-name>
-    <property>instrumentation/primus1000/dc550/nav2ptr</property>
+    <object-name>nav2.knob</object-name>
+    <property>instrumentation/primus1000/control/nav2ptr</property>
     <interpolation>
         <entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>1.0</ind><dep>30.0</dep></entry>
@@ -71,71 +52,55 @@ Display Control 550
 </animation>
 
 
-<!--    OSG hotspots    
+<!--    OSG hotspots   -->
 <animation>
     <type>pick</type>
-    <object-name>N1ptr.dwn</object-name>
+    <object-name>nav1.knob</object-name>
     <action>
-        <button>0</button>
+        <button>1</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/primus1000/dc550/nav1ptr</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>3</max>
-            <wrap>false</wrap>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("pointer1-dec");</script>
         </binding>
     </action>
 </animation>
 
 <animation>
     <type>pick</type>
-    <object-name>N1ptr.up</object-name>
+    <object-name>nav1.knob</object-name>
     <action>
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/primus1000/dc550/nav1ptr</property>
-            <step>1</step>
-            <min>0</min>
-            <max>3</max>
-            <wrap>false</wrap>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("pointer1-inc");</script>
         </binding>
     </action>
 </animation>
 
 <animation>
     <type>pick</type>
-    <object-name>N2ptr.dwn</object-name>
+    <object-name>nav2.knob</object-name>
     <action>
-        <button>0</button>
+        <button>1</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/primus1000/dc550/nav2ptr</property>
-            <step>-1</step>
-            <min>0</min>
-            <max>3</max>
-            <wrap>false</wrap>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("pointer2-dec");</script>
         </binding>
     </action>
 </animation>
 
 <animation>
     <type>pick</type>
-    <object-name>N2ptr.up</object-name>
+    <object-name>nav2.knob</object-name>
     <action>
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-adjust</command>
-            <property>instrumentation/primus1000/dc550/nav2ptr</property>
-            <step>1</step>
-            <min>0</min>
-            <max>3</max>
-            <wrap>false</wrap>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("pointer2-inc");</script>
         </binding>
     </action>
 </animation>
@@ -147,8 +112,8 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/hsi</property>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("hsi");</script>
         </binding>
     </action>
 </animation>
@@ -160,8 +125,8 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/cp</property>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("cp");</script>
         </binding>
     </action>
 </animation>
@@ -173,8 +138,8 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/hpa</property>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("hpa");</script>
         </binding>
     </action>
 </animation>
@@ -186,8 +151,8 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/ttg</property>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("ttg");</script>
         </binding>
     </action>
 </animation>
@@ -199,8 +164,8 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/primus1000/dc550/et</property>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("et");</script>
         </binding>
     </action>
 </animation>
@@ -212,9 +177,8 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/primus1000/dc550/fms</property>
-            <value>0</value>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("nav");</script>
         </binding>
     </action>
 </animation>
@@ -226,11 +190,38 @@ Display Control 550
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/primus1000/dc550/fms</property>
-            <value>1</value>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("fms");</script>
         </binding>
     </action>
 </animation>
--->
+
+<animation>
+    <type>pick</type>
+    <object-name>DH.knob</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("ra-up");</script>
+        </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>DH.knob</object-name>
+    <action>
+        <button>1</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.2</interval-sec>
+        <binding>
+            <command>nasal</command>
+            <script>efis.primus.ctl_set("ra-dn");</script>
+        </binding>
+    </action>
+</animation>
+
 </PropertyList>

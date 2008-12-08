@@ -186,4 +186,33 @@ KDI-572 DME Indicator
         </axis>
     </animation>
 
+<!-- -hotspots -->
+
+<animation>
+    <type>pick</type>
+    <object-name>DMEswitch</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+                <command>nasal</command>
+                <script>citation.dme_step(1)</script>
+       </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>DMEswitch</object-name>
+    <action>
+        <button>1</button>
+        <repeatable>false</repeatable>
+        <binding>
+                <command>nasal</command>
+                <script>citation.dme_step(-1)</script>
+       </binding>
+    </action>
+</animation>
+
+
 </PropertyList>

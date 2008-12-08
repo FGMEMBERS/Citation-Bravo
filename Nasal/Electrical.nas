@@ -25,7 +25,7 @@ Battery = {
             m.ideal_volts = vlt;
             m.ideal_amps = amp;
             m.amp_hours = hr;
-            m.charge_percent = chp; 
+            m.charge_percent = chp;
             m.charge_amps = cha;
     return m;
     },
@@ -122,8 +122,8 @@ Alternator = {
 };
 
 var battery = Battery.new("/controls/electric/battery-switch",24,30,34,1.0,7.0);
-alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/rpm",20.0,28.0,60.0);
-alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/rpm",20.0,28.0,60.0);
+alternator1 = Alternator.new(0,"controls/electric/engine[0]/generator","/engines/engine[0]/n1",20.0,28.0,60.0);
+alternator2 = Alternator.new(1,"controls/electric/engine[1]/generator","/engines/engine[1]/n1",20.0,28.0,60.0);
 
 #####################################
 setlistener("/sim/signals/fdm-initialized", func {
@@ -265,7 +265,7 @@ update_virtual_bus = func( dt ) {
     load = 0.0;
     bus_volts = 0.0;
     power_source = nil;
-        
+
         bus_volts = battery_volts;
         power_source = "battery";
 
@@ -320,7 +320,7 @@ setprop("systems/electrical/ac-volts",ivn * (acv * 4));
 
 
 electrical_bus = func(bv) {
-    var bus_volts = bv; 
+    var bus_volts = bv;
     var load = 0.0;
     var srvc = 0.0;
 
@@ -335,8 +335,8 @@ electrical_bus = func(bv) {
     return load;
 }
 
-#### used in Instruments/source code 
-# adf : dme : encoder : gps : DG : transponder  
+#### used in Instruments/source code
+# adf : dme : encoder : gps : DG : transponder
 # mk-viii : MRG : tacan : turn-coordinator
 # nav[0] : nav [1] : comm[0] : comm[1]
 ####

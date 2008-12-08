@@ -24,9 +24,9 @@ NACA 23012 tip -3 degree twist
 -->
 
 <airplane mass="8750">
-    <approach speed="120" aoa="3" fuel="0.8">
-        <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.25"/>
-        <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.25"/>
+    <approach speed="112" aoa="3" fuel="0.8">
+        <control-setting axis="/controls/engines/engine[0]/throttle-lever" value="0.20"/>
+        <control-setting axis="/controls/engines/engine[1]/throttle-lever" value="0.20"/>
         <control-setting axis="/controls/engines/engine[0]/mixture" value="1.0"/>
         <control-setting axis="/controls/engines/engine[1]/mixture" value="1.0"/>
         <control-setting axis="/controls/flight/flaps" value="0.75"/>
@@ -47,7 +47,7 @@ NACA 23012 tip -3 degree twist
     </cruise>
 
     <cockpit x="-2.75" y="0.38" z="0.91"/>
-    <!-- FUSELAGE -->   
+    <!-- FUSELAGE -->
     <fuselage ax="0" ay="0" az="0.02" bx="-2.838" by="0" bz="0.514"
     width="1.60" taper="0.2" midpoint="1.0" idrag="0"/>
 
@@ -65,8 +65,8 @@ NACA 23012 tip -3 degree twist
     width="0.92" taper="0.5" midpoint="0.25" idrag="0"/>
 
 
-    <wing x="-7.29" y="0.8" z="-0.12" length="7.075" chord="2.72" 
-    sweep="0" dihedral="4" taper="0.33" camber="0.027"
+    <wing x="-7.29" y="0.8" z="-0.12" length="7.075" chord="2.72"
+    sweep="0" dihedral="4" taper="0.33" camber="0.005"
     incidence="3.0" twist="-3.0" idrag="1.20">
         <stall aoa="14" width="8" peak="1.5"/>
         <flap0 start="0" end=".52" lift="1.6" drag="1.8"/>
@@ -92,7 +92,7 @@ NACA 23012 tip -3 degree twist
         <control-input axis="/controls/flight/elevator-trim" control="FLAP0"/>
         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
     </hstab>
-  
+
     <vstab x="-12.43" y="0.00" z="1.03" length="2.60" chord="2.48"
     sweep="26.5" taper="0.46">
         <stall aoa="16" width="4" peak="1.5"/>
@@ -122,7 +122,7 @@ NACA 23012 tip -3 degree twist
         <control-speed control="EXTEND" transition-time="4"/>
         <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
     </gear>
-    
+
     <gear x="-7.5" y="2.8" z="-0.961" compression=".4" retract-time="4.1"
     sfric="0.9" dfric="0.9">
         <control-input axis="/controls/gear/brake-left" control="BRAKE"/>
@@ -131,7 +131,7 @@ NACA 23012 tip -3 degree twist
         <control-speed control="EXTEND" transition-time="4.1"/>
         <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
     </gear>
-    
+
     <gear x="-7.5" y="-2.8" z="-0.961" compression=".4" retract-time="4.2"
     sfric="0.9" dfric="0.9">
         <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
@@ -140,14 +140,14 @@ NACA 23012 tip -3 degree twist
         <control-speed control="EXTEND" transition-time="4.2"/>
         <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
     </gear>
-  
+
 <!-- Pratt and Whitney Canada Inc. PW530A Turbofan
 2750 lbs thrust
 3.2 bypass ratio
 dry wgt 616.5 lbs
 -->
 
-    <jet x="-8.9" y="1.35" z="0.9" mass="620" thrust="2750" tsfc="0.55" 
+    <jet x="-8.9" y="1.35" z="0.9" mass="620" thrust="2750" tsfc="0.55"
     epr="3.2" rotate="0" n1-idle="45" n1-max="103.0" n2-idle="45.5"
     n2-max="105" spool-time="2.5">
         <control-input axis="/controls/engines/engine[0]/throttle-lever"
@@ -158,7 +158,7 @@ dry wgt 616.5 lbs
         <control-speed control="REVERSE_THRUST" transition-time="1.5"/>
         <actionpt x="-10.5" y="1.37" z="0.76"/>
     </jet>
-  
+
     <jet x="-8.9" y="-1.35" z="0.9" mass="620" thrust="2750" tsfc="0.55"
     epr="3.2" rotate="0" n1-idle="45" n1-max="103.0" n2-idle="45.5"
     n2-max="105" spool-time="2.5">
@@ -171,8 +171,8 @@ dry wgt 616.5 lbs
         <actionpt x="-10.5" y="-1.37" z="0.76"/>
     </jet>
 
-    <ballast x="-12" y="0.0" z="1.0" mass="-1000"/>
-    <ballast x="-2" y="0.0" z="1.0" mass="1000"/>
+    <ballast x="-12" y="0.0" z="1.0" mass="-1400"/>
+    <ballast x="-2" y="0.0" z="1.0" mass="1400"/>
 
     <weight x="-2.7" y="0" z="-0.5" mass-prop="/sim/weight[0]/weight-lb"/>
     <weight x="-7.3" y="0" z="-0.5" mass-prop="/sim/weight[1]/weight-lb"/>

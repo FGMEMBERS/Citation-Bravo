@@ -37,7 +37,7 @@
         <path>Aircraft/Citation-Bravo/Sound/whine.wav</path>
         <condition>
             <greater-than>
-                <property>engines/engine/rpm</property>
+                <property>engines/engine/fan</property>
                 <value>10</value>
             </greater-than>
         </condition>
@@ -46,7 +46,7 @@
             <property>sim/sound/Ovolume</property>
         </volume>
         <pitch>
-            <property>engines/engine/rpm</property>
+            <property>engines/engine/fan</property>
             <offset>0.5</offset>
             <factor>0.005</factor>
         </pitch>
@@ -90,7 +90,7 @@
         <path>Aircraft/Citation-Bravo/Sound/whine.wav</path>
         <condition>
             <greater-than>
-                <property>engines/engine[1]/rpm</property>
+                <property>engines/engine[1]/fan</property>
                 <value>10</value>
             </greater-than>
         </condition>
@@ -99,7 +99,7 @@
             <property>sim/sound/Ovolume</property>
         </volume>
         <pitch>
-            <property>engines/engine[1]/rpm</property>
+            <property>engines/engine[1]/fan</property>
             <offset>0.5</offset>
             <factor>0.005</factor>
         </pitch>

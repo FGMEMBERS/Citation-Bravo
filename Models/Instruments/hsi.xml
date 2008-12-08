@@ -112,4 +112,34 @@ STBY HSI
         </center>
     </animation>
 
+<!-- -hotspots -->
+
+<animation>
+    <type>pick</type>
+    <object-name>HSI.knob</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.1</interval-sec>
+        <binding>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(1)</script>
+       </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>HSI.knob</object-name>
+    <action>
+        <button>1</button>
+        <repeatable>true</repeatable>
+        <interval-sec>0.1</interval-sec>
+        <binding>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(-1)</script>
+       </binding>
+    </action>
+</animation>
+
 </PropertyList>

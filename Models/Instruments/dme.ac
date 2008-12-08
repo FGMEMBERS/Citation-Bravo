@@ -9,7 +9,7 @@ OBJECT poly
 name "DME.kt1"
 data 9
 Plane.145
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -30,7 +30,7 @@ OBJECT poly
 name "DME.kt2"
 data 9
 Plane.146
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -51,7 +51,7 @@ OBJECT poly
 name "DME.kt3"
 data 9
 Plane.147
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -72,7 +72,7 @@ OBJECT poly
 name "DME.mn1"
 data 9
 Plane.149
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -93,7 +93,7 @@ OBJECT poly
 name "DME.mn2"
 data 9
 Plane.148
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -114,7 +114,7 @@ OBJECT poly
 name "DME.nm"
 data 9
 Plane.150
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -135,7 +135,7 @@ OBJECT poly
 name "DME.nm1"
 data 9
 Plane.131
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -156,7 +156,7 @@ OBJECT poly
 name "DME.nm2"
 data 9
 Plane.143
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -177,7 +177,7 @@ OBJECT poly
 name "DME.nm3"
 data 9
 Plane.151
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 4
@@ -198,7 +198,7 @@ OBJECT poly
 name "DMEswitch"
 data 8
 Cylinder
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 40.000000
 numvert 28
@@ -383,7 +383,7 @@ OBJECT poly
 name "dmebezel"
 data 8
 Mesh.079
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 56
@@ -765,7 +765,7 @@ OBJECT poly
 name "dmeface"
 data 8
 Mesh.094
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 6
@@ -795,7 +795,7 @@ OBJECT poly
 name "dmeface.001"
 data 8
 Mesh.354
-texture "dme.rgb"
+texture "dme.png"
 texrep 1 1
 crease 30.000000
 numvert 6

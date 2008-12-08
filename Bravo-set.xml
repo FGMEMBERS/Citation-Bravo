@@ -15,9 +15,9 @@ Feb 2005  Syd Adams   ()
     <aero>Citation-Bravo-yasim</aero>
     <fuel-fraction>0.8</fuel-fraction>
     <startup>
-        <splash-texture>Aircraft/Citation-Bravo/Bravo-splash.rgb</splash-texture>
+        <splash-texture>Aircraft/Citation-Bravo/Bravo-splash.png</splash-texture>
     </startup>
-   
+
     <view n="0">
         <name>Cockpit</name>
         <type>lookfrom</type>
@@ -50,38 +50,38 @@ Feb 2005  Syd Adams   ()
             <pitch-offset-deg>5</pitch-offset-deg>
         </config>
     </view>
-        
+
     <view n="2">
         <config>
             <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
             <pitch-offset-deg>5</pitch-offset-deg>
         </config>
     </view>
-    
+
     <view n="3">
         <config>
             <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
         </config>
     </view>
-        
+
     <view n="4">
         <config>
             <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
         </config>
     </view>
-        
+
     <view n="5">
         <config>
             <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
         </config>
     </view>
-        
+
     <view n="6">
         <config>
             <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
         </config>
     </view>
-        
+
 
     <airport>
         <runways>
@@ -90,26 +90,25 @@ Feb 2005  Syd Adams   ()
     </airport>
 
 <allow-toggle-cockpit>true</allow-toggle-cockpit>
-        
+
     <systems>
-        <electrical>
-            <path></path>
-        </electrical>
         <autopilot>
             <path>Aircraft/Citation-Bravo/Systems/Citation-autopilot.xml</path>
         </autopilot>
+
+        <path>Aircraft/Citation-Bravo/Systems/systems.xml</path>
     </systems>
-    
+
     <sound>
         <path>Aircraft/Citation-Bravo/Sound/Citation-Bravo-sound.xml</path>
     </sound>
-    
+
     <hud>
         <enable3d>false</enable3d>
     </hud>
-    
+
     <virtual-cockpit archive="y">true</virtual-cockpit>
-  
+
     <help>
         <title>Cessna 550B Citation-Bravo</title>
         <line></line>
@@ -130,7 +129,9 @@ Feb 2005  Syd Adams   ()
     <model>
         <path>Aircraft/Citation-Bravo/Models/Bravo.xml</path>
         <autostart type="bool">0</autostart>
-        <variant type="int">0</variant>
+            <livery>
+                <file type="string">Waves</file>
+            </livery>
         <Bravo>
             <n1 n="0" type="double">0</n1>
             <n1 n="1" type="double">0</n1>
@@ -143,7 +144,7 @@ Feb 2005  Syd Adams   ()
 
     <weight n="0">
         <name>Crew</name>
-        <weight-lb>180</weight-lb> 
+        <weight-lb>180</weight-lb>
         <max-lb>400</max-lb>
         <min-lb>120</min-lb>
     </weight>
@@ -177,8 +178,9 @@ Feb 2005  Syd Adams   ()
     </flaps>
 
         <instrumentation>
-            <path>Aircraft/Citation-Bravo/instrumentation.xml</path>
+            <path>Aircraft/Citation-Bravo/Systems/instrumentation.xml</path>
         </instrumentation>
+
 
     <yokes-visible type="bool">1</yokes-visible>
     <head-bounce type="bool">0</head-bounce>
@@ -230,10 +232,17 @@ Feb 2005  Syd Adams   ()
                         <property>controls/lighting/cabin-lights</property>
                     </binding>
                 </item>
+                <item>
+                    <label>Select Livery</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>aircraft.livery.dialog.toggle()</script>
+                    </binding>
+                </item>
             </menu>
         </default>
     </menubar>
-        
+
 </sim>
 
     <systems>
@@ -324,8 +333,8 @@ Feb 2005  Syd Adams   ()
             </font>
             <lightning type="bool" archive="y">true</lightning>
             <display-mode type="string" archive="y">plan</display-mode>
-            <radar-texture-path type="string" archive="y">Aircraft/Citation-Bravo/Models/Instruments/od_wxradar.rgb</radar-texture-path>
-            <echo-texture-path type="string" archive="y">Aircraft/Citation-Bravo/Models/Instruments/wxecho.rgb</echo-texture-path>
+            <radar-texture-path type="string" archive="y">Aircraft/Instruments-3d/primus-1000/MFD/od_wxradar.png</radar-texture-path>
+            <echo-texture-path type="string" archive="y">Aircraft/Instruments-3d/primus-1000/MFD/wxecho.png</echo-texture-path>
             <minimized type="bool" archive="y">false</minimized>
             <heading-marker type="bool" archive="y">true</heading-marker>
             <limit-deg type="int">360</limit-deg>
@@ -422,9 +431,11 @@ Feb 2005  Syd Adams   ()
             <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
-            <file>Aircraft/Citation-Bravo/Nasal/Primus1000.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/M877.nas</file>
         </citation>
+        <efis>
+            <file>Aircraft/Instruments-3d/primus-1000/P1000.nas</file>
+        </efis>
     </nasal>
 
     <input>
