@@ -431,8 +431,10 @@ Feb 2005  Syd Adams   ()
             <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
-            <file>Aircraft/Citation-Bravo/Nasal/M877.nas</file>
         </citation>
+        <m877>
+            <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
+        </m877>
         <efis>
             <file>Aircraft/Instruments-3d/primus-1000/P1000.nas</file>
         </efis>

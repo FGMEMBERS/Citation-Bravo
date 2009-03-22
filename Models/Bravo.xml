@@ -135,7 +135,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/m877.xml</path>
+        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
         <offsets>
             <x-m>2.409</x-m>
             <y-m>-0.530</y-m>
@@ -145,7 +145,7 @@
     </model>
 
     <model>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/m877.xml</path>
+        <path>Aircraft/Instruments-3d/clock/M877/m877.xml</path>
         <offsets>
             <x-m>2.409</x-m>
             <y-m>0.515</y-m>
