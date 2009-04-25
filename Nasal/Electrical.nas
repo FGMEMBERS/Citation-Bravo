@@ -263,6 +263,7 @@ update_virtual_bus = func( dt ) {
         lbus_volts *=PWR;
          Lbus.setValue(lbus_volts);
         load += lh_bus(lbus_volts);
+        alternator1.apply_load(load);
     }else{
         rbus_volts = battery_volts;
         power_source = "battery";
@@ -274,6 +275,7 @@ update_virtual_bus = func( dt ) {
         rbus_volts *=PWR;
         Rbus.setValue(rbus_volts);
         load += rh_bus(rbus_volts);
+        alternator2.apply_load(load);
     }
     count=1-count;
     if(rbus_volts > 5 and  lbus_volts>5) xtie=1;
@@ -297,8 +299,6 @@ update_virtual_bus = func( dt ) {
 
 #    ammeter_ave = 0.8 * ammeter_ave + 0.2 * ammeter;
 
-    alternator1.apply_load(load);
-    alternator2.apply_load(load);
 
 return load;
 }
