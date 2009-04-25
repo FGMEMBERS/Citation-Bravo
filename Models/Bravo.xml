@@ -408,7 +408,7 @@
         <object-name>FQty02</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -423,7 +423,7 @@
         <object-name>LHn1.03</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -437,7 +437,7 @@
         <object-name>N1limit.003</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -451,7 +451,7 @@
         <object-name>RHn1.03</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -466,7 +466,7 @@
         <object-name>LHn2.03</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -480,7 +480,7 @@
         <object-name>RHn2.03</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -494,7 +494,7 @@
         <object-name>LHflow.004</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -508,7 +508,7 @@
         <object-name>RHflow.004</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -521,7 +521,7 @@
         <object-name>LndLight.002</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/outputs/landing-lights</property>
+                <property>sim/multiplay/generic/int[3]</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -576,7 +576,7 @@
         <object-name>Recog.001</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/outputs/recog-lights</property>
+                <property>sim/multiplay/generic/int[4]</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -696,7 +696,7 @@
         <object-name>beacon</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/outputs/beacon</property>
+                <property>sim/multiplay/generic/int[1]</property>
                 <value>5</value>
             </greater-than>
         </condition>
@@ -706,7 +706,7 @@
         <type>select</type>
         <object-name>Flash01</object-name>
         <condition>
-            <property>controls/lighting/strobe-state/state</property>
+            <property>sim/multiplay/generic/int</property>
         </condition>
     </animation>
 
@@ -739,7 +739,7 @@
         <type>select</type>
         <object-name>Flash02</object-name>
         <condition>
-            <property>controls/lighting/strobe-state/state</property>
+            <property>sim/multiplay/generic/int</property>
         </condition>
     </animation>
 
@@ -782,7 +782,7 @@
                     <value>1.6</value>
                 </greater-than>
                 <not>
-                    <property>controls/lighting/strobe-state/state</property>
+                    <property>sim/multiplay/generic/int</property>
                 </not>
             </and>
         </condition>
@@ -827,7 +827,7 @@
                     <value>1.6</value>
                 </greater-than>
                 <not>
-                    <property>controls/lighting/strobe-state/state</property>
+                    <property>sim/multiplay/generic/int</property>
                 </not>
             </and>
         </condition>
@@ -900,13 +900,10 @@
         <type>select</type>
         <object-name>Redglow.001</object-name>
         <condition>
-            <and>
-                <property>controls/lighting/beacon-state/state</property>
-                <greater-than>
-                    <property>sim/time/sun-angle-rad</property>
-                    <value>1.6</value>
-                </greater-than>
-            </and>
+		<greater-than>
+		<property>sim/time/sun-angle-rad</property>
+		<value>1.6</value>
+		</greater-than>
         </condition>
     </animation>
 
@@ -2973,7 +2970,7 @@
     <animation>
         <type>rotate</type>
         <object-name>DCvolts</object-name>
-        <property>systems/electrical/bus-volts</property>
+        <property>systems/electrical/left-bus</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
             <entry><ind>40.0</ind><dep>-280</dep></entry>

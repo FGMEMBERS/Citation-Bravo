@@ -15,14 +15,11 @@ var JetEngine = {
     new : func(eng_num){
         m = { parents : [JetEngine]};
         m.ITTlimit=8.9;
-        m.fdensity = getprop("consumables/fuel/tank/density-ppg");
-        if(m.fdensity ==nil)m.fdensity=6.72;
-        m.eng = props.globals.getNode("engines/engine["~eng_num~"]",1);
-        m.running = m.eng.getNode("running",1);
-        m.running.setBoolValue(0);
-        m.itt=m.eng.getNode("itt-norm");
-        m.itt_c=m.eng.getNode("itt-celcius",1);
-        m.itt_c.setDoubleValue(0);
+        m.fdensity = getprop("consumables/fuel/tank/density-ppg") or 6.72;
+        m.eng = props.globals.initNode("engines/engine["~eng_num~"]");
+        m.running = m.eng.initNode("running",0,"BOOL");
+        m.itt=m.eng.initNode("itt-norm",0,"DOUBLE");
+        m.itt_c=m.eng.initNode("itt-celcius",0,"DOUBLE");
         m.n1 = m.eng.getNode("n1",1);
         m.n2 = m.eng.getNode("n2",1);
         m.fan = m.eng.getNode("fan",1);
@@ -417,7 +414,8 @@ var update_systems = func{
     var Ghorn = 0;
     var GLock = 0;
     PWR2 =0;
-    if(getprop("systems/electrical/bus-volts") > 2.0)PWR2=1;
+    if(getprop("systems/electrical/right-bus") > 2.0)PWR2=1;
+    if(getprop("systems/electrical/left-bus") > 2.0)PWR2=1;
 
     if(gr1 != 1.0)GrWrn =1;
     if(gr2 != 1.0)GrWrn =1;
