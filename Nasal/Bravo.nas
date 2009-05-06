@@ -17,49 +17,43 @@ var JetEngine = {
         m.ITTlimit=8.9;
         m.fdensity = getprop("consumables/fuel/tank/density-ppg") or 6.72;
         m.eng = props.globals.initNode("engines/engine["~eng_num~"]");
+        m.controls = props.globals.initNode("controls/engines/engine["~eng_num~"]");
         m.running = m.eng.initNode("running",0,"BOOL");
-        m.itt=m.eng.initNode("itt-norm",0,"DOUBLE");
-        m.itt_c=m.eng.initNode("itt-celcius",0,"DOUBLE");
-        m.n1 = m.eng.getNode("n1",1);
-        m.n2 = m.eng.getNode("n2",1);
-        m.fan = m.eng.getNode("fan",1);
-        m.fan.setDoubleValue(0);
-        m.cycle_up = m.eng.getNode("start-cycle",1);
-        m.cycle_up.setBoolValue(0);
-        m.turbine = m.eng.getNode("turbine",1);
-        m.turbine.setDoubleValue(0);
-        m.throttle_lever = props.globals.getNode("controls/engines/engine["~eng_num~"]/throttle-lever",1);
-        m.throttle_lever.setDoubleValue(0);
-        m.throttle = props.globals.getNode("controls/engines/engine["~eng_num~"]/throttle",1);
-        m.throttle.setDoubleValue(0);
-        m.ignition = props.globals.getNode("controls/engines/engine["~eng_num~"]/ignition",1);
-        m.cutoff = props.globals.getNode("controls/engines/engine["~eng_num~"]/cutoff",1);
-        m.cutoff.setBoolValue(1);
-        m.fuel_out = props.globals.getNode("engines/engine["~eng_num~"]/out-of-fuel",1);
-        m.fuel_out.setBoolValue(0);
-        m.starter = props.globals.getNode("controls/engines/engine["~eng_num~"]/starter",1);
-        m.fuel_pph=m.eng.getNode("fuel-flow_pph",1);
-        m.fuel_pph.setDoubleValue(0);
-        m.fuel_gph=m.eng.getNode("fuel-flow-gph",1);
-        m.hpump=props.globals.getNode("systems/hydraulics/pump-psi["~eng_num~"]",1);
-        m.hpump.setDoubleValue(0);
-    return m;
+        m.itt=m.eng.initNode("itt-norm",0.0);
+        m.itt_c=m.eng.initNode("itt-celcius",0.0);
+        m.n1 = m.eng.initNode("n1");
+        m.n2 = m.eng.initNode("n2");
+        m.fan = m.eng.initNode("fan",0.0);
+        m.cycle_up = 0;
+        m.turbine = m.eng.initNode("turbine",0.0);
+        m.throttle_lever = m.controls.initNode("throttle-lever",0.0);
+        m.throttle = m.controls.initNode("throttle",0.0);
+        m.ignition = m.controls.initNode("ignition",1);
+        m.cutoff = m.controls.initNode("cutoff",1,"BOOL");
+        m.engine_off=1;
+        m.fuel_out = m.eng.initNode("out-of-fuel",0,"BOOL");
+        m.starter = m.controls.initNode("starter");
+        m.fuel_pph=m.eng.initNode("fuel-flow_pph",0.0);
+        m.fuel_gph=m.eng.initNode("fuel-flow-gph");
+        m.hpump=props.globals.initNode("systems/hydraulics/pump-psi["~eng_num~"]",0.0);
+        
+        m.Lfuel = setlistener(m.fuel_out, func (fl) {m.shutdown(fl.getValue())},1,0);
+        m.Lign = setlistener(m.ignition, func (ig) {m.shutdown(1-ig.getValue())},1,0);
+        m.CutOff = setlistener(m.cutoff, func (ct){m.engine_off=ct.getValue()},1,0);
+        return m;
     },
 #### update ####
     update : func{
-        if(me.fuel_out.getBoolValue())me.cutoff.setBoolValue(1);
-        if(!me.ignition.getBoolValue())me.cutoff.setBoolValue(1);
-        if(!me.cutoff.getBoolValue()){
-        me.fan.setValue(me.n1.getValue());
-        me.turbine.setValue(me.n2.getValue());
-        if()me.throttle.setValue(me.throttle.getValue);
-        var thr = me.throttle.getValue();
-        if(getprop("controls/engines/grnd_idle"))thr *=0.92;
-        me.throttle_lever.setValue(thr);
+        if(!me.engine_off){
+            var thr = me.throttle.getValue();
+            me.fan.setValue(me.n1.getValue());
+            me.turbine.setValue(me.n2.getValue());
+            if(getprop("controls/engines/grnd_idle"))thr *=0.92;
+            me.throttle_lever.setValue(thr);
         }else{
             me.throttle_lever.setValue(0);
-            if(me.starter.getBoolValue())me.cycle_up.setValue(me.ignition.getBoolValue());
-            if(me.cycle_up.getBoolValue()){
+            if(me.starter.getBoolValue())me.cycle_up=me.ignition.getValue();
+            if(me.cycle_up){
                 me.spool_up(15);
             }else{
                 var tmprpm = me.fan.getValue();
@@ -78,36 +72,41 @@ var JetEngine = {
     },
 
     spool_up : func(scnds){
-        if(!me.cutoff.getBoolValue()){
-        return;
+        if(!me.engine_off){
+            return;
         }else{
-        var n1=me.n1.getValue() ;
-        var n1factor = n1/scnds;
-        var n2=me.n2.getValue() ;
-        var n2factor = n2/scnds;
-        var tmprpm = me.fan.getValue();
+            var n1=me.n1.getValue() ;
+            var n1factor = n1/scnds;
+            var n2=me.n2.getValue() ;
+            var n2factor = n2/scnds;
+            var tmprpm = me.fan.getValue();
             tmprpm += getprop("sim/time/delta-sec") * n1factor;
             var tmprpm2 = me.turbine.getValue();
             tmprpm2 += getprop("sim/time/delta-sec") * n2factor;
             me.fan.setValue(tmprpm);
             me.turbine.setValue(tmprpm2);
             if(tmprpm >= me.n1.getValue()){
-            me.cutoff.setBoolValue(0);
-            me.cycle_up.setBoolValue(0);
+                me.cutoff.setBoolValue(0);
+                me.cycle_up=0;
             }
         }
     },
+
+    shutdown : func(b){
+        if(b!=0){
+            me.cutoff.setBoolValue(1);
+        }
+    }
 };
 
 
 aircraft.light.new("instrumentation/annunciators", [0.5, 0.5], MstrCaution);
 var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
 var FHmeter = aircraft.timer.new("/instrumentation/clock/flight-meter-sec", 10,1);
-var LHeng= JetEngine.new(0);
-var RHeng= JetEngine.new(1);
 var Grd_Idle=props.globals.getNode("controls/engines/grnd-idle",1);
 Grd_Idle.setBoolValue(1);
-
+var LHeng= JetEngine.new(0);
+var RHeng= JetEngine.new(1);
 
 #######################################
 setlistener("/sim/signals/fdm-initialized", func {
@@ -180,10 +179,10 @@ setlistener("/sim/freeze/fuel", func(ffr){
 
 
 var annunciators_loop = func{
-    setprop("/instrumentation/annunciators/LHign",LHeng.cycle_up.getBoolValue());
-    setprop("/instrumentation/annunciators/fuel-boost",LHeng.cycle_up.getBoolValue());
-    setprop("/instrumentation/annunciators/RHign",RHeng.cycle_up.getBoolValue());
-    setprop("/instrumentation/annunciators/fuel-boost",RHeng.cycle_up.getBoolValue());
+    setprop("/instrumentation/annunciators/LHign",LHeng.cycle_up);
+    setprop("/instrumentation/annunciators/fuel-boost",LHeng.cycle_up);
+    setprop("/instrumentation/annunciators/RHign",RHeng.cycle_up);
+    setprop("/instrumentation/annunciators/fuel-boost",RHeng.cycle_up);
 
     var Tfuel = getprop("/consumables/fuel/total-fuel-lbs");
         if(Tfuel != nil){
