@@ -122,8 +122,44 @@ STBY HSI
         <repeatable>true</repeatable>
         <interval-sec>0.1</interval-sec>
         <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
                  <command>nasal</command>
                 <script>citation.FlDr.set_course(1)</script>
+       </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(5)</script>
+       </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>HSI.knob</object-name>
+    <action>
+        <button>3</button>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(1)</script>
+       </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(5)</script>
        </binding>
     </action>
 </animation>
@@ -136,8 +172,44 @@ STBY HSI
         <repeatable>true</repeatable>
         <interval-sec>0.1</interval-sec>
         <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
                  <command>nasal</command>
                 <script>citation.FlDr.set_course(-1)</script>
+       </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(-5)</script>
+       </binding>
+    </action>
+</animation>
+
+<animation>
+    <type>pick</type>
+    <object-name>HSI.knob</object-name>
+    <action>
+        <button>4</button>
+        <binding>
+            <condition>
+                <not>
+                    <property>devices/status/keyboard/shift</property>
+                </not>
+            </condition>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(-1)</script>
+       </binding>
+        <binding>
+            <condition>
+                <property>devices/status/keyboard/shift</property>
+            </condition>
+                 <command>nasal</command>
+                <script>citation.FlDr.set_course(-5)</script>
        </binding>
     </action>
 </animation>
