@@ -31,6 +31,52 @@
       <texture>Paint1.png</texture>
     </animation>
 
+	<model><!-- LH tail reg-->
+		<path>Aircraft/Citation/Models/registration.xml</path>
+		<offsets>
+			<x-m>13.107</x-m>
+			<y-m>-0.06</y-m>
+			<z-m>2.411</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+		<overlay>
+			<params>
+				<size>0.80</size>
+				<alignment>xz-plane</alignment>
+				<color>
+					<red>0.165</red>
+					<green>0.310</green>
+					<blue>0.600</blue>
+				</color>
+			</params>
+		</overlay>
+	</model>
+
+	<model><!-- RH tail reg-->
+		<path>Aircraft/Citation/Models/registration.xml</path>
+		<offsets>
+			<x-m>13.107</x-m>
+			<y-m>0.06</y-m>
+			<z-m>2.411</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>0</heading-deg>
+		</offsets>
+		<overlay>
+			<params>
+				<size>0.80</size>
+				<alignment>reversed-xz-plane</alignment>
+				<color>
+					<red>0.165</red>
+					<green>0.310</green>
+					<blue>0.600</blue>
+				</color>
+			</params>
+		</overlay>
+	</model>
+
     <model>
         <name>cabin</name>
         <path>Aircraft/Citation-Bravo/Models/cabin.xml</path>
@@ -184,7 +230,7 @@
         <object-name>Recog.001</object-name>
         <condition>
             <greater-than>
-                <property>sim/multiplay/generic/int[4]</property>
+                <property>sim/multiplay/generic/int[5]</property>
                 <value>2.0</value>
             </greater-than>
         </condition>
@@ -293,7 +339,7 @@
         <object-name>whitenav</object-name>
         <condition>
             <greater-than>
-                <property>systems/electrical/outputs/nav-lights</property>
+                <property>sim/multiplay/generic/int[2]</property>
                 <value>5</value>
             </greater-than>
         </condition>
@@ -382,7 +428,7 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>systems/electrical/outputs/nav-lights</property>
+                    <property>sim/multiplay/generic/int[2]</property>
                     <value>0.2</value>
                 </greater-than>
                 <greater-than>
@@ -427,7 +473,7 @@
         <condition>
             <and>
                 <greater-than>
-                    <property>systems/electrical/outputs/nav-lights</property>
+                    <property>sim/multiplay/generic/int[2]</property>
                     <value>0.2</value>
                 </greater-than>
                 <greater-than>
@@ -725,7 +771,7 @@
     <animation>
         <type>rotate</type>
         <object-name>RHspoiler.top</object-name>
-        <property>surface-positions/speedbrake-pos-norm</property>
+        <property>sim/multiplay/generic/float[2]</property>
         <factor>-55</factor>
         <center>
             <x-m>7.588</x-m>
@@ -742,7 +788,7 @@
     <animation>
         <type>rotate</type>
         <object-name>RHspoiler.btm</object-name>
-        <property>surface-positions/speedbrake-pos-norm</property>
+        <property>sim/multiplay/generic/float[2]</property>
         <factor>45</factor>
         <center>
             <x-m>7.588</x-m>
@@ -759,7 +805,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LHspoiler.top</object-name>
-        <property>surface-positions/speedbrake-pos-norm</property>
+        <property>sim/multiplay/generic/float[2]</property>
         <factor>55</factor>
         <center>
             <x-m>7.588</x-m>
@@ -776,7 +822,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LHspoiler.btm</object-name>
-        <property>surface-positions/speedbrake-pos-norm</property>
+        <property>sim/multiplay/generic/float[2]</property>
         <factor>-45</factor>
         <center>
             <x-m>7.588</x-m>
@@ -793,7 +839,7 @@
     <animation>
         <type>rotate</type>
         <object-name>UprReverser</object-name>
-        <property>surface-positions/reverser-norm</property>
+        <property>sim/multiplay/generic/float[1]</property>
         <factor>65</factor>
         <center>
             <x-m>10.394</x-m>
@@ -810,7 +856,7 @@
     <animation>
         <type>rotate</type>
         <object-name>LwrReverser</object-name>
-        <property>surface-positions/reverser-norm</property>
+        <property>sim/multiplay/generic/float[1]</property>
         <factor>70</factor>
         <center>
             <x-m>10.391</x-m>
@@ -1285,10 +1331,10 @@
     <animation>
         <type>rotate</type>
         <object-name>Cabin.door</object-name>
-        <property>controls/cabin-door/position-norm</property>
+        <property>sim/multiplay/generic/float</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>
-            <entry><ind>1.0</ind><dep>-175.0</dep></entry>
+            <entry><ind>1.0</ind><dep>-130.0</dep></entry>
         </interpolation>
         <center>
             <x-m>4.129</x-m>

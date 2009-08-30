@@ -31,10 +31,10 @@
     <animation>
         <type>rotate</type>
         <object-name>Cabin.door.001</object-name>
-        <property>controls/cabin-door/position-norm</property>
+        <property>sim/multiplay/generic/float</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>
-            <entry><ind>1.0</ind><dep>-175.0</dep></entry>
+            <entry><ind>1.0</ind><dep>-130.0</dep></entry>
         </interpolation>
         <center>
             <x-m>4.129</x-m>

@@ -18,6 +18,21 @@ Feb 2005  Syd Adams   ()
         <splash-texture>Aircraft/Citation-Bravo/Bravo-splash.png</splash-texture>
     </startup>
 
+    <multiplay>
+        <generic>
+            <int n="0" alias="/systems/electrical/outputs/strobe"/>
+			<int n="1" alias="/systems/electrical/outputs/beacon"/>
+			<int n="2" alias="/systems/electrical/outputs/nav-lights"/>
+			<int n="3" alias="/systems/electrical/outputs/landing-light2"/>
+			<int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
+			<int n="5" alias="/systems/electrical/outputs/recog-lights"/>
+			<float  alias="/controls/cabin-door/position-norm"/>
+			<float  n="1" alias="/surface-positions/reverser-norm"/>
+			<float  n="2" alias="/surface-positions/speedbrake-pos-norm"/>
+			<string  alias="/sim/multiplay/callsign"/>
+        </generic>
+    </multiplay>
+
     <view n="0">
         <name>Cockpit</name>
         <type>lookfrom</type>
@@ -252,7 +267,6 @@ Feb 2005  Syd Adams   ()
     </systems>
 
     <controls>
-
         <gear>
             <brake-parking>1</brake-parking>
         </gear>
