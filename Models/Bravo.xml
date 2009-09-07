@@ -32,9 +32,9 @@
     </animation>
 
 	<model><!-- LH tail reg-->
-		<path>Aircraft/Citation/Models/registration.xml</path>
+		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
 		<offsets>
-			<x-m>13.107</x-m>
+			<x-m>12.9</x-m>
 			<y-m>-0.06</y-m>
 			<z-m>2.411</z-m>
 			<roll-deg>0</roll-deg>
@@ -46,18 +46,18 @@
 				<size>0.80</size>
 				<alignment>xz-plane</alignment>
 				<color>
-					<red>0.165</red>
-					<green>0.310</green>
-					<blue>0.600</blue>
+					<red>0.02</red>
+					<green>0.02</green>
+					<blue>0.02</blue>
 				</color>
 			</params>
 		</overlay>
 	</model>
 
 	<model><!-- RH tail reg-->
-		<path>Aircraft/Citation/Models/registration.xml</path>
+		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
 		<offsets>
-			<x-m>13.107</x-m>
+			<x-m>12.9</x-m>
 			<y-m>0.06</y-m>
 			<z-m>2.411</z-m>
 			<roll-deg>0</roll-deg>
@@ -69,9 +69,9 @@
 				<size>0.80</size>
 				<alignment>reversed-xz-plane</alignment>
 				<color>
-					<red>0.165</red>
-					<green>0.310</green>
-					<blue>0.600</blue>
+					<red>0.02</red>
+					<green>0.02</green>
+					<blue>0.02</blue>
 				</color>
 			</params>
 		</overlay>
@@ -1331,6 +1331,7 @@
     <animation>
         <type>rotate</type>
         <object-name>Cabin.door</object-name>
+		<object-name>window</object-name>
         <property>sim/multiplay/generic/float</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>

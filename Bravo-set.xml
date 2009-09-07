@@ -472,6 +472,12 @@ Feb 2005  Syd Adams   ()
                 <name>Ctrl-D</name>
                 <desc>Open/close canopy</desc>
                 <binding>
+					<condition>
+						<less-than>
+							<property>velocities/airspeed-kt</property>
+							<value>40</value>
+						</less-than>
+					</condition>
                     <command>nasal</command>
                     <script>citation.cabin_door.toggle();</script>
                 </binding>

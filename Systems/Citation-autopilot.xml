@@ -229,33 +229,20 @@
 <!-- ================================ -->
 
 <!-- Simple pitch hold -->
-<pid-controller>
-  <name>Pitch hold</name>
-  <debug>false</debug>
-  <enable>
-    <prop>/autopilot/locks/altitude</prop>
-    <value>PTCH</value>
-  </enable>
-  <input>
-    <prop>orientation/pitch-deg</prop>
-  </input>
-  <reference>
-    <prop>autopilot/settings/target-pitch-deg</prop>
-  </reference>
-  <output>
-    <prop>autopilot/internal/target-pitch-filter</prop>
-  </output>
-  <config>
-    <Kp>-0.15</Kp>
-    <beta>1.0</beta>
-    <alpha>0.1</alpha>
-    <gamma>0.0</gamma>
-    <Ti>10.0</Ti>
-    <Td>0.02</Td>
-    <u_min>-1.0</u_min>
-    <u_max>1.0</u_max>
-  </config>
-</pid-controller>
+<filter>
+    <name>pitch hold</name>
+    <debug>false</debug>
+    <enable>
+      <prop>autopilot/locks/altitude</prop>
+      <value>PTCH</value>
+    </enable>
+    <type>noise-spike</type>
+    <input>autopilot/settings/pitch-hold-deg</input>
+    <output>autopilot/internal/target-pitch-deg</output>
+	<min>-1</min>
+	<max>-1</max>
+    <max-rate-of-change>0.7</max-rate-of-change>
+</filter>
 
 <pi-simple-controller>
   <name>Altitude Hold (Altimeter based) Stage 1</name>
@@ -295,17 +282,17 @@
     <prop>autopilot/internal/target-climb-rate-fps</prop>
   </reference>
   <output>
-    <prop>autopilot/internal/target-pitch-filter</prop>
+    <prop>autopilot/internal/elevator-filter</prop>
   </output>
   <config>
-    <Kp>0.06</Kp>
+    <Kp>-0.5</Kp>
     <beta>1.0</beta>
     <alpha>0.1</alpha>
     <gamma>0.0</gamma>
     <Ti>10.0</Ti>
     <Td>0.00001</Td>
-    <u_min>-5.0</u_min>
-    <u_max>5.0</u_max>
+    <u_min>-1.0</u_min>
+    <u_max>1.0</u_max>
   </config>
 </pid-controller>
 
@@ -392,41 +379,20 @@
 
 <filter>
     <name>elevator</name>
+	<condition>
+		<and>
+			<not>
+				<property>autopilot/locks/passive-mode</property>
+			</not>
+			<property>autopilot/locks/pitch-active</property>
+		</and>
+	</condition>
     <debug>false</debug>
     <type>noise-spike</type>
-    <input>autopilot/internal/target-pitch-filter</input>
-    <output>autopilot/internal/target-pitch-deg</output>
-    <max-rate-of-change>2</max-rate-of-change>
+    <input>autopilot/internal/elevator-filter</input>
+    <output>controls/flight/elevator</output>
+    <max-rate-of-change>1</max-rate-of-change>
 </filter>
-
-<pid-controller>
-  <name>Elevator Control</name>
-  <debug>false</debug>
-  <enable>
-    <prop>autopilot/locks/pitch-active</prop>
-    <value>true</value>
-    <honor-passive>true</honor-passive>
-  </enable>
-  <input>
-    <prop>orientation/pitch-deg</prop>
-  </input>
-  <reference>
-    <prop>autopilot/internal/target-pitch-deg</prop>
-  </reference>
-  <output>
-    <prop>/controls/flight/elevator-trim</prop>
-  </output>
-  <config>
-<Kp>-0.05</Kp>
-<beta>1.0</beta>
-<alpha>0.1</alpha>
-<gamma>0.0</gamma>
-<Ti>5.0</Ti>
-<Td>0.0</Td>
-<u_min>-0.25</u_min>
-<u_max>0.25</u_max>  </config>
-</pid-controller>
-
 
 <pid-controller>
 <name>Auto Throttle</name>

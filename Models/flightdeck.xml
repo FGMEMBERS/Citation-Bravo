@@ -4,7 +4,7 @@
     <path>flightdeck.ac</path>
 
 	<model><!-- Pilot reg label-->
-		<path>Aircraft/Citation/Models/registration.xml</path>
+		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
 		<offsets>
 			<x-m>2.400</x-m>
 			<y-m>-0.327</y-m>
@@ -27,7 +27,7 @@
 	</model>
 
 	<model><!-- CoPilot reg label-->
-		<path>Aircraft/Citation/Models/registration.xml</path>
+		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
 		<offsets>
 			<x-m>2.400</x-m>
 			<y-m>0.367</y-m>

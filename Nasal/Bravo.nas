@@ -404,7 +404,9 @@ var gearDown = func(v) {
 var update_systems = func{
     LHeng.update();
     RHeng.update();
-    FHupdate(0);
+	FHupdate(0);
+
+	if(getprop("velocities/airspeed-kt") > 40) cabin_door.close();
 
     var gr1=getprop("gear/gear[0]/position-norm");
     var gr2=getprop("gear/gear[1]/position-norm");
@@ -415,7 +417,9 @@ var update_systems = func{
     PWR2 =0;
     if(getprop("systems/electrical/right-bus") > 2.0)PWR2=1;
     if(getprop("systems/electrical/left-bus") > 2.0)PWR2=1;
-
+	
+	
+	
     if(gr1 != 1.0)GrWrn =1;
     if(gr2 != 1.0)GrWrn =1;
     if(gr3 != 1.0)GrWrn =1;
