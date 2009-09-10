@@ -90,7 +90,7 @@
     <legend>FMS</legend>
     <binding>
    <command>nasal</command>
-    <script>citation.primus.dc550_set("fms");</script>
+    <script>efis.primus.ctl_set("fms");</script>
     </binding>
     </button>
 
@@ -102,7 +102,7 @@
     <legend>NAV</legend>
     <binding>
    <command>nasal</command>
-    <script>citation.primus.dc550_set("nav");</script>
+    <script>efis.primus.ctl_set("nav");</script>
     </binding>
     </button>
 

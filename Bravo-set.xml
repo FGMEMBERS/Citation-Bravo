@@ -108,7 +108,7 @@ Feb 2005  Syd Adams   ()
 
     <systems>
         <autopilot>
-            <path>Aircraft/Citation-Bravo/Systems/Citation-autopilot.xml</path>
+            <path>Aircraft/Citation-Bravo/Systems/Bravo-autopilot.xml</path>
         </autopilot>
 
         <path>Aircraft/Citation-Bravo/Systems/systems.xml</path>

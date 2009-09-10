@@ -241,9 +241,9 @@ var flightdirector = {
             me.Defl.setValue(getprop(tmp_nav~"heading-needle-deflection"));
             me.GSDefl.setValue(getprop(tmp_nav~"gs-needle-deflection"));
         if(getprop(tmp_nav~"data-is-valid")){
-            me.NavLoc.setValue(getprop(tmp_nav~"nav-loc"));
-            me.hasGS.setValue(getprop(tmp_nav~"has-gs"));
-            me.navValid.setValue(getprop(tmp_nav~"in-range"));
+            me.NavLoc.setValue(getprop(tmp_nav~"nav-loc") or 0);
+            me.hasGS.setValue(getprop(tmp_nav~"has-gs") or 0);
+            me.navValid.setValue(getprop(tmp_nav~"in-range") or 0);
          }else{
             me.NavLoc.setValue(0);
             me.hasGS.setValue(0);

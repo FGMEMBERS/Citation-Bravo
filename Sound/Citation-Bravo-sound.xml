@@ -213,7 +213,7 @@
         <mode>looped</mode>
         <volume>
             <property>instrumentation/alerts/gear-horn</property>
-            <factor>0.7</factor>
+            <factor>0.5</factor>
         </volume>
         <position>
             <x>2.5</x>
