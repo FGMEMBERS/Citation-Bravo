@@ -379,19 +379,16 @@
 
 <filter>
     <name>elevator</name>
-	<condition>
-		<and>
-			<not>
-				<property>autopilot/locks/passive-mode</property>
-			</not>
-			<property>autopilot/locks/pitch-active</property>
-		</and>
-	</condition>
+	<enable>
+		<prop>autopilot/locks/pitch-active</prop>
+		<value>true</value>
+		<honor-passive>true</honor-passive>
+	</enable>
     <debug>false</debug>
     <type>noise-spike</type>
     <input>autopilot/internal/elevator-filter</input>
     <output>controls/flight/elevator</output>
-    <max-rate-of-change>1</max-rate-of-change>
+    <max-rate-of-change>02</max-rate-of-change>
 </filter>
 
 <pid-controller>
