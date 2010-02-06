@@ -1053,10 +1053,18 @@ CNI-5000 radio stack
     <action>
         <button>0</button>
         <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>instrumentation/kt-70/inputs/ident-btn</property>
-            </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/kt-70/inputs/ident-btn</property>
+        <value>true</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/kt-70/inputs/ident-btn</property>
+          <value>false</value>
+        </binding>
+      </mod-up>
     </action>
 </animation>
 
@@ -1413,10 +1421,18 @@ CNI-5000 radio stack
     <action>
         <button>0</button>
         <repeatable>false</repeatable>
-            <binding>
-                <command>property-toggle</command>
-                <property>instrumentation/kt-70[1]/inputs/ident-btn</property>
-            </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/kt-70[1]/inputs/ident-btn</property>
+        <value>true</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/kt-70[1]/inputs/ident-btn</property>
+          <value>false</value>
+        </binding>
+      </mod-up>
     </action>
 </animation>
 

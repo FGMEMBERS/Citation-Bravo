@@ -21,15 +21,15 @@ Feb 2005  Syd Adams   ()
     <multiplay>
         <generic>
             <int n="0" alias="/systems/electrical/outputs/strobe"/>
-			<int n="1" alias="/systems/electrical/outputs/beacon"/>
-			<int n="2" alias="/systems/electrical/outputs/nav-lights"/>
-			<int n="3" alias="/systems/electrical/outputs/landing-light2"/>
-			<int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
-			<int n="5" alias="/systems/electrical/outputs/recog-lights"/>
-			<float  alias="/controls/cabin-door/position-norm"/>
-			<float  n="1" alias="/surface-positions/reverser-norm"/>
-			<float  n="2" alias="/surface-positions/speedbrake-pos-norm"/>
-			<string  alias="/sim/multiplay/callsign"/>
+            <int n="1" alias="/systems/electrical/outputs/beacon"/>
+            <int n="2" alias="/systems/electrical/outputs/nav-lights"/>
+            <int n="3" alias="/systems/electrical/outputs/landing-light2"/>
+            <int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
+            <int n="5" alias="/systems/electrical/outputs/recog-lights"/>
+            <float  alias="/controls/cabin-door/position-norm"/>
+            <float  n="1" alias="/surface-positions/reverser-norm"/>
+            <float  n="2" alias="/surface-positions/speedbrake-pos-norm"/>
+            <string  alias="/sim/multiplay/callsign"/>
         </generic>
     </multiplay>
 
@@ -212,7 +212,16 @@ Feb 2005  Syd Adams   ()
                 <label>Autopilot Settings</label>
                     <binding>
                         <command>nasal</command>
-                        <script>citation.ap_settings.open()</script>
+                        <script>dialogs.ap_settings.open()</script>
+                    </binding>
+                </item>
+            </menu>
+            <menu n="5">
+                <item n="1">
+                <label>Radio Stack</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>dialogs.Radio.open()</script>
                     </binding>
                 </item>
             </menu>
@@ -446,6 +455,9 @@ Feb 2005  Syd Adams   ()
             <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
             <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
         </citation>
+        <dialogs>
+            <file>Aircraft/Citation-Bravo/Nasal/dialogs.nas</file>
+        </dialogs>
         <m877>
             <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
         </m877>
@@ -456,6 +468,22 @@ Feb 2005  Syd Adams   ()
 
     <input>
         <keyboard>
+            <key n="267">
+                <name>F11</name>
+                <desc>Pop up autopilot dialog</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>dialogs.ap_settings.toggle()</script>
+                </binding>
+            </key>
+            <key n="268">
+                <name>F12</name>
+                <desc>Radio Stack</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>dialogs.Radio.open()</script>
+                </binding>
+            </key>
             <key n="127">
                 <name>Delete</name>
                 <desc>Toggle Reversers</desc>
@@ -472,12 +500,12 @@ Feb 2005  Syd Adams   ()
                 <name>Ctrl-D</name>
                 <desc>Open/close canopy</desc>
                 <binding>
-					<condition>
-						<less-than>
-							<property>velocities/airspeed-kt</property>
-							<value>40</value>
-						</less-than>
-					</condition>
+                    <condition>
+                        <less-than>
+                            <property>velocities/airspeed-kt</property>
+                            <value>40</value>
+                        </less-than>
+                    </condition>
                     <command>nasal</command>
                     <script>citation.cabin_door.toggle();</script>
                 </binding>
