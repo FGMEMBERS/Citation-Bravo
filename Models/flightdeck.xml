@@ -3,51 +3,77 @@
 
     <path>flightdeck.ac</path>
 
-	<model><!-- Pilot reg label-->
-		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
-		<offsets>
-			<x-m>2.400</x-m>
-			<y-m>-0.327</y-m>
-			<z-m>0.806</z-m>
-			<roll-deg>0</roll-deg>
-			<pitch-deg>-10</pitch-deg>
-			<heading-deg>0</heading-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<size>0.030</size>
-				<alignment>yz-plane</alignment>
-				<color>
-					<red>0.8</red>
-					<green>0.8</green>
-					<blue>0.8</blue>
-				</color>
-			</params>
-		</overlay>
-	</model>
+    <text>
+        <name>Preg</name>
+        <offsets>
+            <x-m>2.400</x-m>
+            <y-m>-0.327</y-m>
+            <z-m>0.806</z-m>
+            <roll-deg>0</roll-deg>
+            <pitch-deg>-10</pitch-deg>
+            <heading-deg>0</heading-deg>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <property type="string">sim/multiplay/generic/string[0]</property>
+        <font>helvetica_bold.txf</font>
+        <character-size>0.018</character-size>
+        <character-aspect-ratio type="double">1.8</character-aspect-ratio>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
 
-	<model><!-- CoPilot reg label-->
-		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
-		<offsets>
-			<x-m>2.400</x-m>
-			<y-m>0.367</y-m>
-			<z-m>0.806</z-m>
-			<roll-deg>0</roll-deg>
-			<pitch-deg>-10</pitch-deg>
-			<heading-deg>0</heading-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<size>0.030</size>
-				<alignment>yz-plane</alignment>
-				<color>
-					<red>0.8</red>
-					<green>0.8</green>
-					<blue>0.8</blue>
-				</color>
-			</params>
-		</overlay>
-	</model>
+    <text>
+        <name>Creg</name>
+        <offsets>
+            <x-m>2.400</x-m>
+            <y-m>0.367</y-m>
+            <z-m>0.806</z-m>
+            <roll-deg>0</roll-deg>
+            <pitch-deg>-10</pitch-deg>
+            <heading-deg>0</heading-deg>
+        </offsets>
+        <alignment>center-center</alignment>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <property type="string">sim/multiplay/generic/string[0]</property>
+        <font>helvetica_bold.txf</font>
+        <character-size>0.018</character-size>
+        <character-aspect-ratio type="double">1.8</character-aspect-ratio>
+        <font-resolution>
+            <width type="int">32</width>
+            <height type="int">32</height>
+        </font-resolution>
+    </text>
+
+    <animation>
+        <type>material</type><!--white-->
+        <object-name>Creg</object-name>
+        <object-name>Preg</object-name>
+        <emission>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </emission>
+        <ambient>
+            <red>0.8</red>
+            <green>0.8</green>
+            <blue>0.8</blue>
+        </ambient>
+        <diffuse>
+            <red>0.8</red>
+            <green>0.8</green>
+            <blue>0.8</blue>
+        </diffuse>
+        <specular>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </specular>
+    </animation>
 
     <model>
         <name>PFD1</name>
@@ -288,37 +314,6 @@
             <green>0.008</green>
             <blue>0.002</blue>
             <factor-prop>systems/electrical/outputs/map-lights</factor-prop>
-        </emission>
-    </animation>
-
-    <animation>
-        <type>material</type>
-        <object-name>litfaces</object-name>
-        <object-name>litfaces.001</object-name>
-        <object-name>hdgring</object-name>
-        <object-name>CRSneedle2.001</object-name>
-        <object-name>CRSneedle2</object-name>
-        <object-name>CRSneedle2.001</object-name>
-        <object-name>Gauge.1</object-name>
-        <object-name>Gauge.2</object-name>
-        <object-name>DCvolts</object-name>
-        <object-name>DCamps1</object-name>
-        <object-name>DCamps2</object-name>
-        <object-name>Fan01</object-name>
-        <object-name>Fan02</object-name>
-        <object-name>ITT01</object-name>
-        <object-name>ITT02</object-name>
-        <object-name>OilP01</object-name>
-        <object-name>OilP02</object-name>
-        <object-name>OilT01</object-name>
-        <object-name>OilT02</object-name>
-        <object-name>FQty01</object-name>
-        <object-name>FQty02</object-name>
-        <emission>
-            <red>0.6-</red>
-            <green>0.5</green>
-            <blue>0.4</blue>
-            <factor-prop>systems/electrical/outputs/instrument-lights-norm</factor-prop>
         </emission>
     </animation>
 

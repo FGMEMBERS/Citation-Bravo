@@ -1,13 +1,13 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "illum" rgb 1 1 1 amb 0.8 0.8 0.8 emis 1 1 1 spec 0 0 0 shi 0 trans 0
-MATERIAL "grey.002" rgb 0.8 0.8 0.8 amb 0.8 0.8 0.8 emis 0 0 0 spec 0.490196 0.490196 0.490196 shi 6 trans 0
+MATERIAL "illum.001" rgb 0.705 0.705 0.705 amb 0.705 0.705 0.705 emis 0.698 0.643 0.599 spec 0 0 0 shi 0 trans 0
+MATERIAL "grey.002" rgb 0.8 0.8 0.8 amb 0.8 0.8 0.8 emis 0 0 0 spec 0.49 0.49 0.49 shi 6 trans 0
 OBJECT world
 kids 3
 OBJECT poly
 name "AOA"
 data 8
-Mesh.007
+Mesh.008
 texture "aoa.png"
 texrep 1 1
 crease 30.000000

@@ -1,3 +1,4 @@
+aircraft.livery.init("Aircraft/Citation-Bravo/Models/Liveries");
 var FDM=0;
 var FDMjsb = 0;
 var ViewNum=0;

@@ -8,10 +8,11 @@ Standby Gyro
 
 <animation>
     <type>select</type>
-    <object-name>AIbackup</object-name>
+    <object-name>AI.ladder</object-name>
+    <object-name>AI.bars</object-name>
     <condition>
             <greater-than>
-                <property>systems/electrical/bus-volts</property>
+                <property>systems/electrical/left-bus</property>
                 <value>5</value>
             </greater-than>
     </condition>
@@ -20,11 +21,11 @@ Standby Gyro
 
     <animation>
         <type>texmultiple</type>
-        <object-name>AIbackup</object-name>
+        <object-name>AI.ladder</object-name>
         <transform>
             <property>orientation/pitch-deg</property>
             <subtype>textranslate</subtype>
-            <factor>0.00453</factor>
+            <factor>0.00312</factor>
             <axis>
                 <x>0</x>
                 <y>1</y>
