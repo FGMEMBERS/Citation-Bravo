@@ -25,10 +25,7 @@
 # adjustable with pitch wheel
 #
 #############################################################################
-# lnav
-#0=W-LVL , 1=HDG , 2=NAV Arm ,3=NAV Cap , 4=LOC arm , 5=LOC Cap , 6=FMS
-# vnav
-# 0=PITCH,  1=VNAV, 2=ALT hold , 3=VS , 4=GS arm ,5 = GS cap
+# lnav modes
 #FlightDirector/Autopilot
 # ie: var fltdir = flightdirector.new(property);
 
@@ -38,8 +35,8 @@ var ap_settings = gui.Dialog.new("/sim/gui/dialogs/primus-autopilot/dialog",
 var flightdirector = {
     new : func(fdprop){
         m = {parents : [flightdirector]};
-        m.lnav_text=["ROLL","HDG","NAV-ARM","NAV","LOC-ARM","LOC","LNAV"];
-        m.vnav_text=["PTCH","VNAV","ALT","VS","GS-ARM","GS"];
+        m.lnav_text=["ROL","HDG","LNAV","LOC","VOR","BC","VAPP"];
+        m.vnav_text=["PIT","VNAV","ALT","ASEL","VS","GS","GA","FLC"];
         m.spd_text=["","IAS"];
         m.LAT=["ROL","HDG","HDG","VOR","HDG","LOC","LNAV"];
         m.subLAT=["   ","   ","VOR","   ","LOC","   ","   "];
