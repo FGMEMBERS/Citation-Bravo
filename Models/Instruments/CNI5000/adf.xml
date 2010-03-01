@@ -22,7 +22,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/kr-87/outputs/selected-khz</property>
+                    <property>instrumentation/adf/frequencies/selected-khz</property>
                     <format>%03.0f</format>
                 </chunk>
             </chunks>
@@ -51,7 +51,7 @@
             <chunks>
                 <chunk>
                     <type>number-value</type>
-                    <property>instrumentation/kr-87/outputs/standby-khz</property>
+                    <property>instrumentation/adf/frequencies/standby-khz</property>
                     <format>%03.0f</format>
                 </chunk>
             </chunks>
@@ -67,7 +67,7 @@
             </transformations>
         </layer>
 
-        <layer>
+        <!--layer>
             <name>ant</name>
             <condition>
                <property>instrumentation/kr-87/annunciators/ant</property>
@@ -96,12 +96,15 @@
                     <offset>4</offset>
                 </transformation>
             </transformations>
-        </layer>
+        </layer-->
 
         <layer>
             <name>adf</name>
             <condition>
-               <property>instrumentation/kr-87/annunciators/adf</property>
+                <equals>
+                    <property>instrumentation/adf/mode</property>
+                    <value>adf</value>
+               </equals>
              </condition>
             <type>text</type>
             <font>arial_black</font>
@@ -132,7 +135,10 @@
         <layer>
             <name>bfo</name>
             <condition>
-               <property>instrumentation/kr-87/annunciators/bfo</property>
+                <equals>
+                    <property>instrumentation/adf/mode</property>
+                    <value>bfo</value>
+               </equals>
              </condition>
             <type>text</type>
             <font>arial_black</font>
@@ -160,7 +166,7 @@
             </transformations>
         </layer>
 
-        <layer>
+        <!--layer>
             <name>frq</name>
             <condition>
                <property>instrumentation/kr-87/annunciators/frq</property>
@@ -189,9 +195,9 @@
                     <offset>-8</offset>
                 </transformation>
             </transformations>
-        </layer>
+        </layer-->
 
-        <layer>
+        <!--layer>
             <name>flt</name>
             <condition>
                <property>instrumentation/kr-87/annunciators/flt</property>
@@ -251,7 +257,7 @@
                     <offset>-8</offset>
                 </transformation>
             </transformations>
-        </layer>
+        </layer-->
 
     </layers>
 </PropertyList>

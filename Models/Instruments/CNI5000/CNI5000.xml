@@ -8,7 +8,7 @@ CNI-5000 radio stack
     <path>CNI5000.ac</path>
 
     <panel>
-        <path>Aircraft/Citation-Bravo/Models/Instruments/CNI5000/CNI5000-panel.xml</path>
+        <path>Aircraft/CE-550-B/Models/Instruments/CNI5000/CNI5000-panel.xml</path>
         <bottom-left>
             <x-m>0.003</x-m>
             <y-m>-0.082</y-m>
@@ -820,8 +820,9 @@ CNI-5000 radio stack
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/kr-87/inputs/adf-btn</property>
+            <command>property-assign</command>
+            <property>instrumentation/adf/mode</property>
+            <value>adf</value>
         </binding>
     </action>
 </animation>
@@ -833,8 +834,9 @@ CNI-5000 radio stack
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/kr-87/inputs/bfo-btn</property>
+            <command>property-assign</command>
+            <property>instrumentation/adf/mode</property>
+            <value>bfo</value>
         </binding>
     </action>
 </animation>
@@ -846,59 +848,10 @@ CNI-5000 radio stack
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-assign</command>
-            <property>instrumentation/kr-87/inputs/frq-btn</property>
-            <value>1</value>
+            <command>property-swap</command>
+            <property>instrumentation/adf/frequencies/selected-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
         </binding>
-        <mod-up>
-            <binding>
-                <command>property-assign</command>
-                <property>instrumentation/kr-87/inputs/frq-btn</property>
-                <value>0</value>
-            </binding>
-        </mod-up>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>ADF.flt-et</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-assign</command>
-            <property>instrumentation/kr-87/inputs/flt-et-btn</property>
-            <value>1</value>
-        </binding>
-        <mod-up>
-            <binding>
-                <command>property-assign</command>
-                <property>instrumentation/kr-87/inputs/flt-et-btn</property>
-                <value>0</value>
-            </binding>
-        </mod-up>
-    </action>
-</animation>
-
-<animation>
-    <type>pick</type>
-    <object-name>ADF.set-rst</object-name>
-    <action>
-        <button>0</button>
-        <repeatable>false</repeatable>
-        <binding>
-            <command>property-assign</command>
-            <property>instrumentation/kr-87/inputs/set-rst-btn</property>
-            <value>1</value>
-        </binding>
-        <mod-up>
-            <binding>
-                <command>property-assign</command>
-                <property>instrumentation/kr-87/inputs/set-rst-btn</property>
-                <value>0</value>
-            </binding>
-        </mod-up>
     </action>
 </animation>
 
@@ -912,7 +865,7 @@ CNI-5000 radio stack
         <interval-sec>0.2</interval-sec>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>100.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -930,7 +883,7 @@ CNI-5000 radio stack
         <interval-sec>0.2</interval-sec>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>-100.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -948,7 +901,7 @@ CNI-5000 radio stack
         <interval-sec>0.2</interval-sec>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>1.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -966,7 +919,7 @@ CNI-5000 radio stack
         <interval-sec>0.2</interval-sec>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>-1.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -984,7 +937,7 @@ CNI-5000 radio stack
         <repeatable>false</repeatable>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>100.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -1001,7 +954,7 @@ CNI-5000 radio stack
         <repeatable>false</repeatable>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>-100.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -1018,7 +971,7 @@ CNI-5000 radio stack
         <repeatable>false</repeatable>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>1.0</step>
             <min>200.00</min>
             <max>1799.0</max>
@@ -1035,7 +988,7 @@ CNI-5000 radio stack
         <repeatable>false</repeatable>
         <binding>
             <command>property-adjust</command>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
             <step>-1.0</step>
             <min>200.00</min>
             <max>1799.0</max>

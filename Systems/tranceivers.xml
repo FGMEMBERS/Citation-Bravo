@@ -256,11 +256,21 @@
             </binding>
         </dial>
 
-        <checkbox>
+        <button>
+            <property>/instrumentation/nav[0]/ident</property>
+            <one-shot>false</one-shot>
             <row>2</row>
             <col>5</col>
-            <property>/instrumentation/nav/ident</property>
-        </checkbox>
+            <pref-width>25</pref-width>
+            <pref-height>20</pref-height>
+            <legend>ID</legend>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <binding>
+                <command>dialog-update</command>
+            </binding>
+        </button>
 
         <input>
             <row>2</row>
@@ -333,11 +343,22 @@
             </binding>
         </dial>
 
-        <checkbox>
+        <button>
+            <property>/instrumentation/nav[1]/ident</property>
+            <one-shot>false</one-shot>
             <row>3</row>
             <col>5</col>
-            <property>/instrumentation/nav[1]/ident</property>
-        </checkbox>
+            <pref-width>25</pref-width>
+            <pref-height>20</pref-height>
+            <legend>ID</legend>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <binding>
+                <command>dialog-update</command>
+            </binding>
+        </button>
+
 
         <input>
             <row>3</row>
@@ -351,12 +372,12 @@
             </binding>
         </input>
 
-<!--         KR-87          -->
+<!--         ADF          -->
 
         <text>
             <row>4</row>
             <col>0</col>
-            <label>KR87</label>
+            <label>ADF</label>
         </text>
 
         <text>
@@ -365,7 +386,7 @@
             <label>999</label>
             <halign>center</halign>
             <format>%3.0f</format>
-            <property>instrumentation/kr-87/outputs/selected-khz</property>
+            <property>instrumentation/adf/frequencies/selected-khz</property>
             <live>1</live>
         </text>
 
@@ -381,8 +402,8 @@
             </binding>
             <binding>
                 <command>property-swap</command>
-                <property>instrumentation/kr-87/outputs/selected-khz</property>
-                <property>instrumentation/kr-87/outputs/standby-khz</property>
+                <property>instrumentation/adf/frequencies/selected-khz</property>
+                <property>instrumentation/adf/frequencies/standby-khz</property>
             </binding>
             <binding>
                 <command>dialog-update</command>
@@ -393,7 +414,7 @@
             <row>4</row>
             <col>3</col>
             <name>nav2</name>
-            <property>instrumentation/kr-87/outputs/standby-khz</property>
+            <property>instrumentation/adf/frequencies/standby-khz</property>
         </input>
 
         <dial>
@@ -401,7 +422,7 @@
             <col>4</col>
             <pref-width>30</pref-width>
             <pref-height>30</pref-height>
-            <property>instrumentation/kr-87/inputs/volume</property>
+            <property>instrumentation/adf/volume-norm</property>
             <min>0.0</min>
             <max>1.0</max>
             <wrap>false</wrap>
@@ -410,11 +431,22 @@
             </binding>
         </dial>
 
-        <checkbox>
+        <button>
+            <property>/instrumentation/adf/ident-audible</property>
+            <one-shot>false</one-shot>
             <row>4</row>
             <col>5</col>
-            <property>instrumentation/kr-87/inputs/audio-btn</property>
-        </checkbox>
+            <pref-width>25</pref-width>
+            <pref-height>20</pref-height>
+            <legend>ID</legend>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <binding>
+                <command>dialog-update</command>
+            </binding>
+        </button>
+
     </group>
 
     <hrule/>
