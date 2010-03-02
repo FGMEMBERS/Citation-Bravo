@@ -8,7 +8,7 @@ CNI-5000 radio stack
     <path>CNI5000.ac</path>
 
     <panel>
-        <path>Aircraft/CE-550-B/Models/Instruments/CNI5000/CNI5000-panel.xml</path>
+        <path>Aircraft/Citation-Bravo/Models/Instruments/CNI5000/CNI5000-panel.xml</path>
         <bottom-left>
             <x-m>0.003</x-m>
             <y-m>-0.082</y-m>
