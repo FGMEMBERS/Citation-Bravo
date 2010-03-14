@@ -321,24 +321,6 @@ var Shutdown = func{
     setprop("engines/engine[1]/running",0);
 }
 
-var dme_step = func(stp){
-    var swtch= getprop("instrumentation/dme/switch-position");
-    swtch += stp;
-    if(swtch >3)swtch=3;
-    if(swtch <0)swtch=0;
-    setprop("instrumentation/dme/switch-position",swtch);
-
-    if(swtch==0){
-        setprop("instrumentation/dme/frequencies/source","instrumentation/dme/frequencies/selected-mhz");
-    }elsif(swtch==1){
-        setprop("instrumentation/dme/frequencies/source","instrumentation/nav[0]/frequencies/selected-mhz");
-    }elsif(swtch==2){
-        setprop("instrumentation/dme/frequencies/source","instrumentation/dme/frequencies/selected-mhz");
-    }elsif(swtch==3){
-        setprop("instrumentation/dme/frequencies/source","instrumentation/nav[1]/frequencies/selected-mhz");
-    }
-}
-
 
 var FHupdate = func(tenths){
         var fmeter = getprop("/instrumentation/clock/flight-meter-sec");
@@ -353,24 +335,23 @@ var FHupdate = func(tenths){
         setprop("instrumentation/clock/flight-meter-min",int(fmin));
     }
 
-var gearDown = func(v) {
-    if(!getprop("gear/gear[1]/wow") or !getprop("gear/gear[2]/wow")){
-        if (v < 0) {
-        setprop("/controls/gear/gear-down", 0);
-        } elsif (v > 0) {
-        setprop("/controls/gear/gear-down", 1);
-        }
+controls.gearDown = func(v) {
+    if (v < 0) {
+        if(!getprop("gear/gear[1]/wow"))setprop("/controls/gear/gear-down", 0);
+    } elsif (v > 0) {
+      setprop("/controls/gear/gear-down", 1);
     }
 }
+
 
 ########## MAIN ##############
 
 var update_systems = func{
     LHeng.update();
     RHeng.update();
-	FHupdate(0);
+    FHupdate(0);
 
-	if(getprop("velocities/airspeed-kt") > 40) cabin_door.close();
+    if(getprop("velocities/airspeed-kt") > 40) cabin_door.close();
 
     var GrWrn = 0;
     var Ghorn = 0;
@@ -378,18 +359,18 @@ var update_systems = func{
     PWR2 =0;
     if(getprop("systems/electrical/right-bus") > 2.0)PWR2=1;
     if(getprop("systems/electrical/left-bus") > 2.0)PWR2=1;
-	
-	if(!getprop("controls/gear/gear-down/")){
-		GrWrn =1;
-	}
-	
+    
+    if(!getprop("controls/gear/gear-down/")){
+        GrWrn =1;
+    }
+    
     if(GrWrn ==1){
         if(getprop("engines/engine/n2")<70 or getprop("engines/engine[1]/n2")<70){
             if(getprop("velocities/airspeed-kt") < 150){
-				if(getprop("position/altitude-agl-ft")<5000){
-					if(getprop("/surface-positions/flap-pos-norm") < 0.35)Ghorn =1;
-				}
-			}
+                if(getprop("position/altitude-agl-ft")<5000){
+                    if(getprop("/surface-positions/flap-pos-norm") < 0.35)Ghorn =1;
+                }
+            }
         }
     }
 

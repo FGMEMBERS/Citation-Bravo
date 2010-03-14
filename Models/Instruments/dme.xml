@@ -195,9 +195,45 @@ KDI-572 DME Indicator
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-                <command>nasal</command>
-                <script>citation.dme_step(1)</script>
+            <command>property-adjust</command>
+            <property>instrumentation/dme/switch-position</property>
+            <step>1</step>
+            <min>0</min>
+            <max>3</max>
        </binding>
+       <binding>
+            <condition>
+                <equals>
+                    <property>/instrumentation/dme/switch-position</property>
+                    <value type="int">1</value>
+                </equals>
+            </condition>
+            <command>property-assign</command>
+            <property>/instrumentation/dme/frequencies/source</property>
+            <value>/instrumentation/nav[0]/frequencies/selected-mhz</value>
+        </binding>
+        <binding>
+            <condition>
+                <equals>
+                    <property>/instrumentation/dme/switch-position</property>
+                    <value type="int">2</value>
+                </equals>
+            </condition>
+            <command>property-assign</command>
+            <property>/instrumentation/dme/frequencies/source</property>
+            <value>/instrumentation/dme/frequencies/selected-mhz</value>
+        </binding>
+        <binding>
+            <condition>
+                <equals>
+                    <property>/instrumentation/dme/switch-position</property>
+                    <value type="int">3</value>
+                </equals>
+            </condition>
+            <command>property-assign</command>
+            <property>/instrumentation/dme/frequencies/source</property>
+            <value>/instrumentation/nav[1]/frequencies/selected-mhz</value>
+        </binding>
     </action>
 </animation>
 
@@ -208,11 +244,48 @@ KDI-572 DME Indicator
         <button>1</button>
         <repeatable>false</repeatable>
         <binding>
-                <command>nasal</command>
-                <script>citation.dme_step(-1)</script>
+                <command>property-adjust</command>
+                <property>instrumentation/dme/switch-position</property>
+            <command>property-adjust</command>
+            <property>instrumentation/dme/switch-position</property>
+            <step>-1</step>
+            <min>0</min>
+            <max>3</max>
        </binding>
+       <binding>
+            <condition>
+                <equals>
+                    <property>/instrumentation/dme/switch-position</property>
+                    <value type="int">1</value>
+                </equals>
+            </condition>
+            <command>property-assign</command>
+            <property>/instrumentation/dme/frequencies/source</property>
+            <value>/instrumentation/nav[0]/frequencies/selected-mhz</value>
+        </binding>
+        <binding>
+            <condition>
+                <equals>
+                    <property>/instrumentation/dme/switch-position</property>
+                    <value type="int">2</value>
+                </equals>
+            </condition>
+            <command>property-assign</command>
+            <property>/instrumentation/dme/frequencies/source</property>
+            <value>/instrumentation/dme/frequencies/selected-mhz</value>
+        </binding>
+        <binding>
+            <condition>
+                <equals>
+                    <property>/instrumentation/dme/switch-position</property>
+                    <value type="int">3</value>
+                </equals>
+            </condition>
+            <command>property-assign</command>
+            <property>/instrumentation/dme/frequencies/source</property>
+            <value>/instrumentation/nav[1]/frequencies/selected-mhz</value>
+        </binding>
     </action>
 </animation>
-
 
 </PropertyList>
