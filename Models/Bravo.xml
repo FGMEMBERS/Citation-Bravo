@@ -16,9 +16,15 @@
     <animation>
       <type>material</type>
       <object-name>Engines</object-name>
+      <object-name>Fin.inlet</object-name>
+      <object-name>Pylons</object-name>
       <object-name>Fuselage</object-name>
       <object-name>Cabin.door</object-name>
-      <object-name>Wings</object-name>
+      <object-name>Lwing</object-name>
+      <object-name>Rwing</object-name>
+      <object-name>wingroot</object-name>
+      <object-name>Vstab</object-name>
+      <object-name>Hstab</object-name>
       <object-name>Rudder</object-name>
       <object-name>RHelevator</object-name>
       <object-name>LHelevator</object-name>
@@ -26,56 +32,104 @@
       <object-name>RHaileron</object-name>
       <object-name>LHflap</object-name>
       <object-name>LHaileron</object-name>
+      <object-name>RHdoor</object-name>
+      <object-name>LHdoor</object-name>
+      <object-name>RHFrDoor</object-name>
+      <object-name>LHFrDoor</object-name>
+      <object-name>RRFrDoor</object-name>
       <property-base>sim/model/livery</property-base>
       <texture-prop>texture</texture-prop>
       <texture>Paint1.png</texture>
     </animation>
 
-	<model><!-- LH tail reg-->
-		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
-		<offsets>
-			<x-m>12.9</x-m>
-			<y-m>-0.06</y-m>
-			<z-m>2.411</z-m>
-			<roll-deg>0</roll-deg>
-			<pitch-deg>0</pitch-deg>
-			<heading-deg>0</heading-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<size>0.80</size>
-				<alignment>xz-plane</alignment>
-				<color>
-					<red>0.02</red>
-					<green>0.02</green>
-					<blue>0.02</blue>
-				</color>
-			</params>
-		</overlay>
-	</model>
+    <effect>
+      <inherits-from>Aircraft/Citation-Bravo/Models/Effects/skin-reflect</inherits-from>
+      <object-name>Engines</object-name>
+      <object-name>Pylons</object-name>
+      <object-name>Fuselage</object-name>
+      <object-name>Cabin.door</object-name>
+      <object-name>Lwing</object-name>
+      <object-name>Rwing</object-name>
+      <object-name>wingroot</object-name>
+      <object-name>Vstab</object-name>
+      <object-name>Hstab</object-name>
+      <object-name>Rudder</object-name>
+      <object-name>RHelevator</object-name>
+      <object-name>LHelevator</object-name>
+      <object-name>RHflap</object-name>
+      <object-name>RHaileron</object-name>
+      <object-name>LHflap</object-name>
+      <object-name>LHaileron</object-name>
+      <object-name>RHdoor</object-name>
+      <object-name>LHdoor</object-name>
+      <object-name>RHFrDoor</object-name>
+      <object-name>LHFrDoor</object-name>
+      <object-name>RRFrDoor</object-name>
+    </effect>
 
-	<model><!-- RH tail reg-->
-		<path>Aircraft/Citation-Bravo/Models/registration.xml</path>
-		<offsets>
-			<x-m>12.9</x-m>
-			<y-m>0.06</y-m>
-			<z-m>2.411</z-m>
-			<roll-deg>0</roll-deg>
-			<pitch-deg>0</pitch-deg>
-			<heading-deg>0</heading-deg>
-		</offsets>
-		<overlay>
-			<params>
-				<size>0.80</size>
-				<alignment>reversed-xz-plane</alignment>
-				<color>
-					<red>0.02</red>
-					<green>0.02</green>
-					<blue>0.02</blue>
-				</color>
-			</params>
-		</overlay>
-	</model>
+    <model><!-- LH tail reg-->
+        <path>Aircraft/Citation-Bravo/Models/registration.xml</path>
+        <name>LHreg</name>
+        <offsets>
+            <x-m>12.9</x-m>
+            <y-m>-0.036</y-m>
+            <z-m>2.411</z-m>
+            <roll-deg>0.124</roll-deg>
+            <pitch-deg>0</pitch-deg>
+            <heading-deg>1.192</heading-deg>
+        </offsets>
+        <overlay>
+            <params>
+                <size>0.3</size>
+                <alignment>xz-plane</alignment>
+            </params>
+        </overlay>
+    </model>
+
+    <model><!-- RH tail reg-->
+        <path>Aircraft/Citation-Bravo/Models/registration.xml</path>
+        <name>RHreg</name>
+        <offsets>
+            <x-m>12.9</x-m>
+            <y-m>0.036</y-m>
+            <z-m>2.411</z-m>
+            <roll-deg>0.124</roll-deg>
+            <pitch-deg>0</pitch-deg>
+            <heading-deg>-1.192</heading-deg>
+        </offsets>
+        <overlay>
+            <params>
+                <size>0.3</size>
+                <alignment>reversed-xz-plane</alignment>
+            </params>
+        </overlay>
+    </model>
+
+    <animation>
+        <type>material</type>
+         <object-name>LHreg</object-name>
+         <object-name>RHreg</object-name>
+        <emission>
+            <red>0</red>
+            <green>0</green>
+            <blue>0</blue>
+        </emission>
+        <ambient>
+            <red-prop>sim/model/reg-red</red-prop>
+            <green-prop>sim/model/reg-green</green-prop>
+            <blue-prop>sim/model/reg-blue</blue-prop>
+        </ambient>
+        <diffuse>
+            <red-prop>sim/model/reg-red</red-prop>
+            <green-prop>sim/model/reg-green</green-prop>
+            <blue-prop>sim/model/reg-blue</blue-prop>
+        </diffuse>
+        <specular>
+            <red-prop>sim/model/reg-red</red-prop>
+            <green-prop>sim/model/reg-green</green-prop>
+            <blue-prop>sim/model/reg-blue</blue-prop>
+        </specular>
+    </animation>
 
     <model>
         <name>cabin</name>
@@ -121,6 +175,9 @@
         <object-name>UprReverser</object-name>
         <object-name>Engines.chrome</object-name>
         <object-name>Wings.heater</object-name>
+        <object-name>LHLwrShock</object-name>
+        <object-name>RHLwrShock</object-name>
+        <object-name>FrtStrut.001</object-name>
     </animation>
 
     <animation>
@@ -137,9 +194,33 @@
         <object-name>window</object-name>
     </animation>
 
+<model>
+    <path>Aircraft/Citation-Bravo/Models/Effects/contrail1.xml</path>
+    <offsets>
+      <x-m>20.0</x-m>
+      <y-m>-1.337</y-m>
+      <z-m>0.867</z-m>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>0</pitch-deg>
+      <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/Citation-Bravo/Models/Effects/contrail2.xml</path>
+    <offsets>
+      <x-m>20.0</x-m>
+      <y-m>1.337</y-m>
+      <z-m>0.867</z-m>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>0</pitch-deg>
+      <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+
     <animation>
         <name>FrontGearGroup</name>
         <object-name>FrtStrut</object-name>
+        <object-name>FrtStrut.001</object-name>
         <object-name>FUdamper</object-name>
         <object-name>FLdamper</object-name>
         <object-name>FrtWheel</object-name>
@@ -554,10 +635,10 @@
         <type>select</type>
         <object-name>Redglow.001</object-name>
         <condition>
-		<greater-than>
-		<property>sim/time/sun-angle-rad</property>
-		<value>1.6</value>
-		</greater-than>
+        <greater-than>
+        <property>sim/time/sun-angle-rad</property>
+        <value>1.6</value>
+        </greater-than>
         </condition>
     </animation>
 
@@ -894,6 +975,7 @@
         <object-name>FrtWheel</object-name>
         <object-name>FrtWheel.hub</object-name>
         <object-name>FrtStrut</object-name>
+        <object-name>FrtStrut.001</object-name>
         <object-name>FLdamper</object-name>
         <property>gear/gear[0]/compression-m</property>
         <axis>
@@ -1331,7 +1413,8 @@
     <animation>
         <type>rotate</type>
         <object-name>Cabin.door</object-name>
-		<object-name>window</object-name>
+        <object-name>Cabin.door1</object-name>
+        <object-name>window</object-name>
         <property>sim/multiplay/generic/float</property>
         <interpolation>
             <entry><ind>0.0</ind><dep>0.0</dep></entry>

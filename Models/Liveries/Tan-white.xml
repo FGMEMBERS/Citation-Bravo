@@ -4,8 +4,8 @@
 <sim>
     <model>
         <livery>
-            <name type="string">Waves</name>
-            <texture>Paint3.png</texture>
+            <name type="string">tan-white</name>
+            <texture>Paint1.png</texture>
         </livery>
         <reg-red>0.1</reg-red>
         <reg-green>0.1</reg-green>

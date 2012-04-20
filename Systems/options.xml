@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+    <name>options</name>
+    <layout>vbox</layout>
+
+    <text>
+        <label>Options</label>
+        <halign>center</halign>
+    </text>
+
+    <checkbox>
+        <halign>left</halign>
+        <label>Enable yokes</label>
+        <property>sim/yokes-visible</property>
+        <binding>
+            <command>dialog-apply</command>
+        </binding>
+    </checkbox>
+
+    <checkbox>
+        <halign>left</halign>
+        <label>Map Lights</label>
+        <property>controls/lighting/map-lights</property>
+        <binding>
+            <command>dialog-apply</command>
+        </binding>
+    </checkbox>
+
+    <checkbox>
+        <halign>left</halign>
+        <label>Cabin Lights</label>
+        <property>controls/lighting/cabin-lights</property>
+        <binding>
+            <command>dialog-apply</command>
+        </binding>
+    </checkbox>
+
+  <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+  </button>
+
+</PropertyList>

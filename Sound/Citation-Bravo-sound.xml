@@ -5,20 +5,62 @@
 <fx>
 
     <engine>
-        <name>left engine</name>
-        <path>Sounds/jet.wav</path>
+        <name>interior engines</name>
+        <path>Aircraft/Citation-Bravo/Sound/eng-int.wav</path>
         <condition>
-            <not>
-                <property>controls/engines/engine[0]/cutoff</property>
-            </not>
+            <property>/sim/current-view/internal</property>
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>sim/sound/Ovolume</property>
+            <property>engines/engine[0]/fan</property>
+            <factor>0.3</factor>
+            <min>0.6</min>
+            <max>0.8</max>
         </volume>
         <volume>
+            <property>engines/engine[1]/fan</property>
+            <factor>0.3</factor>
+            <min>0.6</min>
+            <max>0.8</max>
+        </volume>
+        <pitch>
+            <property>engines/engine[0]/fan</property>
+            <factor>0.01</factor>
+            <offset>0.0</offset>
+        </pitch>
+        <pitch>
+            <property>engines/engine[1]/fan</property>
+            <factor>0.01</factor>
+            <offset>0.0</offset>
+        </pitch>
+        <position>
+            <x>7</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>10.0</max-dist>
+    </engine>
+
+    <engine>
+        <name>left engine</name>
+        <path>Sounds/jet.wav</path>
+        <condition>
+            <and>
+                <not>
+                    <property>controls/engines/engine[0]/cutoff</property>
+                </not>
+                <not>
+                    <property>sim/current-view/internal</property>
+                </not>
+            </and>
+        </condition>
+        <mode>looped</mode>
+        <volume>
             <property>engines/engine[0]/thrust-lbs</property>
-            <factor>0.00035</factor>
+            <factor>0.000363</factor>
+            <min>0.2</min>
+            <max>1.0</max>
         </volume>
         <pitch>
             <offset>1.2</offset>
@@ -28,22 +70,36 @@
             <y>1.3</y>
             <z>1</z>
         </position>
-        <reference-dist>150.0</reference-dist>
-        <max-dist>500.0</max-dist>
+        <orientation>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+            <inner-angle>90.0</inner-angle>
+            <outer-angle>180.0</outer-angle>
+            <outer-gain>0.5</outer-gain>
+        </orientation>
+        <reference-dist>200.0</reference-dist>
+        <max-dist>2000.0</max-dist>
     </engine>
 
     <engine>
         <name>left n1</name>
         <path>Aircraft/Citation-Bravo/Sound/whine.wav</path>
         <condition>
+            <and>
             <greater-than>
                 <property>engines/engine/fan</property>
                 <value>10</value>
             </greater-than>
+            <not>
+                <property>sim/current-view/internal</property>
+            </not>
+            </and>
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>sim/sound/Ovolume</property>
+            <property>engines/engine[0]/fan</property>
+            <factor>0.005</factor>
         </volume>
         <pitch>
             <property>engines/engine/fan</property>
@@ -51,27 +107,41 @@
             <factor>0.005</factor>
         </pitch>
         <position>
-            <x>10</x>
+            <x>7</x>
             <y>1.3</y>
             <z>1</z>
         </position>
-        <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <orientation>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+            <inner-angle>70.0</inner-angle>
+            <outer-angle>180.0</outer-angle>
+            <outer-gain>0.2</outer-gain>
+        </orientation>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>500.0</max-dist>
     </engine>
 
     <engine>
         <name>right engine</name>
         <path>Sounds/jet.wav</path>
         <condition>
-            <property>controls/engines/engine[1]/cutoff</property>
+            <and>
+                <not>
+                    <property>controls/engines/engine[1]/cutoff</property>
+                </not>
+                <not>
+                    <property>sim/current-view/internal</property>
+                </not>
+            </and>
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>sim/sound/Ovolume</property>
-        </volume>
-        <volume>
             <property>engines/engine[1]/thrust-lbs</property>
-            <factor>0.00035</factor>
+            <factor>0.000363</factor>
+            <min>0.2</min>
+            <max>1.0</max>
         </volume>
         <pitch>
             <offset>1.2</offset>
@@ -81,22 +151,36 @@
             <y>-1.3</y>
             <z>1</z>
         </position>
-        <reference-dist>150.0</reference-dist>
-        <max-dist>300.0</max-dist>
+        <orientation>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+            <inner-angle>90.0</inner-angle>
+            <outer-angle>180.0</outer-angle>
+            <outer-gain>0.5</outer-gain>
+        </orientation>
+        <reference-dist>200.0</reference-dist>
+        <max-dist>2000.0</max-dist>
     </engine>
 
     <engine>
         <name>right n1</name>
         <path>Aircraft/Citation-Bravo/Sound/whine.wav</path>
-        <condition>
+            <condition>
+            <and>
             <greater-than>
                 <property>engines/engine[1]/fan</property>
                 <value>10</value>
             </greater-than>
+            <not>
+                <property>sim/current-view/internal</property>
+            </not>
+            </and>
         </condition>
         <mode>looped</mode>
         <volume>
-            <property>sim/sound/Ovolume</property>
+            <property>engines/engine[1]/fan</property>
+            <factor>0.01</factor>
         </volume>
         <pitch>
             <property>engines/engine[1]/fan</property>
@@ -104,16 +188,24 @@
             <factor>0.005</factor>
         </pitch>
         <position>
-            <x>10</x>
+            <x>7</x>
             <y>-1.3</y>
             <z>1</z>
         </position>
-        <reference-dist>10.0</reference-dist>
-        <max-dist>20.0</max-dist>
+        <orientation>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+            <inner-angle>70.0</inner-angle>
+            <outer-angle>180.0</outer-angle>
+            <outer-gain>0.2</outer-gain>
+        </orientation>
+        <reference-dist>5.0</reference-dist>
+        <max-dist>500.0</max-dist>
     </engine>
 
     <engine>
-        <name>reverser</name>
+        <name>left reverser</name>
         <path>Sounds/exhaust_loop.wav</path>
         <condition>
             <greater-than>
@@ -124,17 +216,52 @@
         <mode>looped</mode>
         <volume>
             <property>surface-positions/reverser-norm</property>
-            <factor>1.0</factor>
+            <factor>0.5</factor>
         </volume>
         <volume>
-            <property>sim/sound/Ovolume</property>
+            <property>engines/engine[0]/thrust-lbs</property>
+            <factor>0.00035</factor>
+            <min>0.0</min>
+            <max>0.5</max>
         </volume>
         <pitch>
             <offset>1.6</offset>
         </pitch>
         <position>
             <x>12</x>
-            <y>0</y>
+            <y>-1.50</y>
+            <z>1</z>
+        </position>
+        <reference-dist>100.0</reference-dist>
+        <max-dist>500.0</max-dist>
+    </engine>
+
+    <engine>
+        <name>right reverser</name>
+        <path>Sounds/exhaust_loop.wav</path>
+        <condition>
+            <greater-than>
+                <property>surface-positions/reverser-norm</property>
+                <value>0</value>
+            </greater-than>
+        </condition>
+        <mode>looped</mode>
+        <volume>
+            <property>surface-positions/reverser-norm</property>
+            <factor>0.5</factor>
+        </volume>
+        <volume>
+            <property>engines/engine[1]/thrust-lbs</property>
+            <factor>0.00035</factor>
+            <min>0.0</min>
+            <max>0.5</max>
+        </volume>
+        <pitch>
+            <offset>1.6</offset>
+        </pitch>
+        <position>
+            <x>12</x>
+            <y>-1.50</y>
             <z>1</z>
         </position>
         <reference-dist>100.0</reference-dist>
@@ -143,7 +270,7 @@
 
     <rumble>
         <name>rumble</name>
-        <path>Sounds/rumble.wav</path>
+        <path>Aircraft/Citation-Bravo/Sound/rumble.wav</path>
         <condition>
             <or>
                 <property>/gear/gear[0]/wow</property>
@@ -154,41 +281,44 @@
         <mode>looped</mode>
         <volume>
             <property>velocities/groundspeed-kt</property>
-            <factor>0.02</factor>
+            <factor>0.1</factor>
             <min>0</min>
-            <max>0.5</max>
+            <max>1.0</max>
         </volume>
         <position>
             <x>5</x>
             <y>0</y>
-            <z>-2</z>
+            <z>-1</z>
         </position>
-        <reference-dist>10.0</reference-dist>
+        <reference-dist>7.0</reference-dist>
         <max-dist>20.0</max-dist>
     </rumble>
 
     <gear>
-        <name>gear</name>
+        <name>gear-retract</name>
         <path>Aircraft/Citation-Bravo/Sound/gear.wav</path>
         <property>gear/gear[0]/position-norm</property>
         <mode>in-transit</mode>
         <pitch>
-            <internal>dt_play</internal>
-            <offset>0.8</offset>
-            <factor>-0.001</factor>
+            <property>gear/gear[0]/position-norm</property>
+            <offset>0</offset>
+            <factor>10.0</factor>
+            <min>0</min>
+            <max>1.0</max>
         </pitch>
         <position>
             <x>7</x>
             <y>0</y>
-            <z>-1</z>
+            <z>0</z>
         </position>
-        <reference-dist>5.0</reference-dist>
-        <max-dist>10.0</max-dist>
+        <reference-dist>1.0</reference-dist>
+        <max-dist>12.0</max-dist>
     </gear>
 
     <gear>
         <name>gear-lock</name>
         <path>Sounds/gear-lck.wav</path>
+        <mode>once</mode>
         <condition>
             <equals>
                 <property>gear/gear[0]/position-norm</property>
@@ -198,14 +328,34 @@
         <position>
             <x>7</x>
             <y>0</y>
-            <z>-1</z>
+            <z>0</z>
         </position>
-        <reference-dist>5.0</reference-dist>
-        <max-dist>10.0</max-dist>
+        <reference-dist>3.0</reference-dist>
+        <max-dist>20.0</max-dist>
+    </gear>
+
+    <gear>
+        <name>gear-thump</name>
+        <path>Sounds/gear-lck.wav</path>
+        <mode>once</mode>
+        <condition>
+            <equals>
+                <property>gear/gear[0]/position-norm</property>
+                <value>1</value>
+            </equals>
+        </condition>
+        <position>
+            <x>7</x>
+            <y>0</y>
+            <z>0</z>
+        </position>
+        <reference-dist>3.0</reference-dist>
+        <max-dist>20.0</max-dist>
     </gear>
 
     <gear>
         <name>gear-horn</name>
+        <type>avionics</type>
         <path>Sounds/gear-hrn.wav</path>
         <condition>
             <property>instrumentation/alerts/gear-horn</property>
@@ -226,7 +376,7 @@
 
     <squeal>
         <name>squeal</name>
-        <path>Aircraft/Citation-Bravo/Sound/squeal.wav</path>
+        <path>Sounds/squeal2.wav</path>
         <condition>
             <or>
                 <property>gear/gear[0]/wow</property>
@@ -240,23 +390,20 @@
         </volume>
         <volume>
             <property>velocities/airspeed-kt</property>
-            <factor>0.01</factor>
+            <factor>0.02</factor>
         </volume>
-        <volume>
-            <property>sim/sound/Ovolume</property>
-        </volume>
-        <pitch>
+         <pitch>
             <property>velocities/airspeed-kt</property>
             <factor>0.0025</factor>
-            <offset>1.2</offset>
+            <offset>0.6</offset>
         </pitch>
         <position>
             <x>5</x>
             <y>0</y>
             <z>-2</z>
         </position>
-        <reference-dist>20.0</reference-dist>
-        <max-dist>50.0</max-dist>
+        <reference-dist>10.0</reference-dist>
+        <max-dist>100.0</max-dist>
     </squeal>
 
     <flap>
@@ -274,7 +421,7 @@
             <z>-1</z>
         </position>
         <reference-dist>5.0</reference-dist>
-        <max-dist>10.0</max-dist>
+        <max-dist>20.0</max-dist>
     </flap>
 
     <speedbrake>
@@ -298,69 +445,25 @@
         <max-dist>10.0</max-dist>
     </speedbrake>
 
-    <wind>
-        <name>wind</name>
-        <path>Sounds/wind.wav</path>
-        <property>velocities/airspeed-kt</property>
-        <mode>looped</mode>
-        <volume>
-            <property>velocities/airspeed-kt</property>
-            <factor>0.002</factor>
-            <min>0.0</min>
-            <max>0.15</max>
-        </volume>
-        <pitch>
-            <property>velocities/airspeed-kt</property>
-            <factor>0.01</factor>
-            <offset>1.25</offset>
-        </pitch>
-        <position>
-            <x>2</x>
-            <y>0</y>
-            <z>0</z>
-        </position>
-        <reference-dist>1</reference-dist>
-        <max-dist>2.0</max-dist>
-    </wind>
 
     <click>
-        <name>click1</name>
+        <name>click-off</name>
+        <type>avionics</type>
+        <path>Sounds/click.wav</path>
+        <condition>
+                <not>
+                    <property>sim/sound/click</property>
+                </not>
+        </condition>
+    </click>
+
+    <click>
+        <name>click-on</name>
+        <type>avionics</type>
         <path>Sounds/click.wav</path>
         <condition>
             <property>sim/sound/click</property>
         </condition>
-        <volume>
-            <property>sim/sound/Cvolume</property>
-            <factor>0.3</factor>
-        </volume>
-        <position>
-            <x>5</x>
-            <y>0</y>
-            <z>0</z>
-        </position>
-        <reference-dist>2.5</reference-dist>
-        <max-dist>5.0</max-dist>
-    </click>
-
-    <click>
-        <name>click2</name>
-        <path>Sounds/click.wav</path>
-        <condition>
-            <not>
-                <property>sim/sound/click</property>
-            </not>
-        </condition>
-        <volume>
-            <property>sim/sound/Cvolume</property>
-            <factor>0.3</factor>
-        </volume>
-        <position>
-            <x>2.5</x>
-            <y>0</y>
-            <z>0</z>
-        </position>
-        <reference-dist>2.5</reference-dist>
-        <max-dist>5.0</max-dist>
     </click>
 
 </fx>

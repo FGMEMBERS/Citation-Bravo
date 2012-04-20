@@ -102,7 +102,6 @@ var JetEngine = {
 
 
 aircraft.light.new("instrumentation/annunciators", [0.5, 0.5], MstrCaution);
-var cabin_door = aircraft.door.new("/controls/cabin-door", 2);
 var FHmeter = aircraft.timer.new("/instrumentation/clock/flight-meter-sec", 10,1);
 var Grd_Idle=props.globals.getNode("controls/engines/grnd-idle",1);
 Grd_Idle.setBoolValue(1);
@@ -186,14 +185,13 @@ var annunciators_loop = func{
     setprop("/instrumentation/annunciators/fuel-boost",RHeng.cycle_up);
 
     var Tfuel = getprop("/consumables/fuel/total-fuel-lbs");
-        if(Tfuel != nil){
-            if( Tfuel< 400){
+        if( Tfuel< 400){
                 MstrCaution.setBoolValue(1 * PWR2);
-                Annun.getNode("fuel-lo").setBoolValue(1 * PWR2);
+                Annun.getNode("fuel-lo").setBoolValue(PWR2);
             }else{
                 Annun.getNode("fuel-lo").setBoolValue(0);
             }
-        }
+
 
     if(getprop("/gear/gear[0]/position-norm") == 1.0){
         Annun.getNode("gear-N").setBoolValue(1 * PWR2);
@@ -351,7 +349,7 @@ var update_systems = func{
     RHeng.update();
     FHupdate(0);
 
-    if(getprop("velocities/airspeed-kt") > 40) cabin_door.close();
+    if(getprop("velocities/airspeed-kt") > 40) setprop("controls/cabin-door/open",0);
 
     var GrWrn = 0;
     var Ghorn = 0;

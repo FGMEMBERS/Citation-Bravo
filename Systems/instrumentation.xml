@@ -88,6 +88,11 @@ This file selects the instrumentation modules that should be available.
         <number>0</number>
     </radar>
 
+    <KR-87>
+        <name>KR-87</name>
+        <number>0</number>
+    </KR-87>
+
     <KT-70>
         <name>kt-70</name>
         <number>0</number>
@@ -102,5 +107,27 @@ This file selects the instrumentation modules that should be available.
         <name>mk-viii</name>
         <number>0</number>
     </mk-viii>
+
+    <vertical-speed-indicator>
+        <name>vertical-speed-indicator</name>
+        <number>0</number>
+    </vertical-speed-indicator>
+
+    <tcas>
+        <name>tcas</name>
+        <number>0</number>
+    </tcas>
+
+    <navigation-display>
+        <name>nd</name>
+        <number>0</number>
+        <symbols include="nav-display.xml"/>
+    </navigation-display>
+
+    <navigation-display>
+        <name>tcas-display</name>
+        <number>0</number>
+        <symbols include="tcas-display.xml"/>
+    </navigation-display>
 
 </PropertyList>

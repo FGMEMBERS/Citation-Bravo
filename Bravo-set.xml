@@ -38,9 +38,9 @@ Feb 2005  Syd Adams   ()
         <type>lookfrom</type>
         <internal type="bool">true</internal>
         <config>
-            <x-offset-m type="double">-0.36</x-offset-m>
+            <x-offset-m type="double">-0.326</x-offset-m>
             <y-offset-m type="double">1.0</y-offset-m>
-            <z-offset-m type="double">3.1</z-offset-m>
+            <z-offset-m type="double">3.08</z-offset-m>
             <pitch-offset-deg>-12</pitch-offset-deg>
             <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
             <limits>
@@ -97,6 +97,52 @@ Feb 2005  Syd Adams   ()
         </config>
     </view>
 
+    <view n="7">
+        <config>
+            <target-z-offset-m archive="y" type="double">6.7</target-z-offset-m>
+        </config>
+    </view>
+
+<view n="100">
+        <name>Copilot</name>
+        <type>lookfrom</type>
+        <internal type="bool">true</internal>
+        <config>
+            <from-model type = "bool">true</from-model>
+            <x-offset-m type="double">0.326</x-offset-m>
+            <y-offset-m type="double">1.0</y-offset-m>
+            <z-offset-m type="double">3.1</z-offset-m>
+            <pitch-offset-deg>-12</pitch-offset-deg>
+            <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+            <limits>
+                <enabled type="bool">true</enabled>
+                <left>
+                  <heading-max-deg type="double">160</heading-max-deg>
+                  <x-offset-max-m type="double">0.22</x-offset-max-m>
+                  <x-offset-threshold-deg type="double">45</x-offset-threshold-deg>
+                </left>
+                <right>
+                    <heading-max-deg type="double">120</heading-max-deg>
+                    <x-offset-max-m type="double">0.25</x-offset-max-m>
+                    <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+                </right>
+            </limits>
+        </config>
+    </view>
+
+<view n="101">
+        <name>NavPanel</name>
+        <type>lookfrom</type>
+        <internal type="bool">true</internal>
+        <config>
+            <from-model type = "bool">true</from-model>
+            <x-offset-m type="double">0.026</x-offset-m>
+            <y-offset-m type="double">0.64</y-offset-m>
+            <z-offset-m type="double">2.90</z-offset-m>
+            <pitch-offset-deg>-10</pitch-offset-deg>
+            <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        </config>
+    </view>
 
     <airport>
         <runways>
@@ -108,9 +154,8 @@ Feb 2005  Syd Adams   ()
 
     <systems>
         <autopilot>
-            <path>Aircraft/Citation-Bravo/Systems/Bravo-autopilot.xml</path>
+            <path>Aircraft/Citation-Bravo/Systems/autopilot.xml</path>
         </autopilot>
-
         <path>Aircraft/Citation-Bravo/Systems/systems.xml</path>
     </systems>
 
@@ -155,6 +200,9 @@ Feb 2005  Syd Adams   ()
             <start-cycle n="0" type="bool">0</start-cycle>
             <start-cycle n="1" type="bool">0</start-cycle>
         </Bravo>
+        <reg-red type="float">0.1</reg-red>
+        <reg-green type="float">0.1</reg-green>
+        <reg-blue type="float">0.1</reg-blue>
     </model>
 
     <weight n="0">
@@ -218,31 +266,17 @@ Feb 2005  Syd Adams   ()
                     </binding>
                 </item>
                 <item>
-                    <label>Yokes On/Off</label>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>sim/yokes-visible</property>
-                    </binding>
-                </item>
-                <item>
-                    <label>Map Lights</label>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>controls/lighting/map-lights</property>
-                    </binding>
-                </item>
-                <item>
-                    <label>Cabin Lights</label>
-                    <binding>
-                        <command>property-toggle</command>
-                        <property>controls/lighting/cabin-lights</property>
-                    </binding>
-                </item>
-                <item>
                     <label>Select Livery</label>
                     <binding>
                         <command>nasal</command>
                         <script>aircraft.livery.dialog.toggle()</script>
+                    </binding>
+                </item>
+                <item>
+                    <label>Options</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>dialogs.options.open()</script>
                     </binding>
                 </item>
             </menu>
@@ -261,6 +295,11 @@ Feb 2005  Syd Adams   ()
         <gear>
             <brake-parking>1</brake-parking>
         </gear>
+
+        <cabin-door>
+            <open type="bool">0</open>
+            <position-norm type="double">0.0</position-norm>
+        </cabin-door>
 
         <electric>
             <engine n="0">
@@ -311,39 +350,15 @@ Feb 2005  Syd Adams   ()
 
 <!--Annunciator Setup-->
     <instrumentation>
-        <radar>
-            <switch type="string" archive="y">on</switch>
-            <mode-control type="int" archive="y">1</mode-control>
-            <display-controls>
-                <WX type="bool" archive="y">false</WX>
-                <pos type="bool" archive="y">true</pos>
-                <data type="bool" archive="y">true</data>
-                <symbol type="bool" archive="y">true</symbol>
-                <rotate type="bool" archive="y">true</rotate>
-            </display-controls>
-            <serviceable type="bool">true</serviceable>
-            <range type="int" archive="y">5</range>
-            <reference-range-nm type="double" archive="y">640</reference-range-nm>
-            <mode type="string" archive="y">WX</mode>
-            <font>
-                <name type="string">typewriter.txf</name>
-                <size type="float">6</size>
-                <line-spacing type="float">0.4</line-spacing>
-                <color>
-                    <red type="float">0.7</red>
-                    <green type="float">0.7</green>
-                    <blue type="float">0.7</blue>
-                    <alpha type="float">1</alpha>
-                </color>
-            </font>
-            <lightning type="bool" archive="y">true</lightning>
-            <display-mode type="string" archive="y">plan</display-mode>
-            <radar-texture-path type="string" archive="y">Aircraft/Instruments-3d/primus-1000/MFD/od_wxradar.png</radar-texture-path>
-            <echo-texture-path type="string" archive="y">Aircraft/Instruments-3d/primus-1000/MFD/wxecho.png</echo-texture-path>
-            <minimized type="bool" archive="y">false</minimized>
-            <heading-marker type="bool" archive="y">true</heading-marker>
-            <limit-deg type="int">360</limit-deg>
-        </radar>
+        <dc550>
+            <navptr n="0" type="int">0</navptr>
+            <navptr n="1" type="int">0</navptr>
+            <hsi type="bool">0</hsi>
+            <sc-cp type="bool">0</sc-cp>
+            <in-hpa type="bool">0</in-hpa>
+            <gspd-ttg type="bool">0</gspd-ttg>
+            <et type="bool">0</et>
+        </dc550>
 
         <annunciators>
             <master-warning type="bool">0</master-warning>
@@ -432,6 +447,98 @@ Feb 2005  Syd Adams   ()
         <nav n="1">
             <audio-btn>0</audio-btn>
         </nav>
+                <tcas>
+            <serviceable type="bool">true</serviceable>
+            <inputs>
+                <mode type="int">0</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+            </inputs>
+            <!--voice>
+                <file-prefix type="string">Sounds/tcas/</file-prefix>
+            </voice-->
+            <speaker>                           <!-- Speaker Configuration -->
+                <max-dist type="double">6</max-dist>        <!-- Max. distance where speaker is heard -->
+                <reference-dist type="double"> 2 </reference-dist> <!-- Distance to pilot -->
+                <volume type="double"> 1 </volume>          <!-- Volume at reference distance -->
+            </speaker>
+            <range type="int">6</range>
+        </tcas>
+
+        <nd>
+            <radar-texture-path type="string">Aircraft/Citation-Bravo/Models/Instruments/MFD/radar.png</radar-texture-path>
+            <symbol-texture-path type="string">Aircraft/Citation-Bravo/Models/Instruments/MFD/symbols.png</symbol-texture-path>
+            <font>
+                <color>
+                    <red type="float">0.7</red>
+                    <green type="float">0.7</green>
+                    <blue type="float">0.7</blue>
+                    <alpha type="float">1</alpha>
+                </color>
+                <name type="string">helvetica_bold.txf</name>
+                <size type="float">14</size>
+                <line-spacing type="float">0.01</line-spacing>
+            </font>
+            <serviceable type="bool">true</serviceable>
+            <range type="int" archive="y">5</range>
+            <aircraft-heading-up type="bool">true</aircraft-heading-up>
+            <heading-up-deg type="float">0.01</heading-up-deg>
+            <x-center type="float">0.5</x-center>
+            <y-center type="float">0.56</y-center>
+            <display>
+                <arpt type="bool">0</arpt>
+                <vor type="bool">0</vor>
+                <fix type="bool">0</fix>
+            </display>
+            <line-width type="double">3</line-width>
+        </nd>
+
+        <tcas-display>
+            <radar-texture-path type="string">Aircraft/Citation-Bravo/Models/Instruments/MFD/tcas-display.png</radar-texture-path>
+            <symbol-texture-path type="string">Aircraft/Citation-Bravo/Models/Instruments/MFD/symbols.png</symbol-texture-path>
+            <font>
+                <color>
+                    <red type="float">0.7</red>
+                    <green type="float">0.7</green>
+                    <blue type="float">0.7</blue>
+                    <alpha type="float">1</alpha>
+                </color>
+                <name type="string">helvetica_bold.txf</name>
+                <size type="float">14</size>
+                <line-spacing type="float">0.01</line-spacing>
+            </font>
+            <serviceable type="bool">true</serviceable>
+            <range type="int" archive="y">6</range>
+            <aircraft-heading-up type="bool">true</aircraft-heading-up>
+            <heading-up-deg type="float">0.01</heading-up-deg>
+            <x-center type="float">0.5</x-center>
+            <y-center type="float">0.33</y-center>
+            <display>
+                <tcas type="bool">1</tcas>
+            </display>
+            <line-width type="double">3</line-width>
+        </tcas-display>
+
+        <altimeter n="0">
+            <dh type="int">200</dh>
+        </altimeter>
+        <altimeter n="1">
+            <dh type="int">200</dh>
+        </altimeter>
+
+        <mc-800>
+            <map type="bool">1</map>
+            <tcas type="bool">0</tcas>
+            <wx type="bool">0</wx>
+            <dat type="bool">1</dat>
+            <apt type="bool">0</apt>
+            <vor type="bool">0</vor>
+            <norm type="bool">0</norm>
+            <emer type="bool">0</emer>
+            <rcl type="bool">0</rcl>
+            <skp type="bool">0</skp>
+            <pag type="bool">0</pag>
+            <ent type="bool">0</ent>
+        </mc-800>
+
     </instrumentation>
 
     <engines>
@@ -442,23 +549,6 @@ Feb 2005  Syd Adams   ()
             <running>false</running>
         </engine>
     </engines>
-
-    <nasal>
-        <citation>
-            <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
-            <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
-            <file>Aircraft/Citation-Bravo/Nasal/flightdirector.nas</file>
-        </citation>
-        <dialogs>
-            <file>Aircraft/Citation-Bravo/Nasal/dialogs.nas</file>
-        </dialogs>
-        <m877>
-            <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
-        </m877>
-        <efis>
-            <file>Aircraft/Instruments-3d/primus-1000/P1000.nas</file>
-        </efis>
-    </nasal>
 
     <input>
         <keyboard>
@@ -482,17 +572,23 @@ Feb 2005  Syd Adams   ()
                 <name>Delete</name>
                 <desc>Toggle Reversers</desc>
                 <binding>
+                    <condition>
+                        <property>gear/gear[1]/wow</property>
+                    </condition>
                     <command>property-toggle</command>
                     <property>controls/engines/engine[0]/reverser</property>
                 </binding>
                 <binding>
+                    <condition>
+                        <property>gear/gear[1]/wow</property>
+                    </condition>
                     <command>property-toggle</command>
                     <property>controls/engines/engine[1]/reverser</property>
                 </binding>
             </key>
             <key n="4">
                 <name>Ctrl-D</name>
-                <desc>Open/close canopy</desc>
+                <desc>Open/close door</desc>
                 <binding>
                     <condition>
                         <less-than>
@@ -500,20 +596,65 @@ Feb 2005  Syd Adams   ()
                             <value>40</value>
                         </less-than>
                     </condition>
-                    <command>nasal</command>
-                    <script>citation.cabin_door.toggle();</script>
-                </binding>
-            </key>
-            <key n="267">
-                <name>F11</name>
-                <desc>Pop up autopilot dialog</desc>
-                <binding>
-                    <command>nasal</command>
-                    <script>citation.ap_settings.toggle()</script>
+                    <command>property-toggle</command>
+                    <property>controls/cabin-door/open</property>
                 </binding>
             </key>
         </keyboard>
     </input>
 
+    <autopilot>
+        <locks>
+            <AP-status type="string"> </AP-status>
+            <FD-status type="bool">1</FD-status>
+            <speed-mode type="string">IAS</speed-mode>
+            <heading type="string">ROL</heading>
+            <heading-armed type="string"></heading-armed>
+            <altitude type="string">PIT</altitude>
+            <altitude-armed type="string"></altitude-armed>
+            <nav-src type="string">NAV1</nav-src>
+            <yaw-damper type="bool">0</yaw-damper>
+        </locks>
+        <settings>
+            <target-pitch-deg type="double">0</target-pitch-deg>
+            <target-roll-deg type="double">0</target-roll-deg>
+            <bank-limit type="int">27</bank-limit>
+            <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+            <target-speed-kt type="int">0</target-speed-kt>
+            <target-speed-mach type="double">0</target-speed-mach>
+            <asel type="int">100</asel>
+        </settings>
+    </autopilot>
+
+    <consumables>
+        <fuel>
+            <tank n="0">
+                <name>LH tank</name>
+                <level-lbs>2000.0</level-lbs>
+                <selected type="bool">1</selected>
+            </tank>
+            <tank n="1">
+                <name>RH tank</name>
+                <level-lbs>2000.0</level-lbs>
+                <selected type="bool">1</selected>
+            </tank>
+        </fuel>
+    </consumables>
+
+    <nasal>
+        <citation>
+            <file>Aircraft/Citation-Bravo/Nasal/Bravo.nas</file>
+            <file>Aircraft/Citation-Bravo/Nasal/Electrical.nas</file>
+        </citation>
+        <dialogs>
+            <file>Aircraft/Citation-Bravo/Nasal/dialogs.nas</file>
+        </dialogs>
+        <FD>
+            <file>Aircraft/Citation-Bravo/Nasal/ap_fd.nas</file>
+        </FD>
+        <m877>
+            <file>Aircraft/Instruments-3d/clock/M877/M877.nas</file>
+        </m877>
+    </nasal>
 
 </PropertyList>
