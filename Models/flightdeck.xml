@@ -4454,7 +4454,6 @@
 <animation>
     <type>select</type>
     <object-name>AI.ladder</object-name>
-    <object-name>AI.bars</object-name>
     <condition>
             <greater-than>
                 <property>systems/electrical/left-bus</property>
@@ -4470,7 +4469,7 @@
         <transform>
             <property>orientation/pitch-deg</property>
             <subtype>textranslate</subtype>
-            <factor>0.00312</factor>
+            <factor>0.000784444</factor>
             <axis>
                 <x>0</x>
                 <y>1</y>
@@ -4481,8 +4480,8 @@
             <property>orientation/roll-deg</property>
             <subtype>texrotate</subtype>
             <center>
-                <x>0.25</x>
-                <y>0.5</y>
+                <x>0.255</x>
+                <y>0.526</y>
             </center>
             <axis>
                 <x>0</x>
