@@ -23,7 +23,7 @@ Feb 2005  Syd Adams   ()
             <int n="0" alias="/systems/electrical/outputs/strobe"/>
             <int n="1" alias="/systems/electrical/outputs/beacon"/>
             <int n="2" alias="/systems/electrical/outputs/nav-lights"/>
-            <int n="3" alias="/systems/electrical/outputs/landing-light2"/>
+            <int n="3" alias="/systems/electrical/outputs/landing-light[0]"/>
             <int n="4" alias="/systems/electrical/outputs/landing-light[1]"/>
             <int n="5" alias="/systems/electrical/outputs/recog-lights"/>
             <float  alias="/controls/cabin-door/position-norm"/>
