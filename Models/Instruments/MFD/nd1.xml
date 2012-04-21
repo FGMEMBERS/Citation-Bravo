@@ -2,25 +2,24 @@
 
 
 <PropertyList>
-    <name>nd1</name>
-        <x>225</x>
-        <y>338</y>
-    <w-base>445</w-base>
-    <h-base>329</h-base>
+    <name>nd2</name>
+        <x>256</x>
+        <y>304</y>
+    <w-base>433</w-base>
+    <h-base>362</h-base>
 
     <layers>
 
         <layer>
-            <name>nd1</name>
             <texture>
                 <path>Aircraft/Citation-Bravo/Models/Instruments/MFD/radar.png</path>
-                <x1>0.0</x1>
-                <y1>0.354</y1>
-                <x2>1.0</x2>
+                <x1>0.024</x1>
+                <y1>0.208</y1>
+                <x2>0.974</x2>
                 <y2>1.0</y2>
             </texture>
             <emissive>true</emissive>
         </layer>
-    </layers>
+   </layers>
 
 </PropertyList>

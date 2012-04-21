@@ -279,8 +279,9 @@ var update_nav=func{
         setprop("autopilot/internal/nav-type","FMS1");
         setprop("autopilot/internal/in-range",1);
         setprop("autopilot/internal/gs-in-range",0);
-        setprop("autopilot/internal/nav-distance",getprop("instrumentation/gps/wp/wp[1]/distance-nm"));
-        setprop("autopilot/internal/nav-id",getprop("instrumentation/gps/wp/wp[1]/ID"));
+        setprop("autopilot/internal/nav-distance",getprop("/autopilot/route-manager/wp[0]/dist"));
+        setprop("autopilot/internal/nav-id",getprop("/autopilot/route-manager/wp[0]/id"));
+        setprop("autopilot/internal/nav-ttw",getprop("/autopilot/route-manager/wp[0]/eta"));
         course_offset("instrumentation/gps/wp/wp[1]/bearing-mag-deg");
         setprop("autopilot/internal/to-flag",getprop("instrumentation/gps/wp/wp[1]/to-flag"));
         setprop("autopilot/internal/from-flag",getprop("instrumentation/gps/wp/wp[1]/from-flag"));

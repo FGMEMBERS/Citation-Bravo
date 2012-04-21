@@ -2443,6 +2443,11 @@
             <command>property-toggle</command>
             <property>instrumentation/mc-800/map</property>
         </binding>
+        <binding>
+            <command>property-assign</command>
+            <property>instrumentation/nd/aircraft-heading-up</property>
+            <property>instrumentation/mc-800/map</property>
+        </binding>
     </action>
 </animation>
 

@@ -3,7 +3,7 @@
 <text>
         <name>MagHdg</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0</y-m>
             <z-m>0.097</z-m>
         </offsets>
@@ -24,7 +24,7 @@
     <text>
         <name>HDGannun</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>-0.060</y-m>
             <z-m>-0.028</z-m>
         </offsets>
@@ -46,7 +46,7 @@
     <text>
         <name>Nav-src</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.073</y-m>
             <z-m>0.105</z-m>
         </offsets>
@@ -66,7 +66,7 @@
     <text>
         <name>Nav-dst</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.073</y-m>
             <z-m>0.098</z-m>
         </offsets>
@@ -87,7 +87,7 @@
     <text>
         <name>Nav-id</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.073</y-m>
             <z-m>0.092</z-m>
         </offsets>
@@ -108,7 +108,7 @@
     <text>
         <name>Nav-ttw</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.073</y-m>
             <z-m>0.085</z-m>
         </offsets>
@@ -129,7 +129,7 @@
     <text>
         <name>TAS</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.063</y-m>
             <z-m>-0.033</z-m>
         </offsets>
@@ -151,7 +151,7 @@
     <text>
         <name>GSPD</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.063</y-m>
             <z-m>-0.045</z-m>
         </offsets>
@@ -217,7 +217,7 @@
     <text>
         <name>ASEL</name>
         <offsets>
-            <x-m>0.0001</x-m>
+            <x-m>0.000</x-m>
             <y-m>0.064</y-m>
             <z-m>-0.070</z-m>
         </offsets>

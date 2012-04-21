@@ -3,10 +3,10 @@
 
 <PropertyList>
     <name>TCAS1</name>
-    <x>225</x>
-    <y>133</y>
-    <w-base>360</w-base>
-    <h-base>266</h-base>
+    <x>256</x>
+    <y>125</y>
+    <w-base>340</w-base>
+    <h-base>250</h-base>
 
     <layers>
             <layer>

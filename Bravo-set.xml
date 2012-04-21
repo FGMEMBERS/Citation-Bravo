@@ -482,7 +482,7 @@ Feb 2005  Syd Adams   ()
             <aircraft-heading-up type="bool">true</aircraft-heading-up>
             <heading-up-deg type="float">0.01</heading-up-deg>
             <x-center type="float">0.5</x-center>
-            <y-center type="float">0.56</y-center>
+            <y-center type="float">0.5</y-center>
             <display>
                 <arpt type="bool">0</arpt>
                 <vor type="bool">0</vor>

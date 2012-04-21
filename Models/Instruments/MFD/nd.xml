@@ -2,8 +2,8 @@
 <PropertyList>
 
 <name>Nav Panel</name>
-<background>Aircraft/CitationX/Models/Instruments/MFD/transparent.png</background>
-<w>450</w>
+<background>Aircraft/Citation-Bravo/Models/Instruments/MFD/transparent.png</background>
+<w>512</w>
 <h>512</h>
 
 <instruments>
@@ -13,7 +13,7 @@
     </condition>
     </instrument>
 
-    <instrument include="nd2.xml">
+<instrument include="nd2.xml">
     <condition>
         <property>instrumentation/nd/serviceable</property>
     </condition>
@@ -21,7 +21,10 @@
 
     <instrument include="tcas1.xml">
     <condition>
-        <property>instrumentation/mc-800/tcas</property>
+        <and>
+            <property>instrumentation/nd/serviceable</property>
+            <property>instrumentation/mc-800/tcas</property>
+        </and>
     </condition>
     </instrument>
 
