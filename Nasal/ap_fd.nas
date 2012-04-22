@@ -28,6 +28,8 @@ var AP_min_pitch=-30;
 var AP_max_roll=45;
 var crs_cap_deg=5;
 var NAVSRC= getprop("autopilot/locks/nav-src");
+var maplist=[5,10,25,50,100,200,300,600,1200];
+var map_index=0;
 
 setlistener("/sim/signals/fdm-initialized", func {
     init();
@@ -234,6 +236,13 @@ var inputs = func(btn,mode){
             }else AP.setValue("");
         }
     }
+}
+
+var range_set=func(rng){
+ map_index+=rng;
+ if(map_index>8)map_index=0;
+ if(map_index<0)map_index=8;
+ setprop("instrumentation/nd/range",maplist[map_index]);
 }
 
 var update_nav=func{
