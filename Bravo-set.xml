@@ -12,7 +12,7 @@ Feb 2005  Syd Adams   ()
     <author>Syd Adams</author>
     <status>development</status>
     <flight-model>yasim</flight-model>
-    <aero>Citation-Bravo-yasim</aero>
+    <aero>fdm-y</aero>
     <fuel-fraction>0.8</fuel-fraction>
     <startup>
         <splash-texture>Aircraft/Citation-Bravo/Bravo-splash.png</splash-texture>
@@ -510,7 +510,7 @@ Feb 2005  Syd Adams   ()
             <aircraft-heading-up type="bool">true</aircraft-heading-up>
             <heading-up-deg type="float">0.01</heading-up-deg>
             <x-center type="float">0.5</x-center>
-            <y-center type="float">0.33</y-center>
+            <y-center type="float">0.5</y-center>
             <display>
                 <tcas type="bool">1</tcas>
             </display>
@@ -537,6 +537,7 @@ Feb 2005  Syd Adams   ()
             <skp type="bool">0</skp>
             <pag type="bool">0</pag>
             <ent type="bool">0</ent>
+            <menu type="int">0</menu>
         </mc-800>
 
     </instrumentation>
@@ -584,6 +585,26 @@ Feb 2005  Syd Adams   ()
                     </condition>
                     <command>property-toggle</command>
                     <property>controls/engines/engine[1]/reverser</property>
+                </binding>
+            </key>
+            <key n="2">
+                <name>Ctrl-B</name>
+                <desc>Toggle speedbrake</desc>
+                <binding>
+                    <condition>
+                        <and>
+                            <less-than>
+                                <property>engines/engine[0]/turbine</property>
+                                <value>85</value>
+                            </less-than>
+                            <less-than>
+                                <property>engines/engine[1]/turbine</property>
+                                <value>85</value>
+                            </less-than>
+                        </and>
+                    </condition>
+                    <command>property-toggle</command>
+                    <property>/controls/flight/speedbrake</property>
                 </binding>
             </key>
             <key n="4">

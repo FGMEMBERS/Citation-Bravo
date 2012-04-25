@@ -341,6 +341,52 @@ controls.gearDown = func(v) {
     }
 }
 
+mfd_btn = func(btn) {
+
+    var menu = getprop("instrumentation/mc-800/menu");
+    if(menu==0){
+        if(btn==2){
+            setprop("instrumentation/mc-800/menu",1);
+        }elsif(btn==3){
+            setprop("instrumentation/mc-800/menu",4);
+        }elsif(btn==4){
+            var epgw = getprop("instrumentation/mk-viii/serviceable");
+            setprop("instrumentation/mk-viii/serviceable",1-epgw);
+        }
+    }elsif(menu==1){
+        if(btn==1){
+            setprop("instrumentation/mc-800/menu",0);
+        }elsif(btn==2){
+            setprop("instrumentation/mc-800/menu",2);
+        }elsif(btn==3){
+            setprop("instrumentation/mc-800/menu",3);
+        }
+    }elsif(menu==2){
+        if(btn==1){
+            setprop("instrumentation/mc-800/menu",0);
+        }
+    }elsif(menu==3){
+        if(btn==1){
+            setprop("instrumentation/mc-800/menu",0);
+        }
+    }elsif(menu==4){
+        if(btn==1){
+            setprop("instrumentation/mc-800/menu",0);
+        }elsif(btn==3){
+            setprop("instrumentation/mc-800/menu",5);
+        }elsif(btn==4){
+            setprop("instrumentation/mc-800/menu",6);
+        }
+    }elsif(menu==5){
+        if(btn==1){
+            setprop("instrumentation/mc-800/menu",0);
+        }
+    }elsif(menu==6){
+        if(btn==1){
+            setprop("instrumentation/mc-800/menu",0);
+        }
+    }
+}
 
 ########## MAIN ##############
 
