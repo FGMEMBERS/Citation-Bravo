@@ -29,6 +29,10 @@
       <object-name>RHelevator</object-name>
       <object-name>LHelevator</object-name>
       <object-name>RHflap</object-name>
+      <object-name>LHspoiler.top</object-name>
+      <object-name>LHspoiler.btm</object-name>
+      <object-name>RHspoiler.top</object-name>
+      <object-name>RHspoiler.btm</object-name>
       <object-name>RHaileron</object-name>
       <object-name>LHflap</object-name>
       <object-name>LHaileron</object-name>
@@ -60,6 +64,10 @@
       <object-name>RHaileron</object-name>
       <object-name>LHflap</object-name>
       <object-name>LHaileron</object-name>
+      <object-name>LHspoiler.top</object-name>
+      <object-name>LHspoiler.btm</object-name>
+      <object-name>RHspoiler.top</object-name>
+      <object-name>RHspoiler.btm</object-name>
       <object-name>RHdoor</object-name>
       <object-name>LHdoor</object-name>
       <object-name>RHFrDoor</object-name>
