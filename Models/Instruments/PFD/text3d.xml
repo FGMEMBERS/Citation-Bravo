@@ -376,7 +376,7 @@
         <alignment>left-center</alignment>
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">number-value</type>
-        <property>autopilot/settings/vertical-speed-fpm</property>
+        <property>autopilot/settings/target-vs</property>
         <format>VS  %4.0f</format>
         <truncate>true</truncate>
         <font>helvetica_bold.txf</font>

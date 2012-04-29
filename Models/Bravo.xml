@@ -16,15 +16,9 @@
     <animation>
       <type>material</type>
       <object-name>Engines</object-name>
-      <object-name>Fin.inlet</object-name>
-      <object-name>Pylons</object-name>
       <object-name>Fuselage</object-name>
       <object-name>Cabin.door</object-name>
-      <object-name>Lwing</object-name>
-      <object-name>Rwing</object-name>
-      <object-name>wingroot</object-name>
-      <object-name>Vstab</object-name>
-      <object-name>Hstab</object-name>
+      <object-name>Wings</object-name>
       <object-name>Rudder</object-name>
       <object-name>RHelevator</object-name>
       <object-name>LHelevator</object-name>
@@ -49,14 +43,9 @@
     <effect>
       <inherits-from>Aircraft/Citation-Bravo/Models/Effects/skin-reflect</inherits-from>
       <object-name>Engines</object-name>
-      <object-name>Pylons</object-name>
       <object-name>Fuselage</object-name>
       <object-name>Cabin.door</object-name>
-      <object-name>Lwing</object-name>
-      <object-name>Rwing</object-name>
-      <object-name>wingroot</object-name>
-      <object-name>Vstab</object-name>
-      <object-name>Hstab</object-name>
+      <object-name>Wings</object-name>
       <object-name>Rudder</object-name>
       <object-name>RHelevator</object-name>
       <object-name>LHelevator</object-name>
@@ -259,61 +248,6 @@
 
     <animation>
         <type>select</type>
-        <object-name>LndLight</object-name>
-        <object-name>LndLight.001</object-name>
-        <object-name>LndLight.002</object-name>
-        <condition>
-            <greater-than>
-                <property>sim/multiplay/generic/int[3]</property>
-                <value>2.0</value>
-            </greater-than>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>flash</type>
-        <object-name>LndLight</object-name>
-        <center>
-            <x-m>6.742</x-m>
-            <y-m>7.759</y-m>
-            <z-m>0.505</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <power>10</power>
-        <factor>2</factor>
-        <offset>0</offset>
-        <two-sides type="bool">false</two-sides>
-        <min>0.05</min>
-        <max>5</max>
-    </animation>
-
-    <animation>
-        <type>flash</type>
-        <object-name>LndLight.002</object-name>
-        <center>
-            <x-m>6.742</x-m>
-            <y-m>-7.759</y-m>
-            <z-m>0.505</z-m>
-        </center>
-        <axis>
-            <x>-1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-        <power>10</power>
-        <factor>2</factor>
-        <offset>0</offset>
-        <two-sides type="bool">false</two-sides>
-        <min>0.05</min>
-        <max>5</max>
-    </animation>
-
-    <animation>
-        <type>select</type>
         <object-name>Recog</object-name>
         <condition>
             <or>
@@ -360,12 +294,12 @@
             <y>0</y>
             <z>0</z>
         </axis>
-        <power>5</power>
-        <factor>1</factor>
+        <power>3</power>
+        <factor>3</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
-        <max>1</max>
+        <min>1</min>
+        <max>3</max>
     </animation>
 
     <animation>
@@ -381,12 +315,12 @@
             <y>0</y>
             <z>0</z>
         </axis>
-        <power>5</power>
-        <factor>1</factor>
+        <power>3</power>
+        <factor>3</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
-        <max>1</max>
+        <min>1</min>
+        <max>3</max>
     </animation>
 
     <animation>
@@ -653,12 +587,12 @@
             <y>0</y>
             <z>0</z>
         </axis>
-        <power>5</power>
-        <factor>1</factor>
+        <power>2</power>
+        <factor>2</factor>
         <offset>0</offset>
         <two-sides type="bool">false</two-sides>
-        <min>0.01</min>
-        <max>5</max>
+        <min>0.5</min>
+        <max>2</max>
     </animation>
 
     <animation>
@@ -1016,11 +950,11 @@
     </animation>
 
     <animation>
-        <type>rotate</type>
+        <type>spin</type>
         <object-name>FrtWheel</object-name>
         <object-name>FrtWheel.hub</object-name>
         <property>gear/gear[0]/rollspeed-ms</property>
-        <factor>300</factor>
+        <factor>43</factor>
         <center>
             <x-m>1.669</x-m>
             <y-m>0.0</y-m>
@@ -1206,11 +1140,11 @@
     </animation>
 
     <animation>
-        <type>rotate</type>
+        <type>spin</type>
         <object-name>LHwheel</object-name>
         <object-name>LHwheel.hub</object-name>
         <property>gear/gear[1]/rollspeed-ms</property>
-        <factor>300</factor>
+        <factor>41.72</factor>
         <center>
             <x-m>7.289</x-m>
             <y-m>2.809</y-m>
@@ -1334,11 +1268,11 @@
     </animation>
 
     <animation>
-        <type>rotate</type>
+        <type>spin</type>
         <object-name>RHwheel</object-name>
         <object-name>RHwheel.hub</object-name>
         <property>gear/gear[2]/rollspeed-ms</property>
-        <factor>300</factor>
+        <factor>41.72</factor>
         <center>
             <x-m>7.289</x-m>
             <y-m>2.809</y-m>

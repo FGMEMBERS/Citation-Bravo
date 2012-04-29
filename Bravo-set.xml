@@ -245,8 +245,8 @@ Feb 2005  Syd Adams   ()
         </instrumentation>
 
 
-    <yokes-visible type="bool">1</yokes-visible>
-    <head-bounce type="bool">0</head-bounce>
+    <yokes-visible userarchive="y" type="bool">1</yokes-visible>
+
 
    <tutorials>
         <tutorial include="Tutorials/startup_tutorial.xml"/>
@@ -255,6 +255,15 @@ Feb 2005  Syd Adams   ()
 
     <menubar>
         <default>
+            <menu n="5">
+                <item n="10">
+                    <label>MC-800</label>
+                    <binding>
+                        <command>nasal</command>
+                        <script>dialogs.mc800.open()</script>
+                    </binding>
+                </item>
+            </menu>
             <menu n="10">
                 <label>Bravo</label>
                 <enabled type="bool">true</enabled>
@@ -538,6 +547,7 @@ Feb 2005  Syd Adams   ()
             <pag type="bool">0</pag>
             <ent type="bool">0</ent>
             <menu type="int">0</menu>
+            <menu-selected type="string"></menu-selected>
         </mc-800>
 
     </instrumentation>
@@ -553,6 +563,71 @@ Feb 2005  Syd Adams   ()
 
     <input>
         <keyboard>
+             <key n="8">
+                <name>Ctrl-H</name>
+                <desc>Toggle autopilot heading lock</desc>
+                <binding>
+                <command>nasal</command>
+                <script>FD.inputs("hdg",0);</script>
+                </binding>
+            </key>
+            <key n="14">
+                <name>Ctrl-N</name>
+                <desc>Toggle autopilot nav1 lock</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>FD.inputs("nav",0);</script>
+                </binding>
+            </key>
+            <key n="23">
+                <name>Ctrl-W</name>
+                <desc>Toggle autopilot wing leveler</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>FD.setRoll()</script>
+                </binding>
+            </key>
+            <key n="262">
+                <name>F6</name>
+                <desc>Toggle Autopilot Heading Mode</desc>
+                <repeatable type="bool">true</repeatable>
+                <binding>
+                    <command>nasal</command>
+                    <script>FD.inputs("hdg",0);</script>
+                </binding>
+                <mod-shift>
+                    <desc>Scroll panel up</desc>
+                    <binding>
+                        <command>property-adjust</command>
+                        <property>/sim/panel/y-offset</property>
+                        <step type="int">5</step>
+                    </binding>
+                </mod-shift>
+            </key>
+             <key n="1">
+                <name>Ctrl-A</name>
+                <desc>Toggle autopilot altitude lock</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>FD.inputs("alt",1);</script>
+                </binding>
+            </key>
+            <key n="7">
+                <name>Ctrl-G</name>
+                <desc>Toggle autopilot approach</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>FD.inputs("apr",2);</script>
+                </binding>
+            </key>
+            <key n="16">
+                <name>Ctrl-P</name>
+                <desc>Toggle pitch hold</desc>
+                <binding>
+                    <command>nasal</command>
+                    <script>FD.setPitch();</script>
+                </binding>
+            </key>
             <key n="267">
                 <name>F11</name>
                 <desc>Pop up autopilot dialog</desc>
@@ -640,7 +715,7 @@ Feb 2005  Syd Adams   ()
             <target-pitch-deg type="double">0</target-pitch-deg>
             <target-roll-deg type="double">0</target-roll-deg>
             <bank-limit type="int">27</bank-limit>
-            <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+            <target-vs type="int">0</target-vs>
             <target-speed-kt type="int">0</target-speed-kt>
             <target-speed-mach type="double">0</target-speed-mach>
             <asel type="int">100</asel>

@@ -16,12 +16,32 @@ Configure thetcas-display symbology
     </enable>
     <state type="string">!descending</state>
     <state type="string">!climbing</state>
-    <width type="float">32</width>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">201</u0>
-    <v0 type="float">143</v0>
-    <u1 type="float">233</u1>
-    <v1 type="float">175</v1>
+    <u0 type="float">209</u0>
+    <v0 type="float">267</v0>
+    <u1 type="float">251</u1>
+    <v1 type="float">309</v1>
+    <color>
+        <red type="float">0</red>
+        <green type="float">0.5</green>
+        <blue type="float">1</blue>
+    </color>
+</symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
+    <enable>
+        <property>instrumentation/mc-800/tcas</property>
+    </enable>
+    <state type="string">tcas-threat-level-0</state>
+    <state type="string">climbing</state>
+    <width type="float">40</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">209</u0>
+    <v0 type="float">203</v0>
+    <u1 type="float">251</u1>
+    <v1 type="float">245</v1>
     <color>
         <red type="float">0</red>
         <green type="float">0.5</green>
@@ -36,12 +56,12 @@ Configure thetcas-display symbology
     </enable>
     <state type="string">tcas-threat-level-0</state>
     <state type="string">descending</state>
-    <width type="float">64</width>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">192</u0>
-    <v0 type="float">128</v0>
-    <u1 type="float">256</u1>
-    <v1 type="float">192</v1>
+    <u0 type="float">209</u0>
+    <v0 type="float">139</v0>
+    <u1 type="float">251</u1>
+    <v1 type="float">181</v1>
     <color>
         <red type="float">0</red>
         <green type="float">0.5</green>
@@ -55,13 +75,14 @@ Configure thetcas-display symbology
         <property>instrumentation/mc-800/tcas</property>
     </enable>
     <state type="string">tcas-threat-level-1</state>
-    <state type="string">descending</state>
-    <width type="float">64</width>
+    <state type="string">!climbing</state>
+    <state type="string">!descending</state>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">128</u0>
-    <v0 type="float">128</v0>
-    <u1 type="float">192</u1>
-    <v1 type="float">192</v1>
+    <u0 type="float">145</u0>
+    <v0 type="float">267</v0>
+    <u1 type="float">187</u1>
+    <v1 type="float">309</v1>
     <color>
         <red type="float">0</red>
         <green type="float">0.5</green>
@@ -76,12 +97,32 @@ Configure thetcas-display symbology
     </enable>
     <state type="string">tcas-threat-level-1</state>
     <state type="string">climbing</state>
-    <width type="float">64</width>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">128</u0>
-    <v0 type="float">192</v0>
-    <u1 type="float">192</u1>
-    <v1 type="float">256</v1>
+    <u0 type="float">145</u0>
+    <v0 type="float">203</v0>
+    <u1 type="float">187</u1>
+    <v1 type="float">245</v1>
+    <color>
+        <red type="float">0</red>
+        <green type="float">0.5</green>
+        <blue type="float">1</blue>
+    </color>
+</symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
+    <enable>
+        <property>instrumentation/mc-800/tcas</property>
+    </enable>
+    <state type="string">tcas-threat-level-1</state>
+    <state type="string">descending</state>
+    <width type="float">40</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">145</u0>
+    <v0 type="float">139</v0>
+    <u1 type="float">187</u1>
+    <v1 type="float">181</v1>
     <color>
         <red type="float">0</red>
         <green type="float">0.5</green>
@@ -95,13 +136,14 @@ Configure thetcas-display symbology
         <property>instrumentation/mc-800/tcas</property>
     </enable>
     <state type="string">tcas-threat-level-2</state>
-    <state type="string">descending</state>
-    <width type="float">64</width>
+    <state type="string">!descending</state>
+    <state type="string">!climbing</state>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">64</u0>
-    <v0 type="float">128</v0>
-    <u1 type="float">128</u1>
-    <v1 type="float">192</v1>
+    <u0 type="float">81</u0>
+    <v0 type="float">267</v0>
+    <u1 type="float">123</u1>
+    <v1 type="float">309</v1>
     <color>
         <red type="float">1</red>
         <green type="float">0.5</green>
@@ -116,12 +158,32 @@ Configure thetcas-display symbology
     </enable>
     <state type="string">tcas-threat-level-2</state>
     <state type="string">climbing</state>
-    <width type="float">64</width>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">64</u0>
-    <v0 type="float">192</v0>
-    <u1 type="float">128</u1>
-    <v1 type="float">256</v1>
+    <u0 type="float">81</u0>
+    <v0 type="float">203</v0>
+    <u1 type="float">123</u1>
+    <v1 type="float">245</v1>
+    <color>
+        <red type="float">1</red>
+        <green type="float">0.5</green>
+        <blue type="float">0</blue>
+    </color>
+</symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
+    <enable>
+        <property>instrumentation/mc-800/tcas</property>
+    </enable>
+    <state type="string">tcas-threat-level-2</state>
+    <state type="string">descending</state>
+    <width type="float">40</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">81</u0>
+    <v0 type="float">139</v0>
+    <u1 type="float">123</u1>
+    <v1 type="float">181</v1>
     <color>
         <red type="float">1</red>
         <green type="float">0.5</green>
@@ -135,13 +197,14 @@ Configure thetcas-display symbology
         <property>instrumentation/mc-800/tcas</property>
     </enable>
     <state type="string">tcas-threat-level-3</state>
-    <state type="string">descending</state>
-    <width type="float">64</width>
+    <state type="string">!climbing</state>
+    <state type="string">!descending</state>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">0</u0>
-    <v0 type="float">128</v0>
-    <u1 type="float">64</u1>
-    <v1 type="float">192</v1>
+    <u0 type="float">17</u0>
+    <v0 type="float">267</v0>
+    <u1 type="float">59</u1>
+    <v1 type="float">309</v1>
     <color>
         <red type="float">1</red>
         <green type="float">0</green>
@@ -156,12 +219,32 @@ Configure thetcas-display symbology
     </enable>
     <state type="string">tcas-threat-level-3</state>
     <state type="string">climbing</state>
-    <width type="float">64</width>
+    <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
-    <u0 type="float">0</u0>
-    <v0 type="float">192</v0>
-    <u1 type="float">64</u1>
-    <v1 type="float">256</v1>
+    <u0 type="float">17</u0>
+    <v0 type="float">203</v0>
+    <u1 type="float">59</u1>
+    <v1 type="float">245</v1>
+    <color>
+        <red type="float">1</red>
+        <green type="float">0</green>
+        <blue type="float">0</blue>
+    </color>
+</symbol>
+
+<symbol>
+    <type type="string">ai-aircraft</type>
+    <enable>
+        <property>instrumentation/mc-800/tcas</property>
+    </enable>
+    <state type="string">tcas-threat-level-3</state>
+    <state type="string">descending</state>
+    <width type="float">40</width>
+    <texture-size  type="int">512</texture-size>
+    <u0 type="float">17</u0>
+    <v0 type="float">139</v0>
+    <u1 type="float">59</u1>
+    <v1 type="float">181</v1>
     <color>
         <red type="float">1</red>
         <green type="float">0</green>

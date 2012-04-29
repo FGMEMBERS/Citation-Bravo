@@ -169,7 +169,6 @@ Primus 2000 MFD
     <animation>
         <type>select</type>
         <object-name>MFD.trunorth</object-name>
-        <object-name>MFD.lwrarc</object-name>
         <object-name>MFD.plane</object-name>
          <condition>
             <not>

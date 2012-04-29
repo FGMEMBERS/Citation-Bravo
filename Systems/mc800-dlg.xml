@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <PropertyList>
-    <name>autopilot-dlg</name>
+    <name>mc800-dlg</name>
     <layout>vbox</layout>
 
     <group>
@@ -8,7 +8,7 @@
 
         <text>
             <halign>center</halign>
-            <label>Flight Director / Autopilot Control</label>
+            <label>MC-800 MFD CONTROL</label>
         </text>
 
         <button>
@@ -397,8 +397,7 @@
             <input>
                 <pref-width>60</pref-width>
                 <label>V/S</label>
-                <property>autopilot/settings/target-vs</property>
-                <scale>100</scale>
+                <property>autopilot/settings/vertical-speed-fpm</property>
                 <binding>
                     <command>dialog-apply</command>
                 </binding>

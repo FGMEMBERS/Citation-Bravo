@@ -334,7 +334,10 @@
         <type>select</type>
         <object-name>GrNose</object-name>
         <condition>
-            <property>instrumentation/annunciators/gear-N</property>
+            <equals>
+                <property>gear/gear[0]/position-norm</property>
+                <value>1</value>
+            </equals>
         </condition>
     </animation>
 
@@ -342,7 +345,10 @@
         <type>select</type>
         <object-name>GrLH</object-name>
         <condition>
-            <property>instrumentation/annunciators/gear-L</property>
+            <equals>
+                <property>gear/gear[1]/position-norm</property>
+                <value>1</value>
+            </equals>
         </condition>
     </animation>
 
@@ -350,7 +356,10 @@
         <type>select</type>
         <object-name>GrRH</object-name>
         <condition>
-            <property>instrumentation/annunciators/gear-R</property>
+            <equals>
+                <property>gear/gear[2]/position-norm</property>
+                <value>1</value>
+            </equals>
         </condition>
     </animation>
 
@@ -358,7 +367,13 @@
         <type>select</type>
         <object-name>GrUnlocked</object-name>
         <condition>
-            <property>instrumentation/annunciators/gear-unlocked</property>
+            <and>
+                <property>gear/gear[0]/position-norm</property>
+                <less-than>
+                    <property>gear/gear[0]/position-norm</property>
+                    <value>1</value>
+                </less-than>
+            </and>
         </condition>
     </animation>
 
@@ -1902,7 +1917,7 @@
         <property>orientation/alpha-deg</property>
         <interpolation>
             <entry><ind>0</ind><dep>0</dep></entry>
-            <entry><ind>14.0</ind><dep>225</dep></entry>
+            <entry><ind>15.0</ind><dep>225</dep></entry>
         </interpolation>
         <axis>
             <x>0.9850</x>

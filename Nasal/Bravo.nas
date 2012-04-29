@@ -342,7 +342,8 @@ controls.gearDown = func(v) {
 }
 
 mfd_btn = func(btn) {
-
+    var s_prop = "instrumentation/mc-800/menu-selected";
+    var select =getprop(s_prop);;
     var menu = getprop("instrumentation/mc-800/menu");
     if(menu==0){
         if(btn==2){
@@ -356,6 +357,7 @@ mfd_btn = func(btn) {
     }elsif(menu==1){
         if(btn==1){
             setprop("instrumentation/mc-800/menu",0);
+            setprop(s_prop,"");
         }elsif(btn==2){
             setprop("instrumentation/mc-800/menu",2);
         }elsif(btn==3){
@@ -364,14 +366,25 @@ mfd_btn = func(btn) {
     }elsif(menu==2){
         if(btn==1){
             setprop("instrumentation/mc-800/menu",0);
+            setprop(s_prop,"");
         }
     }elsif(menu==3){
         if(btn==1){
             setprop("instrumentation/mc-800/menu",0);
+            setprop(s_prop,"");
+        }elsif(btn==2){
+            if(select!="TO")setprop(s_prop,"TO") else setprop(s_prop,"");
+        }elsif(btn==3){
+            if(select!="ST EL")setprop(s_prop,"ST EL") else setprop(s_prop,"");
+        }elsif(btn==4){
+            if(select!="VANG")setprop(s_prop,"VANG") else setprop(s_prop,"");
+        }elsif(btn==5){
+            if(select!="VS")setprop(s_prop,"VS") else setprop(s_prop,"");
         }
     }elsif(menu==4){
         if(btn==1){
             setprop("instrumentation/mc-800/menu",0);
+            setprop(s_prop,"");
         }elsif(btn==3){
             setprop("instrumentation/mc-800/menu",5);
         }elsif(btn==4){
@@ -380,10 +393,22 @@ mfd_btn = func(btn) {
     }elsif(menu==5){
         if(btn==1){
             setprop("instrumentation/mc-800/menu",0);
+            setprop(s_prop,"");
+        }elsif(btn==2){
+            if(select!="V1")setprop(s_prop,"V1") else setprop(s_prop,"");
+        }elsif(btn==3){
+            if(select!="VR")setprop(s_prop,"VR") else setprop(s_prop,"");
+        }elsif(btn==4){
+            if(select!="V2")setprop(s_prop,"V2") else setprop(s_prop,"");
         }
     }elsif(menu==6){
         if(btn==1){
             setprop("instrumentation/mc-800/menu",0);
+            setprop(s_prop,"");
+        }elsif(btn==2){
+            if(select!="VREF")setprop(s_prop,"VREF") else setprop(s_prop,"");
+        }elsif(btn==2){
+            if(select!="VAPP")setprop(s_prop,"VAPP") else setprop(s_prop,"");
         }
     }
 }

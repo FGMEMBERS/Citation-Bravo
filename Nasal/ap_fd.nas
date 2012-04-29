@@ -133,11 +133,11 @@ var pitchwheel = func(b){
         if(pt<-10)pt=-10;
         setprop("autopilot/settings/target-pitch-deg",pt);
     }elsif(md=="VS"){
-        var pt = getprop("autopilot/settings/vertical-speed-fpm");
-        pt += dir * 100;
-        if(pt>5000)pt=20;
-        if(pt<-5000)pt=-10;
-        setprop("autopilot/settings/vertical-speed-fpm",pt);
+        var pt = getprop("autopilot/settings/target-vs");
+        pt += (dir*100);
+        if(pt>4000)pt=4000;
+        if(pt<-3000)pt=-3000;
+        setprop("autopilot/settings/target-vs",pt);
     }elsif(md=="IAS"){
         var pt = getprop("autopilot/settings/target-speed-kt");
         pt += dir;
@@ -199,8 +199,11 @@ var inputs = func(btn,mode){
         }
         if(btn=="vs"){
             if(current_mode != "VS"){
-                vertical.setValue("VS");
-                setprop("autopilot/settings/vertical-speed-fpm",int(getprop("instrumentation/vertical-speed-indicator/indicated-speed-fpm")));
+                var my_vs = getprop("/autopilot/internal/vert-speed-fpm");
+                my_vs = int(my_vs * 0.01);
+                my_vs *= 100;
+                setprop("autopilot/settings/target-vs",my_vs);
+                 vertical.setValue("VS");
             }else setPitch();
         }
         if(btn=="apr"){
@@ -228,9 +231,9 @@ var inputs = func(btn,mode){
         }
         if(btn=="ap"){
             var ap_stat=AP.getValue();
-             setprop("autopilot/settings/target-pitch-deg",getprop("orientation/pitch-deg"));
-            setprop("autopilot/settings/target-roll-deg",0);
             if(ap_stat !="AP ENG") {
+                if(vertical.getValue() == "PIT") setPitch();
+                if(lateral.getValue() == "ROL") setRoll();
                 AP.setValue("AP ENG");
                 setprop("autopilot/locks/yaw-damper",1);
             }else AP.setValue("");
