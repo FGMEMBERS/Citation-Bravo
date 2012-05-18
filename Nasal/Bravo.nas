@@ -10,6 +10,13 @@ var MstrWarn =Annun.getNode("master-warning",1);
 var MstrCaution = Annun.getNode("master-caution",1);
 var PWR2 =0;
 
+var MC_vor_btn=0;
+var MC_apt_btn=0;
+var vor_id=[0,1,0];
+var vor_sym=[0,1,1];
+var apt_id=[0,1,0];
+var apt_sym=[0,1,1];
+
 #Jet Engine Helper class
 # ie: var Eng = JetEngine.new(engine number);
 var JetEngine = {
@@ -410,6 +417,21 @@ mfd_btn = func(btn) {
         }elsif(btn==2){
             if(select!="VAPP")setprop(s_prop,"VAPP") else setprop(s_prop,"");
         }
+    }
+}
+
+
+var mc800_btn = func(btn){
+    if(btn=="vor"){
+        MC_vor_btn+=1;
+        if(MC_vor_btn>2)MC_vor_btn=0;
+        setprop("instrumentation/mc-800/vor",vor_sym[MC_vor_btn]);
+        setprop("instrumentation/mc-800/vor-id",vor_id[MC_vor_btn]);
+    }elsif(btn=="apt"){
+        MC_apt_btn+=1;
+        if(MC_apt_btn>2)MC_apt_btn=0;
+        setprop("instrumentation/mc-800/apt",apt_sym[MC_apt_btn]);
+        setprop("instrumentation/mc-800/apt-id",apt_id[MC_apt_btn]);
     }
 }
 

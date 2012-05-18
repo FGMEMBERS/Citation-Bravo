@@ -14,6 +14,7 @@ Configure the nav-display symbology
         <property>instrumentation/mc-800/vor</property>
     </enable>
     <state type="string">!tuned</state>
+    <state type="string">!on-active-route</state>
     <width type="float">32</width>
     <texture-size  type="int">512</texture-size>
     <u0 type="float">192</u0>
@@ -26,6 +27,9 @@ Configure the nav-display symbology
         <blue type="float">0</blue>
     </color>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/vor-id</property>
+    </text-enable>
     <text-align type="string">left-center</text-align>
     <text-offset-x>15</text-offset-x>
     <text-offset-y>0</text-offset-y>
@@ -49,6 +53,9 @@ Configure the nav-display symbology
         <blue type="float">1</blue>
     </color>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/vor-id</property>
+    </text-enable>
     <text-align type="string">left-center</text-align>
     <text-offset-x>15</text-offset-x>
     <text-offset-y>0</text-offset-y>
@@ -72,6 +79,9 @@ Configure the nav-display symbology
         <blue type="float">1</blue>
     </color>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/vor-id</property>
+    </text-enable>
     <text-align type="string">left-center</text-align>
     <text-offset-x>15</text-offset-x>
     <text-offset-y>0</text-offset-y>
@@ -79,10 +89,12 @@ Configure the nav-display symbology
 
 <symbol>
     <type type="string">dme</type>
+    <limit>4</limit>
     <enable>
         <property>instrumentation/mc-800/vor</property>
     </enable>
     <state type="string">!tuned</state>
+    <state type="string">!on-active-route</state>
     <width type="float">32</width>
     <texture-size  type="int">512</texture-size>
     <u0 type="float">64</u0>
@@ -95,6 +107,9 @@ Configure the nav-display symbology
         <blue type="float">0</blue>
     </color>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/vor-id</property>
+    </text-enable>
     <text-align type="string">left-center</text-align>
     <text-offset-x>15</text-offset-x>
     <text-offset-y>0</text-offset-y>
@@ -102,11 +117,13 @@ Configure the nav-display symbology
 
 <symbol>
     <type type="string">airport</type>
+    <limit>4</limit>
     <enable>
         <property>instrumentation/mc-800/apt</property>
     </enable>
     <state type="string">!departure</state>
     <state type="string">!arrival</state>
+    <state type="string">!on-active-route</state>
     <width type="float">24</width>
     <texture-size type="int">512</texture-size>
     <u0 type="float">6.0</u0>
@@ -119,6 +136,9 @@ Configure the nav-display symbology
         <blue type="float">1</blue>
     </color>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/apt-id</property>
+    </text-enable>
     <text-align type="string">left-center</text-align>
     <text-offset-x>15</text-offset-x>
     <text-offset-y>0</text-offset-y>
@@ -126,9 +146,6 @@ Configure the nav-display symbology
 
 <symbol>
     <type type="string">waypoint</type>
-    <enable>
-        <property>instrumentation/mc-800/dat</property>
-    </enable>
     <state type="string">current-wp</state>
     <width type="float">40</width>
     <texture-size  type="int">512</texture-size>
@@ -148,6 +165,9 @@ Configure the nav-display symbology
     </line-color>
     <draw-leg type="bool">true</draw-leg>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/dat</property>
+    </text-enable>
     <text-align type="string">left-top</text-align>
     <text-offset-x>20</text-offset-x>
     <text-offset-y>10</text-offset-y>
@@ -155,9 +175,6 @@ Configure the nav-display symbology
     
 <symbol>
     <type type="string">waypoint</type>
-    <enable>
-        <property>instrumentation/mc-800/dat</property>
-    </enable>
     <state type="string">on-active-route</state>
     <state type="string">!current-wp</state>
     <width type="float">40</width>
@@ -173,6 +190,9 @@ Configure the nav-display symbology
     </color>
     <draw-leg type="bool">true</draw-leg>
     <text type="string">{id}</text>
+    <text-enable>
+        <property>instrumentation/mc-800/dat</property>
+    </text-enable>
     <text-align type="string">left-top</text-align>
     <text-offset-x>20</text-offset-x>
     <text-offset-y>10</text-offset-y>

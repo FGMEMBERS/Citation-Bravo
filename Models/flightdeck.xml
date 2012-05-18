@@ -2534,8 +2534,8 @@
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/mc-800/apt</property>
+            <command>nasal</command>
+            <script>citation.mc800_btn("apt");</script>
         </binding>
     </action>
 </animation>
@@ -2560,8 +2560,8 @@
         <button>0</button>
         <repeatable>false</repeatable>
         <binding>
-            <command>property-toggle</command>
-            <property>instrumentation/mc-800/vor</property>
+            <command>nasal</command>
+            <script>citation.mc800_btn("vor");</script>
         </binding>
     </action>
 </animation>

@@ -292,6 +292,10 @@ Feb 2005  Syd Adams   ()
         </default>
     </menubar>
 
+    <navdb>
+        <min-runway-length-ft>4000</min-runway-length-ft>
+    </navdb>
+
 </sim>
 
     <systems>
@@ -537,9 +541,11 @@ Feb 2005  Syd Adams   ()
             <map type="bool">1</map>
             <tcas type="bool">0</tcas>
             <wx type="bool">0</wx>
-            <dat type="bool">1</dat>
+            <dat type="bool">0</dat>
             <apt type="bool">0</apt>
+            <apt-id type="bool">0</apt-id>
             <vor type="bool">0</vor>
+            <vor-id type="bool">0</vor-id>
             <norm type="bool">0</norm>
             <emer type="bool">0</emer>
             <rcl type="bool">0</rcl>
