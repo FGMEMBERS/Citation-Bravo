@@ -1,14 +1,12 @@
 <PropertyList>
-    <name>skin_reflect</name>
-    <inherits-from>Effects/model-combined</inherits-from>
+    <name>reflect</name>
+    <inherits-from>Effects/model-combined-deferred</inherits-from>
     <parameters>
-                <normalmap-enabled type="int">0</normalmap-enabled>
-                <lightmap-enabled type="int">0</lightmap-enabled>
-                <reflection-enabled type="int">1</reflection-enabled>
-                <reflection-dynamic type="int">1</reflection-dynamic>
-                <reflect_map-enabled type="int">0</reflect_map-enabled>
-                <reflection-correction type="float">-0.2</reflection-correction>
-        <texture n="5">
+        <reflection-enabled type="int">1</reflection-enabled>
+        <reflection-dynamic type="int">1</reflection-dynamic>
+        <reflect_map-enabled type="int">0</reflect_map-enabled>
+        <reflection-correction type="float">0.1</reflection-correction>
+         <texture n="5">
             <type>cubemap</type>
             <images>
                 <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
@@ -21,6 +19,6 @@
         </texture>
                 <reflection-rainbow type="float">0.05</reflection-rainbow>
                 <reflection-fresnel type="float">0.1</reflection-fresnel>
-        <ambient_correction>0.5</ambient_correction>
+        <ambient_correction>0.1</ambient_correction>
     </parameters>
 </PropertyList>

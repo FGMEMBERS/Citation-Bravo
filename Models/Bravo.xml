@@ -13,6 +13,28 @@
         </unload>
     </nasal>
 
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>Glass</object-name>
+        <object-name>window</object-name>
+        <object-name>window.001</object-name>
+        <object-name>window.002</object-name>
+        <object-name>Recog</object-name>
+        <object-name>Recog.001</object-name>
+        <object-name>Wlight1</object-name>
+        <object-name>Wlight</object-name>
+        <object-name>rednav</object-name>
+        <object-name>greennav</object-name>
+        <object-name>whitenav</object-name>
+        <object-name>beacon</object-name>
+        <object-name>Flash01</object-name>
+        <object-name>Flash02</object-name>
+        <object-name>Redglow</object-name>
+        <object-name>Greenglow</object-name>
+        <object-name>Whiteglow</object-name>
+        <object-name>Redglow.001</object-name>
+    </effect>
+
     <animation>
       <type>material</type>
       <object-name>Engines</object-name>
@@ -41,7 +63,7 @@
     </animation>
 
     <effect>
-      <inherits-from>Aircraft/Citation-Bravo/Models/Effects/skin-reflect</inherits-from>
+      <inherits-from>Aircraft/Citation-Bravo/Models/Effects/reflect</inherits-from>
       <object-name>Engines</object-name>
       <object-name>Fuselage</object-name>
       <object-name>Cabin.door</object-name>
@@ -182,14 +204,9 @@
         <shader>chrome</shader>
         <texture>chrome1.png</texture>
         <object-name>Glass</object-name>
-    </animation>
-
-    <animation>
-        <type>shader</type>
-        <shader>chrome</shader>
-        <texture>chrome1.png</texture>
         <object-name>window</object-name>
     </animation>
+
 
 <model>
     <path>Aircraft/Citation-Bravo/Models/Effects/contrail1.xml</path>
