@@ -18,6 +18,16 @@ Feb 2005  Syd Adams   ()
         <splash-texture>Aircraft/Citation-Bravo/Bravo-splash.png</splash-texture>
     </startup>
 
+    <tags>
+        <tag>bizjet</tag>
+        <tag>cessna</tag>
+        <tag>jet</tag>
+        <tag>retractable-gear</tag>
+        <tag>ifr</tag>
+        <tag>twin-engine</tag>
+        <tag>glass-cockpit</tag>
+    </tags>
+    
     <multiplay>
         <generic>
             <int n="0" alias="/systems/electrical/outputs/strobe"/>
