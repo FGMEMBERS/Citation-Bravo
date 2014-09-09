@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+
+<PropertyList>
+    <name>nd2</name>
+        <x>256</x>
+        <y>76</y>
+    <w-base>334</w-base>
+    <h-base>94</h-base>
+
+    <layers>
+
+        <layer>
+            <texture>
+                <path>Aircraft/Citation-Bravo/Models/Instruments/MFD/radar.png</path>
+                <x1>0.133</x1>
+                <y1>0.0</y1>
+                <x2>0.865</x2>
+                <y2>0.208</y2>
+            </texture>
+            <emissive>true</emissive>
+        </layer>
+   </layers>
+
+</PropertyList>

@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<PropertyList>
+    <name>mc800dlg</name>
+    <layout>vbox</layout>
+
+    <group>
+        <layout>hbox</layout>
+
+        <text>
+            <halign>center</halign>
+            <label>MC-800 MFD CONTROL</label>
+        </text>
+
+        <button>
+            <halign>right</halign>
+            <pref-width>25</pref-width>
+            <legend>X</legend>
+            <default>true</default>
+            <key>Esc</key>
+            <binding>
+                <command>dialog-apply</command>
+            </binding>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+
+<hrule/>
+
+    <group>
+        <layout>table</layout>
+        <halign>center</halign>
+
+
+
+        <button>
+              <row>0</row>
+                <col>0</col>
+                <legend> MAP/PLAN</legend>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>instrumentation/mc-800/map</property>
+                </binding>
+                <binding>
+                    <command>property-assign</command>
+                    <property>instrumentation/nd/aircraft-heading-up</property>
+                    <property>instrumentation/mc-800/map</property>
+                </binding>
+            </button>
+
+        <button>
+            <row>0</row>
+            <col>1</col>
+            <legend>TCAS</legend>
+            <binding>
+                <command>property-toggle</command>
+                <property>instrumentation/mc-800/tcas</property>
+            </binding>
+            <binding>
+                <condition>
+                    <not>
+                        <property>instrumentation/mc-800/tcas</property>
+                    </not>
+                </condition>
+                <command>property-assign</command>
+                <property>instrumentation/tcas/inputs/mode</property>
+                <value>0</value>
+            </binding>
+            <binding>
+                <condition>
+                    <property>instrumentation/mc-800/tcas</property>
+                </condition>
+                <command>property-assign</command>
+                <property>instrumentation/tcas/inputs/mode</property>
+                <value>3</value>
+            </binding>
+        </button>
+
+        <button>
+            <row>0</row>
+            <col>2</col>
+            <legend>WX</legend>
+        </button>
+
+     <text>
+      <row>0</row>
+      <col>3</col>
+      <label>      </label>
+      <padding>2</padding>
+    </text>
+
+        <button>
+            <row>0</row>
+            <col>4</col>
+            <legend>NORM</legend>
+        </button>
+
+        <button>
+            <row>0</row>
+            <col>5</col>
+            <legend>EMER</legend>
+        </button>
+
+        <button>
+            <row>1</row>
+            <col>0</col>
+            <legend>rng up</legend>
+            <binding>
+                <command>nasal</command>
+                <script>FD.range_set(1);</script>
+        </binding>
+        </button>
+
+        <button>
+            <row>1</row>
+            <col>2</col>
+            <legend>vor</legend>
+            <binding>
+            <command>nasal</command>
+            <script>citation.mc800_btn("vor");</script>
+        </binding>
+        </button>
+
+        <button>
+            <row>1</row>
+            <col>4</col>
+            <legend>rcl</legend>
+        </button>
+
+        <button>
+            <row>1</row>
+            <col>5</col>
+            <legend>skp</legend>
+        </button>
+
+        <button>
+            <row>2</row>
+            <col>0</col>
+            <legend>rng dn</legend>
+            <binding>
+                <command>nasal</command>
+                <script>FD.range_set(-1);</script>
+        </binding>
+        </button>
+
+        <button>
+            <row>2</row>
+            <col>1</col>
+            <legend>apt</legend>
+            <binding>
+            <command>nasal</command>
+            <script>citation.mc800_btn("apt");</script>
+        </binding>
+        </button>
+
+        <button>
+            <row>2</row>
+            <col>2</col>
+            <legend>dat</legend>
+        </button>
+
+        <button>
+            <row>2</row>
+            <col>4</col>
+            <legend>pag</legend>
+        </button>
+
+        <button>
+            <row>2</row>
+            <col>5</col>
+            <legend>ent</legend>
+        </button>
+
+    </group>
+
+</PropertyList>

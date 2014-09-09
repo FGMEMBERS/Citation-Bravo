@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+<sim>
+    <model>
+        <livery>
+            <name type="string">tan-white</name>
+            <texture>Paint1.png</texture>
+        </livery>
+        <reg-red>0.1</reg-red>
+        <reg-green>0.1</reg-green>
+        <reg-blue>0.1</reg-blue>
+    </model>
+</sim>
+</PropertyList>
