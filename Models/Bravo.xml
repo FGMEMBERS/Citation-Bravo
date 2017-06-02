@@ -705,12 +705,6 @@
     <animation>
         <type>rotate</type>
         <object-name>LHflap</object-name>
-        <condition>
-            <equals>
-                <property>sim/flight-model</property>
-                <value>yasim</value>
-            </equals>
-        </condition>
         <property>surface-positions/flap-pos-norm</property>
         <factor>40</factor>
         <center>
@@ -728,12 +722,6 @@
     <animation>
         <type>rotate</type>
         <object-name>RHflap</object-name>
-        <condition>
-            <equals>
-                <property>sim/flight-model</property>
-                <value>yasim</value>
-            </equals>
-        </condition>
         <property>surface-positions/flap-pos-norm</property>
         <factor>40</factor>
         <center>
@@ -774,54 +762,6 @@
             <x-m>7.590</x-m>
             <y-m>5.60</y-m>
             <z-m>0.387</z-m>
-        </center>
-        <axis>
-            <x>-0.099</x>
-            <y>0.993</y>
-            <z>0.071</z>
-        </axis>
-    </animation>
-
-<!--        jsbsim control surfaces                  -->
-
-    <animation>
-        <type>rotate</type>
-        <object-name>LHflap</object-name>
-        <condition>
-            <equals>
-                <property>sim/flight-model</property>
-                <value>jsb</value>
-            </equals>
-        </condition>
-        <property>fdm/jsbsim/fcs/flap-pos-deg</property>
-        <factor>1</factor>
-        <center>
-            <x-m>7.842</x-m>
-            <y-m>-3.083</y-m>
-            <z-m>0.193</z-m>
-        </center>
-        <axis>
-            <x>0.099</x>
-            <y>0.993</y>
-            <z>-0.071</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>rotate</type>
-        <object-name>RHflap</object-name>
-        <condition>
-            <equals>
-                <property>sim/flight-model</property>
-                <value>jsb</value>
-            </equals>
-        </condition>
-        <property>fdm/jsbsim/fcs/flap-pos-deg</property>
-        <factor>1</factor>
-        <center>
-            <x-m>7.842</x-m>
-            <y-m>3.083</y-m>
-            <z-m>0.193</z-m>
         </center>
         <axis>
             <x>-0.099</x>
