@@ -27,6 +27,24 @@ Feb 2005  Syd Adams   ()
         <tag>twin-engine</tag>
         <tag>glass-cockpit</tag>
     </tags>
+
+    <previews>
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Pics/bravo-exterior01.jpg</path>
+	</preview>
+	<preview>
+		<type>exterior</type>
+		<splash type="bool">true</splash>
+		<path>Pics/bravo-exterior02.jpg</path>
+	</preview>
+	<preview>
+		<type>panel</type>
+		<splash type="bool">true</splash>
+		<path>Pics/bravo-interior.jpg</path>
+	</preview>
+    </previews>
     
     <multiplay>
         <generic>
